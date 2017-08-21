@@ -105,11 +105,11 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <p>Trong Python, việc nhập liệu từ bàn phím có thể được thực hiện qua các hàm raw_input() và input().
-Tuy nhiên giữa Python 2 và Python 3 có chút khác biệt giữa việc sử dụng input() và raw_input(), cụ thể như sau:</p>
+        <p>Trong Python, việc nhập liệu từ bàn phím có thể được thực hiện qua các hàm <code>raw_input()</code> và <code>input()</code>.
+Tuy nhiên giữa Python 2 và Python 3 có chút khác biệt giữa việc sử dụng <code>input()</code> và <code>raw_input()</code>, cụ thể như sau:</p>
 <h3>Python 2:</h3>
-<p>Trong Python 2, raw_input() trả về giá trị string được nhập vào, trong khi đó Python sẽ coi giá trị trả về của input() như một lệnh và cố gắng chạy nó.
-Có thể hiểu input() tương đương với eval(raw_input)</p>
+<p>Trong Python 2, <code>raw_input()</code> trả về giá trị string được nhập vào, trong khi đó Python sẽ coi giá trị trả về của <code>input()</code> như một lệnh và cố gắng chạy nó.
+Có thể hiểu <code>input()</code> tương đương với <code>eval(raw_input())</code></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -145,10 +145,10 @@ Có thể hiểu input() tương đương với eval(raw_input)</p>
 </td></tr></table>
 
 <h3>Python 3:</h3>
-<p>Trong Python 3 thì hàm raw_input không tồn tại, việc nhập liệu người dùng được thay thế hoàn toàn bằng input().
-Cụ thể thì có thể hiểu là raw_input() trong Python 2 bị đổi tên thành input() trong Python 3, input() trong Python 2 bị xóa bỏ.</p>
+<p>Trong Python 3 thì hàm <code>raw_input()</code> không tồn tại, việc nhập liệu người dùng được thay thế hoàn toàn bằng <code>input()</code>.
+Cụ thể thì có thể hiểu là <code>raw_input()</code> trong Python 2 bị đổi tên thành <code>input()</code> trong Python 3, <code>input()</code> trong Python 2 bị xóa bỏ.</p>
 <blockquote>
-<p>Để sử dụng input() của Python 2 trên Python 3, có thể sử dụng <code>eval(input())</code></p>
+<p>Để sử dụng <code>input()</code> của Python 2 trên Python 3, có thể sử dụng <code>eval(input())</code></p>
 </blockquote>
 <p>Quay lại vấn đề chính, để nhập liệu trong Python 2, bạn sử dụng:</p>
 <div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Input your name: &quot;</span><span class="p">)</span>
