@@ -2,12 +2,12 @@
 <html lang="english">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>#cuccode - Tags</title>
+        <title>Kiểm tra Python 2 hay Python 3</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -31,8 +31,26 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-                <meta property="og:locale" content="">
+
+
+        <meta name="description" content="Bạn có thể kiểm tra bản cài Python đang được cài trên máy chạy script là Python 2 hay Python 3">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="Python 2">
+        <meta name="tags" content="python 3">
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="#cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="./author/dangsonbk.html">
+	<meta property="og:url" content="./kiem_tra_python_2_hay_python_3.html">
+	<meta property="og:title" content="Kiểm tra Python 2 hay Python 3">
+	<meta property="article:published_time" content="2017-08-21 14:08:00+07:00">
+            <meta property="og:description" content="Bạn có thể kiểm tra bản cài Python đang được cài trên máy chạy script là Python 2 hay Python 3">
+
+            <meta property="og:image" content=".//static/ninjaHardware.jpg">
 </head>
 
 <body>
@@ -63,12 +81,17 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('./theme/images/home-bg.jpg')">
+        <header class="intro-header" style="background-image: url('/static/ninjaHardware.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>#cuccode - Tags</h1>
+                        <h1>Kiểm tra Python 2 hay Python 3</h1>
+                        <span class="meta">Posted by
+                                <a href="./author/dangsonbk.html">dangsonbk</a>
+                             on Mon 21 August 2017
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -79,12 +102,37 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <h1>Tags for #cuccode</h1>        <li><a href="./tag/input.html">input</a> (1)</li>
-        <li><a href="./tag/python.html">python</a> (1)</li>
-        <li><a href="./tag/python-2.html">Python 2</a> (1)</li>
-        <li><a href="./tag/python-3.html">python 3</a> (1)</li>
-        <li><a href="./tag/raw_input.html">raw_input</a> (1)</li>
-        <li><a href="./tag/simplehttpserver.html">SimpleHTTPServer</a> (1)</li>
+    <!-- Post Content -->
+    <article>
+        <p>Khác biệt giữa Python 2 và Python 3 tạo ra một đôi chút khó khăn cho lập trình viên khi viết script để có thể chạy được trên cả 2 môi trường.
+Một ví dụ đơn giản đó là các hàm <code>raw_input()</code> và <code>input()</code>: <a href="http://cuccode.com/python_user_input.html">nhập liệu từ bàn phím trên Python</a></p>
+<p>Để tránh việc phải sửa lại code khi thay đổi, một cách được cách thường được sử dụng đó là kiểm tra phiên bản Python đang chạy sau đó sử dụng thư viện hoặc lệnh tương ứng.
+Python cung cấp sẵn thư viện sys khi cài đặt, để kiểm tra phiên bản Python đang chạy, bạn chỉ việc kiểm tra giá trị của <code>sys.version_info</code></p>
+<p>Đầu tiên, import thư viện sys:</p>
+<p>```python
+    import sys</p>
+<p>Sau đó kiểm tra giá trị của tuple <code>sys.version_info</code>.
+Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
+<p>```python
+    if (sys.version_info &gt; (3, 0)):
+        # Python 3
+        import base64
+        return base64.b64encode(data).decode()
+    else:
+        # Python 2
+        return data.encode("base64")</p>
+<p>Chi tiết bạn có thể tham khảo: <a href="https://docs.python.org/2/library/sys.html#sys.version_info">Python version_info</a></p>
+<blockquote>
+<p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is ‘alpha’, ‘beta’, ‘candidate’, or ‘final’. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, ‘final’, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p>
+</blockquote>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="./tag/python-2.html">Python 2</a>, <a href="./tag/python-3.html">python 3</a></p>
+        </div>
+
+    <hr>
+
             </div>
         </div>
     </div>
