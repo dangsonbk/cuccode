@@ -110,18 +110,22 @@ Một ví dụ đơn giản đó là các hàm <code>raw_input()</code> và <cod
 <p>Để tránh việc phải sửa lại code khi thay đổi, một cách thường được sử dụng đó là kiểm tra phiên bản Python đang chạy sau đó sử dụng thư viện hoặc lệnh tương ứng.
 Việc kiểm tra này có thể được thực hiện thông qua thư viện cung cấp sẵn <code>sys</code> của Python, bạn chỉ việc kiểm tra giá trị của <code>sys.version_info</code></p>
 <p>Đầu tiên, import thư viện sys:</p>
-<p>```python
-import sys</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+
+
 <p>Sau đó kiểm tra giá trị của tuple <code>sys.version_info</code>.
 Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
-<p>```python
-if (sys.version_info &gt; (3, 0)):
-    # Python 3
-    import base64
-    return base64.b64encode(data).decode()
-else:
-    # Python 2
-    return data.encode("base64")</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+    <span class="c"># Python 3</span>
+    <span class="kn">import</span> <span class="nn">base64</span>
+    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># Python 2</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;base64&quot;</span><span class="p">)</span>
+</pre></div>
+
+
 <p>Chi tiết bạn có thể tham khảo: <a href="https://docs.python.org/2/library/sys.html#sys.version_info">Python version_info</a></p>
 <blockquote>
 <p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is ‘alpha’, ‘beta’, ‘candidate’, or ‘final’. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, ‘final’, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p>
