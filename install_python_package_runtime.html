@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Cài đặt Python package khi chạy script</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip cũng ...">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python">
+        <meta name="tags" content="package">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="#cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="http://cuccode.com/install_python_package_runtime.html">
+	<meta property="og:title" content="Cài đặt Python package khi chạy script">
+	<meta property="article:published_time" content="2017-08-24 15:08:00+07:00">
+            <meta property="og:description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip cũng ...">
+
+            <meta property="og:image" content="http://cuccode.com//static/ninjaHardware.jpg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://cuccode.com/">#cuccode</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
+                            <li><a href="http://cuccode.com/category/uncategory.html">Uncategory</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/static/ninjaHardware.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Cài đặt Python package khi chạy script</h1>
+                        <span class="meta">Posted by
+                                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+                             on 24-08-2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng <a href="https://packaging.python.org/glossary/#term-python-package-index-pypi">pip</a>.
+Pip được Python Foundation <a href="https://packaging.python.org/guides/tool-recommendations">recomment</a> sử dụng mặc định để cài đặt và quản lý các gói package của Python.</p>
+<p>Ví dụ sau mô tả cách thông dụng nhất để cái đặt gói <a href="https://github.com/tqdm/tqdm">tqdm</a> (cho phép tạo progress bar trên cửa sổ console một cách dễ dàng)</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">tqdm</span>
+</pre></div>
+
+
+<p>Ngoài cách cài đặt trực tiếp từ terminal, pip cũng cho phép developer có thể cài đặt gói cài mới cả khi chạy script.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pip</span>
+<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+</pre></div>
+
+
+<p>Sửa đổi một chút để script sẽ chỉ cài khi chưa có package cần cài trên hệ thống:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;tqdm is not installed in your system. Installing ...&quot;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">pip</span>
+    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+    <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+
+
+<p>Giải thích 1 chút:</p>
+<ul>
+<li>Đầu tiên chúng ta check xem gói <code>tqdm</code> đã được cài chưa bằng cách <em>import thử</em></li>
+<li>Nếu chưa được cài thì sẽ bị catch vào <code>except ImportError, e:</code></li>
+<li>Khi đó pip sẽ được import và cài đặt tqdm <code>pip.main(['install', "tqdm"])</code></li>
+</ul>
+<p>Trong trường hợp bạn không muốn check gói đã được cài đặt chưa bằng try ... catch, bạn có thể tham khảo ở đây:</p>
+<p><a href="https://stackoverflow.com/questions/14050281/how-to-check-if-a-python-module-exists-without-importing-it?noredirect=1&amp;lq=1">How to check if a python module exists without importing it</a></p>
+<h3>Tham khảo:</h3>
+<p><a href="https://stackoverflow.com/questions/12332975/installing-python-module-within-code">Installing python module within code</a>
+<a href="https://stackoverflow.com/questions/1051254/check-if-python-package-is-installed">Check if Python Package is installed</a></p>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://cuccode.com/tag/python.html">python</a>, <a href="http://cuccode.com/tag/package.html">package</a></p>
+        </div>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a>. <br />        &copy;  dangsonbk
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://cuccode.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</body>
+
+</html>
