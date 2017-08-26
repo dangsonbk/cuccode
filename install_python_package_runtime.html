@@ -119,11 +119,11 @@ Pip được Python Foundation <a href="https://packaging.python.org/guides/tool
 </pre></div>
 
 
-<p>Sửa đổi một chút để script sẽ chỉ cài khi chưa có package cần cài trên hệ thống:</p>
+<p>Sửa đổi một chút để script sẽ chỉ gọi pip khi chưa có package cần thiết:</p>
 <div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;tqdm is not installed in your system. Installing ...&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">pip</span>
     <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
@@ -136,8 +136,22 @@ Pip được Python Foundation <a href="https://packaging.python.org/guides/tool
 <li>Nếu chưa được cài thì sẽ bị catch vào <code>except ImportError, e:</code></li>
 <li>Khi đó pip sẽ được import và cài đặt tqdm <code>pip.main(['install', "tqdm"])</code></li>
 </ul>
-<p>Trong trường hợp bạn không muốn check gói đã được cài đặt chưa bằng try ... catch, bạn có thể tham khảo ở đây:</p>
-<p><a href="https://stackoverflow.com/questions/14050281/how-to-check-if-a-python-module-exists-without-importing-it?noredirect=1&amp;lq=1">How to check if a python module exists without importing it</a></p>
+<p>Bạn cũng có thể hỏi người dùng xem có cho phép cài đặt không:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Package tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Install tqdm? (Y/N)&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;Y&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">]:</span>
+        <span class="kn">import</span> <span class="nn">pip</span>
+        <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+        <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">exit</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Trong trường hợp không muốn check gói đã được cài đặt chưa bằng try ... catch ... bạn có thể tham khảo ở đây:
+<a href="https://stackoverflow.com/questions/14050281/how-to-check-if-a-python-module-exists-without-importing-it?noredirect=1&amp;lq=1">How to check if a python module exists without importing it</a></p>
 <h3>Tham khảo:</h3>
 <p><a href="https://stackoverflow.com/questions/12332975/installing-python-module-within-code">Installing python module within code</a>
 <a href="https://stackoverflow.com/questions/1051254/check-if-python-package-is-installed">Check if Python Package is installed</a></p>
