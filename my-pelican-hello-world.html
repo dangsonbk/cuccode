@@ -107,26 +107,26 @@
         <p>Hi, this is not the first time I decide to create a webpage or write a blog.
 The following line should be formated as python syntax.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!python</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!python</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
 <p>Or javascript</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/* #!javascript */</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* #!javascript */</span>
 <span class="s2">&quot;💩&quot;</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">2</span>
 </pre></div>
 </td></tr></table>
 
 <p>Too big!!!</p>
-<div class="highlight"><pre><span></span><span class="c1"># ```python</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Smaller code box&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="c"># ```python</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Smaller code box&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Just a note:</p>
-<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
 <span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">05</span> <span class="mi">19</span><span class="o">:</span><span class="mi">30</span>
 <span class="n">Category</span><span class="o">:</span> <span class="n">Python</span>
@@ -145,6 +145,21 @@ The following line should be formated as python syntax.</p>
 
     <hr>
 
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'cuccode';
+                var disqus_identifier = 'my-pelican-hello-world.html';
+                var disqus_url = 'http://cuccode.com/my-pelican-hello-world.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//cuccode.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
             </div>
         </div>
     </div>
@@ -185,6 +200,15 @@ The following line should be formated as python syntax.</p>
       ga('send', 'pageview');
 
     </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 
 </html>

@@ -112,19 +112,19 @@ Tham khảo: <a href="http://cuccode.com/python_user_input.html">nhập liệu t
 <p>Để tránh việc phải sửa lại code khi thay đổi môi trường chạy cũng như cho phép script sau khi viết có thể chạy được trên nhiều máy khác nhau, một cách thường được sử dụng đó là kiểm tra phiên bản Python đang chạy sau đó sử dụng thư viện hoặc lệnh tương ứng.
 Việc kiểm tra này có thể được thực hiện thông qua thư viện cung cấp sẵn <code>sys</code> của Python, bạn chỉ việc kiểm tra giá trị của <code>sys.version_info</code> với tuple <code>(3, 0)</code></p>
 <p>Đầu tiên, import thư viện <code>sys</code>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 </pre></div>
 
 
 <p>Sau đó kiểm tra giá trị của tuple <code>sys.version_info</code>.<br>
 Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-    <span class="c1"># Python 3</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+    <span class="c"># Python 3</span>
     <span class="kn">import</span> <span class="nn">base64</span>
     <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># Python 2</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;base64&quot;</span><span class="p">)</span>
+    <span class="c"># Python 2</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;base64&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -140,6 +140,21 @@ Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
 
     <hr>
 
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'cuccode';
+                var disqus_identifier = 'kiem_tra_python_2_hay_python_3.html';
+                var disqus_url = 'http://cuccode.com/kiem_tra_python_2_hay_python_3.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//cuccode.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
             </div>
         </div>
     </div>
@@ -180,6 +195,15 @@ Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
       ga('send', 'pageview');
 
     </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 
 </html>
