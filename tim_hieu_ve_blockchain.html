@@ -173,31 +173,29 @@
 <blockquote>
 <p>Bạn có thể biết về 'Hash Function' hay 'hàm băm' hay 'hàm mã hóa' hoặc đại loại thế, tuy nhiên chúng ta sẽ vẫn dùng 'chiếc hộp kỳ diệu' cho dễ hiểu.</p>
 </blockquote>
-<p><img alt="Magic box" src="static/blockchain/7.png"></p>
 <p>Giả sử, chúng ta gửi vào hộp 1 cái xúc xích, con lợn sẽ chạy ra ở bên phải hộp. Làm thế nào để cái xúc xích thành con lợn, chẳng ai biết cả.</p>
 <blockquote>
 <p>Lời người viết (3): Ở bài gốc trên hackernoon dùng các chữ số đầu vào và chữ cái đầu ra, mình không thích thế lắm nên dùng các đồ vật và con vật cho dễ hiểu. P/S: Nếu vẫn thấy số trong ảnh là chưa photoshop xong. =))</p>
 </blockquote>
 <p>Thêm nữa, việc đoán cái gì được đưa vào trong hộp phải là không thể, chúng ta khi thấy con voi chạy ra thì không thể đoán cái gì đã được nhét vào hộp, nhưng cứ khi nào nhét cái xúc xích vào, sẽ vẫn là con lợn chạy ra.</p>
+<p><img alt="Magic box" src="static/blockchain/7.png"></p>
+<p>Thử nhét vào cái bút.</p>
 <p><img alt="Magic box" src="static/blockchain/8.png"></p>
-<p>Thử nhét vào cái lạp xưởng.</p>
-<p><img alt="Magic box" src="static/blockchain/9.png"></p>
-<p>Chúng ta có con heo chạy ra.</p>
+<p>Chúng ta có con voi chạy ra.</p>
 <p>Bây giờ, chúng ta có một câu hỏi như sau:</p>
 <blockquote>
 <p>Liệu có thể đoán được phải nhét cái gì vào bên trái để có 1 con vật 4 chân chạy ra từ bên phải hộp.</p>
 </blockquote>
-<p><img alt="Magic box" src="static/blockchain/10.png"></p>
 <p>Vấn đề là, chúng ta không thể đoán được khi nhét cái gì vào thì con gì sẽ chạy ra. Cách duy nhất để tìm trả lời được đó là thử tất cả mọi thứ trên đời cho đến khi có một con vật 4 chân chạy ra: chả giò, nem chua, đồng hồ, bút, thước, ba con sói ...</p>
-<p><img alt="Magic box" src="static/blockchain/11.png"></p>
+<p><img alt="Magic box" src="static/blockchain/9.png"></p>
 <p>Cứ giả sử, nếu may mắn, sau khi nhét hàng núi đồ vào, con chuột chạy ra và 1 đáp án của chúng ta là cái usb.</p>
-<p><img alt="Magic box" src="static/blockchain/12.png"></p>
+<p><img alt="Magic box" src="static/blockchain/10.png"></p>
 <p>Rất khó để tính toán đầu vào cho đầu ra, chúng ta tạm coi việc đó là không thể. Tuy nhiên, rất dễ dàng để xác minh nếu đầu vào cho đầu ra đúng yêu cầu.
 Bạn nghĩ câu trả lời là gì nếu ta ném cái usb vào? Một con vật 4 chân có chạy ra không? Xác minh rất dễ, chỉ cần ném thử cái usb vào và đếm số chân của con chuột chạy ra.</p>
 <p>Thuộc tính quan trọng của chiếc hộp kỳ diệu:</p>
 <p><em>"Cho một đầu ra, rất khó để đoán đầu vào, nhưng rất dễ để xác minh đầu vào có cho ra chính xác thứ ta mong đợi ở đầu ra không"</em></p>
 <h4>Sử dụng chiếc hộp kỳ diệu</h4>
-<p>Bây giờ quay lại vấn đề các bản ghi, các bản ghi thì là chữ và số vì vậy ta tạm rời xa các con vật vậy.</p>
+<p>Bây giờ quay lại vấn đề các bản ghi, các bản ghi thì là chữ và số vì vậy ta tạm rời xa các con vật vậy, hộp kỳ diệu thay bằng một cái máy.</p>
 <p>Hãy tưởng tượng chúng ta có hai hộp chứa bản ghi. Hộp đầu tiên chứa số 20893. Tôi hỏi bạn: "Bạn có thể tìm ra một con số khi thêm vào số trong hộp đầu tiên và cho vào chiếc hộp kỳ diệu sẽ cho chúng ta một từ bắt đầu bằng ba chữ số 0?"</p>
 <p><img alt="Magic box" src="static/blockchain/13.png"></p>
 <p>Bạn còn nhớ cách chúng ta tìm ra chiếc usb? Phải vậy, chúng ta sẽ thử lần lượt từng số cho đến khi tìm được đầu ra đúng yêu cầu. Sau vài nghìn lần thử, có thể hàng vạn hoặc hơn, chúng ta gặp một số, giả sử 21191 đi, mà khi thêm vào 20893 (21191 + 20893 = 42084) và cho vào hộp kỹ diệu thì đầu ra sẽ cho chúng ta một từ thỏa mãn.</p>
