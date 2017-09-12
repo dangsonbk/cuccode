@@ -193,8 +193,7 @@ hr.small {
 }
 .intro-header .post-heading h1 {
   font-size: 35px;
-  background-color:black;
-  opacity:0.5;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .intro-header .post-heading .subheading,
 .intro-header .post-heading .meta {
@@ -219,8 +218,7 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
     font-size: 55px;
-    background-color:black;
-    opacity:0.5;
+    background-color: rgba(0, 0, 0, 0.4);
   }
   .intro-header .post-heading .subheading {
     font-size: 30px;
