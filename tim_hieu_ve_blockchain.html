@@ -195,30 +195,31 @@ Bạn nghĩ câu trả lời là gì nếu ta ném cái usb vào? Một con vậ
 <p>Thuộc tính quan trọng của chiếc hộp kỳ diệu:</p>
 <p><em>"Cho một đầu ra, rất khó để đoán đầu vào, nhưng rất dễ để xác minh đầu vào có cho ra chính xác thứ ta mong đợi ở đầu ra không"</em></p>
 <h4>Sử dụng chiếc hộp kỳ diệu</h4>
-<p>Bây giờ quay lại vấn đề các bản ghi, các bản ghi thì là chữ và số vì vậy ta tạm rời xa các con vật vậy, hộp kỳ diệu thay bằng một cái máy.</p>
-<p>Hãy tưởng tượng chúng ta có hai hộp chứa bản ghi. Hộp đầu tiên chứa số 20893. Tôi hỏi bạn: "Bạn có thể tìm ra một con số khi thêm vào số trong hộp đầu tiên và cho vào chiếc hộp kỳ diệu sẽ cho chúng ta một từ bắt đầu bằng ba chữ số 0?"</p>
+<p>Bây giờ quay lại vấn đề các bản ghi, các bản ghi thì là chữ và số vì vậy ta tạm rời xa các con vật vậy, hộp kỳ diệu bây giờ sẽ làm việc với những con số.</p>
+<p>Hãy tưởng tượng chúng ta có hai hộp chứa bản ghi. Hộp đầu tiên chứa số 20893. Yêu cầu bây giờ là: "Tìm một con số khi kết hợp số trong hộp đầu tiên và cho vào chiếc hộp kỳ diệu sẽ cho chúng ta một dãy bắt đầu bằng ba chữ số 0?"</p>
 <p><img alt="Magic box" src="static/blockchain/13.png"></p>
-<p>Bạn còn nhớ cách chúng ta tìm ra chiếc usb? Phải vậy, chúng ta sẽ thử lần lượt từng số cho đến khi tìm được đầu ra đúng yêu cầu. Sau vài nghìn lần thử, có thể hàng vạn hoặc hơn, chúng ta gặp một số, giả sử 21191 đi, mà khi thêm vào 20893 (21191 + 20893 = 42084) và cho vào hộp kỹ diệu thì đầu ra sẽ cho chúng ta một từ thỏa mãn.</p>
+<p>Bạn còn nhớ cách chúng ta tìm ra chiếc usb? Phải vậy, chúng ta sẽ thử lần lượt từng số cho đến khi tìm được đầu ra đúng yêu cầu. Sau vài nghìn lần thử, có thể hàng vạn hoặc hơn, chúng ta gặp một số, giả sử 21191 đi, mà khi thêm vào 20893 (21191 + 20893 = 42084) và cho vào hộp kỹ diệu thì đầu ra sẽ cho chúng ta một dãy thỏa mãn.</p>
 <p><img alt="Magic box" src="static/blockchain/14.png"></p>
 <p>Trong trường hợp này, con số 21191 trở thành con dấu cho số 20893. Giả sử có một trang có số 20893 viết trên đó. Để đóng dấu trang đó (nghĩa là không ai có thể thay đổi nội dung của nó), chúng ta sẽ đặt một khóa có số niêm phong '21191' và khóa nó lại. Việc niêm phong được hoàn thành.</p>
 <p><img alt="Sealed" src="static/blockchain/15.png"></p>
 <blockquote>
 <p>Số niêm phong được gọi là 'Proof Of Work', con số này là bằng chứng cho thấy các nỗ lực đã được tính toán.</p>
 </blockquote>
-<p>Nếu ai đó muốn xác minh xem bản ghi đã bị thay đổi hay không, tất cả những gì người đó phải làm là thêm nội dung của bản ghi với số niêm phong và nhét vào hộp kỳ diệu. Nếu chiếc hộp đưa ra một từ với bắt đầu với ba chữ số 0 thì tức là nội dung không bị ảnh hưởng. Nếu từ xuất hiện không đáp ứng được yêu cầu, chúng ta có thể hủy bỏ bản ghi vì nội dung của nó đã bị xâm nhập và không còn hiệu lực.</p>
+<p>Nếu ai đó muốn xác minh xem bản ghi đã bị thay đổi hay không, tất cả những gì người đó phải làm là thêm nội dung của bản ghi với số niêm phong và nhét vào hộp kỳ diệu. Nếu chiếc hộp đưa ra một dãy với bắt đầu với ba chữ số 0 thì tức là nội dung không bị ảnh hưởng. Nếu dãy xuất hiện không đáp ứng được yêu cầu, chúng ta có thể hủy bỏ bản ghi vì nội dung của nó đã bị xâm nhập và không còn hiệu lực.</p>
 <p>Chúng ta sẽ sử dụng cơ chế niêm phong tương tự để đóng dấu tất cả các bản ghi và sắp xếp chúng trong các hộp chứa tương ứng.</p>
 <blockquote>
-<p>Ghi chú: Thực ra việc sử dụng "một từ với bắt đầu với ba chữ số 0" hoàn toàn là để đơn giản hóa vấn đề, trên thực tế mọi thứ phực tạp hơn nhiều lần.</p>
+<p>Ghi chú: Thực ra việc sử dụng "một dãy với bắt đầu với ba chữ số 0" hoàn toàn là để đơn giản hóa vấn đề, trên thực tế mọi thứ phực tạp hơn nhiều lần.</p>
 </blockquote>
 <p>Bây giờ, giả sử ai đó muốn thay đổi nội dung của trang, số niêm phong sẽ cho phép chúng ta biết liệu trang đó có bị thay đổi hay chưa.</p>
-<p>Bây giờ chúng ta sẽ quay lại thời điểm mọi người bắt đầu cất bản ghi vào hộp lưu trữ, khi mà tờ giấy đã ghi đủ 10 giao dịch.</p>
+<p>Chúng ta sẽ quay lại thời điểm mọi người bắt đầu cất bản ghi vào hộp lưu trữ, khi mà tờ giấy đã ghi đủ 10 giao dịch.</p>
 <p>Khi mọi người đều hết giấy, họ sẽ bắt đầu việc đóng dấu bằng cách tính toán con số niêm phong, người đầu tiên tìm được con số này sẽ thông báo cho tất cả mọi người.</p>
 <p><img alt="Sealed number found" src="static/blockchain/16.png"></p>
-<p>Ngay lập tức khi nghe thấy 1 ai đó đọc số niêm phong, mọi người sẽ dừng việc tính toán lại và kiểm tra số niêm phong nghe được, nếu số này hợp lệ, tất cả mọi người sẽ niêm phong tài liệu lại bằng số này.</p>
+<p>Ngay lập tức khi nghe thấy ai đó đọc số niêm phong, mọi người sẽ dừng việc tính toán lại và kiểm tra số niêm phong nghe được, nếu số này hợp lệ, tất cả mọi người sẽ niêm phong tài liệu lại bằng số này.</p>
 <p>Vậy điều gì sảy ra nếu ai đó nói ra con số đầu tiên nhưng con số này không hợp lệ? Trường hợp như vậy xảy ra rất thường xuyên với những lý do có thể là:</p>
 <ul>
 <li>Người đó nghe sai một giao dịch</li>
 <li>Người đó ghi sai một giao dịch</li>
+<li>Người đó cố ý làm sai lệch giao dịch</li>
 </ul>
 <p>Dù lý do gì đi nữa, để tiếp tục thì người đó chỉ có một cách duy nhất đó là copy lại giấy của người khác. Nếu anh ta không đưa trang của anh vào hộp đựng tài liệu, anh ta không thể tiếp tục viết thêm các giao dịch nữa.</p>
 <blockquote>
@@ -235,13 +236,11 @@ Bạn nghĩ câu trả lời là gì nếu ta ném cái usb vào? Một con vậ
 <p>Chưa hết, chúng ta có một vấn đề cần phải giải quyết.</p>
 <p>Bây giờ giả sử một ai đó muốn gian lận và quay lại thay đổi thông tin một giao dịch nào đó đã được cất trong hộp, dĩ nhiên con số niêm phong sẽ tố cáo việc bản ghi đã bị thay đổi, nhưng nếu anh ta tính toán lại cả con số niêm phong?</p>
 <p><img alt="Sealed number feed" src="static/blockchain/17.png"></p>
-<p>Để tránh việc con số niêm phong bị tính toán lại, thay vì chỉ đưa vào hộp kỳ diệu 2 thông số là mã giao dịch và con số niêm phong hợp lệ, bây giờ ta sẽ yêu cầu phải thêm một thông số nữa vào hộp kỳ diệu, đó là con số đầu ra được tính toán của giao dịch trước đó.</p>
+<p>Để tránh việc con số niêm phong bị tính toán lại, thay vì chỉ đưa vào hộp kỳ diệu 2 thông số là mã giao dịch và con số niêm phong hợp lệ, bây giờ ta sẽ yêu cầu phải thêm một thông số nữa vào hộp kỳ diệu, đó là dãy đầu ra được tính toán của giao dịch trước đó.</p>
 <p>Với thủ thuật này, chúng ta đảm bảo rằng mọi trang đều bị phụ thuộc vào trang trước của nó. Do đó, nếu ai đó muốn sửa đổi một trang thì cũng phải thay đổi nội dung và con số niêm phong của tất cả các trang sau đó để giữ cho toàn bộ chuỗi là hợp lệ.</p>
 <p>Nếu một trong mười người cố lừa dối và sửa đổi nội dung của blockchain (thư mục chứa các trang có danh sách giao dịch), anh ta sẽ phải điều chỉnh rất nhiều trang và tương ứng với việc phải tính toán số niêm phong mới số cho tất cả các trang sau đó, anh ta có thể tạo ra một chuỗi giao dịch khác với mọi người. Tuy nhiên độ khó của việc tìm kiếm số niêm phong khiến cho chuỗi của anh ta sẽ không bao giờ đuổi kịp chuỗi của 9 người còn lại.</p>
 <p>Như vậy, chúng ta có thể kết luận:</p>
-<blockquote>
-<p>Chuỗi dài nhất là chuỗi hợp lệ</p>
-</blockquote>
+<p><strong>Chuỗi dài nhất là chuỗi hợp lệ</strong></p>
 <p><img alt="Sealed number feed" src="static/blockchain/18.png"></p>
 <p>Vậy, điều gì xảy ra nếu thay vì một người có ý định xấu, có tới 6 người có ý định xấu?</p>
 <p>Đây là một điểm yếu và là một lỗ hổng về mặt cấu trúc của bitcoin và blockchain. Khi mà phần lớn các cá nhân trong mạng quyết định không trung thực và ăn gian phần giao dịch còn lại của mạng, toàn bộ giao thức sẽ đổ vỡ.</p>
