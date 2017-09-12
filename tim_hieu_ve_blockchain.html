@@ -170,7 +170,7 @@
 <h3>Vấn đề niêm phong các bản ghi</h3>
 <p>Trước khi chúng ta tìm hiểu làm thế nào chúng ta có thể niêm phong các bản ghi, chúng ta sẽ tìm hiểu cách thức hoạt động của con dấu nói chung.</p>
 <h4>Chiếc hộp kỳ diệu</h4>
-<p>Hãy tưởng tượng một chiếc hộp vô cùng bí ẩn. Nếu bạn gửi vào bên trái hộp 1 vật, nó sẽ đẩy ra bên phải một vật khác.</p>
+<p>Hãy tưởng tượng một chiếc hộp vô cùng bí ẩn. Nếu bạn gửi vào bên trái hộp một vật, nó sẽ đẩy ra bên phải một vật khác.</p>
 <blockquote>
 <p>Bạn có thể biết về 'Hash Function' hay 'hàm băm' hay 'hàm mã hóa' hoặc đại loại thế, tuy nhiên chúng ta sẽ vẫn dùng 'chiếc hộp kỳ diệu' cho dễ hiểu.</p>
 </blockquote>
@@ -217,10 +217,12 @@ Bạn nghĩ câu trả lời là gì nếu ta ném cái usb vào? Một con vậ
 <p>Bây giờ chúng ta sẽ quay lại thời điểm mọi người bắt đầu cất bản ghi vào hộp lưu trữ, khi mà tờ giấy đã ghi đủ 10 giao dịch.</p>
 <p>Khi mọi người đều hết giấy, họ sẽ bắt đầu việc đóng dấu bằng cách tính toán con số niêm phong, người đầu tiên tìm được con số này sẽ thông báo cho tất cả mọi người.</p>
 <p><img alt="Sealed number found" src="static/blockchain/16.png"></p>
-<p>Ngay lập tức khi nghe thấy 1 ai đó đọc số niêm phong, mọi người sẽ dừng việc tính toán con số niêm phong lại và kiểm tra số niêm phong nghe được, nếu số này hợp lệ, tất cả mọi người sẽ niêm phong tài liệu lại bằng số này.</p>
-<p>Vậy điều gì sảy ra nếu ai đó nói ra con số đầu tiên nhưng con số này không hợp lệ? Trường hợp như vậy xảy ra rất thường xuyên với những lý do có thể là:
-- Người đó nghe sai một giao dịch
-- Người đó ghi sai một giao dịch</p>
+<p>Ngay lập tức khi nghe thấy 1 ai đó đọc số niêm phong, mọi người sẽ dừng việc tính toán lại và kiểm tra số niêm phong nghe được, nếu số này hợp lệ, tất cả mọi người sẽ niêm phong tài liệu lại bằng số này.</p>
+<p>Vậy điều gì sảy ra nếu ai đó nói ra con số đầu tiên nhưng con số này không hợp lệ? Trường hợp như vậy xảy ra rất thường xuyên với những lý do có thể là:</p>
+<ul>
+<li>Người đó nghe sai một giao dịch</li>
+<li>Người đó ghi sai một giao dịch</li>
+</ul>
 <p>Dù lý do gì đi nữa, để tiếp tục thì người đó chỉ có một cách duy nhất đó là copy lại giấy của người khác. Nếu anh ta không đưa trang của anh vào hộp đựng tài liệu, anh ta không thể tiếp tục viết thêm các giao dịch nữa.</p>
 <blockquote>
 <p>Bất kể con số niêm phong là gì, khi được đa số đồng ý, sẽ trở thành con số niêm phong hợp lệ.</p>
@@ -261,11 +263,12 @@ ghash.io đã nắm hơn 50% sức mạnh tính toán của mạng Bitcoin vào 
 Krypton và Shift, hai blockchain dựa trên nền tảng ethereum, bị tấn công 51% vào tháng 8 năm 2016.</p>
 <h3>Tham khảo:</h3>
 <p><a href="http://money.cnn.com/infographic/technology/what-is-bitcoin/">CNN - What is bitcoin?</a></p>
+<p><a href="https://en.bitcoin.it/wiki/How_bitcoin_works">Bitcoin.it - How bitcoin works</a></p>
 <p><a href="https://www.ibm.com/blogs/blockchain/2017/05/the-difference-between-bitcoin-and-blockchain-for-business/">IBM - The difference between bitcoin and blockchain for business</a></p>
 <p><a href="https://hackernoon.com/wtf-is-the-blockchain-1da89ba19348">Hackernoon - WTF is the blockchain</a></p>
-<p><a href="http://www.investopedia.com/terms/1/51-attack.asp">51%-attack</a></p>
-<p><a href="https://www.coindesk.com/51-attacks-real-threat-bitcoin/">Are 51% Attacks a Real Threat to Bitcoin?</a></p>
-<p>Header cover: <a href="http://www.forexnewsnow.com/top-stories/bitcoin-2016-summary-2017-forecasts/">forexnewsnow.com</a></p>
+<p><a href="http://www.investopedia.com/terms/1/51-attack.asp">Investopedia - 51%-attack</a></p>
+<p><a href="https://www.coindesk.com/51-attacks-real-threat-bitcoin/">Coindesk - Are 51% Attacks a Real Threat to Bitcoin?</a></p>
+<p>Header cover: <a href="http://www.forexnewsnow.com/top-stories/bitcoin-2016-summary-2017-forecasts/">Forexnewsnow</a></p>
     </article>
 
         <div class="tags">
