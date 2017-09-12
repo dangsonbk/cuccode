@@ -13,8 +13,7 @@
         <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
-        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+        <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
             <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
@@ -97,6 +96,10 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Tạo webserver bằng Python chỉ với 1 dòng lệnh</h1>
+                        <span class="meta">Posted by
+                                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+                             on 21-08-2017
+                        </span>
                         
                     </div>
                 </div>
@@ -108,16 +111,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-md-offset-1">
-    <span class="article-meta">Post by
-            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-        on 21-08-2017
-    </span>
     <!-- Post Content -->
     <article>
         <p>Python cho phép bạn tạo một webserver ngay trên máy của bạn rất dễ dàng chỉ với 1 dòng lệnh.
 Để sử dụng, đơn giản chỉ cần mở Console lên, cd tới thư mục bạn muốn chạy webserver.</p>
 <p>Nếu bạn sử dụng Python 2.7:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">python -m SimpleHTTPServer</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m SimpleHTTPServer</span>
 </pre></div>
 </td></tr></table>
 
@@ -125,7 +124,7 @@
 <blockquote>
 <p>The SimpleHTTPServer module has been merged into http.server in Python 3.0. The 2to3 tool will automatically adapt imports when converting your sources to 3.0.</p>
 </blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">python -m http.server</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m http.server</span>
 </pre></div>
 </td></tr></table>
 
@@ -141,7 +140,7 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 </ul>
 <p>Trường hợp bạn muốn đổi port:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">python -m SimpleHTTPServer 7749</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m SimpleHTTPServer 7749</span>
 <span class="go">python -m http.server 7749</span>
 </pre></div>
 </td></tr></table>
@@ -151,7 +150,7 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 <hr>
 <p>Ngoài ra, không chỉ Python mà PHP và Ruby cũng hỗ trợ các module tương tự:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">php -S localhost:[port] -t [root-path]</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">php -S localhost:[port] -t [root-path]</span>
 <span class="go">ruby -run -e httpd . -p [port]</span>
 </pre></div>
 </td></tr></table>
@@ -228,9 +227,7 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
                     </ul>
 <p class="copyright text-muted">
     Blog powered by <a href="http://getpelican.com">Pelican</a>,
-    which takes great advantage of <a href="http://python.org">Python</a> <br />
-    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
-    &copy;  dangsonbk
+    which takes great advantage of <a href="http://python.org">Python</a>. <br />        &copy;  dangsonbk
 </p>                </div>
             </div>
         </div>

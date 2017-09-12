@@ -13,8 +13,7 @@
         <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
-        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+        <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
             <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
@@ -97,6 +96,10 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Mở web browser bằng Python</h1>
+                        <span class="meta">Posted by
+                                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+                             on 27-08-2017
+                        </span>
                         
                     </div>
                 </div>
@@ -108,10 +111,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-md-offset-1">
-    <span class="article-meta">Post by
-            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-        on 27-08-2017
-    </span>
     <!-- Post Content -->
     <article>
         <p>Việc lập trình để mở một đường dẫn website trên các trình duyệt khác nhau và các hệ điều hành khác nhau đôi khi là một rắc rối không nhỏ khi viết phần mềm.
@@ -119,36 +118,36 @@ Trên Python, việc này được thực hiện khá đơn giản bằng cách 
 <hr>
 <h3>Shell command</h3>
 <p>Cú pháp để gọi web browser như sau</p>
-<div class="highlight"><pre>python -m webbrowser <span class="p">&lt;</span><span class="n">URL</span>&gt;
+<div class="highlight"><pre><span></span>python -m webbrowser <span class="p">&lt;</span>URL&gt;
 </pre></div>
 
 
 <p>Với <URL> là đường dẫn bạn muốn gọi, dĩ nhiên.</p>
 <p>Để mở tab mới, bạn thêm -t, để mở cửa sổ mới, bạn thêm -n vào shell:</p>
 <p>Mở tab mới</p>
-<div class="highlight"><pre>python -m webbrowser -t http:<span class="n">//cuccode.com</span>
+<div class="highlight"><pre><span></span>python -m webbrowser -t http://cuccode.com
 </pre></div>
 
 
 <p>Mở cửa sổ mới</p>
-<div class="highlight"><pre>python -m webbrowser -c http:<span class="n">//cuccode.com</span>
+<div class="highlight"><pre><span></span>python -m webbrowser -c http://cuccode.com
 </pre></div>
 
 
 <hr>
 <h3>Python script</h3>
 <p>Import module webbrowser:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">webbrowser</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://cuccode.com&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://cuccode.com&quot;</span>
 <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Trường hợp mở cửa sổ mới:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">webbrowser</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://cuccode.com&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://cuccode.com&quot;</span>
 <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
@@ -231,9 +230,7 @@ Trên Python, việc này được thực hiện khá đơn giản bằng cách 
                     </ul>
 <p class="copyright text-muted">
     Blog powered by <a href="http://getpelican.com">Pelican</a>,
-    which takes great advantage of <a href="http://python.org">Python</a> <br />
-    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
-    &copy;  dangsonbk
+    which takes great advantage of <a href="http://python.org">Python</a>. <br />        &copy;  dangsonbk
 </p>                </div>
             </div>
         </div>
