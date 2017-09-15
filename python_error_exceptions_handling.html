@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Python Errors and Exceptions handling</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python2">
+        <meta name="tags" content="python3">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="http://cuccode.com/python_error_exceptions_handling.html">
+	<meta property="og:title" content="Python Errors and Exceptions handling">
+	<meta property="article:published_time" content="2017-09-04 20:15:00+07:00">
+
+            <meta property="og:image" content="http://cuccode.com//static/python-2-vs-python-31.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Python Errors and Exceptions handling">
+
+            <meta name="twitter:image" content="http://cuccode.com//static/python-2-vs-python-31.jpg">
+
+            <meta name="twitter:description" content="">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://cuccode.com/">cuccode</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="http://cuccode.com/category/blockchain.html">blockchain</a></li>
+                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/static/python-2-vs-python-31.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Python Errors and Exceptions handling</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-md-offset-1">
+    <span class="article-meta">Post by
+            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+        on 04-09-2017
+    </span>
+    <!-- Post Content -->
+    <article>
+        <blockquote>
+<p>Có nhiều tài liệu dịch Exception là 'ngoại lệ' và Exceptions Handling là 'xử lý ngoại lệ', mình thấy cách gọi này chỉ đúng về mặt dịch thuật và chưa thực sự sát nghĩa cho lắm. Trong bài viết này mình sẽ giữ nguyên từ 'Exception'.</p>
+</blockquote>
+<p>Exceptions có thể hiểu là các sự kiện, biến cố khiến cho chương trình bị phá vỡ luồng thực thi. Để cho dễ hiểu, mình lấy một ví dụ sau:</p>
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">myname</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Khi chạy sẽ trả về lỗi:</p>
+<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;string&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;myname&#39; is not defined</span>
+</pre></div>
+
+
+<p>Đây là lỗi do bạn in giá trị của biến mà chưa khai báo. Ở đây Python trả về cho chúng ta thông tin về vị trí lỗi cũng như là kiểu lỗi: <code>NameError</code></p>
+<p>Lỗi trên xảy ra khá nhiều khi lập trình với Python, nguyên nhân là do sự tiện lợi trong cách tạo biến của Python khiến cho lập trình viên đôi khi thiếu đi sự chặt chẽ trong việc quản lý biến. Mình lấy một ví dụ như sau:</p>
+<div class="highlight"><pre><span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Enter a number &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s">&quot;yes&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Sẽ chẳng có vấn đề gì nếu điều kiện <code>i in range(1, 100)</code> thỏa mãn. Tuy nhiên nếu điều kiện đó trả về <code>False</code> thì biến <code>answer</code> sẽ không được khởi tạo và <code>print(answer)</code> sẽ trả về lỗi.</p>
+<hr>
+<h3>Xử lý Exceptions</h3>
+<p>Python cung cấp tính năng xử lý Exception rất quan trọng và hữu dụng để xử lý bất kỳ lỗi không mong muốn nào trong các chương trình Python của bạn. Danh sách các Exception được định nghĩa sẵn của Python được cung cấp ở phần cuối bài viết để bạn có thể tham khảo.</p>
+<p>Chúng ta sẽ sử dụng các câu lệnh <code>try</code> và <code>except</code> để xử lý ngoại lệ. Khi code xảy ra lỗi, một exception sẽ được trả về mà không làm hỏng (crash) chương trình. Đôi khi bạn có thể gặp cụm từ như <em>bẫy lỗi</em> để chỉ phương pháp xử lý Exceptions.</p>
+<div class="highlight"><pre><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c"># Đặt bẫy lỗi</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Enter a number &quot;</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c"># Xử lý khi lỗi sập bẫy</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error occurred: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Python sẽ xử lý tất cả các câu lệnh trong block <code>try</code> một cách bình thường, khi lỗi xảy ra các câu lệnh trong khối <code>except</code> sẽ được thực hiện.</p>
+<p>Trong ví dụ trên, khi người dùng nhập vào 1 ký tự thì thay vì dừng (crash) và trả về lỗi, chương trình sẽ trả về một thông báo lỗi nhưng vẫn tiếp tục chạy vòng while tiếp theo.</p>
+<div class="highlight"><pre><span class="go">Enter a number a</span>
+<span class="go">invalid literal for int() with base 10: &#39;a&#39;</span>
+</pre></div>
+
+
+<p>Ví dụ trên sẽ bẫy tất cả các lỗi sinh ra và không xác định rõ là lỗi gì, ở ví dụ sau, chúng ta sẽ bắt một lỗi xác định trước.</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Đoạn chương trình trên sẽ mở một file có tên là <code>filename</code> và đọc nội dung của nó từng dòng một sau đó đưa vào biến f_content. Trong trường hợp file <code>filename</code> không tồn tại, một lỗi <code>IOError</code> sẽ bị bẫy và in ra.</p>
+<p>Ngoài lỗi <code>IOError</code> như trên, Python định nghĩa sẵn rất nhiều kiểu Exception khác như: <code>ImportError</code>, <code>KeyboardInterrupt</code>, <code>RuntimeError</code></p>
+<hr>
+<p>Một lệnh <code>try</code> có thể đi kèm 1 may nhiều <code>except</code>:</p>
+<div class="highlight"><pre><span class="c"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_content</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;I/O error({0}): {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Could not convert data to an integer.&quot;</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Unexpected error:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">raise</span>
+</pre></div>
+
+
+<p>Hoặc bắt nhiều exceptions một lúc:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">printb</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Bẫy trên sẽ bắt cả lỗi <code>IOError</code> và <code>NameError</code>.</p>
+<p>Ngoài ra có thể thực hiện lệnh <code>else</code> trong trường hợp lệnh không có exception sinh ra khi thực hiện lệnh trong <code>try</code>:</p>
+<div class="highlight"><pre><span class="c"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
+<span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;Cannot open&#39;</span><span class="p">,</span> <span class="n">arg</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">arg</span><span class="p">,</span> <span class="s">&#39;has&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()),</span> <span class="s">&#39;lines&#39;</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Trong trường hợp lệnh mệnh đề <code>try</code> đang được thực hiện thì xảy ra lỗi, chương trinh khi đó sẽ nhảy tới thực hiện lệnh trong mệnh đề <code>except</code>, trong trường hợp này có thể việc mệnh đề <code>try</code> chưa được thực hiện hết khiến cho phần mềm có thể bị lỗi sau đó. Khi đó bạn cần dùng đến <code>finally</code>.</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_content</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Trong trường hợp đọc lỗi, file f vẫn sẽ được đóng lại trong <code>finally</code>. Chú ý sự khác biệt khi sử dụng của <code>else</code> và <code>finally</code>: lệnh trong <code>else</code> chỉ được gọi khi không có lỗi xảy ra, lệnh trong<code>finally</code> được gọi khi có lỗi xảy ra.</p>
+<h3>Danh sách Exceptions</h3>
+<div class="highlight"><pre><span class="n">BaseException</span>
+
+ <span class="o">+--</span> <span class="n">SystemExit</span>
+ <span class="o">+--</span> <span class="n">KeyboardInterrupt</span>
+ <span class="o">+--</span> <span class="n">GeneratorExit</span>
+ <span class="o">+--</span> <span class="n">Exception</span>
+      <span class="o">+--</span> <span class="n">StopIteration</span>
+      <span class="o">+--</span> <span class="n">StandardError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">BufferError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">ArithmeticError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">FloatingPointError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">OverflowError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">ZeroDivisionError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">AssertionError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">AttributeError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">EnvironmentError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">IOError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">OSError</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+--</span> <span class="n">WindowsError</span> <span class="p">(</span><span class="n">Windows</span><span class="p">)</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+--</span> <span class="n">VMSError</span> <span class="p">(</span><span class="n">VMS</span><span class="p">)</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">EOFError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">ImportError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">LookupError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">IndexError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">KeyError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">MemoryError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">NameError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">UnboundLocalError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">ReferenceError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">RuntimeError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">NotImplementedError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">SyntaxError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">IndentationError</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+--</span> <span class="n">TabError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">SystemError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">TypeError</span>
+      <span class="o">|</span>    <span class="o">+--</span> <span class="n">ValueError</span>
+      <span class="o">|</span>         <span class="o">+--</span> <span class="n">UnicodeError</span>
+      <span class="o">|</span>              <span class="o">+--</span> <span class="n">UnicodeDecodeError</span>
+      <span class="o">|</span>              <span class="o">+--</span> <span class="n">UnicodeEncodeError</span>
+      <span class="o">|</span>              <span class="o">+--</span> <span class="n">UnicodeTranslateError</span>
+      <span class="o">+--</span> <span class="n">Warning</span>
+           <span class="o">+--</span> <span class="n">DeprecationWarning</span>
+           <span class="o">+--</span> <span class="n">PendingDeprecationWarning</span>
+           <span class="o">+--</span> <span class="n">RuntimeWarning</span>
+           <span class="o">+--</span> <span class="n">SyntaxWarning</span>
+           <span class="o">+--</span> <span class="n">UserWarning</span>
+           <span class="o">+--</span> <span class="n">FutureWarning</span>
+  <span class="o">+--</span> <span class="n">ImportWarning</span>
+  <span class="o">+--</span> <span class="n">UnicodeWarning</span>
+  <span class="o">+--</span> <span class="n">BytesWarning</span>
+</pre></div>
+
+
+<h3>Tham khảo:</h3>
+<ul>
+<li><a href="https://docs.python.org/3.6/tutorial/errors.html">python.org - Errors and Exceptions</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/error-handling-logging-in-python--cms-27932">tutsplus</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_exceptions.htm">tutorialspoint</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/professional-error-handling-with-python--cms-25950">tutsplus</a></li>
+</ul>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://cuccode.com/tag/python2.html">python2</a>, <a href="http://cuccode.com/tag/python3.html">python3</a></p>
+        </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+    <hr>
+
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'cuccode';
+                var disqus_identifier = 'python_error_exceptions_handling.html';
+                var disqus_url = 'http://cuccode.com/python_error_exceptions_handling.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//cuccode.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a> <br />
+    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+    &copy;  dangsonbk
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://cuccode.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
