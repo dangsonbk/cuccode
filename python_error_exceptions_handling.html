@@ -228,6 +228,37 @@
 
 
 <p>Trong trường hợp đọc lỗi, file f vẫn sẽ được đóng lại trong <code>finally</code>. Chú ý sự khác biệt khi sử dụng của <code>else</code> và <code>finally</code>: lệnh trong <code>else</code> chỉ được gọi khi không có lỗi xảy ra, lệnh trong<code>finally</code> được gọi khi có lỗi xảy ra.</p>
+<hr>
+<h3>Tự định nghĩa Exceptions</h3>
+<p>Ngoài các exceptions được cung cấp sẵn, Python cũng cho phép lập trình viên tự định nghĩa các exceptions để sử dụng. Ví dụ sau đây là một đoạn source code sử dụng thư viện <a href="https://pypi.python.org/pypi/selenium">selenium</a>:</p>
+<div class="highlight"><pre><span class="c"># import ...</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">myElem</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&#39;IdOfMyElement&#39;</span><span class="p">)))</span>
+    <span class="k">print</span> <span class="s">&quot;Page is ready!&quot;</span>
+<span class="k">except</span> <span class="n">TimeoutException</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Loading took too much time!&quot;</span>
+</pre></div>
+
+
+<p>Ở đây, exception <a href="http://selenium-python.readthedocs.io/api.html#module-selenium.common.exceptions">TimeoutException</a> được định nghĩa thêm trong thư viện selenium để xác định khi một tác vụ bị timeout.</p>
+<p>Người dùng có thể xác định các exceptions như vậy bằng cách tạo một class mới  kế thừa, một cách trực tiếp hay gián tiếp, từ class Exception. Hầu hết các exceptions có sẵn cũng được tạo ra từ class này.</p>
+<p>Ví dụ sau thực hiện việc kế thừa từ class <code>RuntimeError</code>:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">NetworkError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">arg</span>
+</pre></div>
+
+
+<p>Một khi class đã được tạo và kế thừa đúng, chúng ta có thể sử dụng giống như khi sử dụng các exceptions sẵn có của Python:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+   <span class="k">raise</span> <span class="n">NetworkError</span><span class="p">(</span><span class="s">&quot;Bad hostname&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">NetworkError</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+   <span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+</pre></div>
+
+
 <h3>Danh sách Exceptions</h3>
 <div class="highlight"><pre><span class="n">BaseException</span>
 
