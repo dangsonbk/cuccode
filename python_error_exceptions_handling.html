@@ -243,7 +243,7 @@
 
 
 <p>Ở đây, exception <a href="http://selenium-python.readthedocs.io/api.html#module-selenium.common.exceptions">TimeoutException</a> được định nghĩa thêm trong thư viện selenium để xác định khi một tác vụ bị timeout.</p>
-<p>Người dùng có thể xác định các exceptions như vậy bằng cách tạo một class mới  kế thừa, một cách trực tiếp hay gián tiếp, từ class Exception. Hầu hết các exceptions có sẵn cũng được tạo ra từ class này.</p>
+<p>Người dùng có thể định nghĩa các exceptions như vậy bằng cách tạo một class mới  kế thừa, một cách trực tiếp hay gián tiếp, từ class Exception. Hầu hết các exceptions có sẵn cũng được tạo ra từ class này.</p>
 <p>Ví dụ sau thực hiện việc kế thừa từ class <code>RuntimeError</code>:</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">NetworkError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
