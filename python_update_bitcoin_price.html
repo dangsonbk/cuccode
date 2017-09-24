@@ -150,8 +150,22 @@
 <p>Cá nhân mình đang sử dụng cả Sublime Text lẫn Visual Studio Code và thấy rất hài lòng, mỗi phần mềm đều có những ưu điểm riêng. Notepad++ có lẽ hơi phần già nua so với 2 trình trên, Pycharm thì mình cảm giác rườm rà quá mức cần thiết và khá ỳ ạch.</p>
 </blockquote>
 <p>Quay lại chủ đề chính, bạn cần tạo một file crawler.py có nội dung như sau:</p>
-<div class="highlight"><pre><span></span><span class="err">!</span><span class="c1">#python</span>
-<span class="kn">import</span> <span class="nn">urllib.request</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
 
 <span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
@@ -168,7 +182,7 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>Cùng đi dọc từ phần đầu chương trình xuống dưới:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
