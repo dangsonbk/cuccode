@@ -133,7 +133,7 @@
 <blockquote>
 <p>Ngoài public API, wex cũng cung cấp các APIs liên quan đến giao dịch trên sàn: <a href="https://wex.nz/tapi/docs">Trade API</a>, <a href="https://wex.nz/pushAPI/docs">Push API</a></p>
 </blockquote>
-<p>Bây giờ chúng ta bắt đầu bằng việc lấy giá cập nhật của đồng Bitcoin, mã sàn là btc, địa chỉ là [https://wex.nz/api/3/ticker/btc_usd][https://wex.nz/api/3/ticker/btc_usd]</p>
+<p>Bây giờ chúng ta bắt đầu bằng việc lấy giá cập nhật của đồng Bitcoin, mã sàn là btc, địa chỉ là <a href="https://wex.nz/api/3/ticker/btc_usd">https://wex.nz/api/3/ticker/btc_usd</a></p>
 <p>Thư viện sử dụng để truy cập API trên là urllib, đây là thư viện mặc định của Python nên bạn có thể import và sử dụng luôn.</p>
 <p>Trên Python Sell (Python 3):</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
@@ -165,7 +165,9 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
@@ -186,13 +188,61 @@
 
 <p>Cùng đi dọc từ phần đầu chương trình xuống dưới:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 
 
-<p>Phần này khá dễ hiểu, đầu tiên chương trình sẽ import thư viện urllib.request</p>
+<p>Phần này khá dễ hiểu, đầu tiên chương trình sẽ import thư viện urllib.request và thư viện json</p>
 <blockquote>
 <p>Thư viện lập trình cung cấp cho người dùng (ở đây là lập trình viên sử dụng thư viện) các hàm, tiện ích ... cho phép người dùng không cần phải viết lại mọi thứ và chỉ cần tập trung vào vấn đề chính cần giải quyết của phần mềm. Python cung cấp sẵn rất nhiều thư viện đi kèm với gói cài đặt, ngoài ra là một số lượng rất lớn các thư viện khác được người dùng chia sẻ.</p>
 </blockquote>
+<p>Lại một kiến thức mới về json đối với các bạn mới học lập trình. Bạn có thể hiểu một cách đơn giản đó là khi bạn lưu trữ hoặc truyền dữ liệu, thay vì sử dụng các con số 0, 1 chỉ máy tính mới hiểu thì bạn có thể dùng một file văn bản. Dĩ nhiên để cho cả máy tính và người đều hiểu thì văn bản này phải được thiết kế theo một format nhất định, một văn bản json thường trông như thế này:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Product&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;properties&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Product identifier&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Name of the product&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Chuyên sâu thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a></p>
+<p>Bạn có thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz?</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="err">&#39;btc_usd&#39;:</span>
+    <span class="err">{</span>
+        <span class="err">&#39;high&#39;:</span> <span class="err">4234.181,</span>
+        <span class="err">&#39;low&#39;:</span> <span class="err">4080,</span>
+        <span class="err">&#39;avg&#39;:</span> <span class="err">4157.0905,</span>
+        <span class="err">&#39;vol&#39;:</span> <span class="err">1936210.71756,</span>
+        <span class="err">&#39;vol_cur&#39;:</span> <span class="err">464.60394,</span>
+        <span class="err">&#39;last&#39;:</span> <span class="err">4150,</span>
+        <span class="err">&#39;buy&#39;:</span> <span class="err">4150,</span>
+        <span class="err">&#39;sell&#39;:</span> <span class="err">4131,</span>
+        <span class="err">&#39;updated&#39;:</span> <span class="err">1506247634</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
 <p>Tiếp theo chúng ta có hàm lấy giá bitcoin:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
@@ -217,11 +267,8 @@ Lệnh <code>return</code> ở cuối hàm trả về giá trị sau khi thực 
 </pre></div>
 
 
-<p><code>Sỹ</code>: thư viện nhờ vả</p>
-<p><code>xem hộ tao (X) giờ chưa</code>?: tên hàm để thực hiện so xem mấy phút nữa đến X giờ.</p>
-<p><code>10</code>: đối số truyền vào.</p>
-<p><code>Kém 5 phút</code>: giá trị trả về</p>
-<p>--- (Còn tiếp), đang type mà méo biết cái này save vào kiểu gì. :|</p>
+<p><code>Sỹ</code>: thư viện nhờ vả. <code>xem hộ tao (X) giờ chưa</code>? là tên hàm để thực hiện so xem mấy phút nữa đến X giờ. <code>10</code>: đối số truyền vào. <code>Kém 5 phút</code>: giá trị trả về (return)</p>
+<p>--- (Còn tiếp), đang type dở mà méo biết cái này save vào kiểu gì. :|</p>
     </article>
 
         <div class="tags">
