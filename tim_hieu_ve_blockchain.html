@@ -5,18 +5,17 @@
             <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
         <title>Tìm hiểu về công nghệ blockchain</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
-
         <!-- Custom CSS -->
         <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
         <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
-            <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -33,22 +32,22 @@
 
 
 
-        <meta name="description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng...">
+        <meta name="description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng ...">
 
         <meta name="author" content="dangsonbk">
 
         <meta name="tags" content="blockchain">
         <meta name="tags" content="bitcoin">
 
-	                <meta property="og:locale" content="">
-		<meta property="og:site_name" content="cuccode">
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
 	<meta property="og:url" content="http://cuccode.com/tim_hieu_ve_blockchain.html">
 	<meta property="og:title" content="Tìm hiểu về công nghệ blockchain">
 	<meta property="article:published_time" content="2017-09-11 20:15:00+07:00">
-            <meta property="og:description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng...">
+            <meta property="og:description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng ...">
 
             <meta property="og:image" content="http://cuccode.com//static/blockchain/header.jpg">
         <meta name="twitter:card" content="summary_large_image">
@@ -57,7 +56,7 @@
 
             <meta name="twitter:image" content="http://cuccode.com//static/blockchain/header.jpg">
 
-            <meta name="twitter:description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng...">
+            <meta name="twitter:description" content="Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng ...">
 </head>
 
 <body>
@@ -262,43 +261,43 @@ Krypton và Shift, hai blockchain dựa trên nền tảng ethereum, bị tấn 
 <p>Thực tế thì các khối đầu tiên này thường được tạo bằng tay (hard-code). Trong trường hợp của bitcoin, khối này được gọi là Genesis Block. Genesis Block hầu như luôn luôn được mã hóa cứng trong các phần mềm. Đây là một khối đặc biệt vì nó không liên kết đến một khối trước nó.</p>
 <p>Khối Genesis chứa một thông điệp ẩn trong giao dịch coinbase - nó nói rằng ""The Times 03/Jan/2009 Chancellor on brink of second bailout for banks." Đây rõ ràng là một thông điệp từ Satoshi Nakomoto với dụng ý chỉ ra những vấn đề với chính sách cứu trợ của chính phủ hiện nay đối với ngân hàng quá lớn cũng như vấn đề nguy hiểm về đạo đức.</p>
 <p>Đại loại thì nó sẽ như thế này:</p>
-<div class="highlight"><pre><span></span>00000000   01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00   ................
-00000010   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00   ................
-00000020   00 00 00 00 3B A3 ED FD  7A 7B 12 B2 7A C7 2C 3E   ....;£íýz{.²zÇ,&gt;
-00000030   67 76 8F 61 7F C8 1B C3  88 8A 51 32 3A 9F B8 AA   gv.a.È.ÃˆŠQ2:Ÿ¸ª
-00000040   4B 1E 5E 4A 29 AB 5F 49  FF FF 00 1D 1D AC 2B 7C   K.^J)«_Iÿÿ...¬+|
-00000050   01 01 00 00 00 01 00 00  00 00 00 00 00 00 00 00   ................
-00000060   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00   ................
-00000070   00 00 00 00 00 00 FF FF  FF FF 4D 04 FF FF 00 1D   ......ÿÿÿÿM.ÿÿ..
-00000080   01 04 45 54 68 65 20 54  69 6D 65 73 20 30 33 2F   ..EThe Times 03/
-00000090   4A 61 6E 2F 32 30 30 39  20 43 68 61 6E 63 65 6C   Jan/2009 Chancel
-000000A0   6C 6F 72 20 6F 6E 20 62  72 69 6E 6B 20 6F 66 20   lor on brink of
-000000B0   73 65 63 6F 6E 64 20 62  61 69 6C 6F 75 74 20 66   second bailout f
-000000C0   6F 72 20 62 61 6E 6B 73  FF FF FF FF 01 00 F2 05   or banksÿÿÿÿ..ò.
-000000D0   2A 01 00 00 00 43 41 04  67 8A FD B0 FE 55 48 27   *....CA.gŠý°þUH&#39;
-000000E0   19 67 F1 A6 71 30 B7 10  5C D6 A8 28 E0 39 09 A6   .gñ¦q0·.\Ö¨(à9.¦
-000000F0   79 62 E0 EA 1F 61 DE B6  49 F6 BC 3F 4C EF 38 C4   ybàê.aÞ¶Iö¼?Lï8Ä
-00000100   F3 55 04 E5 1E C1 12 DE  5C 38 4D F7 BA 0B 8D 57   óU.å.Á.Þ\8M÷º..W
-00000110   8A 4C 70 2B 6B F1 1D 5F  AC 00 00 00 00            ŠLp+kñ._¬....
+<div class="highlight"><pre><span class="mo">00000000</span>   <span class="mo">01</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>  <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>   <span class="p">................</span>
+<span class="mo">00000010</span>   <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>  <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>   <span class="p">................</span>
+<span class="mo">00000020</span>   <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mi">3</span><span class="n">B</span> <span class="n">A3</span> <span class="n">ED</span> <span class="n">FD</span>  <span class="mi">7</span><span class="n">A</span> <span class="mi">7</span><span class="n">B</span> <span class="mi">12</span> <span class="n">B2</span> <span class="mi">7</span><span class="n">A</span> <span class="n">C7</span> <span class="mi">2</span><span class="n">C</span> <span class="mi">3</span><span class="n">E</span>   <span class="p">....;</span><span class="err">£íý</span><span class="n">z</span><span class="p">{.</span><span class="err">²</span><span class="n">z</span><span class="err">Ç</span><span class="p">,</span><span class="o">&gt;</span>
+<span class="mo">00000030</span>   <span class="mi">67</span> <span class="mi">76</span> <span class="mf">8F</span> <span class="mi">61</span> <span class="mf">7F</span> <span class="n">C8</span> <span class="mi">1</span><span class="n">B</span> <span class="n">C3</span>  <span class="mi">88</span> <span class="mi">8</span><span class="n">A</span> <span class="mi">51</span> <span class="mi">32</span> <span class="mi">3</span><span class="n">A</span> <span class="mf">9F</span> <span class="n">B8</span> <span class="n">AA</span>   <span class="n">gv</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="err">È</span><span class="p">.</span><span class="err">ÃˆŠ</span><span class="n">Q2</span><span class="o">:</span><span class="err">Ÿ¸ª</span>
+<span class="mo">00000040</span>   <span class="mi">4</span><span class="n">B</span> <span class="mi">1</span><span class="n">E</span> <span class="mi">5</span><span class="n">E</span> <span class="mi">4</span><span class="n">A</span> <span class="mi">29</span> <span class="n">AB</span> <span class="mf">5F</span> <span class="mi">49</span>  <span class="n">FF</span> <span class="n">FF</span> <span class="mo">00</span> <span class="mi">1</span><span class="n">D</span> <span class="mi">1</span><span class="n">D</span> <span class="n">AC</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">7</span><span class="n">C</span>   <span class="n">K</span><span class="p">.</span><span class="o">^</span><span class="n">J</span><span class="p">)</span><span class="err">«</span><span class="n">_I</span><span class="err">ÿÿ</span><span class="p">...</span><span class="err">¬</span><span class="o">+|</span>
+<span class="mo">00000050</span>   <span class="mo">01</span> <span class="mo">01</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">01</span> <span class="mo">00</span> <span class="mo">00</span>  <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>   <span class="p">................</span>
+<span class="mo">00000060</span>   <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>  <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>   <span class="p">................</span>
+<span class="mo">00000070</span>   <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="n">FF</span> <span class="n">FF</span>  <span class="n">FF</span> <span class="n">FF</span> <span class="mi">4</span><span class="n">D</span> <span class="mo">04</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mo">00</span> <span class="mi">1</span><span class="n">D</span>   <span class="p">......</span><span class="err">ÿÿÿÿ</span><span class="n">M</span><span class="p">.</span><span class="err">ÿÿ</span><span class="p">..</span>
+<span class="mo">000000</span><span class="mi">80</span>   <span class="mo">01</span> <span class="mo">04</span> <span class="mi">45</span> <span class="mi">54</span> <span class="mi">68</span> <span class="mi">65</span> <span class="mi">20</span> <span class="mi">54</span>  <span class="mi">69</span> <span class="mi">6</span><span class="n">D</span> <span class="mi">65</span> <span class="mi">73</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">33</span> <span class="mf">2F</span>   <span class="p">..</span><span class="n">EThe</span> <span class="n">Times</span> <span class="mo">03</span><span class="o">/</span>
+<span class="mo">000000</span><span class="mi">90</span>   <span class="mi">4</span><span class="n">A</span> <span class="mi">61</span> <span class="mi">6</span><span class="n">E</span> <span class="mf">2F</span> <span class="mi">32</span> <span class="mi">30</span> <span class="mi">30</span> <span class="mi">39</span>  <span class="mi">20</span> <span class="mi">43</span> <span class="mi">68</span> <span class="mi">61</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">63</span> <span class="mi">65</span> <span class="mi">6</span><span class="n">C</span>   <span class="n">Jan</span><span class="o">/</span><span class="mi">2009</span> <span class="n">Chancel</span>
+<span class="mo">000000</span><span class="n">A0</span>   <span class="mi">6</span><span class="n">C</span> <span class="mf">6F</span> <span class="mi">72</span> <span class="mi">20</span> <span class="mf">6F</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">20</span> <span class="mi">62</span>  <span class="mi">72</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">20</span> <span class="mf">6F</span> <span class="mi">66</span> <span class="mi">20</span>   <span class="n">lor</span> <span class="n">on</span> <span class="n">brink</span> <span class="n">of</span>
+<span class="mo">000000</span><span class="n">B0</span>   <span class="mi">73</span> <span class="mi">65</span> <span class="mi">63</span> <span class="mf">6F</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">64</span> <span class="mi">20</span> <span class="mi">62</span>  <span class="mi">61</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">C</span> <span class="mf">6F</span> <span class="mi">75</span> <span class="mi">74</span> <span class="mi">20</span> <span class="mi">66</span>   <span class="n">second</span> <span class="n">bailout</span> <span class="n">f</span>
+<span class="mo">000000</span><span class="n">C0</span>   <span class="mf">6F</span> <span class="mi">72</span> <span class="mi">20</span> <span class="mi">62</span> <span class="mi">61</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">73</span>  <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="mo">01</span> <span class="mo">00</span> <span class="n">F2</span> <span class="mo">05</span>   <span class="n">or</span> <span class="n">banks</span><span class="err">ÿÿÿÿ</span><span class="p">..</span><span class="err">ò</span><span class="p">.</span>
+<span class="mo">000000</span><span class="n">D0</span>   <span class="mi">2</span><span class="n">A</span> <span class="mo">01</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mi">43</span> <span class="mi">41</span> <span class="mo">04</span>  <span class="mi">67</span> <span class="mi">8</span><span class="n">A</span> <span class="n">FD</span> <span class="n">B0</span> <span class="n">FE</span> <span class="mi">55</span> <span class="mi">48</span> <span class="mi">27</span>   <span class="o">*</span><span class="p">....</span><span class="n">CA</span><span class="p">.</span><span class="n">g</span><span class="err">Šý°þ</span><span class="n">UH</span><span class="err">&#39;</span>
+<span class="mf">000000E0</span>   <span class="mi">19</span> <span class="mi">67</span> <span class="n">F1</span> <span class="n">A6</span> <span class="mi">71</span> <span class="mi">30</span> <span class="n">B7</span> <span class="mi">10</span>  <span class="mi">5</span><span class="n">C</span> <span class="n">D6</span> <span class="n">A8</span> <span class="mi">28</span> <span class="n">E0</span> <span class="mi">39</span> <span class="mi">09</span> <span class="n">A6</span>   <span class="p">.</span><span class="n">g</span><span class="err">ñ¦</span><span class="n">q0</span><span class="err">·</span><span class="p">.</span><span class="err">\Ö¨</span><span class="p">(</span><span class="err">à</span><span class="mf">9.</span><span class="err">¦</span>
+<span class="mf">000000F</span><span class="mi">0</span>   <span class="mi">79</span> <span class="mi">62</span> <span class="n">E0</span> <span class="n">EA</span> <span class="mf">1F</span> <span class="mi">61</span> <span class="n">DE</span> <span class="n">B6</span>  <span class="mi">49</span> <span class="n">F6</span> <span class="n">BC</span> <span class="mf">3F</span> <span class="mi">4</span><span class="n">C</span> <span class="n">EF</span> <span class="mi">38</span> <span class="n">C4</span>   <span class="n">yb</span><span class="err">àê</span><span class="p">.</span><span class="n">a</span><span class="err">Þ¶</span><span class="n">I</span><span class="err">ö¼</span><span class="o">?</span><span class="n">L</span><span class="err">ï</span><span class="mi">8</span><span class="err">Ä</span>
+<span class="mo">00000100</span>   <span class="n">F3</span> <span class="mi">55</span> <span class="mo">04</span> <span class="n">E5</span> <span class="mi">1</span><span class="n">E</span> <span class="n">C1</span> <span class="mi">12</span> <span class="n">DE</span>  <span class="mi">5</span><span class="n">C</span> <span class="mi">38</span> <span class="mi">4</span><span class="n">D</span> <span class="n">F7</span> <span class="n">BA</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">8</span><span class="n">D</span> <span class="mi">57</span>   <span class="err">ó</span><span class="n">U</span><span class="p">.</span><span class="err">å</span><span class="p">.</span><span class="err">Á</span><span class="p">.</span><span class="err">Þ\</span><span class="mi">8</span><span class="n">M</span><span class="err">÷º</span><span class="p">..</span><span class="n">W</span>
+<span class="mo">00000110</span>   <span class="mi">8</span><span class="n">A</span> <span class="mi">4</span><span class="n">C</span> <span class="mi">70</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">6</span><span class="n">B</span> <span class="n">F1</span> <span class="mi">1</span><span class="n">D</span> <span class="mf">5F</span>  <span class="n">AC</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span> <span class="mo">00</span>            <span class="err">Š</span><span class="n">Lp</span><span class="o">+</span><span class="n">k</span><span class="err">ñ</span><span class="p">.</span><span class="n">_</span><span class="err">¬</span><span class="p">....</span>
 </pre></div>
 
 
 <p>Trong phiên bản ban đầu của bitcoin, nó được miêu tả như sau:</p>
-<div class="highlight"><pre><span></span>GetHash()      = 0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
-hashMerkleRoot = 0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
-txNew.vin[0].scriptSig     = 486604799 4 0x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854
-txNew.vout[0].nValue       = 5000000000
-txNew.vout[0].scriptPubKey = 0x5F1DF16B2B704C8A578D0BBAF74D385CDE12C11EE50455F3C438EF4C3FBCF649B6DE611FEAE06279A60939E028A8D65C10B73071A6F16719274855FEB0FD8A6704 OP_CHECKSIG
-block.nVersion = 1
-block.nTime    = 1231006505
-block.nBits    = 0x1d00ffff
-block.nNonce   = 2083236893
+<div class="highlight"><pre><span class="n">GetHash</span><span class="p">()</span>      <span class="o">=</span> <span class="mh">0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</span>
+<span class="n">hashMerkleRoot</span> <span class="o">=</span> <span class="mh">0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b</span>
+<span class="n">txNew</span><span class="p">.</span><span class="n">vin</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">scriptSig</span>     <span class="o">=</span> <span class="mi">486604799</span> <span class="mi">4</span> <span class="mh">0x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854</span>
+<span class="n">txNew</span><span class="p">.</span><span class="n">vout</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">nValue</span>       <span class="o">=</span> <span class="mi">5000000000</span>
+<span class="n">txNew</span><span class="p">.</span><span class="n">vout</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">scriptPubKey</span> <span class="o">=</span> <span class="mh">0x5F1DF16B2B704C8A578D0BBAF74D385CDE12C11EE50455F3C438EF4C3FBCF649B6DE611FEAE06279A60939E028A8D65C10B73071A6F16719274855FEB0FD8A6704</span> <span class="n">OP_CHECKSIG</span>
+<span class="n">block</span><span class="p">.</span><span class="n">nVersion</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">block</span><span class="p">.</span><span class="n">nTime</span>    <span class="o">=</span> <span class="mi">1231006505</span>
+<span class="n">block</span><span class="p">.</span><span class="n">nBits</span>    <span class="o">=</span> <span class="mh">0x1d00ffff</span>
+<span class="n">block</span><span class="p">.</span><span class="n">nNonce</span>   <span class="o">=</span> <span class="mi">2083236893</span>
 
-CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
-  CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-    CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
-    CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
-  vMerkleTree: 4a5e1e
+<span class="n">CBlock</span><span class="p">(</span><span class="n">hash</span><span class="o">=</span><span class="mo">00000000001</span><span class="mi">9</span><span class="n">d6</span><span class="p">,</span> <span class="n">ver</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hashPrevBlock</span><span class="o">=</span><span class="mo">00000000000000</span><span class="p">,</span> <span class="n">hashMerkleRoot</span><span class="o">=</span><span class="mi">4</span><span class="n">a5e1e</span><span class="p">,</span> <span class="n">nTime</span><span class="o">=</span><span class="mi">1231006505</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="mi">1</span><span class="n">d00ffff</span><span class="p">,</span> <span class="n">nNonce</span><span class="o">=</span><span class="mi">2083236893</span><span class="p">,</span> <span class="n">vtx</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">CTransaction</span><span class="p">(</span><span class="n">hash</span><span class="o">=</span><span class="mi">4</span><span class="n">a5e1e</span><span class="p">,</span> <span class="n">ver</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vin</span><span class="p">.</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vout</span><span class="p">.</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nLockTime</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">CTxIn</span><span class="p">(</span><span class="n">COutPoint</span><span class="p">(</span><span class="mo">000000</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">coinbase</span> <span class="mf">04ff</span><span class="n">ff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73</span><span class="p">)</span>
+    <span class="n">CTxOut</span><span class="p">(</span><span class="n">nValue</span><span class="o">=</span><span class="mf">50.00000000</span><span class="p">,</span> <span class="n">scriptPubKey</span><span class="o">=</span><span class="mh">0x5F1DF16B2B704C8A578D0B</span><span class="p">)</span>
+  <span class="nl">vMerkleTree:</span> <span class="mi">4</span><span class="n">a5e1e</span>
 </pre></div>
 
 

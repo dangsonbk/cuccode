@@ -5,18 +5,17 @@
             <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
         <title>Dùng Python cập nhật giá Bitcoin</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
-
         <!-- Custom CSS -->
         <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
         <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
-            <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -40,8 +39,8 @@
         <meta name="tags" content="Python">
         <meta name="tags" content="bitcoin">
 
-	                <meta property="og:locale" content="">
-		<meta property="og:site_name" content="cuccode">
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
@@ -136,8 +135,8 @@
 <p>Bây giờ chúng ta bắt đầu bằng việc lấy giá cập nhật của đồng Bitcoin, mã sàn là btc, địa chỉ là <a href="https://wex.nz/api/3/ticker/btc_usd">https://wex.nz/api/3/ticker/btc_usd</a></p>
 <p>Thư viện sử dụng để truy cập API trên là urllib, đây là thư viện mặc định của Python nên bạn có thể import và sử dụng luôn.</p>
 <p>Trên Python Sell (Python 3):</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://wex.nz/api/3/ticker/btc_usd&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;https://wex.nz/api/3/ticker/btc_usd&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 <span class="go">b&#39;{&quot;btc_usd&quot;:{&quot;high&quot;:4234.181,&quot;low&quot;:4091.45,&quot;avg&quot;:4162.8155,&quot;vol&quot;:2059874.59043,&quot;vol_cur&quot;:493.2161,&quot;last&quot;:4166.271,&quot;buy&quot;:4185,&quot;sell&quot;:4166.271,&quot;updated&quot;:1506223812}}&#39;</span>
 </pre></div>
@@ -166,28 +165,30 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">ticker</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">btceGetTicker</span><span class="p">(</span><span class="s2">&quot;btc-usd&quot;</span><span class="p">)</span>
+    <span class="n">ticker</span> <span class="o">=</span> <span class="n">btceGetTicker</span><span class="p">(</span><span class="s">&quot;btc-usd&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
 
 <p>Cùng đi dọc từ phần đầu chương trình xuống dưới:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 
@@ -197,7 +198,7 @@
 <p>Thư viện lập trình cung cấp cho người dùng (ở đây là lập trình viên sử dụng thư viện) các hàm, tiện ích ... cho phép người dùng không cần phải viết lại mọi thứ và chỉ cần tập trung vào vấn đề chính cần giải quyết của phần mềm. Python cung cấp sẵn rất nhiều thư viện đi kèm với gói cài đặt, ngoài ra là một số lượng rất lớn các thư viện khác được người dùng chia sẻ.</p>
 </blockquote>
 <p>Lại một kiến thức mới về json đối với các bạn mới học lập trình. Bạn có thể hiểu một cách đơn giản đó là khi bạn lưu trữ hoặc truyền dữ liệu, thay vì sử dụng các con số 0, 1 chỉ máy tính mới hiểu thì bạn có thể dùng một file văn bản. Dĩ nhiên để cho cả máy tính và người đều hiểu thì văn bản này phải được thiết kế theo một format nhất định, một văn bản json thường trông như thế này:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Product&quot;</span><span class="p">,</span>
     <span class="nt">&quot;properties&quot;</span><span class="p">:</span>
     <span class="p">{</span>
@@ -226,7 +227,7 @@
 
 <p>Chuyên sâu thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a></p>
 <p>Bạn có thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz?</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;btc_usd&quot;</span><span class="p">:</span>
     <span class="p">{</span>
         <span class="nt">&quot;high&quot;</span><span class="p">:</span> <span class="mf">4234.181</span><span class="p">,</span>
@@ -244,13 +245,13 @@
 
 
 <p>Tiếp theo chúng ta có hàm lấy giá bitcoin:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">ticker</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 
@@ -262,13 +263,126 @@
 <p>Tiếp sau đó là thân hàm, thân hàm được lùi vào 1 tab (hoặc 2 hoặc 4 khoảng trắng) theo đúng cú pháp của Python.
 Lệnh <code>return</code> ở cuối hàm trả về giá trị sau khi thực hiện hàm.</p>
 <p>Lấy một ví dụ thực tế:</p>
-<div class="highlight"><pre><span></span>- Sỹ, xem hộ tao 10 giờ chưa?
-- Kém 5 phút
+<div class="highlight"><pre><span class="o">-</span> <span class="n">S</span><span class="err">ỹ</span><span class="p">,</span> <span class="n">xem</span> <span class="n">h</span><span class="err">ộ</span> <span class="n">tao</span> <span class="mi">10</span> <span class="n">gi</span><span class="err">ờ</span> <span class="n">ch</span><span class="err">ư</span><span class="n">a</span><span class="o">?</span>
+<span class="o">-</span> <span class="n">K</span><span class="err">é</span><span class="n">m</span> <span class="mi">5</span> <span class="n">ph</span><span class="err">ú</span><span class="n">t</span>
 </pre></div>
 
 
 <p><code>Sỹ</code>: thư viện nhờ vả. <code>xem hộ tao (X) giờ chưa</code>? là tên hàm để thực hiện so xem mấy phút nữa đến X giờ. <code>10</code>: đối số truyền vào. <code>Kém 5 phút</code>: giá trị trả về (return)</p>
-<p>--- (Còn tiếp), đang type dở mà méo biết cái này save vào kiểu gì. :|</p>
+<p>Quay lại vấn đề chính, trong thân hàm bạn sẽ thấy một câu lệnh mà thực chất thực hiện 2 lời gọi hàm lồng vào nhau:</p>
+<div class="highlight"><pre><span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Lời gọi hàm thứ nhất đó là gọi một hàm từ thư viện <code>urllib.request</code>, với đối số truyền vào là đường dẫn API. Ở đây bạn sẽ thấy mình truyền vào chuỗi: <code>"https://wex.nz/api/3/ticker/" + pairs</code>. <code>pairs</code> ở đây chính là cặp tỷ giá bạn muốn lấy thông tin, ví dụ: <code>btc_usd</code></p>
+<div class="highlight"><pre><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Giá trị trả về sẽ được đưa vào làm đối số của hàm tiếp theo: <code>json.load()</code>. Đúng như tên gọi, hàm này sẽ đọc (load) chuỗi json và trả về nội dung vào biến <code>ticker</code>.</p>
+<p>Trong trường hợp có lỗi xảy ra (không truy cập được vào API, timeout, json trả về sai ... ) một exception sẽ được sinh ra và nội dung sẽ được in trên sell. Xem thêm về bắt lỗi ở đây: <a href="http://cuccode.com/python_error_exceptions_handling.html">Python Errors and Exceptions handling</a></p>
+<p>Tiếp theo chúng ta phân tích đến hàm <code>main()</code>, nhiệm vụ hiện tại của hàm main này chưa có gì ngoài việc gọi hàm <code>btceGetTicker()</code> kèm theo đối số là cặp tỷ giá muốn lấy thông tin, tạm thời đang là <code>btc_usd</code>.</p>
+<p>Tiếp nữa bạn sẽ thấy một câu lệnh nhìn khá là lạ:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Đây là một cách viết khá phổ biến khi lập trình Python. Nhiệm vụ của đoạn code này là kiểm tra xem file .py đang được gọi từ đâu. Mình sẽ giải thích kỹ hơn phần này bằng một ví dụ như sau:</p>
+<p>Bạn có một file code Python có tên là <code>mymodule.py</code>.
+Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import mymodule</code>) thì biến <code>__name__</code> sẽ có giá trị là <code>mymodule</code>. Nếu bạn gọi từ console (chạy <code>python mymodule.py</code>) thì <code>__name__</code> sẽ có giá trị là <code>__main__</code></p>
+<p>Như vậy câu lệnh trên chỉ đơn giản là kiểm tra xem có phải bạn đang chạy trực tiếp code không, nếu đúng như vậy thì sẽ chạy hàm main tương ứng.</p>
+<blockquote>
+<p>Thực chất bạn có thể gọi trực tiếp hàm <code>btceGetTicker()</code> từ đây</p>
+</blockquote>
+<hr>
+<h3>Lấy giá bitcoin sau một khoảng thời gian nhất định</h3>
+<p>Khi chạy thử, bạn sẽ thấy chương trình chỉ lấy giá một lần sau đó thoát ra. Để thực hiện được nhiều lần, chúng ta sẽ gọi hàm <code>btceGetTicker()</code> để lấy giá liên tục từ một vòng lặp, tiện thể chúng ta sẽ sửa đổi một chút để không chỉ lấy mỗi tỷ giá <code>btc_usd</code>. Bạn update nội dung hàm main như sau:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ticker</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Đầu tiên là vòng lặp <code>while True:</code>, do điều kiện lặp luôn luôn là <code>True</code> nên sẽ lặp vô tận code bên trong.</p>
+<p>Tiếp theo chúng ta tạo danh sách các cặp tỷ giá muốn lấy thông tin, dĩ nhiên mình không bịa ra chuỗi này được, thông tin chi tiết bạn tham khảo trong đặc tả API: <a href="https://wex.nz/api/3/docs">wex public API</a>, về cơ bản thì bạn chỉ cần phân tách các cặp tỉ giá bằng dấu <code>-</code></p>
+<p>Đầu tiên chúng ta có một danh sách các cặp tỉ giá:</p>
+<div class="highlight"><pre><span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Sau đó ta nối chúng lại thành một chuỗi:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span>
+<span class="go">&#39;btc_usd-ltc_usd-nmc_usd-nvc_usd-ppc_usd-dsh_usd-eth_usd-usd_rur&#39;</span>
+</pre></div>
+
+
+<p>Hàm <code>btceGetTicker()</code> sau đó sẽ nối chuỗi này thành một địa chỉ API hợp lệ, bạn có thể thử lại bằng trình duyệt để kiểm tra. Bạn cũng có thể code luôn chuỗi này vào biến <code>pairs</code> cũng được, tuy nhiên ở đây mình tách ra để sau này nếu muốn thêm hoặc xóa một cặp tỷ giá, mình chỉ cần sửa trong danh sách <code>COINS</code> rất dễ dàng.</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span>
+<span class="go">&#39;https://wex.nz/api/3/ticker/btc_usd-ltc_usd-nmc_usd-nvc_usd-ppc_usd-dsh_usd-eth_usd-usd_rur&#39;</span>
+</pre></div>
+
+
+<p>Kiểm tra lại cho chắc chắn rồi mới in:</p>
+<div class="highlight"><pre>    <span class="k">if</span> <span class="n">ticker</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Ở đây bạn có thể ngầm hiểu <code>if ticker</code> tương đương với việc kiểm tra nếu biến <code>ticker != None</code>.</p>
+<p>Tại sao lại <code>None</code>? Mình sẽ copy lại đoạn code <code>btceGetTicker</code> để bạn khỏi cần kéo chuột:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+
+
+<p>Như vậy trong trường hợp biến ticker được cập nhật (nghĩa là mọi chuyện xảy ra suôn sẻ) thì giá trị ticker sẽ được trả về, đồng nghĩa với việc tất cả lệnh sau đó trong hàm sẽ không được thực thi nữa. Tuy nhiên, nếu chuyện xảy ra không suôn sẻ, exception nào đó bị bắt lại, đoạn chương trình sẽ chạy qua <code>print("Get ticker failed: ", e)</code> tới lệnh return mặc định: <code>return None</code>. Đây cũng là một mẹo rất hữu ích khi lập trình, nếu một lời gọi hàm chờ đợi một giá trị trả về, hãy luôn đảm bảo hàm được gọi sẽ trả về hoặc là kết quả, hoặc là một giá trị nào đó (kể cả lỗi) trong mọi trường hợp.</p>
+<p>Như vậy chúng ta đã có thể cập nhật được tỷ giá một cách liên tục, tuy nhiên còn một vấn đề nữa, đó là việc cập nhật liên tục này là không cần thiết. Nguyên nhân là tỷ giá trên sàn cũng không giao động quá nhiều trong một khoảng thời gian ngắn, hơn nữa chúng ta sẽ mất rất nhiều resource nếu thực hiện việc này liên tục (CPU, lưu trữ, đường truyền ...).</p>
+<p>Để khắc phục, chúng ta sẽ thêm vào một lệnh cho phép chương trình "nghỉ ngơi" trong một khoảng thời gian. Đầu tiên, thêm module time vào đầu chương trình:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+
+
+<p>Sửa đổi hàm main một chút:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ticker</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Chú ý câu lệnh: <code>time.sleep(15)</code>. 15 ở đây là số giây (thời gian) mà chương trình sẽ "tạm nghỉ" khi gặp lệnh này, bạn có thể tăng hoặc giảm tùy ý.</p>
+<hr>
+<p>Còn tiếp ...</p>
     </article>
 
         <div class="tags">
