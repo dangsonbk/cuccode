@@ -382,7 +382,105 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 
 <p>Chú ý câu lệnh: <code>time.sleep(15)</code>. 15 ở đây là số giây (thời gian) mà chương trình sẽ "tạm nghỉ" khi gặp lệnh này, bạn có thể tăng hoặc giảm tùy ý.</p>
 <hr>
-<p>Còn tiếp ...</p>
+<h3>Lưu dữ liệu vào cơ sở dữ liệu mongodb</h3>
+<p><strong><em>Giới thiệu về csdl mongodb:</em></strong></p>
+<p>MongoDB là một hệ quản trị cơ sở dữ liệu mã nguồn mở thiết kế theo kiểu hướng đối tượng, các bảng trong MongoDB được cấu trúc rất linh hoạt cho phép các dữ liệu lưu trữ trên bảng không cần tuân theo một cấu trúc nhất định. Các dữ liệu được lưu trữ kiểu JSON với khả năng truy vấn cực kỳ nhanh.</p>
+<p>Ở bài viết này mình sẽ không đi sâu vào việc cài đặt mongodb trên máy của bạn, việc cài đặt không quá khó và cũng có rất nhiều bài viết chi tiết hướng dẫn rồi.</p>
+<blockquote>
+<p>Nếu bạn sử dụng máy cá nhân thì chỉ cần cài đặt phiên bản community là đủ. Download tại địa chỉ: <a href="https://www.mongodb.com/download-center#community">MongoDB download center</a></p>
+</blockquote>
+<p><strong><em>Cài đặt MongoDB package cho Python</em></strong></p>
+<p>Gói cài đặt sẵn của Python không hỗ trợ package để làm việc với MongoDB đồng nghĩa với việc bạn bắt buộc phải cài đặt thêm vào nếu muốn sử dụng. Ở đây mình xin giới thiệu package được khuyến nghị có tên là <a href="https://api.mongodb.com/python/current/">PyMongo</a></p>
+<p>Việc cài đặt rất đơn giản sử dụng <a href="http://pypi.python.org/pypi/pip">pip</a>, từ cửa sổ command của windows, bạn gõ lệnh sau:</p>
+<div class="highlight"><pre>python -m pip install pymongo
+</pre></div>
+
+
+<blockquote>
+<p>Trên windows 10 do giới hạn quyền, việc cài đặt có thể bị lỗi, bạn nên mở windows command sử dụng quyền Administrator</p>
+</blockquote>
+<p>Để sử dụng pymongo, bước đầu tiên là import module:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+</pre></div>
+
+
+<p><strong><em>Setup connection:</em></strong></p>
+<blockquote>
+<p>Giả sử bạn đang có mongodb server hoạt động ở <code>localhost</code>, cổng <code>27017</code>, đã tạo sẵn collection: <code>wex</code> và không yêu cầu đăng nhập.</p>
+</blockquote>
+<p>Thêm đoạn code sau vào hàm main:</p>
+<div class="highlight"><pre><span class="c"># setup database connection</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="n">dbClientConnection</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">dbClientConnection</span><span class="p">[</span><span class="s">&quot;wex&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Để lưu giá trị json vừa lấy được từ API của <a href="https://wex.nz/">wex.nz</a> về, bạn chỉ việc insert trực tiếp vào document của mongodb. Hàm <code>main()</code> hoàn chỉnh như sau (chú ý import thêm module <code>datetime</code>):</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
+
+    <span class="c"># setup database connection</span>
+    <span class="n">dbClientConnection</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">dbClientConnection</span><span class="p">[</span><span class="s">&quot;wex&quot;</span><span class="p">]</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ticker</span><span class="p">:</span>
+            <span class="n">ticker</span><span class="p">[</span><span class="s">&quot;update_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s">&quot;ticker&quot;</span><span class="p">]</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Ở đây mình có thay đổi một chút dữ liệu trong <code>ticker</code> để phù hợp hơn với việc lưu trữ và truy xuất dữ liệu trong mongodb, tạm thời bạn có thể không cần quá quan tâm tới chi tiết này: <code>ticker["update_time"] = datetime.datetime.utcnow()</code></p>
+<p>Tạo một document có tên <code>ticker</code>: <code>entry = db["ticker"]</code>. Để ý <code>db</code> chính là object collection được tạo ở trên: <code>db = dbClientConnection["wex"]</code></p>
+<p>Lưu dữ liệu vào document: <code>entry.insert_one(ticker)</code>.</p>
+<blockquote>
+<p>Ví dụ mẫu về lưu dữ liệu vào mongodb từ Python: <a href="https://api.mongodb.com/python/current/tutorial.html">MongoDB tutorial</a></p>
+</blockquote>
+<hr>
+<h3>Code hoàn chỉnh:</h3>
+<div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s">&quot;usd_rur&quot;</span><span class="p">]</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
+    <span class="c"># setup database connection</span>
+    <span class="n">dbClientConnection</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">dbClientConnection</span><span class="p">[</span><span class="s">&quot;wex&quot;</span><span class="p">]</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ticker</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ticker</span><span class="p">[</span><span class="s">&quot;update_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s">&quot;ticker&quot;</span><span class="p">]</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Store ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
     </article>
 
         <div class="tags">
