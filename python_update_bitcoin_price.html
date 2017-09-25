@@ -187,6 +187,10 @@
 </pre></div>
 </td></tr></table>
 
+<blockquote>
+<p><strong><em>Hướng dẫn chạy thử chương trình từ windows console:</em></strong> từ thư mục chứa file, bạn gõ <code>cmd</code> trên thanh địa chỉ. Một cửa sổ Windows Commander sẽ hiện lên. Gõ <code>python ten_file.py</code> để chạy script. Ở ví dụ này là: <code>python crawler.py</code>.</p>
+<p><strong><em>Hướng dẫn chạy thử chương trình từ IDLE (Python GUI):</em></strong> load file cần chạy, có thể sửa trực tiếp file code trên này, nhấn F5 để chạy.</p>
+</blockquote>
 <p>Cùng đi dọc từ phần đầu chương trình xuống dưới:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -257,7 +261,7 @@
 
 
 <blockquote>
-<p>Mình có gặp một thắc có lẽ cũng thường gặp của một bạn đang muốn học Python để trợ giúp công việc, nguyên văn như thế này: "(...) bác nào pro cho e hỏi là cùng một đoạn lệnh mà muốn đổi biến nó cũng chạy đoạn lệnh đó thì làm ntn? Chứ copy lại cũng nhanh cơ mà nhìn dài dài kiểu gì ấy! ". Vâng, câu trả lời đó chính là sử dụng hàm.</p>
+<p>Mình có gặp một thắc mắc có lẽ cũng thường gặp của một bạn đang muốn học Python để trợ giúp công việc, nguyên văn như thế này: "(...) bác nào pro cho e hỏi là cùng một đoạn lệnh mà muốn đổi biến nó cũng chạy đoạn lệnh đó thì làm ntn? Chứ copy lại cũng nhanh cơ mà nhìn dài dài kiểu gì ấy! ". Vâng, câu trả lời đó chính là sử dụng hàm.</p>
 </blockquote>
 <p>Ở đây <code>btceGetTicker</code> là tên hàm, <code>pairs</code> là đối số truyền vào, một hàm có thể có 1 hoặc nhiều hoặc không có đối số truyền vào.</p>
 <p>Tiếp sau đó là thân hàm, thân hàm được lùi vào 1 tab (hoặc 2 hoặc 4 khoảng trắng) theo đúng cú pháp của Python. Lệnh <code>return</code> ở cuối hàm trả về giá trị sau khi thực hiện hàm.</p>
@@ -434,15 +438,55 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 </pre></div>
 
 
-<p>Ở đây mình có thay đổi một chút dữ liệu trong <code>ticker</code> để phù hợp hơn với việc lưu trữ và truy xuất dữ liệu trong mongodb, tạm thời bạn có thể không cần quá quan tâm tới chi tiết này: <code>ticker["update_time"] = datetime.datetime.utcnow()</code></p>
-<p>Tạo một document có tên <code>ticker</code>: <code>entry = db["ticker"]</code>. Để ý <code>db</code> chính là object collection được tạo ở trên: <code>db = dbClientConnection["wex"]</code></p>
-<p>Lưu dữ liệu vào document: <code>entry.insert_one(ticker)</code>.</p>
+<p>Ở đây mình có thay đổi một chút dữ liệu trong <code>ticker</code> để phù hợp hơn với việc lưu trữ và truy xuất dữ liệu trong mongodb, tạm thời bạn có thể không cần quá quan tâm tới chi tiết này:</p>
+<div class="highlight"><pre><span class="n">ticker</span><span class="p">[</span><span class="s">&quot;update_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Tiếp theo ta cần tạo một document có tên <code>ticker</code>, việc khởi tạo này khá đơn giản: <code>entry = db["ticker"]</code>. Để ý <code>db</code> chính là object collection được tạo ở trên: <code>db = dbClientConnection["wex"]</code></p>
+<p>Để dữ liệu vào document, bạn chỉ việc lưu trực tiếp nội dung json: <code>entry.insert_one(ticker)</code>.</p>
 <blockquote>
 <p>Ví dụ mẫu về lưu dữ liệu vào mongodb từ Python: <a href="https://api.mongodb.com/python/current/tutorial.html">MongoDB tutorial</a></p>
 </blockquote>
 <hr>
 <h3>Code hoàn chỉnh:</h3>
-<div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">urllib.request</span>
@@ -480,6 +524,7 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
+</td></tr></table>
     </article>
 
         <div class="tags">
