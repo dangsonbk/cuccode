@@ -113,7 +113,7 @@
     <!-- Post Content -->
     <article>
         <blockquote>
-<p>Note: Đây là bài viết đầu tiên của mình sử dụng Python cho một ứng dụng thực tế, mình sẽ viết khá cơ bản cho những bạn mới sử dụng Python hoặc mới bắt đầu học lập trình có thể dễ dàng tiếp cận. Một số kiến thức hoặc kỹ năng giới thiệu trong bài viết có thể khá là nhàm chán nếu bạn đã quen với việc lập trình, ngoài ra việc ngắt quãng để giải thích một số thuật ngữ, kỹ thuật cơ bản có thể khiến bài viết không được liền mạch.</p>
+<p>Note: Đây là bài viết đầu tiên của mình sử dụng Python cho một ứng dụng thực tế, mình sẽ viết một cách cơ bản nhất cho những bạn mới sử dụng Python hoặc mới bắt đầu học lập trình có thể dễ dàng tiếp cận. Một số kiến thức hoặc kỹ năng giới thiệu trong bài viết có thể khá nhàm chán nếu bạn đã quen với việc lập trình, ngoài ra việc ngắt quãng để giải thích một số thuật ngữ, kỹ thuật cơ bản có thể khiến bài viết không được liền mạch.</p>
 </blockquote>
 <p>Đây là bài viết dựa trên một ứng dụng thực tế của mình và ứng dụng cũng đang hoạt động khá ổn định. Mục tiêu của ứng dụng bao gồm:</p>
 <ul>
@@ -128,7 +128,7 @@
 <blockquote>
 <p>Một giao diện lập trình ứng dụng (tiếng Anh Application Programming Interface hay API) là một giao diện mà một hệ thống máy tính hay ứng dụng cung cấp để cho phép các yêu cầu dịch vụ có thể được tạo ra từ các chương trình máy tính khác, và/hoặc cho phép dữ liệu có thể được trao đổi qua lại giữa chúng. (...) Nhiều loại hệ thống và ứng dụng hiện thực API, như các hệ thống đồ họa, cơ sở dữ liệu, mạng, dịch vụ web, và ngay cả một số trò chơi máy tính.</p>
 </blockquote>
-<p>Để cho dễ hiểu hơn về API của wex, bạn có thể truy cập vào đường dẫn sau: <a href="https://wex.nz/api/3/ticker/btc_usd-btc_rur">https://wex.nz/api/3/ticker/btc_usd-btc_rur</a>. Kết quả trả về toàn bộ là dữ liệu thô, không kèm theo các dữ liệu về giao diện web hay những thành phần không liên quan.</p>
+<p>Để cho dễ hiểu hơn về API của wex, bạn có thể truy cập vào đường dẫn sau: <a href="https://wex.nz/api/3/ticker/btc_usd-btc_rur">https://wex.nz/api/3/ticker/btc_usd-btc_rur</a>. Kết quả trả về toàn bộ là dữ liệu thô, không kèm theo các nội dung về giao diện web hay những thành phần không liên quan.</p>
 <blockquote>
 <p>Ngoài public API, wex cũng cung cấp các APIs liên quan đến giao dịch trên sàn: <a href="https://wex.nz/tapi/docs">Trade API</a>, <a href="https://wex.nz/pushAPI/docs">Push API</a></p>
 </blockquote>
@@ -197,7 +197,7 @@
 <blockquote>
 <p>Thư viện lập trình cung cấp cho người dùng (ở đây là lập trình viên sử dụng thư viện) các hàm, tiện ích ... cho phép người dùng không cần phải viết lại mọi thứ và chỉ cần tập trung vào vấn đề chính cần giải quyết của phần mềm. Python cung cấp sẵn rất nhiều thư viện đi kèm với gói cài đặt, ngoài ra là một số lượng rất lớn các thư viện khác được người dùng chia sẻ.</p>
 </blockquote>
-<p>Lại một kiến thức mới về json đối với các bạn mới học lập trình. Bạn có thể hiểu một cách đơn giản đó là khi bạn lưu trữ hoặc truyền dữ liệu, thay vì sử dụng các con số 0, 1 chỉ máy tính mới hiểu thì bạn có thể dùng một file văn bản. Dĩ nhiên để cho cả máy tính và người đều hiểu thì văn bản này phải được thiết kế theo một format nhất định, một văn bản json thường trông như thế này:</p>
+<p>Lại một kiến thức mới về json đối với các bạn mới học lập trình. Bạn có thể hiểu một cách đơn giản là khi bạn lưu trữ hoặc truyền dữ liệu, thay vì sử dụng các con số 0, 1 chỉ máy tính mới hiểu thì bạn có thể dùng một file văn bản. Dĩ nhiên để cho cả máy tính và người đều hiểu thì văn bản này phải được thiết kế theo một format nhất định, một văn bản json thường trông như thế này:</p>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Product&quot;</span><span class="p">,</span>
     <span class="nt">&quot;properties&quot;</span><span class="p">:</span>
@@ -225,8 +225,8 @@
 </pre></div>
 
 
-<p>Chuyên sâu thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a></p>
-<p>Bạn có thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz?</p>
+<p>Chuyên sâu hơn thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a></p>
+<p>Bạn có thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz:</p>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;btc_usd&quot;</span><span class="p">:</span>
     <span class="p">{</span>
@@ -244,7 +244,7 @@
 </pre></div>
 
 
-<p>Tiếp theo chúng ta có hàm lấy giá bitcoin:</p>
+<p>Tiếp theo chúng ta có <strong><em>hàm</em></strong> lấy thông tin tỷ giá bitcoin:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
@@ -257,14 +257,13 @@
 
 
 <blockquote>
-<p>Mình có gặp một thắc mắc khá "ngây ngô" của một bạn đang muốn học Python để trợ giúp công việc, nguyên văn như thế này: "(...) bác nào pro cho e hỏi là cùng một đoạn lệnh mà muốn đổi biến nó cũng chạy đoạn lệnh đó thì làm ntn? Chứ copy lại cũng nhanh cơ mà nhìn dài dài kiểu gì ấy! ". Vâng, câu trả lời đó chính là sử dụng hàm.</p>
+<p>Mình có gặp một thắc có lẽ cũng thường gặp của một bạn đang muốn học Python để trợ giúp công việc, nguyên văn như thế này: "(...) bác nào pro cho e hỏi là cùng một đoạn lệnh mà muốn đổi biến nó cũng chạy đoạn lệnh đó thì làm ntn? Chứ copy lại cũng nhanh cơ mà nhìn dài dài kiểu gì ấy! ". Vâng, câu trả lời đó chính là sử dụng hàm.</p>
 </blockquote>
 <p>Ở đây <code>btceGetTicker</code> là tên hàm, <code>pairs</code> là đối số truyền vào, một hàm có thể có 1 hoặc nhiều hoặc không có đối số truyền vào.</p>
-<p>Tiếp sau đó là thân hàm, thân hàm được lùi vào 1 tab (hoặc 2 hoặc 4 khoảng trắng) theo đúng cú pháp của Python.
-Lệnh <code>return</code> ở cuối hàm trả về giá trị sau khi thực hiện hàm.</p>
+<p>Tiếp sau đó là thân hàm, thân hàm được lùi vào 1 tab (hoặc 2 hoặc 4 khoảng trắng) theo đúng cú pháp của Python. Lệnh <code>return</code> ở cuối hàm trả về giá trị sau khi thực hiện hàm.</p>
 <p>Lấy một ví dụ thực tế:</p>
-<div class="highlight"><pre><span class="o">-</span> <span class="n">S</span><span class="err">ỹ</span><span class="p">,</span> <span class="n">xem</span> <span class="n">h</span><span class="err">ộ</span> <span class="n">tao</span> <span class="mi">10</span> <span class="n">gi</span><span class="err">ờ</span> <span class="n">ch</span><span class="err">ư</span><span class="n">a</span><span class="o">?</span>
-<span class="o">-</span> <span class="n">K</span><span class="err">é</span><span class="n">m</span> <span class="mi">5</span> <span class="n">ph</span><span class="err">ú</span><span class="n">t</span>
+<div class="highlight"><pre>- Sỹ, xem hộ tao 10 giờ chưa?
+- Kém 5 phút
 </pre></div>
 
 
@@ -446,7 +445,7 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 <div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
