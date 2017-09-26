@@ -133,7 +133,7 @@
 <p>Ngoài public API, wex cũng cung cấp các APIs liên quan đến giao dịch trên sàn: <a href="https://wex.nz/tapi/docs">Trade API</a>, <a href="https://wex.nz/pushAPI/docs">Push API</a></p>
 </blockquote>
 <p>Bây giờ chúng ta bắt đầu bằng việc lấy giá cập nhật của đồng Bitcoin, mã sàn là btc, địa chỉ là <a href="https://wex.nz/api/3/ticker/btc_usd">https://wex.nz/api/3/ticker/btc_usd</a></p>
-<p>Thư viện sử dụng để truy cập API trên là urllib, đây là thư viện mặc định của Python nên bạn có thể import và sử dụng luôn.</p>
+<p>Thư viện sử dụng để truy cập API trên là <a href="https://docs.python.org/3/library/urllib.request.html#module-urllib.request">urllib</a>, đây là thư viện mặc định của Python nên bạn có thể import và sử dụng luôn.</p>
 <p>Trên Python Sell (Python 3):</p>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;https://wex.nz/api/3/ticker/btc_usd&#39;</span><span class="p">)</span>
@@ -146,7 +146,7 @@
 <p>Dĩ nhiên là không ai chạy script trên Shell mãi được, Python cho phép chạy code từ file text có đuôi .py để lập trình viên có thể dễ dàng làm việc hơn.</p>
 <blockquote>
 <p>Trên Windows, khi bạn tạo một file text có tên <code>main.py</code>, có thể hệ điều hành sẽ tạo cho bạn một file <code>main.py.txt</code>. Để tránh việc này xảy ra và cũng giúp bạn thuận tiện hơn trong việc viết code sau này, mình khuyên các bạn sử dụng các trình soạn thảo code hoặc IDE chuyên dùng như <a href="https://www.sublimetext.com/3">Sublime Text</a>, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://notepad-plus-plus.org">Notepad++</a>, <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>...</p>
-<p>Cá nhân mình đang sử dụng cả Sublime Text lẫn Visual Studio Code và thấy rất hài lòng, mỗi phần mềm đều có những ưu điểm riêng. Notepad++ có lẽ hơi phần già nua so với 2 trình trên, Pycharm thì mình cảm giác rườm rà quá mức cần thiết và khá ỳ ạch.</p>
+<p>Cá nhân mình đang sử dụng cả Sublime Text lẫn Visual Studio Code và thấy rất hài lòng, mỗi phần mềm đều có những ưu điểm riêng.</p>
 </blockquote>
 <p>Quay lại chủ đề chính, bạn cần tạo một file crawler.py có nội dung như sau:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -197,7 +197,7 @@
 </pre></div>
 
 
-<p>Phần này khá dễ hiểu, đầu tiên chương trình sẽ import thư viện urllib.request và thư viện json</p>
+<p>Phần này khá dễ hiểu, đầu tiên chương trình sẽ import thư viện <code>urllib.request</code> và thư viện <code>json</code></p>
 <blockquote>
 <p>Thư viện lập trình cung cấp cho người dùng (ở đây là lập trình viên sử dụng thư viện) các hàm, tiện ích ... cho phép người dùng không cần phải viết lại mọi thứ và chỉ cần tập trung vào vấn đề chính cần giải quyết của phần mềm. Python cung cấp sẵn rất nhiều thư viện đi kèm với gói cài đặt, ngoài ra là một số lượng rất lớn các thư viện khác được người dùng chia sẻ.</p>
 </blockquote>
@@ -446,7 +446,7 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 <p>Tiếp theo ta cần tạo một document có tên <code>ticker</code>, việc khởi tạo này khá đơn giản: <code>entry = db["ticker"]</code>. Để ý <code>db</code> chính là object collection được tạo ở trên: <code>db = dbClientConnection["wex"]</code></p>
 <p>Để dữ liệu vào document, bạn chỉ việc lưu trực tiếp nội dung json: <code>entry.insert_one(ticker)</code>.</p>
 <blockquote>
-<p>Ví dụ mẫu về lưu dữ liệu vào mongodb từ Python: <a href="https://api.mongodb.com/python/current/tutorial.html">MongoDB tutorial</a></p>
+<p>Ví dụ mẫu làm việc với mongodb bằng Python: <a href="https://api.mongodb.com/python/current/tutorial.html">MongoDB tutorial</a></p>
 </blockquote>
 <hr>
 <h3>Code hoàn chỉnh:</h3>
