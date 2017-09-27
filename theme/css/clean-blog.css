@@ -260,7 +260,7 @@ hr.small {
   color: #0085a1;
   text-decoration: underline;
 }
-.pos-meta {
+.post-meta {
   line-height: 0;
 }
 @media only screen and (min-width: 768px) {
