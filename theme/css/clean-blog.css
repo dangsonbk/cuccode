@@ -260,6 +260,9 @@ hr.small {
   color: #0085a1;
   text-decoration: underline;
 }
+.pos-meta {
+  line-height: 0;
+}
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
     font-size: 36px;
@@ -415,4 +418,6 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
-.article-summary {}
+.article-summary {
+  margin: 0px;
+}
