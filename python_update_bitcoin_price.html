@@ -252,8 +252,10 @@
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ticker</span>
+        <span class="n">ticker_raw</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+        <span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker_json</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
@@ -272,17 +274,35 @@
 
 
 <p><code>Sỹ</code>: thư viện nhờ vả. <code>xem hộ tao (X) giờ chưa</code>? là tên hàm để thực hiện so xem mấy phút nữa đến X giờ. <code>10</code>: đối số truyền vào. <code>Kém 5 phút</code>: giá trị trả về (return)</p>
-<p>Quay lại vấn đề chính, trong thân hàm bạn sẽ thấy một câu lệnh mà thực chất thực hiện 2 lời gọi hàm lồng vào nhau:</p>
-<div class="highlight"><pre><span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
+<p>Quay lại vấn đề chính, trong thân hàm bạn sẽ thấy một một số câu lệnh khá rắc rối:</p>
+<div class="highlight"><pre><span class="n">ticker_raw</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+<span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
 </pre></div>
 
 
-<p>Lời gọi hàm thứ nhất đó là gọi một hàm từ thư viện <code>urllib.request</code>, với đối số truyền vào là đường dẫn API. Ở đây bạn sẽ thấy mình truyền vào chuỗi: <code>"https://wex.nz/api/3/ticker/" + pairs</code>. <code>pairs</code> ở đây chính là cặp tỷ giá bạn muốn lấy thông tin, ví dụ: <code>btc_usd</code></p>
+<p>Dòng thứ nhất đó là lời gọi một hàm từ thư viện <code>urllib.request</code>, đối số truyền vào là đường dẫn API. Ở đây bạn sẽ thấy mình truyền vào chuỗi: <code>"https://wex.nz/api/3/ticker/" + pairs</code>. <code>pairs</code> ở đây chính là cặp (các cặp) tỷ giá muốn lấy thông tin, ví dụ: <code>btc_usd</code></p>
 <div class="highlight"><pre><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+<span class="c"># urllib.request.urlopen(&quot;https://wex.nz/api/3/ticker/btc_usd&quot;)</span>
 </pre></div>
 
 
-<p>Giá trị trả về sẽ được đưa vào làm đối số của hàm tiếp theo: <code>json.load()</code>. Đúng như tên gọi, hàm này sẽ đọc (load) chuỗi json và trả về nội dung vào biến <code>ticker</code>.</p>
+<blockquote>
+<p>Để giải thích chi tiết phần này sẽ hơi khó cho các bạn mới học lập trình hoặc mới làm quen với Python cũng như thư viện urllib. Về cơ bản, có thể hiểu flow của đoạn code trên như sau: <strong>Lấy data từ web -&gt; lấy thông tin encoding -&gt; decode theo thông tin encoding -&gt; convert sang dữ liệu kiểu json</strong></p>
+</blockquote>
+<p>Dòng tiếp theo sẽ lấy thông tin encoding của dữ liệu web trả về.</p>
+<div class="highlight"><pre><span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<blockquote>
+<p><code>urllib.request.urlopen(url[, data][, timeout])</code>: data should be a buffer in the standard application/x-www-form-urlencoded format. Chi tiết: <a href="https://docs.python.org/3.0/library/urllib.request.html#urllib.request.urlopen">urllib.request.html#urllib.request.urlopen</a></p>
+</blockquote>
+<p>Giá trị trả về sẽ được đọc và decode sau đó đưa vào làm đối số của hàm tiếp theo: <code>json.loads()</code>. Đúng như tên gọi, hàm này sẽ đọc (load) chuỗi json và trả về nội dung vào biến <code>ticker_json</code>.</p>
+<div class="highlight"><pre><span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
+</pre></div>
+
+
 <p>Trong trường hợp có lỗi xảy ra (không truy cập được vào API, timeout, json trả về sai ... ) một exception sẽ được sinh ra và nội dung sẽ được in trên sell. Xem thêm về bắt lỗi ở đây: <a href="http://cuccode.com/python_error_exceptions_handling.html">Python Errors and Exceptions handling</a></p>
 <p>Tiếp theo chúng ta phân tích đến hàm <code>main()</code>, nhiệm vụ hiện tại của hàm main này chưa có gì ngoài việc gọi hàm <code>btceGetTicker()</code> kèm theo đối số là cặp tỷ giá muốn lấy thông tin, tạm thời đang là <code>btc_usd</code>.</p>
 <p>Tiếp nữa bạn sẽ thấy một câu lệnh nhìn khá là lạ:</p>
@@ -345,12 +365,14 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 
 
 <p>Ở đây bạn có thể ngầm hiểu <code>if ticker</code> tương đương với việc kiểm tra nếu biến <code>ticker != None</code>.</p>
-<p>Tại sao lại <code>None</code>? Mình sẽ copy lại đoạn code <code>btceGetTicker</code> để bạn khỏi cần kéo chuột:</p>
+<p>Tại sao lại <code>None</code>? Mình sẽ copy lại đoạn code <code>btceGetTicker</code> ở đây để tiện theo dõi:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ticker</span>
+        <span class="n">ticker_raw</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+        <span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker_json</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
@@ -486,7 +508,9 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 34
 35
 36
-37</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">urllib.request</span>
@@ -497,8 +521,10 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 <span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ticker</span>
+        <span class="n">ticker_raw</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+        <span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker_json</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
