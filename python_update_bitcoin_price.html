@@ -168,14 +168,18 @@
 15
 16
 17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">def</span> <span class="nf">btceGetTicker</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot; Get current coin values, return (buy_price, sell_price, avg_price)&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ticker</span>
+        <span class="n">ticker_raw</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://wex.nz/api/3/ticker/&quot;</span> <span class="o">+</span> <span class="n">pairs</span><span class="p">)</span>
+        <span class="n">ticker_encoding</span> <span class="o">=</span> <span class="n">ticker_raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get_content_charset</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ticker_json</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Get ticker failed: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
@@ -231,8 +235,8 @@
 </pre></div>
 
 
-<p>Chuyên sâu hơn thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a></p>
-<p>Bạn có thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz:</p>
+<p>Chuyên sâu hơn thì bạn có thể xem tại: <a href="http://www.json.org/json-vi.html">json.org</a>. Các kiểu dữ liệu của Python như Dictionary, List ... rất tương đồng với cấu trúc của json, hiểu được cấu trúc cơ bản của json chắc chắn sẽ giúp ích rất nhiều cho bạn sau này.</p>
+<p>Bạn sẽ thấy mối liên hệ tương đồng giữa mẫu văn bản trên và thông tin trả về từ API của wex.nz:</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;btc_usd&quot;</span><span class="p">:</span>
     <span class="p">{</span>
@@ -300,20 +304,20 @@
 <blockquote>
 <p><code>urllib.request.urlopen(url[, data][, timeout])</code>: data should be a buffer in the standard application/x-www-form-urlencoded format. Chi tiết: <a href="https://docs.python.org/3.0/library/urllib.request.html#urllib.request.urlopen">urllib.request.html#urllib.request.urlopen</a></p>
 </blockquote>
-<p>Giá trị trả về sẽ được đọc và decode sau đó đưa vào làm đối số của hàm tiếp theo: <code>json.loads()</code>. Đúng như tên gọi, hàm này sẽ đọc (load) chuỗi json và trả về nội dung vào biến <code>ticker_json</code>.</p>
+<p>Giá trị trả về sẽ được đọc và decode sau đó đưa vào làm đối số của hàm tiếp theo: <code>json.loads()</code>. Đúng như tên gọi, hàm này sẽ đọc (loads) chuỗi json và trả về nội dung vào biến <code>ticker_json</code>.</p>
 <div class="highlight"><pre><span></span><span class="n">ticker_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">ticker_raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ticker_encoding</span><span class="p">))</span>
 </pre></div>
 
 
 <p>Trong trường hợp có lỗi xảy ra (không truy cập được vào API, timeout, json trả về sai ... ) một exception sẽ được sinh ra và nội dung sẽ được in trên sell. Xem thêm về bắt lỗi ở đây: <a href="http://cuccode.com/python_error_exceptions_handling.html">Python Errors and Exceptions handling</a></p>
-<p>Tiếp theo chúng ta phân tích đến hàm <code>main()</code>, nhiệm vụ hiện tại của hàm main này chưa có gì ngoài việc gọi hàm <code>btceGetTicker()</code> kèm theo đối số là cặp tỷ giá muốn lấy thông tin, tạm thời đang là <code>btc_usd</code>.</p>
+<p>Tiếp theo chúng ta phân tích đến hàm <code>main()</code>, nhiệm vụ hiện tại của hàm main này chưa có gì ngoài việc gọi hàm <code>btceGetTicker()</code> kèm theo đối số là cặp tỷ giá muốn lấy thông tin.</p>
 <p>Tiếp nữa bạn sẽ thấy một câu lệnh nhìn khá là lạ:</p>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
 
-<p>Đây là một cách viết khá phổ biến khi lập trình Python. Nhiệm vụ của đoạn code này là kiểm tra xem file .py đang được gọi từ đâu. Mình sẽ giải thích kỹ hơn phần này bằng một ví dụ như sau:</p>
+<p>Đây là một cách viết rất phổ biến khi lập trình Python. Nhiệm vụ của đoạn code này là kiểm tra xem file .py đang được gọi từ đâu. Mình sẽ giải thích kỹ hơn phần này bằng một ví dụ như sau:</p>
 <p>Bạn có một file code Python có tên là <code>mymodule.py</code>.
 Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import mymodule</code>) thì biến <code>__name__</code> sẽ có giá trị là <code>mymodule</code>. Nếu bạn gọi từ console (chạy <code>python mymodule.py</code>) thì <code>__name__</code> sẽ có giá trị là <code>__main__</code></p>
 <p>Như vậy câu lệnh trên chỉ đơn giản là kiểm tra xem có phải bạn đang chạy trực tiếp code không, nếu đúng như vậy thì sẽ chạy hàm main tương ứng.</p>
