@@ -5,17 +5,18 @@
             <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+            <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
         <title>Cài đặt Python package khi chạy script</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
+
         <!-- Custom CSS -->
         <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
         <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
 
         <!-- Code highlight color scheme -->
-        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+            <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
@@ -32,22 +33,22 @@
 
 
 
-        <meta name="description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip cũng ...">
+        <meta name="description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip...">
 
         <meta name="author" content="dangsonbk">
 
         <meta name="tags" content="python">
         <meta name="tags" content="package">
 
-	        <meta property="og:locale" content="">
-        <meta property="og:site_name" content="cuccode">
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="cuccode">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
 	<meta property="og:url" content="http://cuccode.com/install_python_package_runtime.html">
 	<meta property="og:title" content="Cài đặt Python package khi chạy script">
 	<meta property="article:published_time" content="2017-08-24 15:08:00+07:00">
-            <meta property="og:description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip cũng ...">
+            <meta property="og:description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip...">
 
             <meta property="og:image" content="http://cuccode.com//static/ninjaHardware.jpg">
         <meta name="twitter:card" content="summary_large_image">
@@ -56,7 +57,7 @@
 
             <meta name="twitter:image" content="http://cuccode.com//static/ninjaHardware.jpg">
 
-            <meta name="twitter:description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip cũng ...">
+            <meta name="twitter:description" content="Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip...">
 </head>
 
 <body>
@@ -115,23 +116,23 @@
         <p>Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng <a href="https://packaging.python.org/glossary/#term-python-package-index-pypi">pip</a>.
 Pip được Python Foundation <a href="https://packaging.python.org/guides/tool-recommendations">recomment</a> sử dụng mặc định để cài đặt và quản lý các gói package của Python.</p>
 <p>Ví dụ sau mô tả cách thông dụng nhất để cái đặt gói <a href="https://github.com/tqdm/tqdm">tqdm</a> (cho phép tạo progress bar trên cửa sổ console một cách dễ dàng)</p>
-<div class="highlight"><pre>pip install tqdm
+<div class="highlight"><pre><span></span>pip install tqdm
 </pre></div>
 
 
 <p>Ngoài cách cài đặt trực tiếp từ terminal, pip cũng cho phép developer có thể cài đặt gói cài mới cả khi chạy script.</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pip</span>
-<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
+<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s2">&quot;tqdm&quot;</span><span class="p">])</span>
 </pre></div>
 
 
 <p>Sửa đổi một chút để script sẽ chỉ gọi pip khi chưa có package cần thiết:</p>
-<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">pip</span>
-    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s2">&quot;tqdm&quot;</span><span class="p">])</span>
     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 </pre></div>
 
@@ -143,13 +144,13 @@ Pip được Python Foundation <a href="https://packaging.python.org/guides/tool
 <li>Khi đó pip sẽ được import và cài đặt tqdm <code>pip.main(['install', "tqdm"])</code></li>
 </ul>
 <p>Bạn cũng có thể hỏi người dùng xem có cho phép cài đặt không:</p>
-<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Package tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Install tqdm? (Y/N)&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;Y&quot;</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Package tqdm is not available in your system. Installing ...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;Install tqdm? (Y/N)&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;YES&quot;</span><span class="p">]:</span>
         <span class="kn">import</span> <span class="nn">pip</span>
-        <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s">&#39;install&#39;</span><span class="p">,</span> <span class="s">&quot;tqdm&quot;</span><span class="p">])</span>
+        <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s2">&quot;tqdm&quot;</span><span class="p">])</span>
         <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">exit</span><span class="p">()</span>
