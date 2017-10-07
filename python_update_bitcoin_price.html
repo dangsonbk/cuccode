@@ -145,12 +145,15 @@
 
 
 <p>Bạn có thể thấy dữ liệu trả về có định dạng trùng khớp với dữ liệu trả về khi truy cập vào đường dẫn API trên bằng trình duyệt.</p>
+<blockquote>
+<p>Trong bài viết có thể bạn sẽ thấy các keywords như Shell, Terminal, Console, Command Prompt, Cửa sổ lệnh ..., lý do là tùy vào hệ điều hành, phần mềm (đôi khi là thói quen) mà tên gọi của chúng có thể thay đổi, để cho đơn giản, các bạn có thể hiểu chung là "Cửa sổ gõ lệnh"</p>
+</blockquote>
 <p>Dĩ nhiên là không ai chạy script trên Shell mãi được, Python cho phép chạy code từ file text có đuôi .py để lập trình viên có thể dễ dàng làm việc hơn.</p>
 <blockquote>
-<p>Trên Windows, khi bạn tạo một file text có tên <code>main.py</code>, có thể hệ điều hành sẽ tạo cho bạn một file <code>main.py.txt</code>. Để tránh việc này xảy ra và cũng giúp bạn thuận tiện hơn trong việc viết code sau này, mình khuyên các bạn sử dụng các trình soạn thảo code hoặc IDE chuyên dùng như <a href="https://www.sublimetext.com/3">Sublime Text</a>, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://notepad-plus-plus.org">Notepad++</a>, <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>...</p>
-<p>Cá nhân mình đang sử dụng cả Sublime Text lẫn Visual Studio Code và thấy rất hài lòng, mỗi phần mềm đều có những ưu điểm riêng.</p>
+<p>Trên Windows, khi bạn tạo một file text có tên <code>main.py</code>, có thể hệ điều hành sẽ tạo cho bạn một file <code>main.py.txt</code>. Để tránh việc này xảy ra và cũng giúp bạn thuận tiện hơn trong việc viết code sau này, mình khuyên các bạn sử dụng các trình soạn thảo code hoặc IDE chuyên dùng như <a href="https://www.sublimetext.com/3">Sublime Text</a>, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://notepad-plus-plus.org">Notepad++</a>, <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>...
+Cá nhân mình đang sử dụng cả Sublime Text lẫn Visual Studio Code và thấy rất hài lòng, mỗi phần mềm đều có những ưu điểm riêng.</p>
 </blockquote>
-<p>Quay lại chủ đề chính, bạn cần tạo một file crawler.py có nội dung như sau:</p>
+<p>Bạn cần tạo một file crawler.py có nội dung như sau:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -197,7 +200,7 @@
 <p><strong><em>Hướng dẫn chạy thử chương trình từ windows console:</em></strong> từ thư mục chứa file, bạn gõ <code>cmd</code> trên thanh địa chỉ. Một cửa sổ Windows Commander sẽ hiện lên. Gõ <code>python ten_file.py</code> để chạy script. Ở ví dụ này là: <code>python crawler.py</code>. <a href="http://cuccode.com/python_beginner_tips.html#run-python-script">Bạn cũng có thể gọi Python Shell và cd tới thư mục chứa script</a></p>
 <p><strong><em>Hướng dẫn chạy thử chương trình từ IDLE (Python GUI):</em></strong> load file cần chạy, có thể sửa trực tiếp file code trên này, nhấn F5 để chạy.</p>
 </blockquote>
-<p>Để chạy chương trình Python vừa viết, trên windows command prompt (cmd), bạn có thể gõ <code>python</code> để chạy python shell (trình command của Python) hoặc gọi tên của script ra (ở hình minh họa là <code>main.py</code>, có thể bạn sẽ phải chạy <code>python main.py</code> tùy vào môi trường của từng máy)</p>
+<p>Để chạy chương trình Python vừa viết, trên Windows Command Prompt (cmd), bạn có thể gõ tên của script ra (ở hình minh họa là <code>main.py</code>, có thể bạn sẽ phải chạy <code>python main.py</code> tùy vào môi trường của từng máy). Ngoài ra, bạn có thể gõ <code>python</code> trên Windows Command Prompt để gọi Python Shell (trình command của Python), rất hữu ích để chạy thử lệnh. Trong bài viết này, cách tốt nhất là bạn mở 2 cửa sổ Windows Command Prompt một lúc, một để chạy script và một để chạy thử lệnh Python.</p>
 <p><img alt="Run Python gif" src="static/python/runScript.gif"></p>
 <p>Cùng đi dọc từ phần đầu chương trình xuống dưới:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
