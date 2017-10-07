@@ -343,14 +343,13 @@ Khi bạn gọi mymodule.py từ một module khác (bằng lệnh <code>import 
 </pre></div>
 </td></tr></table>
 
-<p>Chúng ta có vòng lặp <code>while True:</code>, do điều kiện lặp luôn luôn là <code>True</code> nên sẽ lặp vô tận code bên trong.</p>
-<p>Tiếp theo chúng ta tạo danh sách các cặp tỷ giá muốn lấy thông tin, dĩ nhiên mình không bịa ra chuỗi này được, thông tin chi tiết bạn tham khảo trong đặc tả API: <a href="https://wex.nz/api/3/docs">wex public API</a>, về cơ bản thì bạn chỉ cần phân tách các cặp tỉ giá bằng dấu <code>-</code></p>
-<p>Chúng ta có một danh sách các cặp tỉ giá được lưu vào trong một list:</p>
+<p>Các bạn để ý vòng lặp <code>while True:</code>, do điều kiện lặp luôn luôn là <code>True</code> nên sẽ lặp vô tận code bên trong.</p>
+<p>Tiếp theo là tạo danh sách các cặp tỷ giá muốn lấy thông tin, dĩ nhiên mình không bịa ra chuỗi này được, thông tin chi tiết bạn tham khảo trong đặc tả API: <a href="https://wex.nz/api/3/docs">wex public API</a>, về cơ bản thì chỉ cần phân tách các cặp tỉ giá bằng dấu <code>-</code>. Mình tạo một danh sách các cặp tỉ giá được lưu vào trong một list:</p>
 <div class="highlight"><pre><span></span><span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;usd_rur&quot;</span><span class="p">]</span>
 </pre></div>
 
 
-<p>Nối chúng lại thành một chuỗi sử dụng <code>join()</code>:</p>
+<p>Nối chúng lại thành một chuỗi sử dụng <code>join()</code>, mình sẽ dùng shell để các bạn có thể hiểu rõ hơn:</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">COINS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;btc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;ltc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;nmc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;nvc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;ppc_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;dsh_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;eth_usd&quot;</span><span class="p">,</span> <span class="s2">&quot;usd_rur&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">COINS</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span>
