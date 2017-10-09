@@ -112,7 +112,10 @@
     </span>
     <!-- Post Content -->
     <article>
-        <p>Khi mới học Python cũng như khi viết những script nhỏ, thói quen của mình khi muốn in thông tin khi runtime đó là sử dụng print, print ở bất cứ đâu và bất cứ khi nào.</p>
+        <blockquote>
+<p>Source code trong bài viết này được tổng hợp từ nhiều nguồn khác nhau kết hợp với code của cá nhân, đối với code được tổng hợp về các bạn có thể tham khảo nguồn ở đường link chú thích trong code hoặc tham khảo links ở cuối bài viết.</p>
+</blockquote>
+<p>Khi mới học Python cũng như khi viết những script nhỏ, thói quen của mình khi muốn in thông tin khi runtime đó là sử dụng print, print ở bất cứ đâu và bất cứ khi nào.</p>
 <p>Tuy nhiên khi chương trình lớn dần lên, một vấn đề khá đau đầu nảy sinh đó là thông tin được print ra khá điên loạn, không được phân loại, mất thời gian xác định cũng như giảm hiệu suất của chương trình. Hàm print mặc định sẽ xuất nội dung ra <code>stdout</code> và nội dung log in ra thường rất hay bị nhầm với dữ liệu khác.</p>
 <p>Giải pháp mình muốn giới thiệu đó là sử dụng module logging. Đây là module tiêu chuẩn (được pack kèm bộ cài mặc định) do cộng đồng Python phát triển, dễ dàng sử dụng và cực kỳ linh hoạt. Logging cung cấp cho lập trình viên những tiện ích như:</p>
 <ul>
@@ -129,34 +132,31 @@
 </thead>
 <tbody>
 <tr>
-<td>DEBUG</td>
+<td><strong>DEBUG</strong></td>
 <td>Thông tin chi tiết, thường là thông tin để tìm lỗi</td>
 </tr>
 <tr>
-<td>INFO</td>
+<td><strong>INFO</strong></td>
 <td>Thông báo thông thường, các thông tin in ra khi chương trình chạy theo đúng kịch bản</td>
 </tr>
 <tr>
-<td>WARNING</td>
+<td><strong>WARNING</strong></td>
 <td>Thông báo khi nghi vấn bất thường hoặc lỗi có thể xảy ra, tuy nhiên chương trình vẫn có thể hoạt động</td>
 </tr>
 <tr>
-<td>ERROR</td>
+<td><strong>ERROR</strong></td>
 <td>Lỗi, chương trình có thể không hoạt động được một số chức năng hoặc nhiệm vụ nào đó, thường thì nên dùng ghi bắt được Exception</td>
 </tr>
 <tr>
-<td>CRITICAL</td>
+<td><strong>CRITICAL</strong></td>
 <td>Lỗi, chương trình gặp lỗi nghiêm trọng không thể giải quyết được và bắt buộc phải dừng lại</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Source code trong bài viết này được tổng hợp từ nhiều nguồn khác nhau kết hợp với code của cá nhân, đối với code được tổng hợp về các bạn có thể tham khảo nguồn ở đường link chú thích trong code hoặc tham khảo links ở cuối bài viết.</p>
-</blockquote>
 <hr>
-<h3>Sử dụng module logging một cách đơn giản</h3>
+<h3>Sử dụng module logging cơ bản</h3>
 <p>Ví dụ đơn giản nhất khi sử dụng logging:</p>
-<div class="highlight"><pre><span class="c"># Source: https://docs.python.org/3.6/howto/logging.html#a-simple-example</span>
+<div class="highlight"><pre><span class="c"># source: https://docs.python.org/3.6/howto/logging.html#a-simple-example</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Watch out!&#39;</span><span class="p">)</span>  <span class="c"># sẽ in ra warning trên console</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;I told you so&#39;</span><span class="p">)</span>  <span class="c"># không in gì cả</span>
@@ -192,8 +192,9 @@ WARNING:root:And this, too
 </pre></div>
 
 
-<p>Một ví dụ phức tạp hơn về việc dùng hỗn hợp các log với mức độ khác nhau <a href="https://code.tutsplus.com/tutorials/error-handling-logging-in-python--cms-27932">Source</a>:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<p>Một ví dụ phức tạp hơn về việc dùng hỗn hợp các log với mức độ khác nhau:</p>
+<div class="highlight"><pre><span class="c"># source: https://code.tutsplus.com/tutorials/error-handling-logging-in-python--cms-27932</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="c"># initialize the log settings</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;app.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
@@ -213,7 +214,7 @@ WARNING:root:And this, too
 
 <hr>
 <h3>Log ra nhiều nguồn cùng lúc</h3>
-<p>Việc sử dụng loger cơ bản chỉ cho phép chúng ta in log ra một nguồn tại một thời điểm, trong ví dụ trên, khi đặt <code>filename='app.log'</code> thì console sẽ không in nội dụng log ra nữa.</p>
+<p>Việc sử dụng logger cơ bản chỉ cho phép chúng ta in log ra một nguồn tại một thời điểm, trong ví dụ trên, khi đặt <code>filename='app.log'</code> thì console sẽ không in nội dụng log ra nữa.</p>
 <p>Có một cách cho phép lập trình viên thực hiện việc in log ra nhiều nguồn khác nhau đó là sử dụng <code>handles</code>, bạn có thể tham khảo ví dụ in log ra <code>FileHandler</code> sau:</p>
 <div class="highlight"><pre><span class="c"># source: https://www.smartfile.com/blog/what-is-good-logging-in-python/</span>
 <span class="kn">import</span> <span class="nn">logging</span>
