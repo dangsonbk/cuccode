@@ -118,7 +118,7 @@
 <p><a name="run-python-script"></a></p>
 <h3>Chạy python script:</h3>
 <p>Đối với hầu hết các hệ thống UNIX, bạn có thể trực tiếp chạy script python bằng cách sau:</p>
-<div class="highlight"><pre><span></span>$ python MyFirstPythonScript.py
+<div class="highlight"><pre><span class="nv">$ </span>python MyFirstPythonScript.py
 </pre></div>
 
 
@@ -126,13 +126,13 @@
 <p>Đầu tiên, mở Command Prompt của Windows bằng cách gõ <code>cmd</code> trên Start bar</p>
 <p><img alt="Open Python gif" src="static/python/openCMD.gif"></p>
 <p>Sau đó bạn chỉ cần gõ <code>Python</code> để gọi Python shell hoặc cd tới đường dẫn script trên máy bạn và chạy.</p>
-<div class="highlight"><pre><span></span>python yourscript.py
+<div class="highlight"><pre>python yourscript.py
 </pre></div>
 
 
 <hr>
 <h3>Swap giá trị 2 biến</h3>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 <span class="go">(20, 10)</span>
@@ -143,30 +143,30 @@
 <hr>
 <h3>Sử dụng hàm enumerate()</h3>
 <p>Hàm enumerate() thêm một biến đếm khi chạy vòng lặp.</p>
-<div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span> <span class="s1">&#39;Tips&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">subjects</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;Coding&#39;</span><span class="p">,</span> <span class="s">&#39;Tips&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subject</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subjects</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="nb">str</span><span class="p">(</span><span class="n">subject</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;-&quot;</span> <span class="nb">str</span><span class="p">(</span><span class="n">subject</span><span class="p">))</span>
 </pre></div>
 
 
 <p>Kết quả:</p>
-<div class="highlight"><pre><span></span>    0-Python
-    1-Coding
-    2-Tips
+<div class="highlight"><pre>    <span class="mi">0</span><span class="o">-</span><span class="n">Python</span>
+    <span class="mi">1</span><span class="o">-</span><span class="n">Coding</span>
+    <span class="mi">2</span><span class="o">-</span><span class="n">Tips</span>
 </pre></div>
 
 
 <hr>
 <h3>Liệt kê danh sách các files trong folder dùng os.walk()</h3>
 <p>Syntax:</p>
-<div class="highlight"><pre><span></span>    <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">[,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">True</span><span class="p">[,</span> <span class="n">onerror</span><span class="o">=</span><span class="bp">None</span><span class="p">[,</span> <span class="n">followlinks</span><span class="o">=</span><span class="bp">False</span><span class="p">]]])</span>
+<div class="highlight"><pre>    <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">[,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">True</span><span class="p">[,</span> <span class="n">onerror</span><span class="o">=</span><span class="bp">None</span><span class="p">[,</span> <span class="n">followlinks</span><span class="o">=</span><span class="bp">False</span><span class="p">]]])</span>
 </pre></div>
 
 
 <p>Example:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
@@ -175,23 +175,23 @@
 
 
 <p>Example result:</p>
-<div class="highlight"><pre><span></span>.\blockchain\tim_hieu_ve_blockchain.md
-.\python\checkpython2or3.md
-.\python\getuserinput.md
-.\python\installpackageinscript.md
-.\python\onelinewebserver.md
-.\python\openwebpage.md
-.\python\python2or3.md
-.\python\pythonbeginertips.md
-.\python\pythonErrorHandling.md
-.\blockchain
-.\python
+<div class="highlight"><pre><span class="p">.</span><span class="err">\</span><span class="n">blockchain</span><span class="err">\</span><span class="n">tim_hieu_ve_blockchain</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">checkpython2or3</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">getuserinput</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">installpackageinscript</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">onelinewebserver</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">openwebpage</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">python2or3</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">pythonbeginertips</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">pythonErrorHandling</span><span class="p">.</span><span class="n">md</span>
+<span class="p">.</span><span class="err">\</span><span class="n">blockchain</span>
+<span class="p">.</span><span class="err">\</span><span class="n">python</span>
 </pre></div>
 
 
 <hr>
 <h3>Kết hợp nhiều phép so sánh một lúc</h3>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">20</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span>

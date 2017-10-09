@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>Sử dụng logging trong Python</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Giới thiệu sử dụng logging trong Python">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="beginner">
+        <meta name="tags" content="python">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="http://cuccode.com/python_logging.html">
+	<meta property="og:title" content="Sử dụng logging trong Python">
+	<meta property="article:published_time" content="2017-09-10 21:15:00+07:00">
+            <meta property="og:description" content="Giới thiệu sử dụng logging trong Python">
+
+            <meta property="og:image" content="http://cuccode.com//static/python/pythonAwesome.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Sử dụng logging trong Python">
+
+            <meta name="twitter:image" content="http://cuccode.com//static/python/pythonAwesome.png">
+
+            <meta name="twitter:description" content="Giới thiệu sử dụng logging trong Python">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://cuccode.com/">cuccode</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="http://cuccode.com/category/blockchain.html">blockchain</a></li>
+                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/static/python/pythonAwesome.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Sử dụng logging trong Python</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-md-offset-1">
+    <span class="article-meta">Post by
+            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+        on 10-09-2017
+    </span>
+    <!-- Post Content -->
+    <article>
+        <p>Khi mới học Python cũng như khi viết những script nhỏ, thói quen của mình khi muốn in thông tin khi runtime đó là sử dụng print, print ở bất cứ đâu và bất cứ khi nào.</p>
+<p>Tuy nhiên khi chương trình lớn dần lên, một vấn đề khá đau đầu nảy sinh đó là thông tin được print ra khá điên loạn, không được phân loại, mất thời gian xác định cũng như giảm hiệu suất của chương trình. Hàm print mặc định sẽ xuất nội dung ra <code>stdout</code> và nội dung log in ra thường rất hay bị nhầm với dữ liệu khác.</p>
+<p>Giải pháp mình muốn giới thiệu đó là sử dụng module logging. Đây là module tiêu chuẩn (được pack kèm bộ cài mặc định) do cộng đồng Python phát triển, dễ dàng sử dụng và cực kỳ linh hoạt. Logging cung cấp cho lập trình viên những tiện ích như:</p>
+<ul>
+<li>Phân chia level cho các thông báo lỗi, cho phép tuỳ chọn mức độ nghiêm trọng của các thông báo, cho phép hoặc không cho phép hiển thị một thông báo đã được phân loại.</li>
+<li>Cho phép cấu hình output của thông báo lỗi là trên console hoặc file hoặc <a href="https://docs.python.org/3/library/logging.handlers.html">nguồn khác</a></li>
+</ul>
+<p>Lập trình viên có thể chọn các mức sau khi viết nội dung log, các mức được liệt kê có độ nghiêm trọng lớn dần:</p>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>Thông tin chi tiết, thường là thông tin để tìm lỗi</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>Thông báo thông thường, các thông tin in ra khi chương trình chạy theo đúng kịch bản</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>Thông báo khi nghi vấn bất thường hoặc lỗi có thể xảy ra, tuy nhiên chương trình vẫn có thể hoạt động</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>Lỗi, chương trình có thể không hoạt động được một số chức năng hoặc nhiệm vụ nào đó, thường thì nên dùng ghi bắt được Exception</td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td>Lỗi, chương trình gặp lỗi nghiêm trọng không thể giải quyết được và bắt buộc phải dừng lại</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Source code trong bài viết này được tổng hợp từ nhiều nguồn khác nhau kết hợp với code của cá nhân, đối với code được tổng hợp về các bạn có thể tham khảo nguồn ở đường link chú thích trong code hoặc tham khảo links ở cuối bài viết.</p>
+</blockquote>
+<hr>
+<h3>Sử dụng module logging một cách đơn giản</h3>
+<p>Ví dụ đơn giản nhất khi sử dụng logging:</p>
+<div class="highlight"><pre><span class="c"># Source: https://docs.python.org/3.6/howto/logging.html#a-simple-example</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Watch out!&#39;</span><span class="p">)</span>  <span class="c"># sẽ in ra warning trên console</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;I told you so&#39;</span><span class="p">)</span>  <span class="c"># không in gì cả</span>
+</pre></div>
+
+
+<p>Mặc định, mức thông báo sẽ được đặt ở mức <code>WARNING</code>. Các thông báo có mức dưới nó (<code>DEBUG</code>, <code>INFO</code>) vì vậy sẽ không được in ra. Để thay đổi mức này, bạn đơn giản chỉ việc set lại thông số logging level như sau.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Watch out!&#39;</span><span class="p">)</span>  <span class="c"># sẽ in ra warning trên console</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;I told you so&#39;</span><span class="p">)</span>  <span class="c"># sẽ in ra warning trên console</span>
+</pre></div>
+
+
+<p>Bạn cũng có thể log ra file:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;example.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;This message should go to the log file&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;So should this&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;And this, too&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Nội dung được in ra sẽ tương tự khi bạn in ra console:</p>
+<div class="highlight"><pre>DEBUG:root:This message should go to the log file
+INFO:root:So should this
+WARNING:root:And this, too
+</pre></div>
+
+
+<p>Cần chú ý là nội dung log mới sẽ ghi nối tiếp vào cùng 1 file với nội dung log cũ (lần chạy trước đó), trong trường hợp nội dung cũ không còn quan trọng nữa, có thể setup để logging luôn tạo log mới bằng cách chỉnh chế độ <code>filemode</code> khi config:</p>
+<div class="highlight"><pre><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;runtime.log&#39;</span><span class="p">,</span> <span class="n">filemode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Một ví dụ phức tạp hơn về việc dùng hỗn hợp các log với mức độ khác nhau <a href="https://code.tutsplus.com/tutorials/error-handling-logging-in-python--cms-27932">Source</a>:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c"># initialize the log settings</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;app.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Trying to open the file&#39;</span><span class="p">)</span>
+    <span class="n">filePointer</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;appFile&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Trying to read the file content&#39;</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">filePointer</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">filePointer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Error occurred &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+
+
+<hr>
+<h3>Log ra nhiều nguồn cùng lúc</h3>
+<p>Việc sử dụng loger cơ bản chỉ cho phép chúng ta in log ra một nguồn tại một thời điểm, trong ví dụ trên, khi đặt <code>filename='app.log'</code> thì console sẽ không in nội dụng log ra nữa.</p>
+<p>Có một cách cho phép lập trình viên thực hiện việc in log ra nhiều nguồn khác nhau đó là sử dụng <code>handles</code>, bạn có thể tham khảo ví dụ in log ra <code>FileHandler</code> sau:</p>
+<div class="highlight"><pre><span class="c"># source: https://www.smartfile.com/blog/what-is-good-logging-in-python/</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c"># create the logging instance for logging to file only</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;SmartfileTest&#39;</span><span class="p">)</span>
+
+<span class="c"># create the handler for the main logger</span>
+<span class="n">file_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">&#39;smartfile_test.log&#39;</span><span class="p">)</span>
+<span class="n">NEW_FORMAT</span> <span class="o">=</span> <span class="s">&#39;[</span><span class="si">%(asctime)s</span><span class="s">] - [</span><span class="si">%(levelname)s</span><span class="s">] - </span><span class="si">%(message)s</span><span class="s">&#39;</span>
+<span class="n">file_logger_format</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">NEW_FORMAT</span><span class="p">)</span>
+
+<span class="c"># tell the handler to use the above format</span>
+<span class="n">file_logger</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">file_logger_format</span><span class="p">)</span>
+
+<span class="c"># finally, add the handler to the base logger</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_logger</span><span class="p">)</span>
+
+<span class="c"># remember that by default, logging will start at &#39;warning&#39; unless</span>
+<span class="c"># we set it manually</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="c"># log some stuff!</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;This is a debug message!&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;This is an info message!&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;This is a warning message!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Đoạn code trên sẽ tạo file log và in nội dung log vào file đó tương tự như việc bổ xung config <code>filename='smartfile_test.log'</code>, để in đồng thời ra console, bạn add thêm <code>StreamHandler</code> như sau:</p>
+<div class="highlight"><pre><span class="c"># source: https://www.smartfile.com/blog/what-is-good-logging-in-python/</span>
+<span class="c"># now we can add the console logging</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;SmartfileTest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h3>In nội dung biến</h3>
+<p>Để in nội dung biến, bạn chỉ cần đưa chuỗi format vào sau đó truyền các biến tương ứng với format trong đối số. Xem ví dụ sau để hiểu rõ hơn.</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logString</span> <span class="o">=</span> <span class="s">&quot;Hi&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, this i a </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">logString</span><span class="p">,</span> <span class="s">&#39;warning!&#39;</span><span class="p">)</span>
+<span class="go">WARNING:root:Hi, this i a warning!</span>
+</pre></div>
+
+
+<p>Chú ý là bạn không cần format chuỗi trước khi truyền vào hàm <code>logging.warning()</code> vì <code>logging</code> sẽ tự làm việc này. Có nghĩa là việc bạn viết: <code>logging.warning('%s, this i a %s' % (logString, 'warning!'))</code> hoàn toàn thừa thãi.</p>
+<hr>
+<h3>Format nội dung và thêm các thông tin chi tiết về log</h3>
+<p>Logging cho phép thêm các thông tin chi tiết hơn về chương trình khi gọi log như: Vị trí gọi log (dòng code), tên module gọi log, file đang chạy ...</p>
+<p>Một config đầy đủ có thể như sau:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;runtime.log&#39;</span><span class="p">,</span> <span class="n">filemode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="n">format</span> <span class="o">=</span> <span class="p">(</span>
+                                                    <span class="s">&#39;</span><span class="si">%(levelname)s</span><span class="s">:</span><span class="se">\t</span><span class="s">&#39;</span>
+                                                    <span class="s">&#39;</span><span class="si">%(filename)s</span><span class="s">:&#39;</span>
+                                                    <span class="s">&#39;</span><span class="si">%(funcName)s</span><span class="s">():&#39;</span>
+                                                    <span class="s">&#39;</span><span class="si">%(lineno)d</span><span class="se">\t</span><span class="s">&#39;</span>
+                                                    <span class="s">&#39;</span><span class="si">%(message)s</span><span class="s">&#39;</span>
+                                                <span class="p">)</span>
+                    <span class="p">)</span>
+</pre></div>
+
+
+<p>Thông tin in ra sẽ như sau:</p>
+<div class="highlight"><pre>INFO:   main.py:main():113  Hi, this is a log text
+DEBUG:  main.py:main():281  Processing file something.txt
+WARNING:    main.py:main():294  File too big something.txt
+</pre></div>
+
+
+<p>Việc phân loại chi tiết như trên rất hữu ích khi bạn phải phân tích các file log dài, khi đó bạn có thể dùng các chương trình soạn thảo code để filter hoặc search các thông tin tương ứng một cách nhanh chóng.</p>
+<hr>
+<h3>Logging trong exception (in thông tin Traceback)</h3>
+<p>Việc ghi log ra khi có exception là rất cần thiết, tuy nhiên ghi log ra mà không có thông tin chi tiết về exception đó thì không có ý nghĩa lắm. Để bổ xung thông tin khi bắt được exception chúng ta chỉ cần thêm config <code>exc_info=True</code></p>
+<div class="highlight"><pre><span class="c"># source: fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python#capture-exceptions-and-record-them-with-traceback</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/does/not/exist&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">SystemExit</span><span class="p">,</span> <span class="ne">KeyboardInterrupt</span><span class="p">):</span>
+    <span class="k">raise</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Failed to open file&#39;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Thông tin in ra:</p>
+<div class="highlight"><pre><span class="go">ERROR:__main__:Failed to open file</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;example.py&quot;</span>, line <span class="m">6</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/does/not/exist&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="gr">IOError</span>: <span class="n">[Errno 2] No such file or directory: &#39;/path/to/does/not/exist&#39;</span>
+</pre></div>
+
+
+<p>Bạn cũng có thể gọi <code>logger.exception(msg, *args)</code>, có chức năng tương đương với <code>logger.error(msg, exc_info=True, *args)</code>.</p>
+<hr>
+<h3>Sử dụng logging trong nhiều module</h3>
+<p><a href="https://docs.python.org/3.6/howto/logging.html#logging-from-multiple-modules">chi tiết</a></p>
+<p>Nếu phần mềm của bạn có nhiều modules thì đây là một cách đơn giản để setup hệ thống logging xuyên suốt cả phần mềm:</p>
+<div class="highlight"><pre><span class="c"># myapp.py</span>
+<span class="c"># source: https://docs.python.org/3.6/howto/logging.html#logging-from-multiple-modules</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">mylib</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;myapp.log&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Started&#39;</span><span class="p">)</span>
+    <span class="n">mylib</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Finished&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Trong module:</p>
+<div class="highlight"><pre><span class="c"># mylib.py</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">do_something</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Doing something&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Kết quả:</p>
+<div class="highlight"><pre>INFO:root:Started
+INFO:root:Doing something
+INFO:root:Finished
+</pre></div>
+
+
+<p>Kết hợp với việc format nội dung logging như đã nêu trước đó, bạn có thể in ra thông tin log được gọi từ module nào.</p>
+<p>Trên đây là khái quát một số ví dụ đơn giản sửa dụng logging, ngoài ra bạn có thể khám phá thêm một số tính năng phức tạp hơn của logging ở: <a href="https://docs.python.org/3.6/howto/logging.html#advanced-logging-tutorial">Advanced logging tutorial</a></p>
+<hr>
+<h3>Tham khảo:</h3>
+<ul>
+<li><a href="https://docs.python.org/3.6/howto/logging.html">Logging HOWTO</a></li>
+<li><a href="https://www.smartfile.com/blog/what-is-good-logging-in-python/">What is Good Logging in Python?</a></li>
+<li><a href="fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python">Good logging practice in Python</a></li>
+<li><a href="https://techtalk.vn/python-for-dummies-log-sao-cho-dung.html">Python for Dummies: Log sao cho đúng</a></li>
+</ul>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://cuccode.com/tag/beginner.html">beginner</a>, <a href="http://cuccode.com/tag/python.html">python</a></p>
+        </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+    <hr>
+
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'cuccode';
+                var disqus_identifier = 'python_logging.html';
+                var disqus_url = 'http://cuccode.com/python_logging.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//cuccode.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a> <br />
+    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+    &copy;  dangsonbk
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://cuccode.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
