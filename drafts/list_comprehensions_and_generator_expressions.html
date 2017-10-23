@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>List Comprehensions và Generator Expressions</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://cuccode.com/theme/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="http://cuccode.com/drafts/list_comprehensions_and_generator_expressions.html">
+	<meta property="og:title" content="List Comprehensions và Generator Expressions">
+	<meta property="article:published_time" content="2017-09-24 20:45:00+07:00">
+            <meta property="og:description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy">
+
+            <meta property="og:image" content="http://cuccode.com//static/python/flask.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="List Comprehensions và Generator Expressions">
+
+            <meta name="twitter:image" content="http://cuccode.com//static/python/flask.png">
+
+            <meta name="twitter:description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://cuccode.com/">cuccode</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                            <li><a href="http://cuccode.com/category/blockchain.html">blockchain</a></li>
+                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/static/python/flask.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>List Comprehensions và Generator Expressions</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-md-offset-1">
+    <span class="article-meta">Post by
+            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+        on 24-09-2017
+    </span>
+    <!-- Post Content -->
+    <article>
+        <p>Khi học Python hoặc mò StackOverflow, sẽ không khó để bắt gặp những lệnh liên quan đến List Comprehensions và Generator Expressions như dưới đây.</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Vừa rồi thì mình cũng có trò chuyện với một bạn đang học lập trình Python, bạn này thì cũng đã có background về lập trình C và C++ rồi. Sau đó thì mình phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn với Comprehensions và Expressions. Lý do không phải vì chúng khó, lý do vì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm là chúng là những kiến thức nâng cao.</p>
+<p><img alt="ListComp" src="static/python/ListCompAndGenExp.PNG"></p>
+<p>Đúng là cũng hơi khó để cắt nghĩa 2 từ này ra tiếng Việt để hiểu được dễ dàng, mình đã thử Google Translate và được kết quả như trên. Trong bài này mình sẽ đi dần từ những khái niệm cơ bản nhất là List và Generator trong Python lên, lý do là tiện công chuyện giới thiệu cho các bạn mới học Python, sau đó so sánh chúng với nhau cũng như kết hợp với các ví dụ để mọi người có thể hiểu được chúng một cách rõ ràng nhất.</p>
+<p>Như bất cứ bài viết nào trên blog này, nếu bạn thấy bài viết có phần nào chưa đúng hoặc thiếu sót, hãy comment cho mình bên dưới bài viết.</p>
+<hr>
+<h3>List trong Python (Cơ bản)</h3>
+<p>TL;DR: Cũng giống như mảng trong các ngôn ngữ lập trình khác, tuy nhiên, trong Python list có thể chứa được nhiều kiểu dữ liệu khác nhau.</p>
+<blockquote>
+<p>Kiểu dữ liệu: Ngay từ khi học tiểu học chúng ta đã được phân biệt giữa chữ và số với mục đích khác nhau, trong máy tính cũng vậy, dữ liệu sẽ được chia thành các kiểu khác nhau để dễ dàng xử lý. Tìm hiểu thêm: <a href="https://vi.wikipedia.org/wiki/Kiểu_dữ_liệu">Kiểu dữ liệu - wiki</a></p>
+</blockquote>
+<p>List được hiểu tương đương với <code>Mảng</code> trong các ngôn ngữ lập trình khác, được biểu thị bằng một tập hợp các giá trị phân cách nhau bởi dấu <code>,</code> và toàn bộ bao ngoài bằng []</p>
+<div class="highlight"><pre><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<blockquote>
+<p>Mình sẽ giữ nguyên sử dụng từ <code>List</code> thay vì sử dụng từ <code>danh sách</code> hoặc <code>chuỗi, mảng</code>. Thực tế việc dịch ra đôi khi lại làm cho người học dễ nhầm lẫn giữa các kiểu dữ liệu.</p>
+</blockquote>
+<p>List trong Python có khả năng lưu trữ cùng lúc các kiểu dữ liệu khác nhau, hoặc thậm chí chứa một chuỗi con trong nó:</p>
+<div class="highlight"><pre><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;hi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">list_2</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Để đọc một giá trị trong list, ta dùng index (vị trí của phần tử):</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;hi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">list_2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="go">hi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="go">[&#39;c&#39;, &#39;u&#39;, &#39;c&#39;, &#39;c&#39;, &#39;o&#39;, &#39;d&#39;, &#39;e&#39;]</span>
+</pre></div>
+
+
+<p>Lưu ý là trong một list thì phần tử đầu tiên có giá trị index = 0; Phần tử cuối cùng có index = len(list) - 1; Với <code>len(list)</code> là độ dài (độ lớn - số phần tử) của list. Trong trường hợp <code>list_3</code>, <code>len(list_3)</code> chỉ quan tâm tới số phần tử trực tiếp của <code>list_3</code> và không quan tâm tới số phần tử của các list con hoặc kiểu dữ liệu con trong <code>list_3</code>;</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div>
+
+
+<p>Việc sửa dữ liệu trong list cũng được thực hiện bằng cách sử dụng index của phần tử:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, 1, 2, &#39;hi&#39;, [1, 2, 3], 1]</span>
+</pre></div>
+
+
+<p>Ngoài ra còn một số hoạt động khác có thể được thực hiện trên list bạn có thể tham khảo thêm, mặc dù chúng khá cơ bản những mình không muốn đi quá xa vào phần này nên sẽ liệt kê ra sau đây:</p>
+<div class="highlight"><pre><span class="go">&gt;&gt;&gt;# Xóa phần tử</span>
+<span class="go">&gt;&gt;&gt;a = [1, 2, 3]</span>
+<span class="go">&gt;&gt;&gt;del a[1]</span>
+<span class="go">&gt;&gt;&gt;print(a)</span>
+<span class="go">&gt;&gt;&gt;[1, 3]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Nối chuỗi</span>
+<span class="go">&gt;&gt;&gt;print([1, 2, 3] + [4, 5, 6])</span>
+<span class="go">&gt;&gt;&gt;[1, 2, 3, 4, 5, 6]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Nhân chuỗi</span>
+<span class="go">&gt;&gt;&gt;print([&#39;Hi!&#39;] * 4)</span>
+<span class="go">&gt;&gt;&gt;[&#39;Hi!&#39;, &#39;Hi!&#39;, &#39;Hi!&#39;, &#39;Hi!&#39;]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Kiểm tra tồn tại của phần tử trong chuỗi</span>
+<span class="go">&gt;&gt;&gt;3 in [1, 2, 3]</span>
+<span class="go">&gt;&gt;&gt;True</span>
+<span class="go">&gt;&gt;&gt;4 in [1, 2, 3]</span>
+<span class="go">&gt;&gt;&gt;False</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Lặp</span>
+<span class="go">&gt;&gt;&gt;for x in [1, 2, 3]: print(x)</span>
+<span class="go">&gt;&gt;&gt;1 2 3</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Slicing</span>
+<span class="go">&gt;&gt;&gt;L = [&#39;cuccode&#39;, &#39;Cuccode&#39;, &#39;CUCCODE!&#39;]</span>
+<span class="go">&gt;&gt;&gt;L[-2]</span>
+<span class="go">&gt;&gt;&gt;&quot;Cuccode&quot;</span>
+<span class="go">&gt;&gt;&gt;L[1:]</span>
+<span class="go">&gt;&gt;&gt;[&#39;Cuccode&#39;, &#39;CUCCODE!&#39;]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;list_a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+<span class="go">&gt;&gt;&gt;print(list_a[1:-1])</span>
+<span class="go">&gt;&gt;&gt;[&#39;b&#39;, &#39;c&#39;]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;# Replace by slicing:</span>
+<span class="go">&gt;&gt;&gt;list_a[0:2] = &#39;z&#39;    ## replace [&#39;a&#39;, &#39;b&#39;] with [&#39;z&#39;]</span>
+<span class="go">&gt;&gt;&gt;print(list_a)</span>
+<span class="go">&gt;&gt;&gt;[&#39;z&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+</pre></div>
+
+
+<hr>
+<h3>List Comprehension</h3>
+<p>Bây giờ chúng ta sẽ bắt đầu với 1 trong 2 định nghĩa đang cố giải thích từ đầu. Sau khi đã được giới thiệu qua về list ở bên trên, các bạn có thể thấy cách đơn giản nhất để tạo ra list đó là định nghĩa nó:</p>
+<div class="highlight"><pre><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+
+<p>List Comprehension cho phép chúng ta tạo ra một list từ một kiểu dữ liệu có sẵn khác,</p>
+<hr>
+<h3>Tham khảo:</h3>
+<ul>
+<li><a href="https://developers.google.com/edu/python/lists">python list - google edu</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">list-tutorialspoint</a></li>
+</ul>
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://cuccode.com/tag/python.html">python</a></p>
+        </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a> <br />
+    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+    &copy;  dangsonbk
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://cuccode.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
