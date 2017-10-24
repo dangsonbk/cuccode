@@ -124,11 +124,11 @@
 <p>Như bất cứ bài viết nào trên blog này, nếu bạn thấy bài viết có phần nào chưa đúng hoặc thiếu sót, hãy comment cho mình bên dưới bài viết.</p>
 <hr>
 <h3>List trong Python (Cơ bản)</h3>
-<p>TL;DR: Cũng giống như mảng trong các ngôn ngữ lập trình khác, tuy nhiên, trong Python list có thể chứa được nhiều kiểu dữ liệu khác nhau.</p>
+<p>TL;DR: Cũng giống như mảng trong các ngôn ngữ lập trình khác, được dùng để chứa giá trị của một chuỗi - danh sách các dữ liệu tuy nhiên, trong Python list có thể chứa được nhiều kiểu dữ liệu khác nhau.</p>
 <blockquote>
 <p>Kiểu dữ liệu: Ngay từ khi học tiểu học chúng ta đã được phân biệt giữa chữ và số với mục đích khác nhau, trong máy tính cũng vậy, dữ liệu sẽ được chia thành các kiểu khác nhau để dễ dàng xử lý. Tìm hiểu thêm: <a href="https://vi.wikipedia.org/wiki/Kiểu_dữ_liệu">Kiểu dữ liệu - wiki</a></p>
 </blockquote>
-<p>List được hiểu tương đương với <code>Mảng</code> trong các ngôn ngữ lập trình khác, được biểu thị bằng một tập hợp các giá trị phân cách nhau bởi dấu <code>,</code> và toàn bộ bao ngoài bằng []</p>
+<p>List trong Python được biểu thị bằng một tập hợp các giá trị phân cách nhau bởi dấu <code>,</code> và toàn bộ bao ngoài bằng <code>[]</code></p>
 <div class="highlight"><pre><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">]</span>
 </pre></div>
@@ -220,12 +220,98 @@
 </pre></div>
 
 
-<p>List Comprehension cho phép chúng ta tạo ra một list từ một kiểu dữ liệu có sẵn khác,</p>
+<p>List Comprehension cho phép chúng ta tạo ra một list từ một kiểu dữ liệu có sẵn khác chỉ với một vòng lặp for:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
+<span class="go">[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+</pre></div>
+
+
+<p>Đoạn code trên mình dùng để minh họa việc sử dụng List Comprehension là chính, thực tế thì bạn có thể tạo list như trên bằng cách:</p>
+<div class="highlight"><pre><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Khác biệt là bạn có thể sử dụng những điều kiện phức tạp hơn để tạo ra list mình mong muốn, ở đây mình lấy ví dụ lấy danh sách các số chia hết cho 3 trong khoảng từ 0 đến 10:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_b</span>
+<span class="go">[0, 3, 6, 9]</span>
+</pre></div>
+
+
+<p>Đơn giản đúng không? Hoàn toàn nhanh và dễ hiểu hơn việc bạn viết:</p>
+<div class="highlight"><pre><span class="n">list_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">list_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Bây giờ chúng ta sẽ thêm một ví dụ phức tạp hơn chút:</p>
+<p><strong>Tạo list bằng cách gộp 2 list:</strong></p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums_letters</span> <span class="o">=</span> <span class="p">[[</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># the comprehensions list combines two simple lists in a complex list of lists.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">nums_letters</span><span class="p">)</span>
+<span class="go">[[1, &#39;A&#39;], [1, &#39;B&#39;], [1, &#39;C&#39;], [1, &#39;D&#39;], [1, &#39;E&#39;], [2, &#39;A&#39;], [2, &#39;B&#39;], [2, &#39;C&#39;], [2, &#39;D&#39;], [2, &#39;E&#39;], [3, &#39;A&#39;], [3, &#39;B&#39;], [3, &#39;C&#39;], [3, &#39;D&#39;], [3, &#39;E&#39;], [4, &#39;A&#39;], [4, &#39;B&#39;], [4, &#39;C&#39;], [4, &#39;D&#39;], [4, &#39;E&#39;], [5, &#39;A&#39;], [5, &#39;B&#39;], [5, &#39;C&#39;], [5, &#39;D&#39;], [5, &#39;E&#39;]]</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Còn một điều nữa, đó là cái <strong>Comprehension</strong> này không chỉ giới hạn ở List, nó cũng có thể được dùng để tạo Dictionary và Set:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_comp</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span><span class="o">+</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dict_comp</span><span class="p">)</span>
+<span class="go">&lt;class &#39;dict&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">dict_comp</span><span class="p">)</span>
+<span class="go">{1: &#39;B&#39;, 2: &#39;C&#39;, 3: &#39;D&#39;, 4: &#39;E&#39;, 5: &#39;F&#39;, 6: &#39;G&#39;, 7: &#39;H&#39;, 8: &#39;I&#39;, 9: &#39;J&#39;, 10: &#39;K&#39;}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">set_comp</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">**</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">set_comp</span><span class="p">)</span>
+<span class="go">&lt;class &#39;set&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">set_comp</span><span class="p">)</span>
+<span class="go">{0, 8, 64, 512, 216}</span>
+</pre></div>
+
+
+<hr>
+<h3>Interate &amp; Interable &amp; Interator</h3>
+<p>What?</p>
+<p>Vâng, để hiểu về Generator Expressions, bạn cần có kiến thức về Generator, để hiểu về Generator, bạn cần phải hiểu về Interator, và để hiểu về Interator thì bạn cần biết Interable là gì, cuối cùng, là hành động Interate. Đại loại thế.</p>
+<p><a href="https://stackoverflow.com/a/9884259/2964364">stackoverflow.com - What exactly are Python's iterator, iterable, and iteration protocols?</a></p>
+<p>Interate có thể hiểu là hành động duyệt từng phần tử của một danh sách (sequence).</p>
+<blockquote>
+<p>Chú ý sequence trong Python là một kiểu giữ liệu mang tính bao quát, các kiểu dữ liệu như str (chuỗi ký tự), list, tuple đều được định nghĩa là một kiểu sequence</p>
+</blockquote>
+<p>Ví dụ việc bạn duyệt từng phần tử như sau có thể hiểu là việc Interate từng phần tử, dĩ nhiên ta bỏ qua việc để có thể thực hiện được việc này thì đều dùng đến các khái niệm iterator và iterable trong của <code>string</code> rồi:</p>
+<div class="highlight"><pre><span class="n">string</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">char</span>
+</pre></div>
+
+
+<p><strong>Nếu một kiểu dữ liệu cho phép ta Interate, ta hiểu nó là Interable</strong></p>
+<p>Có thể tưởng tượng việc điểm danh một lớp học bằng cách xếp hàng, người đầu hàng hô một, người sau hô 2, cứ thế đến cuối hàng. Nếu lớp chịu xếp hàng thì mới điểm danh được, khi đó gọi lớp này là Interable, hành động điểm danh là Interate (động từ), danh từ cho việc này là Interation.</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">lop_hoc</span><span class="o">.</span><span class="n">co_danh_sach</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hoc_sinh</span> <span class="ow">in</span> <span class="n">lop_hoc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">hoc_sinh</span><span class="o">.</span><span class="n">di_hoc</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Có&quot;</span>
+</pre></div>
+
+
+<hr>
+<h3>Generator</h3>
+<hr>
+<h3>Generator Expressions</h3>
 <hr>
 <h3>Tham khảo:</h3>
 <ul>
 <li><a href="https://developers.google.com/edu/python/lists">python list - google edu</a></li>
-<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">list-tutorialspoint</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">list - tutorialspoint</a></li>
+<li><a href="http://djangostars.com/blog/list-comprehensions-and-generator-expressions">djangostar</a></li>
+<li><a href="https://infohost.nmt.edu/tcc/help/pubs/python/web/iterable.html">iterable - nmt.edu</a></li>
 </ul>
     </article>
 
