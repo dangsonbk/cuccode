@@ -276,24 +276,25 @@
 </pre></div>
 
 
+<p>List Comprehension cho phép chúng ta tạo ra các cấu trúc dữ liệu phức tạp chỉ với những lệnh rất ngắn và tự nhiên theo phong cách Python (pythonic). Tuy nhiên có một nhược điểm đó là dữ liệu sinh ra sẽ được lưu toàn bộ vào bộ nhớ. Đối với những dữ liệu lớn, cách tốt hơn đó là sử dụng generator.</p>
 <hr>
-<h3>Interate &amp; Interable &amp; Interator</h3>
+<h3>Iterate &amp; Iterable &amp; Iterator</h3>
 <p>What?</p>
-<p>Vâng, để hiểu về Generator Expressions, bạn cần có kiến thức về Generator, để hiểu về Generator, bạn cần phải hiểu về Interator, và để hiểu về Interator thì bạn cần biết Interable là gì, cuối cùng, là hành động Interate. Đại loại thế.</p>
+<p>Vâng, để hiểu về Generator Expressions, bạn cần có kiến thức về Generator, để hiểu về Generator, bạn cần phải hiểu về Iterator, và để hiểu về Iterator thì bạn cần biết Iterable, Iterate, Iteration là gì ... Đại loại thế.</p>
 <p><a href="https://stackoverflow.com/a/9884259/2964364">stackoverflow.com - What exactly are Python's iterator, iterable, and iteration protocols?</a></p>
-<p>Interate có thể hiểu là hành động duyệt từng phần tử của một danh sách (sequence).</p>
+<p>Iterate có thể hiểu là hành động duyệt từng phần tử của một danh sách (sequence).</p>
 <blockquote>
 <p>Chú ý sequence trong Python là một kiểu giữ liệu mang tính bao quát, các kiểu dữ liệu như str (chuỗi ký tự), list, tuple đều được định nghĩa là một kiểu sequence</p>
 </blockquote>
-<p>Ví dụ việc bạn duyệt từng phần tử như sau có thể hiểu là việc Interate từng phần tử, dĩ nhiên ta bỏ qua việc để có thể thực hiện được việc này thì đều dùng đến các khái niệm iterator và iterable trong của <code>string</code> rồi:</p>
+<p>Ví dụ như sau có thể hiểu là việc Iterate từng phần tử, dĩ nhiên ta bỏ qua việc để có thể thực hiện được việc này thì đều dùng đến các khái niệm iterator và iterable của <code>string</code> rồi:</p>
 <div class="highlight"><pre><span class="n">string</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">char</span>
 </pre></div>
 
 
-<p><strong>Nếu một kiểu dữ liệu cho phép ta Interate, ta hiểu nó là Interable</strong></p>
-<p>Có thể tưởng tượng việc điểm danh một lớp học bằng cách xếp hàng, người đầu hàng hô một, người sau hô 2, cứ thế đến cuối hàng. Nếu lớp chịu xếp hàng thì mới điểm danh được, khi đó gọi lớp này là Interable, hành động điểm danh là Interate (động từ), danh từ cho việc này là Interation.</p>
+<p><strong>Nếu một kiểu dữ liệu cho phép ta Iterate, ta hiểu nó là Iterable</strong></p>
+<p>Tưởng tượng việc điểm danh một lớp học bằng cách xếp hàng, người đầu hàng hô 1, người sau hô 2, cứ thế đến cuối hàng. Nếu lớp chịu xếp hàng thì mới điểm danh được, khi đó gọi lớp này là Iterable, hành động điểm danh là Iterate (động từ), danh từ cho việc này là Iteration.</p>
 <div class="highlight"><pre><span class="k">if</span> <span class="n">lop_hoc</span><span class="o">.</span><span class="n">co_danh_sach</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">hoc_sinh</span> <span class="ow">in</span> <span class="n">lop_hoc</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">hoc_sinh</span><span class="o">.</span><span class="n">di_hoc</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
@@ -301,6 +302,34 @@
 </pre></div>
 
 
+<p>Iteration là cơ sử nền tảng của việc xử lý dữ liệu trong Python. Khi làm việc trên các dữ liệu có kích thước lớn cần phải có cách thức để xử lý dữ liệu một cách nhanh gọn và đơn giản nhất. Trong Python có thể miêu tả cách thức làm việc này là <strong>fetch the items lazily</strong>. Hiểu một cách đơn giản là làm một lần và chỉ khi được yêu cầu.</p>
+<p>Như ở phần trước, chúng ta có thể tạo ra một list bằng cách sử dụng comprehension, thông tin các phần tử của list này sẽ được lưu toàn bộ dưới bộ nhớ. Vấn đề gặp phải đó là nếu chúng ta cần tạo một list cực lớn, hàng triệu phần tử chẳng hạn, hoặc các phần tử trong list cũng có kích thước lớn, khi đó ta sẽ gặp vấn đề với việc tạo và quản lý list dưới bộ nhớ.</p>
+<p>Dĩ nhiên list chỉ là một ví dụ minh họa cho việc cấp phát bộ nhớ để tạo dữ liệu khi chương trình hoạt động. Trên thực tế có những trường hợp chương trình sẽ phải đọc những dữ liệu có kích thước rất lớn, việc ghi và đọc toàn bộ dữ liệu vào bộ nhớ chương trình là bất khả thi hoặc tốn rất nhiều thời gian.</p>
+<p><strong>Bất cứ thứ gì bạn có thể for ... in ... được thì interable.</strong></p>
+<p>Có vẻ như cấu trúc <code>for ... in ...</code> của Python được thừa hưởng từ ngôn ngữ tiền nhiệm của nó: <a href="https://en.wikipedia.org/wiki/ABC_(programming_language)">ABC</a>.</p>
+<div class="highlight"><pre><span class="n">FOR</span> <span class="n">word</span> <span class="n">IN</span> <span class="n">line</span><span class="o">:</span>
+    <span class="k">do</span> <span class="n">something</span>
+</pre></div>
+
+
+<p>Có thể viết lại dễ dàng bằng giả mã như sau:</p>
+<div class="highlight"><pre><span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">do</span> <span class="n">something</span>
+<span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">do</span> <span class="n">something</span>
+<span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">do</span> <span class="n">something</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>cứ như vậy cho đến hết (<code>IndexError</code>)</p>
+<p>Về bản chất bên trong của ngôn ngữ Python, để có thể duyệt được qua các phần tử của một đối tượng, đối tượng đó phải hỗ trợ phương thức <code>__iter__</code>. <code>__iter__</code> sẽ trả về một "iterator". Đối tượng này cần phải hỗ trợ giao thức iteration (sẽ được nói đến sau). Một đối tượng "iterable" có thể trả về đối tượng "iterator" khác nhau khi được duyệt khác nhau.</p>
+<p>Nói về iterator, đây là đối tượng được trả về khi duyệt một đối tượng "iterable" và được hỗ trợ sẵn bên trong 2 phương thức: <code>__iter__</code> và <code>__next__</code>, 2 phương thức này được gọi là iteration protocol.</p>
+<p>Phương thức <strong>iter</strong> trả về chính đối tượng iterator. Phương thức này được yêu cầu cài đặt cho cả đối tượng "iterable" và iterator để có thể sử dụng các câu lệnh for và in.
+Phương thức <strong>next</strong> (ở Python 2 là next) trả về phần tử tiếp theo. Nếu không còn phần tử nào nữa thì StopIteration exception sẽ được raise.
+Một hàm dựng sẵn của Python là iter nhận đầu vào là một đối tượng "iterable" và trả về kết quả là một iterator.</p>
+<p>https://stackoverflow.com/a/237028/2964364</p>
 <hr>
 <h3>Generator</h3>
 <hr>
