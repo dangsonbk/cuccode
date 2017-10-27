@@ -111,14 +111,14 @@
     </span>
     <!-- Post Content -->
     <article>
-        <p>Khi học Python hoặc mò StackOverflow, sẽ không khó để bắt gặp những lệnh liên quan đến List Comprehensions và Generator Expressions như dưới đây.</p>
+        <p>Vừa rồi thì mình có trò chuyện với một vài bạn đang học lập trình Python và cũng đã có background về lập trình C, C++. Sau khi nói chuyện thì phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn hoặc hiểu nhầm với Comprehensions và Expressions. Lý do thì khó mà liệt kê được hết, có thể đó là do C, C++ đã tạo một thói quen trong tư duy khiến các bạn ấy hiểu nhầm vấn đề, có bạn đã dùng rất nhiều rồi nhưng không nghĩ đó chính là Comprehension, hoặc đối với một số bạn thì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm chúng là những kiến thức nâng cao.</p>
+<p>Khi học Python hoặc mò StackOverflow, sẽ không khó để bắt gặp những lệnh liên quan đến List Comprehensions và Generator Expressions như dưới đây.</p>
 <div class="highlight"><pre><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 
 
-<p>Vừa rồi thì mình có trò chuyện với một vài bạn đang học lập trình Python và cũng đã có background về lập trình C, C++. Sau khi nói chuyện thì phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn hoặc hiểu nhầm với Comprehensions và Expressions. Lý do thì khó mà liệt kê được hết, có thể đó là do C, C++ đã tạo một thói quen trong tư duy khiến các bạn ấy hiểu nhầm vấn đề, có bạn đã dùng rất nhiều rồi nhưng không nghĩ đó chính là Comprehension, hoặc đối với một số bạn thì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm chúng là những kiến thức nâng cao.</p>
 <p><img alt="ListComp" src="static/python/ListCompAndGenExp.PNG"></p>
 <p>Đúng là cũng hơi khó để cắt nghĩa 2 từ này ra tiếng Việt để hiểu được dễ dàng, mình đã thử Google Translate và được kết quả như trên. Trong bài này mình sẽ cố gắng diễn giải từ những khái niệm cơ bản nhất là List và Generator trong Python lên, lý do là tiện công chuyện giới thiệu cho các bạn mới học Python, sau đó so sánh chúng với nhau cũng như kết hợp với các ví dụ để mọi người có thể hiểu được chúng một cách rõ ràng nhất.</p>
 <p>Như bất cứ bài viết nào trên blog này, nếu bạn thấy bài viết có phần nào chưa đúng hoặc thiếu sót, hãy comment cho mình bên dưới bài viết.</p>
@@ -389,7 +389,7 @@
 <hr>
 <h3>Khi nào dùng List Comprehensions và khi nào dùng Generator Expression, Generator Function</h3>
 <p>Như đã nói ở trên, nếu bạn chỉ muốn duyệt qua các phần tử 1 lần hãy dùng generator, nếu bạn cần lưu dữ liệu, các phần tử lại, hãy dùng list, dict hoặc một kiểu dữ liệu khác. Generator expression sẽ chỉ tạo dữ liệu khi duyệt phần tử, vì vậy bạn có thể sử dụng nó cho các dữ liệu hoặc chuỗi dữ liệu (sequences) có kích thước cực kỳ lớn (vô hạn?).</p>
-<p>Generator expression cho phép tạo generator một cách nhanh chóng mà không phải thực hiện các công việc tạo và gọi hàm. Nó đơn giản và nhanh chóng về cả nghĩa đen và nghĩa bóng. Tuy nhiên, nếu generator expression dài hơn một dòng, hãy nghĩ tới việc dùng generator function. <strong>Dài hơn một dòng</strong> ở đây chỉ mang tính ước lượng, bạn có thể tùy thuộc vào độ phức tạp của đoạn code mà nghĩ tới việc sử dụng cho hợp lý.</p>
+<p>Generator expression cho phép tạo generator một cách nhanh chóng mà không phải thực hiện các công việc tạo và gọi hàm. Nó đơn giản và nhanh chóng về cả nghĩa đen và nghĩa bóng. Tuy nhiên, nếu generator expression dài hơn một dòng, hãy nghĩ tới việc dùng generator function. <strong><em>Dài hơn một dòng</em></strong> ở đây chỉ mang tính ước lượng, bạn có thể tùy thuộc vào độ phức tạp của đoạn code mà nghĩ tới việc sử dụng cho hợp lý.</p>
 <hr>
 <h3>Tham khảo:</h3>
 <ul>
