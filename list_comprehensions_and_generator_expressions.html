@@ -32,7 +32,7 @@
 
 
 
-        <meta name="description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy.">
+        <meta name="description" content="Đây là 2 tính năng vô cùng mạnh mẽ và hữu dụng của Python, chúng ta sẽ cùng tìm hiểu về chúng trong bài viết sau đây.">
 
         <meta name="author" content="dangsonbk">
 
@@ -46,7 +46,7 @@
 	<meta property="og:url" content="http://cuccode.com/list_comprehensions_and_generator_expressions.html">
 	<meta property="og:title" content="List Comprehensions và Generator Expressions">
 	<meta property="article:published_time" content="2017-10-24 20:45:00+07:00">
-            <meta property="og:description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy.">
+            <meta property="og:description" content="Đây là 2 tính năng vô cùng mạnh mẽ và hữu dụng của Python, chúng ta sẽ cùng tìm hiểu về chúng trong bài viết sau đây.">
 
             <meta property="og:image" content="http://cuccode.com//static/python/comprehensions.png">
         <meta name="twitter:card" content="summary_large_image">
@@ -55,7 +55,7 @@
 
             <meta name="twitter:image" content="http://cuccode.com//static/python/comprehensions.png">
 
-            <meta name="twitter:description" content="Dịch tiêu đề cũng hơi khoai, thế nên mình đành để nguyên tiếng Anh rồi giải thích sau vậy.">
+            <meta name="twitter:description" content="Đây là 2 tính năng vô cùng mạnh mẽ và hữu dụng của Python, chúng ta sẽ cùng tìm hiểu về chúng trong bài viết sau đây.">
 </head>
 
 <body>
@@ -171,45 +171,45 @@
 
 
 <p>Ngoài ra còn một số hoạt động khác có thể được thực hiện trên list bạn có thể tham khảo thêm, mặc dù chúng khá cơ bản những mình không muốn đi quá xa vào phần này nên sẽ liệt kê ra sau đây:</p>
-<div class="highlight"><pre><span class="go">&gt;&gt;&gt;# Xóa phần tử</span>
-<span class="go">&gt;&gt;&gt;a = [1, 2, 3]</span>
-<span class="go">&gt;&gt;&gt;del a[1]</span>
-<span class="go">&gt;&gt;&gt;print(a)</span>
-<span class="go">&gt;&gt;&gt;[1, 3]</span>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># Xóa phần tử</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Nối chuỗi</span>
-<span class="go">&gt;&gt;&gt;print([1, 2, 3] + [4, 5, 6])</span>
-<span class="go">&gt;&gt;&gt;[1, 2, 3, 4, 5, 6]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Nối chuỗi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Nhân chuỗi</span>
-<span class="go">&gt;&gt;&gt;print([&#39;Hi!&#39;] * 4)</span>
-<span class="go">&gt;&gt;&gt;[&#39;Hi!&#39;, &#39;Hi!&#39;, &#39;Hi!&#39;, &#39;Hi!&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Nhân chuỗi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">([</span><span class="s">&#39;Hi!&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s">&#39;Hi!&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Kiểm tra tồn tại của phần tử trong chuỗi</span>
-<span class="go">&gt;&gt;&gt;3 in [1, 2, 3]</span>
-<span class="go">&gt;&gt;&gt;True</span>
-<span class="go">&gt;&gt;&gt;4 in [1, 2, 3]</span>
-<span class="go">&gt;&gt;&gt;False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Kiểm tra tồn tại của phần tử trong chuỗi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">False</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Lặp</span>
-<span class="go">&gt;&gt;&gt;for x in [1, 2, 3]: print(x)</span>
-<span class="go">&gt;&gt;&gt;1 2 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Lặp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Slicing</span>
-<span class="go">&gt;&gt;&gt;L = [&#39;cuccode&#39;, &#39;Cuccode&#39;, &#39;CUCCODE!&#39;]</span>
-<span class="go">&gt;&gt;&gt;L[-2]</span>
-<span class="go">&gt;&gt;&gt;&quot;Cuccode&quot;</span>
-<span class="go">&gt;&gt;&gt;L[1:]</span>
-<span class="go">&gt;&gt;&gt;[&#39;Cuccode&#39;, &#39;CUCCODE!&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Slicing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;cuccode&#39;</span><span class="p">,</span> <span class="s">&#39;Cuccode&#39;</span><span class="p">,</span> <span class="s">&#39;CUCCODE!&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;Cuccode&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;Cuccode&#39;</span><span class="p">,</span> <span class="s">&#39;CUCCODE!&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;list_a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
-<span class="go">&gt;&gt;&gt;print(list_a[1:-1])</span>
-<span class="go">&gt;&gt;&gt;[&#39;b&#39;, &#39;c&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="go">&gt;&gt;&gt;# Replace by slicing:</span>
-<span class="go">&gt;&gt;&gt;list_a[0:2] = &#39;z&#39;    ## replace [&#39;a&#39;, &#39;b&#39;] with [&#39;z&#39;]</span>
-<span class="go">&gt;&gt;&gt;print(list_a)</span>
-<span class="go">&gt;&gt;&gt;[&#39;z&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Replace by slicing:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;z&#39;</span>    <span class="c">## replace [&#39;a&#39;, &#39;b&#39;] with [&#39;z&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;z&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">]</span>
 </pre></div>
 
 
