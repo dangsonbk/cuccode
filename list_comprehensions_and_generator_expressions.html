@@ -118,9 +118,9 @@
 </pre></div>
 
 
-<p>Vừa rồi thì mình cũng có trò chuyện với một bạn đang học lập trình Python, bạn này thì cũng đã có background về lập trình C và C++ rồi. Sau đó thì mình phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn với Comprehensions và Expressions. Lý do không phải vì chúng khó, lý do vì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm là chúng là những kiến thức nâng cao.</p>
+<p>Vừa rồi thì mình có trò chuyện với một vài bạn đang học lập trình Python và cũng đã có background về lập trình C, C++. Sau khi nói chuyện thì phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn hoặc hiểu nhầm với Comprehensions và Expressions. Lý do thì khó mà liệt kê được hết, có thể đó là do C, C++ đã tạo một thói quen trong tư duy khiến các bạn ấy hiểu nhầm vấn đề, có bạn đã dùng rất nhiều rồi nhưng không nghĩ đó chính là Comprehension, hoặc đối với một số bạn thì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm chúng là những kiến thức nâng cao.</p>
 <p><img alt="ListComp" src="static/python/ListCompAndGenExp.PNG"></p>
-<p>Đúng là cũng hơi khó để cắt nghĩa 2 từ này ra tiếng Việt để hiểu được dễ dàng, mình đã thử Google Translate và được kết quả như trên. Trong bài này mình sẽ đi dần từ những khái niệm cơ bản nhất là List và Generator trong Python lên, lý do là tiện công chuyện giới thiệu cho các bạn mới học Python, sau đó so sánh chúng với nhau cũng như kết hợp với các ví dụ để mọi người có thể hiểu được chúng một cách rõ ràng nhất.</p>
+<p>Đúng là cũng hơi khó để cắt nghĩa 2 từ này ra tiếng Việt để hiểu được dễ dàng, mình đã thử Google Translate và được kết quả như trên. Trong bài này mình sẽ cố gắng diễn giải từ những khái niệm cơ bản nhất là List và Generator trong Python lên, lý do là tiện công chuyện giới thiệu cho các bạn mới học Python, sau đó so sánh chúng với nhau cũng như kết hợp với các ví dụ để mọi người có thể hiểu được chúng một cách rõ ràng nhất.</p>
 <p>Như bất cứ bài viết nào trên blog này, nếu bạn thấy bài viết có phần nào chưa đúng hoặc thiếu sót, hãy comment cho mình bên dưới bài viết.</p>
 <hr>
 <h3>List trong Python (Cơ bản)</h3>
@@ -294,7 +294,9 @@
 
 
 <p><strong>Nếu một kiểu dữ liệu cho phép ta Iterate, ta hiểu nó là Iterable</strong></p>
+<blockquote>
 <p>Tưởng tượng việc điểm danh một lớp học bằng cách xếp hàng, người đầu hàng hô 1, người sau hô 2, cứ thế đến cuối hàng. Nếu lớp chịu xếp hàng thì mới điểm danh được, khi đó gọi lớp này là Iterable, hành động điểm danh là Iterate (động từ), danh từ cho việc này là Iteration.</p>
+</blockquote>
 <div class="highlight"><pre><span class="k">if</span> <span class="n">lop_hoc</span><span class="o">.</span><span class="n">co_danh_sach</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">hoc_sinh</span> <span class="ow">in</span> <span class="n">lop_hoc</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">hoc_sinh</span><span class="o">.</span><span class="n">di_hoc</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
@@ -312,7 +314,7 @@
 </pre></div>
 
 
-<p>Có thể viết lại dễ dàng bằng giả mã như sau:</p>
+<p>Cấu trúc này có thể viết lại cho dễ hiểu hơn bằng giả mã như sau:</p>
 <div class="highlight"><pre><span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">do</span> <span class="n">something</span>
 <span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -324,12 +326,14 @@
 
 
 <p>cứ như vậy cho đến hết (<code>IndexError</code>)</p>
-<p>Về bản chất bên trong của ngôn ngữ Python, để có thể duyệt được qua các phần tử của một đối tượng, đối tượng đó phải hỗ trợ phương thức <code>__iter__</code>. <code>__iter__</code> sẽ trả về một "iterator". Đối tượng này cần phải hỗ trợ giao thức iteration (sẽ được nói đến sau). Một đối tượng "iterable" có thể trả về đối tượng "iterator" khác nhau khi được duyệt khác nhau.</p>
-<p>Nói về iterator, đây là đối tượng được trả về khi duyệt một đối tượng "iterable" và được hỗ trợ sẵn bên trong 2 phương thức: <code>__iter__</code> và <code>__next__</code>, 2 phương thức này được gọi là iteration protocol.</p>
-<p>Phương thức <strong>iter</strong> trả về chính đối tượng iterator. Phương thức này được yêu cầu cài đặt cho cả đối tượng "iterable" và iterator để có thể sử dụng các câu lệnh for và in.
-Phương thức <strong>next</strong> (ở Python 2 là next) trả về phần tử tiếp theo. Nếu không còn phần tử nào nữa thì StopIteration exception sẽ được raise.
-Một hàm dựng sẵn của Python là iter nhận đầu vào là một đối tượng "iterable" và trả về kết quả là một iterator.</p>
-<p>Xét một ví dụ sau:</p>
+<p>Về bản chất bên trong của ngôn ngữ Python, để có thể duyệt được qua các phần tử của một đối tượng, đối tượng đó phải hỗ trợ phương thức <code>__iter__</code>. <code>__iter__</code> sẽ trả về một "iterator". Một đối tượng "iterable" có thể trả về đối tượng "iterator" khác nhau khi được duyệt khác nhau.</p>
+<p>Nói về iterator, iterator được trả về khi duyệt một đối tượng iterable và được hỗ trợ (cài đặt) sẵn bên trong nó 2 phương thức: <code>__iter__</code> và <code>__next__</code>, 2 phương thức này được gọi là iteration protocol.</p>
+<ul>
+<li>Phương thức <code>__iter__</code> trả về chính đối tượng iterator. Để có thể sử dụng các câu lệnh <code>for</code> và <code>in</code> thì bắt buộc các đối tượng iterable và iterator phải hỗ trợ <code>__iter__</code>.</li>
+<li>Phương thức <code>__next__</code> trả về phần tử tiếp theo. Nếu không còn phần tử nào nữa thì <code>StopIteration</code> <a href="cuccode.com/python_error_exceptions_handling.html">exception</a> sẽ được raise.</li>
+</ul>
+<p>Một hàm dựng sẵn của Python là iter nhận đầu vào là một đối tượng "iterable" và trả về kết quả là một iterator.</p>
+<p>Xét một ví dụ duyệt phần tử trong một list:</p>
 <div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
     <span class="c"># do something</span>
 </pre></div>
@@ -339,13 +343,13 @@ Một hàm dựng sẵn của Python là iter nhận đầu vào là một đố
 <ol>
 <li>Lấy đối tượng iterator:</li>
 </ol>
-<p>Được thực hiện bằng cách gọi iter(mylist) -&gt; hàm này sẽ thực thi phương thức <strong>iter</strong> như đã nói ở trên và trả về một đối tượng mà có thể gọi <strong>next</strong>().</p>
+<p>Được thực hiện bằng cách gọi iter(mylist) -&gt; hàm này sẽ thực thi phương thức <code>__iter__</code> như đã nói ở trên và trả về một đối tượng mà có thể gọi <code>__next__()</code>.</p>
 <ol>
 <li>Dùng iterator để duyệt qua từng phần tử:</li>
 </ol>
-<p>Tiếp tục gọi phương thức <strong>next</strong>() trên iterator được trả về từ bước 1. Giá trị trả về khi gọi <strong>next</strong>()được trả vào biến x và thân vòng lặp <code># do something</code> được thực thi. Khi một exception <code>StopIteration</code> được sinh ra khi thực hiện <strong>next</strong>() có nghĩa là không còn phần tử nào để duyệt nữa và khi đó vòng lặp kết thúc.</p>
-<h2>Typing ...</h2>
-<h3>Generator</h3>
+<p>Tiếp tục gọi phương thức <code>__next__()</code> trên iterator được trả về từ bước 1. Giá trị trả về khi gọi <code>__next__()</code> được trả vào biến x và thân vòng lặp <code># do something</code> được thực thi. Khi một <a href="cuccode.com/python_error_exceptions_handling.html">exception</a> <code>StopIteration</code> được sinh ra khi thực hiện <code>__next__()</code> có nghĩa là không còn phần tử nào để duyệt nữa và khi đó vòng lặp kết thúc.</p>
+<hr>
+<h3>Generators</h3>
 <hr>
 <h3>Generator Expressions</h3>
 <hr>
