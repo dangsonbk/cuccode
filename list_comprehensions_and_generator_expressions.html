@@ -387,8 +387,8 @@
 <p>Giả sử ta đang dùng một vòng for để duyệt qua generator. Đầu tiên <code>for</code> sẽ gọi đối tượng generator mà được tạo ra từ hàm, nó sẽ chạy code trong hàm từ đầu cho đến khi nó gặp <code>yield</code>, khi đó nó sẽ trả lại giá trị đầu tiên của vòng lặp. Vòng lặp tiếp theo sẽ chạy code mà bạn đã viết trong hàm một lần nữa cho đến khi gặp <code>yield</code> và tiếp tục trả lại giá trị, cứ như thế cho đến khi generator rỗng. Generator được coi là rỗng sau khi code trong thân hàm chạy nhưng không gặp <code>yield</code> nữa.</p>
 <p>Quay lại ví dụ tính fibonacci ở trên, theo lý thuyết, ta có thể tính toán được số fibonacci cực kỳ lớn mà không cần dùng quá nhiều bộ nhớ. Đây cũng là ưu điểm nội trội của generator trong Python.</p>
 <hr>
-<h3>Khi nào dùng List Comprehensions và khi nào dùng Generator Expressions, Generator Function</h3>
-<p>Như đã nói ở trên, nếu bạn chỉ muốn duyệt qua các phần tử 1 lần hãy dùng generator, nếu bạn cần lưu dữ liệu, các phần tử lại, hãy dùng list. Generator expression sẽ chỉ tạo dữ liệu khi duyệt phần tử, vì vậy bạn có thể sử dụng nó cho các dữ liệu hoặc chuỗi dữ liệu (sequences) có kích thước cực kỳ lớn (vô hạn?).</p>
+<h3>Khi nào dùng List Comprehensions và khi nào dùng Generator Expression, Generator Function</h3>
+<p>Như đã nói ở trên, nếu bạn chỉ muốn duyệt qua các phần tử 1 lần hãy dùng generator, nếu bạn cần lưu dữ liệu, các phần tử lại, hãy dùng list, dict hoặc một kiểu dữ liệu khác. Generator expression sẽ chỉ tạo dữ liệu khi duyệt phần tử, vì vậy bạn có thể sử dụng nó cho các dữ liệu hoặc chuỗi dữ liệu (sequences) có kích thước cực kỳ lớn (vô hạn?).</p>
 <p>Generator expression cho phép tạo generator một cách nhanh chóng mà không phải thực hiện các công việc tạo và gọi hàm. Nó đơn giản và nhanh chóng về cả nghĩa đen và nghĩa bóng. Tuy nhiên, nếu generator expression dài hơn một dòng, hãy nghĩ tới việc dùng generator function. <strong>Dài hơn một dòng</strong> ở đây chỉ mang tính ước lượng, bạn có thể tùy thuộc vào độ phức tạp của đoạn code mà nghĩ tới việc sử dụng cho hợp lý.</p>
 <hr>
 <h3>Tham khảo:</h3>
