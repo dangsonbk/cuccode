@@ -280,11 +280,11 @@
 <hr>
 <h3>Iterate &amp; Iterable &amp; Iterator</h3>
 <p>What?</p>
-<p>Vâng, để hiểu về Generator Expressions, bạn cần có kiến thức về Generator, để hiểu về Generator, bạn cần phải hiểu về Iterator, và để hiểu về Iterator thì bạn cần biết Iterable, Iterate, Iteration là gì ... Đại loại thế.</p>
+<p>Vâng, để hiểu về Generator Expressions, bạn cần có kiến thức về Generator, để hiểu về Generator, bạn cần phải hiểu về Iterator, và để hiểu về Iterator thì bạn cần biết Iterable, Iterate, Iteration là gì ... đại loại thế.</p>
 <p><a href="https://stackoverflow.com/a/9884259/2964364">stackoverflow.com - What exactly are Python's iterator, iterable, and iteration protocols?</a></p>
 <p>Iterate có thể hiểu là hành động duyệt từng phần tử của một danh sách (sequence).</p>
 <blockquote>
-<p>Chú ý sequence trong Python là một kiểu giữ liệu mang tính bao quát, các kiểu dữ liệu như str (chuỗi ký tự), list, tuple đều được định nghĩa là một kiểu sequence</p>
+<p>sequence trong Python là một kiểu giữ liệu mang tính bao quát, các kiểu dữ liệu như str (chuỗi ký tự), list, tuple đều được định nghĩa là một kiểu sequence</p>
 </blockquote>
 <p>Ví dụ như sau có thể hiểu là việc Iterate từng phần tử, dĩ nhiên ta bỏ qua việc để có thể thực hiện được việc này thì đều dùng đến các khái niệm iterator và iterable của <code>string</code> rồi:</p>
 <div class="highlight"><pre><span class="n">string</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
@@ -340,13 +340,9 @@
 
 
 <p>Python sẽ thực hiện 2 việc sau:</p>
-<ol>
-<li>Lấy đối tượng iterator:</li>
-</ol>
+<p><strong>Lấy đối tượng iterator:</strong></p>
 <p>Được thực hiện bằng cách gọi iter(mylist) -&gt; hàm này sẽ thực thi phương thức <code>__iter__</code> như đã nói ở trên và trả về một đối tượng mà có thể gọi <code>__next__()</code>.</p>
-<ol>
-<li>Dùng iterator để duyệt qua từng phần tử:</li>
-</ol>
+<p><strong>Dùng iterator để duyệt qua từng phần tử:</strong></p>
 <p>Tiếp tục gọi phương thức <code>__next__()</code> trên iterator được trả về từ bước 1. Giá trị trả về khi gọi <code>__next__()</code> được trả vào biến x và thân vòng lặp <code># do something</code> được thực thi. Khi một <a href="cuccode.com/python_error_exceptions_handling.html">exception</a> <code>StopIteration</code> được sinh ra khi thực hiện <code>__next__()</code> có nghĩa là không còn phần tử nào để duyệt nữa và khi đó vòng lặp kết thúc.</p>
 <hr>
 <h3>Generators</h3>
@@ -362,6 +358,7 @@
 <li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">What does the “yield” keyword do? - stackoverflow</a></li>
 <li><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-pythons-iterator-iterable-and-iteration-protocols">What exactly are Python's iterator, iterable, and iteration protocols? - stackoverflow</a></li>
 </ul>
+<p>Header Image: <a href="https://dbader.org/blog/list-dict-set-comprehensions-in-python">dbader.org</a></p>
     </article>
 
         <div class="tags">
