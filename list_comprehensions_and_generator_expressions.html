@@ -346,7 +346,7 @@
 <p>Tiếp tục gọi phương thức <code>__next__()</code> trên iterator được trả về từ bước 1. Giá trị trả về khi gọi <code>__next__()</code> được trả vào biến x và thân vòng lặp <code># do something</code> được thực thi. Khi một <a href="cuccode.com/python_error_exceptions_handling.html">exception</a> <code>StopIteration</code> được sinh ra khi thực hiện <code>__next__()</code> có nghĩa là không còn phần tử nào để duyệt nữa và khi đó vòng lặp kết thúc.</p>
 <hr>
 <h3>Generator Expressions, Generator Functions</h3>
-<p>Tiếp theo chúng ta sẽ tiến đến khái niệm Generator. Chúng ta có thể hiểu Generator chính là iterator, điểm khác biệt là generator chỉ có thể duyệt phần tử 1 lần. Lý do là generator không lưu trữ toàn bộ dữ liệu của sequence (chuỗi dữ liệu, mảng dữ liệu, danh sách nói chung) xuống bộ nhớ, thay vào đó nó tạo dữ liệu khi duyệt qua từng phần tử. Muốn duyệt lại dữ liệu, bắt buộc chúng ta phải tạo lại generator.</p>
+<p>Tiếp theo chúng ta sẽ tiến đến khái niệm Generator. Có thể hiểu Generator chính là iterator, điểm khác biệt là generator chỉ có thể duyệt phần tử 1 lần. Lý do là generator không lưu trữ toàn bộ dữ liệu của sequence (chuỗi dữ liệu, mảng dữ liệu, danh sách nói chung) xuống bộ nhớ, thay vào đó nó tạo dữ liệu khi duyệt qua từng phần tử. Muốn duyệt lại dữ liệu, bắt buộc chúng ta phải tạo lại generator.</p>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mygenerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -361,6 +361,7 @@
 
 <p>Ở ví dụ trên, thay vì sử dụng <code>[]</code> như list comprehension, chúng ta sử dụng <code>()</code>, <code>(x*x for x in range(3))</code> chính là generator expression chúng ta đang nói đến. <code>mygenerator</code> ở đây được gán là một đối tượng generator, đồng nghĩa với việc <code>mygenerator</code> chỉ có thể được duyệt qua 1 lần.</p>
 <p>Python 3 sử dụng generator ở rất nhiều nơi, kể cả hàm dựng sẵn <code>range()</code> cũng trả về một đối tượng generator thay vì tạo ra một danh sách đầy đủ. Nếu bạn muốn tạo ra một list như ở Python 2, bạn bắt buộc phải chuyển đổi nó một cách tường minh hơn. Ví dụ: <code>list(range(10))</code></p>
+<p>Sử dụng generator có thể nâng cao hiệu suất của chương trình, lý do như đã nói ở trên, generator chỉ thực sự sinh và trả về kết quả khi được gọi và cũng không cần thiết phải đợi tất cả các phần tử của nó được sinh ra hết.</p>
 <p>Sau đây là một đoạn code tính Fibonacci bằng generator function:</p>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fibo</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
@@ -390,6 +391,9 @@
 <h3>Khi nào dùng List Comprehensions và khi nào dùng Generator Expression, Generator Function</h3>
 <p>Như đã nói ở trên, nếu bạn chỉ muốn duyệt qua các phần tử 1 lần hãy dùng generator, nếu bạn cần lưu dữ liệu, các phần tử lại, hãy dùng list, dict hoặc một kiểu dữ liệu khác. Generator expression sẽ chỉ tạo dữ liệu khi duyệt phần tử, vì vậy bạn có thể sử dụng nó cho các dữ liệu hoặc chuỗi dữ liệu (sequences) có kích thước cực kỳ lớn (vô hạn?).</p>
 <p>Generator expression cho phép tạo generator một cách nhanh chóng mà không phải thực hiện các công việc tạo và gọi hàm. Nó đơn giản và nhanh chóng về cả nghĩa đen và nghĩa bóng. Tuy nhiên, nếu generator expression dài hơn một dòng, hãy nghĩ tới việc dùng generator function. <strong><em>Dài hơn một dòng</em></strong> ở đây chỉ mang tính ước lượng, bạn có thể tùy thuộc vào độ phức tạp của đoạn code mà nghĩ tới việc sử dụng cho hợp lý.</p>
+<hr>
+<h3>Tổng kết</h3>
+<p>Chúng ta dùng List Comprehension để tạo ra list một cách nhanh chóng, dùng Generator Expression để tạo ra generator, dùng Generator Function để tạo ra các generator phức tạp. Và đừng quên từ khóa <code>yield</code> để trả về kết quả khi tạo generator thay vì <code>return</code>.</p>
 <hr>
 <h3>Tham khảo:</h3>
 <ul>
