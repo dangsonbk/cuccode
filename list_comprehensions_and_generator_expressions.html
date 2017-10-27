@@ -341,22 +341,65 @@
 
 <p>Python sẽ thực hiện 2 việc sau:</p>
 <p><strong>Lấy đối tượng iterator:</strong></p>
-<p>Được thực hiện bằng cách gọi iter(mylist) -&gt; hàm này sẽ thực thi phương thức <code>__iter__</code> như đã nói ở trên và trả về một đối tượng mà có thể gọi <code>__next__()</code>.</p>
+<p>Được thực hiện bằng cách gọi <code>iter(mylist)</code> -&gt; hàm này sẽ thực thi phương thức <code>__iter__()</code> như đã nói ở trên và trả về một đối tượng mà có thể gọi <code>__next__()</code>.</p>
 <p><strong>Dùng iterator để duyệt qua từng phần tử:</strong></p>
 <p>Tiếp tục gọi phương thức <code>__next__()</code> trên iterator được trả về từ bước 1. Giá trị trả về khi gọi <code>__next__()</code> được trả vào biến x và thân vòng lặp <code># do something</code> được thực thi. Khi một <a href="cuccode.com/python_error_exceptions_handling.html">exception</a> <code>StopIteration</code> được sinh ra khi thực hiện <code>__next__()</code> có nghĩa là không còn phần tử nào để duyệt nữa và khi đó vòng lặp kết thúc.</p>
 <hr>
-<h3>Generators</h3>
+<h3>Generator Expressions, Generator Functions</h3>
+<p>Tiếp theo chúng ta sẽ tiến đến khái niệm Generator. Chúng ta có thể hiểu Generator chính là iterator, điểm khác biệt là generator chỉ có thể duyệt phần tử 1 lần. Lý do là generator không lưu trữ toàn bộ dữ liệu của sequence (chuỗi dữ liệu, mảng dữ liệu, danh sách nói chung) xuống bộ nhớ, thay vào đó nó tạo dữ liệu khi duyệt qua từng phần tử. Muốn duyệt lại dữ liệu, bắt buộc chúng ta phải tạo lại generator.</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mygenerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Ở ví dụ trên, thay vì sử dụng <code>[]</code> như list comprehension, chúng ta sử dụng <code>()</code>, <code>(x*x for x in range(3))</code> chính là generator expression chúng ta đang nói đến. <code>mygenerator</code> ở đây được gán là một đối tượng generator, đồng nghĩa với việc <code>mygenerator</code> chỉ có thể được duyệt qua 1 lần.</p>
+<p>Python 3 sử dụng generator ở rất nhiều nơi, kể cả hàm dựng sẵn <code>range()</code> cũng trả về một đối tượng generator thay vì tạo ra một danh sách đầy đủ. Nếu bạn muốn tạo ra một list như ở Python 2, bạn bắt buộc phải chuyển đổi nó một cách tường minh hơn. Ví dụ: <code>list(range(10))</code></p>
+<p>Sau đây là một đoạn code tính Fibonacci bằng generator function:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fibo</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">yield</span> <span class="n">cur</span>
+<span class="gp">... </span>        <span class="n">pre</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">+</span> <span class="n">cur</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="go">&lt;generator object fibo at 0xb7555d34&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="go">[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]</span>
+</pre></div>
+
+
+<p>Để ý chúng ta có từ khóa <code>yield</code>. Hiểu đơn giản, <code>yield</code> là từ khóa giống như <code>return</code>, điểm khác biệt là thay vì kết thúc function, <code>yield</code> trả về một generator.</p>
+<p>Để hiểu rõ hơn về <code>yield</code>, bạn cần hiểu rằng khi bạn gọi hàm, code bạn đã viết trong phần thân hàm không chạy mà trả về đối tượng generator, phần thân hàm sẽ được chạy mỗi khi bạn dùng một vòng for chẳng hạn, duyệt qua từng phần tử của generator. Nghe cũng hơi khó hiểu chút. :-)</p>
+<p>Nói rõ hơn một chút:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_generator_function</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Giả sử ta đang dùng một vòng for để duyệt qua generator. Đầu tiên <code>for</code> sẽ gọi đối tượng generator mà được tạo ra từ hàm, nó sẽ chạy code trong hàm từ đầu cho đến khi nó gặp <code>yield</code>, khi đó nó sẽ trả lại giá trị đầu tiên của vòng lặp. Vòng lặp tiếp theo sẽ chạy code mà bạn đã viết trong hàm một lần nữa cho đến khi gặp <code>yield</code> và tiếp tục trả lại giá trị, cứ như thế cho đến khi generator rỗng. Generator được coi là rỗng sau khi code trong thân hàm chạy nhưng không gặp <code>yield</code> nữa.</p>
+<p>Quay lại ví dụ tính fibonacci ở trên, theo lý thuyết, ta có thể tính toán được số fibonacci cực kỳ lớn mà không cần dùng quá nhiều bộ nhớ. Đây cũng là ưu điểm nội trội của generator trong Python.</p>
 <hr>
-<h3>Generator Expressions</h3>
+<h3>Khi nào dùng List Comprehensions và khi nào dùng Generator Expressions, Generator Function</h3>
+<p>Như đã nói ở trên, nếu bạn chỉ muốn duyệt qua các phần tử 1 lần hãy dùng generator, nếu bạn cần lưu dữ liệu, các phần tử lại, hãy dùng list. Generator expression sẽ chỉ tạo dữ liệu khi duyệt phần tử, vì vậy bạn có thể sử dụng nó cho các dữ liệu hoặc chuỗi dữ liệu (sequences) có kích thước cực kỳ lớn (vô hạn?).</p>
+<p>Generator expression cho phép tạo generator một cách nhanh chóng mà không phải thực hiện các công việc tạo và gọi hàm. Nó đơn giản và nhanh chóng về cả nghĩa đen và nghĩa bóng. Tuy nhiên, nếu generator expression dài hơn một dòng, hãy nghĩ tới việc dùng generator function. <strong>Dài hơn một dòng</strong> ở đây chỉ mang tính ước lượng, bạn có thể tùy thuộc vào độ phức tạp của đoạn code mà nghĩ tới việc sử dụng cho hợp lý.</p>
 <hr>
 <h3>Tham khảo:</h3>
 <ul>
-<li><a href="https://developers.google.com/edu/python/lists">python list - google edu</a></li>
-<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">list - tutorialspoint</a></li>
-<li><a href="http://djangostars.com/blog/list-comprehensions-and-generator-expressions">djangostar</a></li>
-<li><a href="https://infohost.nmt.edu/tcc/help/pubs/python/web/iterable.html">iterable - nmt.edu</a></li>
-<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">What does the “yield” keyword do? - stackoverflow</a></li>
+<li><a href="https://developers.google.com/edu/python/lists">Python list - google edu</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_lists.htm">List - tutorialspoint</a></li>
+<li><a href="http://www.openbookproject.net/thinkcs/python/english2e/ch09.html">Chapter 9: List - openbookproject</a></li>
+<li><a href="https://infohost.nmt.edu/tcc/help/pubs/python/web/iterable.html">Iterable - nmt.edu</a></li>
 <li><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-pythons-iterator-iterable-and-iteration-protocols">What exactly are Python's iterator, iterable, and iteration protocols? - stackoverflow</a></li>
+<li><a href="http://djangostars.com/blog/list-comprehensions-and-generator-expressions">List Comprehensions and Generator Expressions - djangostar</a></li>
+<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">What does the “yield” keyword do? - stackoverflow</a></li>
 </ul>
 <p>Header Image: <a href="https://dbader.org/blog/list-dict-set-comprehensions-in-python">dbader.org</a></p>
     </article>
