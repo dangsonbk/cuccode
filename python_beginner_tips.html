@@ -254,6 +254,40 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 <li>your.ip.address:8000</li>
 </ul>
 <hr>
+<h3>Enums</h3>
+<p>Python không hỗ trợ kiểu enum, tuy nhiên bạn vẫn có thể dùng cách sau để sử dụng tương tự enum:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Shapes</span><span class="p">:</span>
+    <span class="n">Circle</span><span class="p">,</span> <span class="n">Square</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Quadrangle</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Circle</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Square</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Triangle</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Quadrangle</span><span class="p">)</span>
+
+<span class="c">#1-&gt; 0</span>
+<span class="c">#2-&gt; 1</span>
+<span class="c">#3-&gt; 2</span>
+<span class="c">#4-&gt; 3</span>
+</pre></div>
+
+
+<hr>
+<h3>Trả về nhiều giá trị một lúc từ một hàm</h3>
+<p>Không giống hầu hết các ngôn ngữ lập trình khác, Python cho phép một hàm có thể trả về nhiều giá trị (thực ra là một <code>tuple</code>) khác nhau:</p>
+<div class="highlight"><pre><span class="c"># function returning multiple values.</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
+
+<span class="c"># Calling the above function.</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="c">#-&gt; 1 2 3 4</span>
+</pre></div>
+
+
+<hr>
 <h3>Sử dụng hàm enumerate()</h3>
 <p>Hàm enumerate() thêm một biến đếm khi chạy vòng lặp.</p>
 <div class="highlight"><pre><span class="n">subjects</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;Coding&#39;</span><span class="p">,</span> <span class="s">&#39;Tips&#39;</span><span class="p">)</span>
