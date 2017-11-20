@@ -132,6 +132,15 @@
 
 <p><img alt="Open Python gif" src="static/python/runScript.gif"></p>
 <hr>
+<h3>String trên nhiều dòng</h3>
+<p>Rất đơn giản, chỉ cần đặt string trong <code>"""</code></p>
+<div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot; This is a very</span>
+<span class="s">        long long long</span>
+<span class="s">        string ...&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<hr>
 <h3>Swap giá trị 2 biến</h3>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
@@ -165,6 +174,85 @@
 
 
 <p>Xem thêm: <a href="https://www.python.org/dev/peps/pep-0008/#programming-recommendations">PEP8</a></p>
+<hr>
+<h3>Kết hợp nhiều phép so sánh một lúc</h3>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">20</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span><span class="o">&lt;</span><span class="n">n</span><span class="o">==</span><span class="mi">10</span>
+<span class="go">True</span>
+</pre></div>
+
+
+<hr>
+<h3>Phép gán có điều kiện</h3>
+<p>Giả sử bạn muốn gán giá trị cho biết x khi mà giá trị của biến y bằng hoặc không bằng một giá trị nào đó, bạn có thể thực hiện như sau:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">9</span> <span class="k">else</span> <span class="mi">20</span>
+</pre></div>
+
+
+<p>Đây thực chất là một cách viết nhanh của lệnh rẽ nhánh if ... else ... thông thường, câu lệnh trên có thể hiểu là: <em>Gán x = 10 trong trường hợp y = 9, nếu không thì gán x =20</em>
+Cách viết này thậm chí còn có thể được thực hiện đối với các class object:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">classA</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">classB</span><span class="p">)(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Một ví dụ phức tạp hơn:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">small</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span> <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="k">else</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c">#Output</span>
+<span class="c">#0 #1 #2 #3</span>
+</pre></div>
+
+
+<hr>
+<h3>Lấy đường dẫn của module đã import:</h3>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">threading</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+
+<span class="c">#1- &lt;module &#39;threading&#39; from &#39;/usr/lib/python2.7/threading.py&#39;&gt;</span>
+<span class="c">#2- &lt;module &#39;socket&#39; from &#39;/usr/lib/python2.7/socket.py&#39;&gt;</span>
+</pre></div>
+
+
+<hr>
+<h3>Tạo một web server đơn giản</h3>
+<p>Python cho phép bạn tạo một webserver ngay trên máy của bạn rất dễ dàng chỉ với 1 dòng lệnh.
+Để sử dụng, đơn giản chỉ cần mở Console lên, cd tới thư mục bạn muốn chạy webserver.</p>
+<p>Nếu bạn sử dụng Python 2.7:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">python -m SimpleHTTPServer</span>
+</pre></div>
+</td></tr></table>
+
+<p>Trên Python 3, SimpleHTTPServer đã được gộp chung vào gói http.server:</p>
+<blockquote>
+<p>The SimpleHTTPServer module has been merged into http.server in Python 3.0. The 2to3 tool will automatically adapt imports when converting your sources to 3.0.</p>
+</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="go">python -m http.server</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mặc định SimpleHTTPServer sẽ mở port 8000, nội dung của website trả về sẽ là nội dung của folder bạn mở server, trong trường hợp folder chứa file index.html, nội dung trả về chính là nội dung của file index.html đó.
+Sau khi mở web server, bạn chỉ cần truy cập vào một trong các địa chỉ sau:</p>
+<ul>
+<li>localhost:8000</li>
+<li>127.0.0.1:8000</li>
+</ul>
+<p>Trong trường hợp mở từ máy trong mạng LAN:</p>
+<ul>
+<li>your.ip.address:8000</li>
+</ul>
 <hr>
 <h3>Sử dụng hàm enumerate()</h3>
 <p>Hàm enumerate() thêm một biến đếm khi chạy vòng lặp.</p>
@@ -212,18 +300,6 @@
 <span class="p">.</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">pythonErrorHandling</span><span class="p">.</span><span class="n">md</span>
 <span class="p">.</span><span class="err">\</span><span class="n">blockchain</span>
 <span class="p">.</span><span class="err">\</span><span class="n">python</span>
-</pre></div>
-
-
-<hr>
-<h3>Kết hợp nhiều phép so sánh một lúc</h3>
-<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">20</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span><span class="o">&lt;</span><span class="n">n</span><span class="o">==</span><span class="mi">10</span>
-<span class="go">True</span>
 </pre></div>
 
 
