@@ -19,7 +19,8 @@
 
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -117,36 +118,36 @@ Trên Python, việc này được thực hiện khá đơn giản bằng cách 
 <hr>
 <h3>Shell command</h3>
 <p>Cú pháp để gọi web browser như sau</p>
-<div class="highlight"><pre>python -m webbrowser <span class="p">&lt;</span><span class="n">URL</span>&gt;
+<div class="highlight"><pre><span></span>python -m webbrowser <span class="p">&lt;</span>URL&gt;
 </pre></div>
 
 
 <p>Với <URL> là đường dẫn bạn muốn gọi, dĩ nhiên.</p>
 <p>Để mở tab mới, bạn thêm -t, để mở cửa sổ mới, bạn thêm -n vào shell:</p>
 <p>Mở tab mới</p>
-<div class="highlight"><pre>python -m webbrowser -t http:<span class="n">//cuccode.com</span>
+<div class="highlight"><pre><span></span>python -m webbrowser -t http://cuccode.com
 </pre></div>
 
 
 <p>Mở cửa sổ mới</p>
-<div class="highlight"><pre>python -m webbrowser -c http:<span class="n">//cuccode.com</span>
+<div class="highlight"><pre><span></span>python -m webbrowser -c http://cuccode.com
 </pre></div>
 
 
 <hr>
 <h3>Python script</h3>
 <p>Import module webbrowser:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">webbrowser</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://cuccode.com&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://cuccode.com&quot;</span>
 <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Trường hợp mở cửa sổ mới:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">webbrowser</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://cuccode.com&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://cuccode.com&quot;</span>
 <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
@@ -221,6 +222,14 @@ Trên Python, việc này được thực hiện khá đơn giản bằng cách 
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://discordapp.com/invite/EeEPr6C">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-discord fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
