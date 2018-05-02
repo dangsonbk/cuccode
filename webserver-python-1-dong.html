@@ -61,27 +61,24 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar navbar-dark bg-dark">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span></a>
-
-                            <li><a href="http://cuccode.com/category/misc.html">misc</a></li>
-                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
-                </ul>
-            </div>
-                <!-- /.navbar-collapse -->
-        </nav>
+                        <li><a  class="nav-link"  href="http://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="http://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/static/ninjaHardware.jpg')">
+        <header class="intro-header" style="background-image: url('http://cuccode.com//static/ninjaHardware.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8  mx-auto">
                     <div class="post-heading">
                         <h1>Tạo webserver bằng Python chỉ với 1 dòng lệnh</h1>
                         
@@ -90,20 +87,14 @@
             </div>
         </div>
     </header>
-    </div>
-
-
-    <!-- Main Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-md-10 col-md-offset-1">
-    <span class="article-meta">Post by
-            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-        on 21-08-2017
-    </span>
-    <!-- Post Content -->
-    <article>
-        <p>Python cho phép bạn tạo một webserver ngay trên máy của bạn rất dễ dàng chỉ với 1 dòng lệnh.
+        <span class="article-meta">Post by
+                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+            on 21-08-2017
+        </span>
+        <!-- Post Content -->
+        <article>
+            <p>Python cho phép bạn tạo một webserver ngay trên máy của bạn rất dễ dàng chỉ với 1 dòng lệnh.
 Để sử dụng, đơn giản chỉ cần mở Console lên, cd tới thư mục bạn muốn chạy webserver.</p>
 <p>Nếu bạn sử dụng Python 2.7:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m SimpleHTTPServer</span>
@@ -144,11 +135,11 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 <span class="go">ruby -run -e httpd . -p [port]</span>
 </pre></div>
 </td></tr></table>
-    </article>
+        </article>
 
-        <div class="tags">
-            <p>tags: <a href="http://cuccode.com/tag/python.html">python</a>, <a href="http://cuccode.com/tag/web-server.html">web server</a>, <a href="http://cuccode.com/tag/simplehttpserver.html">SimpleHTTPServer</a></p>
-        </div>
+            <div class="tags">
+                <p>tags: <a href="http://cuccode.com/tag/python.html">python</a>, <a href="http://cuccode.com/tag/web-server.html">web server</a>, <a href="http://cuccode.com/tag/simplehttpserver.html">SimpleHTTPServer</a></p>
+            </div>
 
     <hr>
     <div class="sharing">
@@ -170,33 +161,36 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
         <!-- AddThis Button END -->
     </div>
 
-        <div class="comments">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                var disqus_shortname = 'cuccode';
-                var disqus_identifier = 'webserver-python-1-dong.html';
-                var disqus_url = 'http://cuccode.com/webserver-python-1-dong.html';
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//cuccode.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the comments.</noscript>
-        </div>
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'webserver-python-1-dong.html';
+                    var disqus_url = 'http://cuccode.com/webserver-python-1-dong.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
             </div>
-        </div>
     </div>
-
-    <hr>
-
     <!-- Footer -->
-    <footer>
-        <div class="container">
+    <footer class="bg-dark">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                        which takes great advantage of <a href="http://python.org">Python</a> <br />
+                        Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
                     <ul class="list-inline text-center">
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://twitter.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -204,7 +198,7 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://github.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -216,21 +210,12 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
                     <ul class="list-inline text-center">
                         <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="http://cuccode.com/theme/images/discord.png"></a>
                     </ul>
-<p class="copyright text-muted">
-    Blog powered by <a href="http://getpelican.com">Pelican</a>,
-    which takes great advantage of <a href="http://python.org">Python</a> <br />
-    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
-    &copy;  dangsonbk
-</p>                </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

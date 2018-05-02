@@ -58,27 +58,24 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar navbar-dark bg-dark">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span></a>
-
-                            <li><a href="http://cuccode.com/category/misc.html">misc</a></li>
-                            <li class="active"><a href="http://cuccode.com/category/python.html">python</a></li>
-                </ul>
-            </div>
-                <!-- /.navbar-collapse -->
-        </nav>
+                        <li><a  class="nav-link"  href="http://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="http://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/static/python/exception.jpg')">
+        <header class="intro-header" style="background-image: url('http://cuccode.com//static/python/exception.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8  mx-auto">
                     <div class="post-heading">
                         <h1>Python Errors and Exceptions handling</h1>
                         
@@ -87,20 +84,14 @@
             </div>
         </div>
     </header>
-    </div>
-
-
-    <!-- Main Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-md-10 col-md-offset-1">
-    <span class="article-meta">Post by
-            <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-        on 15-09-2017
-    </span>
-    <!-- Post Content -->
-    <article>
-        <blockquote>
+        <span class="article-meta">Post by
+                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+            on 15-09-2017
+        </span>
+        <!-- Post Content -->
+        <article>
+            <blockquote>
 <p>Có nhiều tài liệu dịch Exception là 'ngoại lệ' và Exceptions Handling là 'xử lý ngoại lệ', mình thấy cách gọi này chỉ đúng về mặt dịch thuật và chưa thực sự sát nghĩa cho lắm. Trong bài viết này mình sẽ giữ nguyên từ 'Exception'.</p>
 </blockquote>
 <p>Exception có thể hiểu là các sự kiện, biến cố khiến cho chương trình bị phá vỡ luồng thực thi. Để cho dễ hiểu, mình lấy một ví dụ sau:</p>
@@ -311,11 +302,11 @@
 <li><a href="https://www.tutorialspoint.com/python/python_exceptions.htm">tutorialspoint</a></li>
 <li><a href="https://code.tutsplus.com/tutorials/professional-error-handling-with-python--cms-25950">tutsplus</a></li>
 </ul>
-    </article>
+        </article>
 
-        <div class="tags">
-            <p>tags: <a href="http://cuccode.com/tag/python2.html">python2</a>, <a href="http://cuccode.com/tag/python3.html">python3</a></p>
-        </div>
+            <div class="tags">
+                <p>tags: <a href="http://cuccode.com/tag/python2.html">python2</a>, <a href="http://cuccode.com/tag/python3.html">python3</a></p>
+            </div>
 
     <hr>
     <div class="sharing">
@@ -337,33 +328,36 @@
         <!-- AddThis Button END -->
     </div>
 
-        <div class="comments">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                var disqus_shortname = 'cuccode';
-                var disqus_identifier = 'python_error_exceptions_handling.html';
-                var disqus_url = 'http://cuccode.com/python_error_exceptions_handling.html';
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//cuccode.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the comments.</noscript>
-        </div>
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'python_error_exceptions_handling.html';
+                    var disqus_url = 'http://cuccode.com/python_error_exceptions_handling.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
             </div>
-        </div>
     </div>
-
-    <hr>
-
     <!-- Footer -->
-    <footer>
-        <div class="container">
+    <footer class="bg-dark">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                        which takes great advantage of <a href="http://python.org">Python</a> <br />
+                        Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
                     <ul class="list-inline text-center">
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://twitter.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -371,7 +365,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://github.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -383,21 +377,12 @@
                     <ul class="list-inline text-center">
                         <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="http://cuccode.com/theme/images/discord.png"></a>
                     </ul>
-<p class="copyright text-muted">
-    Blog powered by <a href="http://getpelican.com">Pelican</a>,
-    which takes great advantage of <a href="http://python.org">Python</a> <br />
-    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
-    &copy;  dangsonbk
-</p>                </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

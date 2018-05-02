@@ -40,41 +40,38 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar navbar-dark bg-dark">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span></a>
-
-                            <li><a href="http://cuccode.com/category/misc.html">misc</a></li>
-                            <li><a href="http://cuccode.com/category/python.html">python</a></li>
-                </ul>
-            </div>
-                <!-- /.navbar-collapse -->
-        </nav>
+                        <li><a  class="nav-link"  href="http://cuccode.com/category/misc.html">misc</a></li>
+                        <li><a  class="nav-link"  href="http://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('/static/ninjaHardware.jpg')">
+        <header class="intro-header" style="background-image: url('http://cuccode.com//static/ninjaHardware.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8 mx-auto">
                     <div class="page-heading">
                         <h1>cuccode</h1>
                             <hr class="small">
                             <span class="subheading">{{"hooked on the feeling"}}</span>
                             <ul class="list-inline text-center">
-                                <li>
+                                <li class="list-inline-item">
                                     <a href="https://twitter.com/dangsonbk">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                                         </span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="list-inline-item">
                                     <a href="https://github.com/dangsonbk">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -87,260 +84,276 @@
             </div>
         </div>
     </header>
-    </div>
 
-
-    <!-- Main Content -->
+<section id="blog-section" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 col-md-10 col-md-offset-1">
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    15-04-2018
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 15 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/tao_vps_dev_voi_vultr.html"><img src="http://cuccode.com//static/misc/vultr.PNG" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/tao_vps_dev_voi_vultr.html">Tạo VPS để dev với vultr</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 15-04-2018</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 15 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/tao_vps_dev_voi_vultr.html" rel="bookmark" title="Permalink to Tạo VPS để dev với vultr">
-                    <h3 class="post-title">
-                        Tạo VPS để dev với vultr
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="tao_vps_dev_voi_vultr.html" href="http://cuccode.com/tao_vps_dev_voi_vultr.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/list_comprehensions_and_generator_expressions.html"><img src="http://cuccode.com//static/python/comprehensions.png" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/list_comprehensions_and_generator_expressions.html">List Comprehensions và Generator Expressions</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 24-10-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 30 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    24-10-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 30 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python_logging.html"><img src="http://cuccode.com//static/python/logging.png" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python_logging.html">Sử dụng logging trong Python</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 10-10-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 20 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/list_comprehensions_and_generator_expressions.html" rel="bookmark" title="Permalink to List Comprehensions và Generator Expressions">
-                    <h3 class="post-title">
-                        List Comprehensions và Generator Expressions
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Đây là 2 tính năng vô cùng mạnh mẽ và hữu dụng của Python, chúng ta sẽ cùng tìm hiểu về chúng trong bài viết sau đây.
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="list_comprehensions_and_generator_expressions.html" href="http://cuccode.com/list_comprehensions_and_generator_expressions.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python_update_bitcoin_price.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python_update_bitcoin_price.html">Dùng Python cập nhật giá Bitcoin</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 23-09-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 15 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    10-10-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 20 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python_beginner_tips.html"><img src="http://cuccode.com//static/python/pythonAwesome.png" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python_beginner_tips.html">Những mẹo hay cho người mới học Python</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 21-09-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> N/A</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/python_logging.html" rel="bookmark" title="Permalink to Sử dụng logging trong Python">
-                    <h3 class="post-title">
-                        Sử dụng logging trong Python
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Logging là module rất dễ sử dụng và cực kỳ linh hoạt hỗ trợ việc in thông tin của chương trình trong lúc runtime
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="python_logging.html" href="http://cuccode.com/python_logging.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python_error_exceptions_handling.html"><img src="http://cuccode.com//static/python/exception.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python_error_exceptions_handling.html">Python Errors and Exceptions handling</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 15-09-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 15 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    23-09-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 15 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/tim_hieu_ve_blockchain.html"><img src="http://cuccode.com//static/blockchain/header.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/tim_hieu_ve_blockchain.html">Tìm hiểu về công nghệ blockchain</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 11-09-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 30 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/python_update_bitcoin_price.html" rel="bookmark" title="Permalink to Dùng Python cập nhật giá Bitcoin">
-                    <h3 class="post-title">
-                        Dùng Python cập nhật giá Bitcoin
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Bài viết sẽ hướng dẫn bạn lấy giá bitcoin và lưu lại vào cơ sở dữ liệu mongodb
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="python_update_bitcoin_price.html" href="http://cuccode.com/python_update_bitcoin_price.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python2_or_python3.html"><img src="http://cuccode.com//static/python-2-vs-python-31.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python2_or_python3.html">Nên chọn Python 2 hay Python 3 để bắt đầu?</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 04-09-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 10 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    21-09-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> N/A</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/open_web_browser_python.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/open_web_browser_python.html">Mở web browser bằng Python</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 27-08-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 5 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/python_beginner_tips.html" rel="bookmark" title="Permalink to Những mẹo hay cho người mới học Python">
-                    <h3 class="post-title">
-                        Những mẹo hay cho người mới học Python
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Nếu bạn đang bắt đầu với Python, những mẹo sau sẽ giúp bạn tiếp cận nhanh hơn với ngôn ngữ lập trình thú vị này
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="python_beginner_tips.html" href="http://cuccode.com/python_beginner_tips.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/install_python_package_runtime.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/install_python_package_runtime.html">Cài đặt Python package khi chạy script</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 24-08-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 10 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    15-09-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 15 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/kiem_tra_python_2_hay_python_3.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/kiem_tra_python_2_hay_python_3.html">Kiểm tra Python 2 hay Python 3</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 21-08-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 5 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/python_error_exceptions_handling.html" rel="bookmark" title="Permalink to Python Errors and Exceptions handling">
-                    <h3 class="post-title">
-                        Python Errors and Exceptions handling
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="python_error_exceptions_handling.html" href="http://cuccode.com/python_error_exceptions_handling.html#disqus_thread">comments</a>.</p> -->
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/python_user_input.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/python_user_input.html">Nhập liệu từ bàn phím trên Python</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 21-08-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 5 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    11-09-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 30 minutes</span>
-                </p>
+            <div class="col-lg-4 col-md-4">
+                <aside>
+                    <a href="http://cuccode.com/webserver-python-1-dong.html"><img src="http://cuccode.com//static/ninjaHardware.jpg" class="img-responsive mx-auto" style="height:150px;"></a>
+                    <div class="content-title">
+                        <div class="text-center">
+                            <a href="http://cuccode.com/webserver-python-1-dong.html">Tạo webserver bằng Python chỉ với 1 dòng lệnh</a>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <!-- <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"> -->
+
+                        <span>
+                            <a href="http://cuccode.com/author/dangsonbk.html" style="font-size: 16px;color: #fff;">dangsonbk</a>
+                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 21-08-2017</a>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Read time"><i class="fa fa-clock-o"></i> 5 minutes</a>
+                        </span>
+                    </div>
+                </aside>
             </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/tim_hieu_ve_blockchain.html" rel="bookmark" title="Permalink to Tìm hiểu về công nghệ blockchain">
-                    <h3 class="post-title">
-                        Tìm hiểu về công nghệ blockchain
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Được tạo ra vào năm 2009 bởi một người (nhóm?) có bí danh Satoshi Nakamoto, bitcoin nhanh chóng trở thành một cái tên hết sức nổi tiếng...
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="tim_hieu_ve_blockchain.html" href="http://cuccode.com/tim_hieu_ve_blockchain.html#disqus_thread">comments</a>.</p> -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    04-09-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 10 minutes</span>
-                </p>
-            </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/python2_or_python3.html" rel="bookmark" title="Permalink to Nên chọn Python 2 hay Python 3 để bắt đầu?">
-                    <h3 class="post-title">
-                        Nên chọn Python 2 hay Python 3 để bắt đầu?
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Khi bắt đầu với Python, có thể bạn sẽ thấy cộng đồng Python đề cập tới 2 phiên bản của ngôn ngữ lập trình này. Đâu là ưu điểm, nhược...
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="python2_or_python3.html" href="http://cuccode.com/python2_or_python3.html#disqus_thread">comments</a>.</p> -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    27-08-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 5 minutes</span>
-                </p>
-            </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/open_web_browser_python.html" rel="bookmark" title="Permalink to Mở web browser bằng Python">
-                    <h3 class="post-title">
-                        Mở web browser bằng Python
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Bài viết sau sẽ hướng dẫn các bạn mở trình duyệt web bằng Python trên nhiều hệ điều hành khác nhau
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="open_web_browser_python.html" href="http://cuccode.com/open_web_browser_python.html#disqus_thread">comments</a>.</p> -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 hidden-sm hidden-md">
-                <p class="post-meta">
-                        <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
-                    </br>
-                    24-08-2017
-                    </br>
-                        <i class="fa fa-clock-o"></i><span> 10 minutes</span>
-                </p>
-            </div>
-            <div class="col-lg-8 post-preview">
-                <a href="http://cuccode.com/install_python_package_runtime.html" rel="bookmark" title="Permalink to Cài đặt Python package khi chạy script">
-                    <h3 class="post-title">
-                        Cài đặt Python package khi chạy script
-                    </h3>
-                </a>
-                    <p class="article-summary">
-                        Thông thường, để cài đặt một Python package, cách phổ biến nhất hiện nay là sử dụng pip. Ngoài cách cài đặt trực tiếp từ terminal, pip...
-                    </p>
-                <!-- <p>There are <a data-disqus-identifier="install_python_package_runtime.html" href="http://cuccode.com/install_python_package_runtime.html#disqus_thread">comments</a>.</p> -->
-            </div>
-        </div>
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 post-preview">
-            <a href="https://www.vultr.com/?ref=7106385"><img src="https://www.vultr.com/media/banner_2.png" width="468" height="60"></a>
-        <!-- <a href="https://www.vultr.com/?ref=7106385"><img src="https://www.vultr.com/media/banner_1.png"></a> -->
         </div>
     </div>
-
-    <hr>
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="http://cuccode.com/index2.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 1 / 2
-    <hr>
-            </div>
-        </div>
-    </div>
-
-    <hr>
+</section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
+    <footer class="bg-dark">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                        which takes great advantage of <a href="http://python.org">Python</a> <br />
+                        Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
                     <ul class="list-inline text-center">
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://twitter.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -348,7 +361,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="https://github.com/dangsonbk">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -360,21 +373,12 @@
                     <ul class="list-inline text-center">
                         <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="http://cuccode.com/theme/images/discord.png"></a>
                     </ul>
-<p class="copyright text-muted">
-    Blog powered by <a href="http://getpelican.com">Pelican</a>,
-    which takes great advantage of <a href="http://python.org">Python</a> <br />
-    Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
-    &copy;  dangsonbk
-</p>                </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="http://cuccode.com/theme/js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
