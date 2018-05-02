@@ -55,6 +55,11 @@ hr.small {
   border-color: white;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .intro-header {
   background-color: #808080;
   background: no-repeat center center;
