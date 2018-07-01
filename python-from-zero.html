@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>Python từ không đến có</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <!-- <link href="http://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="http://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="http://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Cùng học về ngôn ngữ Python từ những thứ cơ bản nhất.">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python">
+        <meta name="tags" content="co ban">
+        <meta name="tags" content="basic">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="http://cuccode.com/python-from-zero.html">
+	<meta property="og:title" content="Python từ không đến có">
+	<meta property="article:published_time" content="2017-08-21 14:08:00+07:00">
+            <meta property="og:description" content="Cùng học về ngôn ngữ Python từ những thứ cơ bản nhất.">
+
+            <meta property="og:image" content="http://cuccode.com//static/ninjaHardware.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Python từ không đến có">
+
+            <meta name="twitter:image" content="http://cuccode.com//static/ninjaHardware.jpg">
+
+            <meta name="twitter:description" content="Cùng học về ngôn ngữ Python từ những thứ cơ bản nhất.">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="http://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                        <li><a  class="nav-link"  href="http://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="http://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('http://cuccode.com//static/ninjaHardware.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8  mx-auto">
+                    <div class="post-heading">
+                        <h1>Python từ không đến có</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <span class="article-meta">Post by
+                <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+            on 21-08-2017
+        </span>
+        <!-- Post Content -->
+        <article>
+            <h1>Lời mở đầu</h1>
+<p><em>Bạn học lập trình để làm gì? Học Python để làm gì?</em>
+Trước khi bắt đầu bài viết này, mình đã có một vài cuộc nói chuyện cũng như tham khảo ý kiến của nhiều người, bao gồm cả những bạn đã và đang là lập trình viên và những bạn đang theo học hoặc làm việc những ngành nghề không hề liên quan đến lập trình, câu trả lời cho lý do các bạn ấy học và sử dụng Python khá đa dạng, có thể rất đơn giản là hứng thú, cũng có thể là do yêu cầu công việc, hoặc đơn giản hơn lý do có thể là muốn học lập trình nên google xem nên học ngôn ngữ nào, thấy có bạn nói đến Python vậy là học Python.</p>
+<p><em>Học Python có khó?</em>
+Đối với mình thì Python là một ngôn ngữ rất dễ tiếp cận, ngay cả khi vốn kiến thức về lập trình của bạn rất ít hoặc hoàn toàn không có thì bạn vẫn có thể sử dụng các câu lệnh cơ bản của Python một cách dễ dàng sau 1 vài giờ học.</p>
+<p>Nếu bạn chưa hề có kiến thức về lập trình và thấy Python khó, mình có thể đảm bảo rằng so với các ngôn ngữ khác, học Python thực sự dễ hơn rất nhiều. Code Python dễ đọc dễ viết và dễ gợi nhớ, cùng với đó là cú pháp thân thiện, kiểu dữ liệu linh hoạt giúp cho người học nhanh chóng làm quen và dễ dàng tập trung hơn vào việc học giải thuật. Rất nhiều người khuyến khích sử dụng Python là ngôn ngữ lập trình đầu tiên để học.</p>
+<p><em>Nếu đã giỏi một ngôn ngữ rồi, có cần thiết phải học Python không?</em>
+Tất nhiên nếu bạn thỏa mãn rồi thì không cần thiết phải học, nếu chưa, hãy thử, mình có thể đảm bảo rằng Python thực sự giải quyết được nhiều vấn đề mà các ngôn ngữ lập trình khác mất rất nhiều thời gian và công sức để giải quyết.</p>
+<p><em>Hạn chế của Python là gì?</em>
+Cho tới thời điểm này có lẽ tốc độ thực thi chương trình là hạn chế lớn nhất mà Python gặp phải. Dĩ nhiên bạn không thể đòi hỏi một ngôn ngữ thông dịch với kiểu dữ liệu linh hoạt phải chạy nhanh như ngôn ngữ biên dịch với kiểu chặt chẽ.</p>
+<p>Bài viết này mình sẽ không đi sâu vào những việc như cài đặt Python như thế nào, chạy Python như thế nào ... đã có rất nhiều bài viết, hướng dẫn cho việc này rồi.</p>
+<h1>Cơ bản</h1>
+<h2>Biến</h2>
+<p>Hiểu đơn giản về biến thì đây là một phần tử nhớ để lưu giá trị. Để tạo một biến trong Python:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>Ta đã tạo ra biến x có giá trị bằng 1, biến trong Python không chỉ để dùng lưu trữ giá trị số, nó có thể
+được dùng để lưu các giá trị khác nữa.</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;một chuỗi ký tự&quot;</span>
+<span class="n">some_numbers</span> <span class="o">=</span> <span class="mi">123456</span> <span class="c1"># số nguyên</span>
+<span class="n">some_floats</span> <span class="o">=</span> <span class="mf">1.23</span> <span class="c1"># số thập phân</span>
+<span class="n">true_bool</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># giá trị boolean (chỉ có 2 giá trị đúng hoặc sai - True / False)</span>
+</pre></div>
+
+
+<p>Biến cũng có thể được thay đổi giá trị bằng cách gán cho giá trị khác:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+
+<p>Ta đã có khái niệm cơ bản về biến, đối với Python, bạn không cần phải chú ý nhiều đến các vấn đề sâu hơn về bộ nhớ như: con trỏ, địa chỉ ... như một số ngôn ngữ khác như C, C++</p>
+<blockquote>
+<p>Việc gán giá trị cho biến là một chiều, <code>1 = x</code> là câu lệnh lỗi.</p>
+<p>Nâng cao: Phạm vi của biến trong Python.</p>
+</blockquote>
+<h2>Câu lệnh điều kiện</h2>
+<p>Câu lệnh điều kiện duy nhất trong Python bạn cần biết đến đó là <code>if ... else ...</code>, một điều kiện sẽ được kiểm tra khi thực hiện lời gọi <code>if</code>, nếu điều kiện đó trả về giá trị đúng thì khối câu lệnh sau mệnh đề <code>if</code> sẽ được thực hiện, nếu điều kiện đó trả về giá trị sai thì khối câu lệnh sau mệnh đề <code>else</code> sẽ được thực hiện.</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &lt; 1&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &gt;= 1&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Ở đây hàm <code>print()</code> là hàm in giá trị ra console trong Python.</p>
+<blockquote>
+<p>Trong Python, các khối câu lệnh được sắp xếp theo tab hoặc dấu cách thẳng hàng từ trên xuống (2 hoặc 4 dấu cách), nếu bạn tự ý đặt tab hoặc các khối câu lệnh không thẳng hàng thì trình biên dịch sẽ báo lỗi.</p>
+</blockquote>
+<p>Câu lệnh điều kiện có thể thiếu mệnh đề <code>else</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &lt; 1&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Hoặc lồng nhiều điều kiện với nhau:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &lt; 1&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &lt; 2&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &lt; 3&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a &gt;= 3&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Fun fact: Python không cần <code>switch ... case</code> vì <code>if ... else</code> là đủ. <a href="https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python">Official answer</a>.</em></p>
+<p><img alt="Python alien" src="static/python/aliens-switch-case.png"></p>
+<h2>Vòng lặp</h2>
+<p>Bạn dĩ nhiên là không muốn viết đi viết lại 100 dòng code vì muốn chạy câu lệnh 100 lần với 100 biến số khác nhau, bạn cũng không muốn viết code duyệt 1000 phần tử trong một mảng bằng cách viết đi viết lại câu lệnh 1000 lần. Trong Python, <code>while</code> và <code>for</code> là 2 vòng lặp cơ bản nhất.</p>
+<h3>Vòng lặp <code>while</code></h3>
+<p>Nếu điều kiện lặp là đúng (True) thì khối câu lệnh trong vòng lặp sẽ được thực hiện đến khi nào điều kiện lặp là sai (False) hoặc gặp <code>break</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>Ở đây <code>a &lt; 10</code> là điều kiện lặp, khi giá trị của a tăng lên mỗi lần lặp tới khi <code>a == 10</code> thì điều kiện <code>a &lt; 10</code> không còn đúng nữa, khi đó vòng lặp kết thúc.</p>
+<p>Nếu điều kiện lặp luôn đúng, khi đó ta có vòng lặp vô hạn, khi lập trình bạn nên cẩn thận để tránh trường hợp vòng lặp rơi vào vô hạn.</p>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Tôi sẽ có người yêu sau khi vòng lặp này kết thúc&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>Vòng lặp <code>for</code></h3>
+<p>Cấu trúc của vòng lặp <code>for</code> được thể hiện như sau:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">biến_lặp</span> <span class="ow">in</span> <span class="n">chuỗi</span><span class="p">:</span>
+    <span class="c1"># nội dung lệnh thực hiện trong mỗi lần lặp</span>
+</pre></div>
+
+
+<p>Giá trị cả phần tử đầu tiên của chuỗi (hoặc danh sách, string ...) sẽ được gán cho biến_lặp, tiếp theo là thực hiện lệnh bên trong vòng lặp, sau đó là phần tử thứ 2, thứ 3 ... đến hết chuỗi hoặc gặp <code>break</code></p>
+<p><img alt="Python for loop" src="static/python/python_for_loop.jpg"></p>
+<p>Một ví dụ về <code>for</code> loop:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+
+<span class="c1"># Example from https://www.tutorialspoint.com/python/python_for_loop.htm</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span>     <span class="c1"># First Example</span>
+   <span class="k">print</span> <span class="s1">&#39;Current Letter :&#39;</span><span class="p">,</span> <span class="n">letter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span>  <span class="s1">&#39;mango&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>        <span class="c1"># Second Example</span>
+   <span class="k">print</span> <span class="s1">&#39;Current fruit :&#39;</span><span class="p">,</span> <span class="n">fruit</span>
+
+<span class="k">print</span> <span class="s2">&quot;Good bye!&quot;</span>
+</pre></div>
+
+
+<p>Kết quả in ra:</p>
+<div class="highlight"><pre><span></span>Current Letter : P
+Current Letter : y
+Current Letter : t
+Current Letter : h
+Current Letter : o
+Current Letter : n
+Current fruit : banana
+Current fruit : apple
+Current fruit : mango
+Good bye!
+</pre></div>
+
+
+<h3>Kiểu dữ liệu danh sách: List</h3>
+<p>Thay vì chỉ lưu trữ một giá trị như biến, list cho phép lưu một dãy các giá trị. List trong Python tương đương với Mảng trong các ngôn ngữ lập trình khác, điểm khác biệt là các phần tử trong một List của Python có thể có nhiều kiểu dữ liệu khác nhau. Cách cơ bản nhất để tạo một list như sau:</p>
+<div class="highlight"><pre><span></span><span class="n">danh_sach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">danh_sach_1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Để truy cập lấy giá trị của một phần tử trong List ta dùng <code>index</code> của phần tử đó, có thể hiểu <code>index</code> ở đây như vị trí của phần tử trong 1 list, cần lưu ý là chỉ số <code>index</code> này được bắt đầu từ 0.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach_1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;hi&quot;</span>
+</pre></div>
+
+
+<p><img alt="Python list index" src="static/python/pythonList.png"></p>
+<p>Để thêm một phần tử vào trong List chúng ta sử dụng append()</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">)</span>
+<span class="go">[1, 3, 5, 8, 10, 3, 9]</span>
+</pre></div>
+
+
+<p><em>Còn tiếp</em></p>
+        </article>
+
+            <div class="tags">
+                <p>tags: <a href="http://cuccode.com/tag/python.html">python</a>, <a href="http://cuccode.com/tag/co-ban.html">co ban</a>, <a href="http://cuccode.com/tag/basic.html">basic</a></p>
+            </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'python-from-zero.html';
+                    var disqus_url = 'http://cuccode.com/python-from-zero.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                        which takes great advantage of <a href="http://python.org">Python</a> <br />
+                        Theme <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, a modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="list-inline text-center">
+                        <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="http://cuccode.com/theme/images/discord.png"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
