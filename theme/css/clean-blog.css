@@ -10,13 +10,9 @@ body {
   font-weight: 500;
   color: #404040;
 }
-
 p {
   line-height: 2;
   margin: 30px 0;
-}
-p a {
-  /*text-decoration: underline;*/
 }
 h1,
 h2,
@@ -95,8 +91,8 @@ img {
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
   font-size: 24px;
-  line-height: 1.1,
-			display: block;
+  line-height: 1.1;
+  display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
@@ -243,8 +239,6 @@ footer .copyright {
   margin: 0;
   font-size: 0.85em;
   line-height: 1.764705882em;
-  vertical-align: middle;
-  vertical-align: baseline;
   opacity: 0;
   -webkit-transition: top 0.3s ease,opacity 0.3s ease;
   -moz-transition: top 0.3s ease,opacity 0.3s ease;
@@ -295,9 +289,7 @@ form .row:first-child .floating-label-form-group {
   text-shadow: none;
   background: #0085a1;
 }
-body {
-  webkit-tap-highlight-color: #0085a1;
-}
+
 .article-summary {
   margin: 0px;
 }
@@ -341,10 +333,11 @@ body{background-color:#ECF0F1;}
 }
 
 #blog-section{margin-top:40px;margin-bottom:80px;}
+.content-bounding-box{background-repeat:no-repeat;background-size:cover;height:150px;width:100%;background-position:center;}
 .content-title{padding:5px;background-color:#fff;height:60px;}
-.content-title h3 a{color:#34495E;text-decoration:none; transition: 0.5s;}
+.content-title h3 a{color:#34495E;text-decoration:none;transition:0.5s;}
 .content-title h3 a:hover{color:#F39C12; }
-.content-footer{background-color:#16A085;padding:10px;position: relative;}
+.content-footer{background-color:#16A085;padding:10px;position:relative;}
 .content-footer span {
   display: block;
 }
