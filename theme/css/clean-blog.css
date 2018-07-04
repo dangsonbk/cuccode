@@ -57,6 +57,7 @@ img {
 }
 
 .intro-header {
+  height:350px;
   background-color: #808080;
   background: no-repeat center center;
   background-attachment: scroll;
@@ -64,7 +65,7 @@ img {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
