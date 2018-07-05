@@ -47,7 +47,7 @@
             <meta property="article:author" content="http://cuccode.com/author/dangsonbk.html">
 	<meta property="og:url" content="http://cuccode.com/python-from-zero.html">
 	<meta property="og:title" content="Python từ không đến có">
-	<meta property="article:published_time" content="2017-09-01 15:08:00+07:00">
+	<meta property="article:published_time" content="2018-04-01 15:08:00+07:00">
             <meta property="og:description" content="Cùng học về ngôn ngữ Python từ những thứ cơ bản nhất.">
 
             <meta property="og:image" content="http://cuccode.com/static/python/pythonBasic.jpg">
@@ -87,7 +87,7 @@
             </div>
         </div>
         <span class="article-meta">Post by             <a href="http://cuccode.com/author/dangsonbk.html">dangsonbk</a>
- on 01-09-2017
+ on 01-04-2018
         </span>
         <!-- Post Content -->
         <article>
@@ -110,7 +110,7 @@ Cho tới thời điểm này có lẽ tốc độ thực thi chương trình l�
 
 
 <p>Ta đã tạo ra biến x có giá trị bằng 1, biến trong Python không chỉ để dùng lưu trữ giá trị số, nó có thể
-được dùng để lưu các giá trị khác nữa.</p>
+được dùng để lưu các giá trị khác nữa. Biến trong Python không cần được khai báo, chỉ cần gán và dùng, trình thông dịch sẽ tự động xử lý việc khai báo và quản lý biến.</p>
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;một chuỗi ký tự&quot;</span>
 <span class="n">some_numbers</span> <span class="o">=</span> <span class="mi">123456</span> <span class="c1"># số nguyên</span>
 <span class="n">some_floats</span> <span class="o">=</span> <span class="mf">1.23</span> <span class="c1"># số thập phân</span>
@@ -118,7 +118,8 @@ Cho tới thời điểm này có lẽ tốc độ thực thi chương trình l�
 </pre></div>
 
 
-<p>Biến cũng có thể được thay đổi giá trị bằng cách gán cho giá trị khác:</p>
+<p>Biến trong Python thường được đặt tên theo quy tắc <a href="https://en.wikipedia.org/wiki/Snake_case">lower_case_with_underscores</a>
+Biến cũng có thể được thay đổi giá trị bằng cách gán cho giá trị khác:</p>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 
@@ -227,7 +228,7 @@ Good bye!
 </pre></div>
 
 
-<p>Để truy cập lấy giá trị của một phần tử trong List ta dùng <code>index</code> của phần tử đó, có thể hiểu <code>index</code> ở đây như vị trí của phần tử trong 1 list, cần lưu ý là chỉ số <code>index</code> này được bắt đầu từ 0.</p>
+<p>Để truy cập lấy giá trị của một phần tử trong List ta dùng <code>index</code> của phần tử đó, có thể hiểu <code>index</code> ở đây như vị trí của phần tử trong 1 list, cần lưu ý là chỉ số <code>index</code> này được bắt đầu từ 0, tính từ cuối chuỗi thì <code>index</code> được tính từ -1.</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach_1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
@@ -236,10 +237,132 @@ Good bye!
 
 
 <p><img alt="Python list index" src="static/python/pythonList.png"></p>
-<p>Để thêm một phần tử vào trong List chúng ta sử dụng append()</p>
+<p>Lấy phần tử cuối</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">3</span>
+</pre></div>
+
+
+<p>Nếu truy xuất vượt giới hạn của list, exception <code>IndexError</code> sẽ được raise:</p>
+<div class="highlight"><pre><span></span><span class="go"># Looking out of bounds is an IndexError</span>
+<span class="go">danh_sach[14]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div>
+
+
+<p>Python cho phép truy cập list con của một list sử dụng <code>slice</code> (mình để nguyên vì không tìm được dịch nghĩa tương ứng). Để tránh phải viết đi viết lại nhiều lần mình sẽ mô tả lại bằng comment trong code tương ứng bên dưới. Về cơ bản, quy tắc ở đây là:</p>
+<p>danh_sach_con = danh_sach[bắt_đầu:kết_thúc:bước_nhảy]</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>      <span class="c1"># từ index = 2 tới trước index = 3</span>
+<span class="go">[5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>      <span class="c1"># từ index = 2 tới trước index = 9, chú ý: index thứ 2 có thể vượt ra ngoài chuỗi (out of bound) nhưng không báo lỗi</span>
+<span class="go">[5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>       <span class="c1"># bỏ phần tử đầu, chỉ lấy từ index = 2 tới hết</span>
+<span class="go">[5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>      <span class="c1"># từ index = -2 tới hết</span>
+<span class="go">[10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>      <span class="c1"># từ đầu tới trước index = -2</span>
+<span class="go">[1, 3, 5, 8]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>      <span class="c1"># lấy các phần tử có index cách nhau 2 đơn vị bắt đầu từ index = 0</span>
+<span class="go">[1, 5, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># tạo danh sách ngược lại</span>
+<span class="go">[3, 10, 8, 5, 3, 1]</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Để thêm một phần tử vào trong List chúng ta sử dụng <code>append()</code></p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">)</span>
 <span class="go">[1, 3, 5, 8, 10, 3, 9]</span>
+</pre></div>
+
+
+<p>Xóa phần tử:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">)</span>
+<span class="go">[1, 3, 5, 8, 10, 3, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>         <span class="c1"># xóa phần tử cuối cùng</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1"># xóa phần tử đầu tiên tìm thấy (xóa số 3 đầu tiên)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>     <span class="c1"># lỗi do 9 không nằm trong danh sách</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ValueError</span>: <span class="n">list.remove(x): x not in list</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<blockquote>
+<p>Nâng cao: tạo danh sách mới hoàn toàn:</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span> <span class="o">=</span> <span class="n">danh_sach</span><span class="p">[:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span> <span class="ow">is</span> <span class="n">danh_sach</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_2</span> <span class="o">=</span> <span class="n">danh_sach</span>         <span class="c1"># danh_sach_2 thực chất là reference của danh_sach</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_2</span> <span class="ow">is</span> <span class="n">danh_sach</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>                       <span class="c1"># Kiểm tra lại giá trị của các danh sách</span>
+<span class="go">[1, 5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_2</span>
+<span class="go">[1, 5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span>
+<span class="go">[1, 5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>               <span class="c1"># Thay đổi danh_sach_ref</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>                       <span class="c1"># danh_sach không thay đổi</span>
+<span class="go">[1, 5, 8, 10, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>               <span class="c1"># Thay đổi danh_sach_2</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>                       <span class="c1"># danh_sach bị thay đổi theo</span>
+<span class="go">[1, 5, 8, 10]</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Để thêm phần tử vào danh sách, chúng ta sử dụng lệnh <code>insert(index, value)</code>, lệnh này cho phép thêm phần tử vào một vị trí xác định</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 5, 8, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 3, 5, 8, 10]</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Gộp 2 danh sách, mở rộng danh sách:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span> <span class="o">+</span> <span class="n">danh_sach_ref</span>         <span class="c1"># giá trị danh_sach và danh_sach_ref không thay đổi</span>
+<span class="go">[1, 3, 5, 8, 10, 1, 5, 8, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">danh_sach_3</span><span class="p">)</span>     <span class="c1"># khi extend thì giá trị của danh_sach bị thay đổi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 3, 5, 8, 10, 1, 5, 8, 10]</span>
+</pre></div>
+
+
+<p>Kiểm tra nếu phần tử nằm trong danh sách:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">in</span> <span class="n">danh_sach</span>
+<span class="go">False</span>
+</pre></div>
+
+
+<p>Độ dài của danh sách:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 3, 5, 8, 10, 1, 5, 8, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div>
+
+
+<p>Ngoài list ra chúng ta còn có các kiểu dữ liệu danh sách tương tự khác như dictionary và tupple.</p>
+<p>Đối với các kiểu dữ liệu danh sách, nếu không chứa dữ liệu thì giá trị của nó được đánh giá bằng <code>False</code>.</p>
+<div class="highlight"><pre><span></span><span class="go">bool(0)   # =&gt; False</span>
+<span class="go">bool(&quot;&quot;)  # =&gt; False</span>
+<span class="go">bool([])  # =&gt; False</span>
+<span class="go">bool({})  # =&gt; False</span>
+<span class="go">bool(())  # =&gt; False</span>
 </pre></div>
 
 
