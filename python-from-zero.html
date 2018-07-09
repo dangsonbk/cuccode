@@ -165,6 +165,7 @@ Biến cũng có thể được thay đổi giá trị bằng cách gán cho gi�
 
 <p><em>Fun fact: Python không cần <code>switch ... case</code> vì <code>if ... else</code> là đủ. <a href="https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python">Official answer</a>.</em></p>
 <p><img alt="Python alien" src="static/python/aliens-switch-case.png"></p>
+<hr>
 <h2>Vòng lặp</h2>
 <p>Bạn dĩ nhiên là không muốn viết đi viết lại 100 dòng code vì muốn chạy câu lệnh 100 lần với 100 biến số khác nhau, bạn cũng không muốn viết code duyệt 1000 phần tử trong một mảng bằng cách viết đi viết lại câu lệnh 1000 lần. Trong Python, <code>while</code> và <code>for</code> là 2 vòng lặp cơ bản nhất.</p>
 <h3>Vòng lặp <code>while</code></h3>
@@ -176,31 +177,32 @@ Biến cũng có thể được thay đổi giá trị bằng cách gán cho gi�
 </pre></div>
 
 
-<p>Ở đây <code>a &lt; 10</code> là điều kiện lặp, khi giá trị của a tăng lên mỗi lần lặp tới khi <code>a == 10</code> thì điều kiện <code>a &lt; 10</code> không còn đúng nữa, khi đó vòng lặp kết thúc.</p>
-<p>Nếu điều kiện lặp luôn đúng, khi đó ta có vòng lặp vô hạn, khi lập trình bạn nên cẩn thận để tránh trường hợp vòng lặp rơi vào vô hạn.</p>
-<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<p>Ở đây <code>a &lt; 10</code> là điều kiện lặp, khi giá trị của a tăng lên mỗi lần lặp tới khi <code>a == 10</code> thì điều kiện <code>a &lt; 10</code> không còn đúng nữa, lúc đó vòng lặp kết thúc.</p>
+<p>Nếu điều kiện lặp luôn đúng, ta sẽ có vòng lặp vô hạn, khi lập trình bạn nên cẩn thận để tránh trường hợp vòng lặp rơi vào vô hạn dẫn đến việc chương trình không thể tiếp tục chạy.</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Tôi sẽ có người yêu sau khi vòng lặp này kết thúc&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>Vòng lặp <code>for</code></h3>
 <p>Cấu trúc của vòng lặp <code>for</code> được thể hiện như sau:</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">biến_lặp</span> <span class="ow">in</span> <span class="n">chuỗi</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">biến_lặp</span> <span class="ow">in</span> <span class="p">[</span><span class="n">danh</span> <span class="n">sách</span><span class="p">]:</span>
     <span class="c1"># nội dung lệnh thực hiện trong mỗi lần lặp</span>
 </pre></div>
 
 
-<p>Giá trị cả phần tử đầu tiên của chuỗi (hoặc danh sách, string ...) sẽ được gán cho biến_lặp, tiếp theo là thực hiện lệnh bên trong vòng lặp, sau đó là phần tử thứ 2, thứ 3 ... đến hết chuỗi hoặc gặp <code>break</code></p>
+<p>Giá trị cả phần tử đầu tiên của danh sách (dữ liệu kiểu danh sách , string ...) sẽ được gán cho biến_lặp, tiếp theo là thực hiện lệnh bên trong vòng lặp, sau đó là phần tử thứ 2, thứ 3 ... đến hết chuỗi hoặc gặp <code>break</code></p>
 <p><img alt="Python for loop" src="static/python/python_for_loop.jpg"></p>
-<p>Một ví dụ về <code>for</code> loop:</p>
+<p>Một vài ví dụ về <code>for</code> loop:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 
 <span class="c1"># Example from https://www.tutorialspoint.com/python/python_for_loop.htm</span>
-<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span>     <span class="c1"># First Example</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span>
    <span class="k">print</span> <span class="s1">&#39;Current Letter :&#39;</span><span class="p">,</span> <span class="n">letter</span>
 
 <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span>  <span class="s1">&#39;mango&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>        <span class="c1"># Second Example</span>
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
    <span class="k">print</span> <span class="s1">&#39;Current fruit :&#39;</span><span class="p">,</span> <span class="n">fruit</span>
 
 <span class="k">print</span> <span class="s2">&quot;Good bye!&quot;</span>
@@ -221,6 +223,25 @@ Good bye!
 </pre></div>
 
 
+<p>Trong Python, vòng lặp for rất hay được sử dụng cùng với hàm <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-range">range()</a>. <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-range">range()</a> là hàm built-in của Python cho phép trả về một chuỗi số mà bạn có thể duyệt qua nó, các tham số đầu vào bao gồm: giá trị bắt đầu <code>start</code>, giá trị kết thúc <code>stop</code>, và bước đếm <code>step</code>. Các tham số này có thể có hoặc không cần thiết phải thiết lập khi gọi hàm, mời bạn xem ví dụ sau đây để hiểu thêm:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>         <span class="c1"># range(stop)</span>
+<span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>      <span class="c1"># range(start, stop)</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>   <span class="c1"># range(start, stop[, step])</span>
+<span class="go">[0, 5, 10, 15, 20, 25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[0, 3, 6, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="go">[]</span>
+</pre></div>
+
+
+<hr>
 <h3>Kiểu dữ liệu danh sách: List</h3>
 <p>Thay vì chỉ lưu trữ một giá trị như biến, list cho phép lưu một dãy các giá trị. List trong Python tương đương với Mảng trong các ngôn ngữ lập trình khác, điểm khác biệt là các phần tử trong một List của Python có thể có nhiều kiểu dữ liệu khác nhau. Cách cơ bản nhất để tạo một list như sau:</p>
 <div class="highlight"><pre><span></span><span class="n">danh_sach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -365,6 +386,11 @@ Good bye!
 
 
 <p><em>Còn tiếp</em></p>
+<hr>
+<h1>Tham khảo</h1>
+<ul>
+<li><a href="https://learnxinyminutes.com/docs/python3/">LearnXinYminutes</a></li>
+</ul>
         </article>
 
             <div class="tags">
