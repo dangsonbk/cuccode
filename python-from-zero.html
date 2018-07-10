@@ -127,8 +127,9 @@ Biến cũng có thể được thay đổi giá trị bằng cách gán cho gi�
 <p>Ta đã có khái niệm cơ bản về biến, đối với Python, bạn không cần phải chú ý nhiều đến các vấn đề sâu hơn về bộ nhớ như: con trỏ, địa chỉ ... như một số ngôn ngữ khác như C, C++</p>
 <blockquote>
 <p>Việc gán giá trị cho biến là một chiều, <code>1 = x</code> là câu lệnh lỗi.</p>
-<p>Nâng cao: Phạm vi của biến trong Python.</p>
 </blockquote>
+<p>Python không có khái niệm hằng số hay constant. Nếu bạn muốn dùng hằng số, chỉ cần đơn giản tạo một biến và đừng thay đổi giá trị của nó. ●_●</p>
+<p><a href="static/python/pythonConst.jpg">!Python constant</a></p>
 <h2>Câu lệnh điều kiện</h2>
 <p>Câu lệnh điều kiện duy nhất trong Python bạn cần biết đến đó là <code>if ... else ...</code>, một điều kiện sẽ được kiểm tra khi thực hiện lời gọi <code>if</code>, nếu điều kiện đó trả về giá trị đúng thì khối câu lệnh sau mệnh đề <code>if</code> sẽ được thực hiện, nếu điều kiện đó trả về giá trị sai thì khối câu lệnh sau mệnh đề <code>else</code> sẽ được thực hiện.</p>
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
@@ -241,6 +242,7 @@ Good bye!
 </pre></div>
 
 
+<p>Trên thực tế, ở Python 3, <code>range</code> được định nghĩa như một kiểu dữ liệu chứ không phải là một hàm trả về danh sách iterator. Bạn có thể đọc phần tiếp theo và thử sử dụng kiểu <code>range</code> như một list và sẽ thấy khác biệt.</p>
 <hr>
 <h3>Kiểu dữ liệu danh sách: List</h3>
 <p>Thay vì chỉ lưu trữ một giá trị như biến, list cho phép lưu một dãy các giá trị. List trong Python tương đương với Mảng trong các ngôn ngữ lập trình khác, điểm khác biệt là các phần tử trong một List của Python có thể có nhiều kiểu dữ liệu khác nhau. Cách cơ bản nhất để tạo một list như sau:</p>
