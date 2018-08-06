@@ -471,6 +471,59 @@ Slicing cho phép tạo danh sách mới hoàn toàn một cách rất dễ dàn
 
 
 <hr>
+<h2>Dữ liệu kiểu set</h2>
+<p>Có thể coi set là cấu trúc dữ liệu tương đương với tập hợp trong toán học, cho phép thể thêm, xóa các phần tử, duyệt (iterate) từng phần tử, thực hiện các phép toán tương tự như tập hợp (hợp, giao, so sánh). Bên cạnh đó, bạn có thể kiểm tra xem một phần tử thuộc về một set hay không.</p>
+<p>Set trong Python là tập hợp các phần tử không có thứ tự, các phần tử trong set là duy nhất, phân cách nhau bằng dấu phẩy và nằm trong dấu {}. Một điều quan trong cần phải nhắc lại là không giống như list, nơi các phần tử được lưu trữ dưới dạng danh sách thứ tự, thứ tự của các phần tử trong set là không xác định.</p>
+<p>Bất kỳ loại dữ liệu bất biến (immutable) nào cũng có thể là một phần tử của một set: số, chuỗi, tuple. Các kiểu dữ liệu có thể thay đổi (changeable) không thể là các phần tử của tập hợp. List không thể là phần tử của set (nhưng có thể), và một set cũng không thể là một phần tử của set khác.</p>
+<div class="highlight"><pre><span></span><span class="n">sample_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">sample_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>   <span class="c1"># {&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;o&quot;}</span>
+</pre></div>
+
+
+<p>Như đã nói ở trên, không cần quan tâm thứ tự các phần tử trong set:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span>
+<span class="go">True</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>Như đã nói ở trên, kiểu set trong Python khá tương đồng với tập hợp trong toán học. Mình tổng hợp lại các phép toán có thể thực hiện được trên sets ở dưới đây:</p>
+<div class="highlight"><pre><span></span><span class="c1"># https://learnxinyminutes.com/docs/vi-vn/python3-vi/</span>
+<span class="c1"># Tương tự như khóa của từ điển, phần tử của một tập hợp cũng phải là immutable</span>
+<span class="n">invalid_set</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">}</span>  <span class="c1"># =&gt; Sinh ra biệt lệ TypeError: unhashable type: &#39;list&#39;</span>
+<span class="n">valid_set</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,),</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="c1"># Thêm một phần tử vào tập hợp</span>
+<span class="n">filled_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># filled_set is now {1, 2, 3, 4, 5}</span>
+
+<span class="c1"># Thực hiện phép giao hai tập hợp bằng phép toán &amp;</span>
+<span class="n">other_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">filled_set</span> <span class="o">&amp;</span> <span class="n">other_set</span>  <span class="c1"># =&gt; {3, 4, 5}</span>
+
+<span class="c1"># Thực hiện phép hợp bằng phép toán |</span>
+<span class="n">filled_set</span> <span class="o">|</span> <span class="n">other_set</span>  <span class="c1"># =&gt; {1, 2, 3, 4, 5, 6}</span>
+
+<span class="c1"># Lấy hiệu của hai tập hơp bằng phép toán -</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>  <span class="c1"># =&gt; {1, 4}</span>
+
+<span class="c1"># Lấy hiệu đối xứng bằng phép toán ^</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">^</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>  <span class="c1"># =&gt; {1, 4, 5}</span>
+
+<span class="c1"># Kiểm tra tập hợp bên trái là tập cha của bên phải</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># =&gt; False</span>
+
+<span class="c1"># Kiểm tra xem tập hợp bên trái có phải là tập con của tập hợp bên phải</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># =&gt; True</span>
+
+<span class="c1"># Kiểm tra sự tồn tại của một phần tử trong tập hợp bằng từ khóa in</span>
+<span class="mi">2</span> <span class="ow">in</span> <span class="n">filled_set</span>   <span class="c1"># =&gt; True</span>
+<span class="mi">10</span> <span class="ow">in</span> <span class="n">filled_set</span>  <span class="c1"># =&gt; False</span>
+</pre></div>
+
+
+<hr>
 <h2>Hàm</h2>
 <blockquote>
 <p>Để tránh việc phải viết đi viết lại cùng một đoạn code nhiều lần trong một chương trình, các đoạn code giống nhau được đặt chung lại một chỗ và dán nhãn, hay còn gọi là tên hàm, mỗi lần cần thực thi đoạn code đó thì lập trình viên sẽ gọi và truyền đối số vào tên hàm tương ứng.</p>
@@ -571,7 +624,7 @@ Slicing cho phép tạo danh sách mới hoàn toàn một cách rất dễ dàn
 
 <hr>
 <p>Trên đây là những nội dung cơ bản và bạn đã có thể viết được một chương trình Python đơn giản. Hi vọng giúp ích được cho các bạn trong quá trình học lập trình cũng như là tiếp cận với ngôn ngữ lập trình Python.</p>
-<p>Mình sẽ tiếp tục viết thêm một số bài viết cơ bản về Python nữa, hi vọng được mọi người ủng hộ.</p>
+<p>Mình sẽ tiếp tục viết thêm một số bài cơ bản về Python nữa, hi vọng được mọi người ủng hộ.</p>
 <hr>
 <h2>Tham khảo</h2>
 <ul>
@@ -581,6 +634,7 @@ Slicing cho phép tạo danh sách mới hoàn toàn một cách rất dễ dàn
 <li><a href="http://www.python.org/dev/peps/pep-3102/">PEP 3102 Keyword-Only Arguments</a></li>
 <li><a href="http://treyhunner.com/2018/04/keyword-arguments-in-python/">Keyword Arguments in Python: How to Use Them</a></li>
 <li><a href="https://stackoverflow.com/questions/2612802/how-to-clone-or-copy-a-list">How to clone or copy a list?</a></li>
+<li><a href="https://snakify.org/en/lessons/sets/">snakify.org Sets</a></li>
 </ul>
         </article>
 
