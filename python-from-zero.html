@@ -274,6 +274,9 @@ Good bye!
 </pre></div>
 
 
+<blockquote>
+<p>Để tìm hiểu thêm về exception trong Python, mời bạn tham khảo thêm bài viết này: <a href="./python_error_exceptions_handling.html">Python Errors and Exceptions handling</a></p>
+</blockquote>
 <p>Python cho phép truy cập list con của một list sử dụng <code>slice</code> (mình để nguyên vì không tìm được dịch nghĩa tương ứng). Để tránh phải viết đi viết lại nhiều lần mình sẽ mô tả lại bằng comment trong code tương ứng bên dưới. Về cơ bản, quy tắc ở đây là:</p>
 <p>danh_sach_con = danh_sach[bắt_đầu:kết_thúc:bước_nhảy]</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -295,10 +298,14 @@ Good bye!
 </pre></div>
 
 
-<p>Để thêm một phần tử vào trong List chúng ta sử dụng <code>append()</code></p>
+<p>Để thêm một phần tử vào trong list chúng ta sử dụng <code>append()</code>, phần tử thêm vào sẽ nằm ở cuối danh sách. Nếu muốn thêm phần tử mới vào một vị trí xác định, sử dụng <code>insert(index, value)</code></p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">danh_sach</span><span class="p">)</span>
 <span class="go">[1, 3, 5, 8, 10, 3, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
+<span class="go">[1, 3, 3, 5, 8, 10, 3, 9]</span>
+<span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 
 
@@ -318,7 +325,8 @@ Good bye!
 </pre></div>
 
 
-<p>Tạo danh sách mới hoàn toàn:</p>
+<p>Khi bạn muốn tạo một list mới và gán với giá trị của list cũ <code>danh_sach_ref = danh_sach</code> thì thực chất không có list mới nào được tạo cả, Python chỉ sao chép lại tham chiếu chứ không tạo danh sách thực, vì vậy cả <code>danh_sach_ref</code> và <code>danh_sach</code> đều trỏ vào cùng một danh sách. Vì lý do đó, việc thêm, sửa, xóa dữ liệu trên bất cứ danh sách nào <code>danh_sach_ref</code> và <code>danh_sach</code> đều ảnh hưởng tới danh sách kia vì chúng thực chất là một.
+Slicing cho phép tạo danh sách mới hoàn toàn một cách rất dễ dàng:</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span> <span class="o">=</span> <span class="n">danh_sach</span><span class="p">[:]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach_ref</span> <span class="ow">is</span> <span class="n">danh_sach</span>
 <span class="go">False</span>
@@ -343,13 +351,9 @@ Good bye!
 </pre></div>
 
 
-<p>Để thêm phần tử vào danh sách, chúng ta sử dụng lệnh <code>insert(index, value)</code>, lệnh này cho phép thêm phần tử vào một vị trí xác định</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
-<span class="go">[1, 5, 8, 10]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">danh_sach</span>
-<span class="go">[1, 3, 5, 8, 10]</span>
-<span class="go">&gt;&gt;&gt;</span>
+<p>Ngoài slicing, chúng ta có thể sử dụng <code>list()</code>, <code>list.copy()</code> (python verion 3.3 trở lên):</p>
+<div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="n">old_list</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">old_list</span><span class="p">)</span>
 </pre></div>
 
 
@@ -576,6 +580,7 @@ Good bye!
 <li><a href="http://docs.python.org/tutorial/controlflow.html#more-on-defining-functions">More on Defining Functions</a></li>
 <li><a href="http://www.python.org/dev/peps/pep-3102/">PEP 3102 Keyword-Only Arguments</a></li>
 <li><a href="http://treyhunner.com/2018/04/keyword-arguments-in-python/">Keyword Arguments in Python: How to Use Them</a></li>
+<li><a href="https://stackoverflow.com/questions/2612802/how-to-clone-or-copy-a-list">How to clone or copy a list?</a></li>
 </ul>
         </article>
 
