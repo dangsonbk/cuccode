@@ -2,11 +2,11 @@
 <html lang="english">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
-        <title>cuccode - Tags</title>
+        <title>Enabling SSL on Github Pages custom domains with Cloudflare</title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -30,13 +30,32 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <meta property="og:locale" content="">
+
+
+        <meta name="description" content="Enabling SSL on Github Pages custom domains with Cloudflare">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="cloudflare">
+
+	        <meta property="og:locale" content="">
         <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="https://cuccode.com/ssl_cloudflare.html">
+	<meta property="og:title" content="Enabling SSL on Github Pages custom domains with Cloudflare">
+	<meta property="article:published_time" content="2018-09-10 21:15:00+07:00">
+            <meta property="og:description" content="Enabling SSL on Github Pages custom domains with Cloudflare">
+
+            <meta property="og:image" content="https://cuccode.com//static/misc/cloudflare.png">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@dangsonbk">
-        <meta name="twitter:title" content="cuccode">
-        <meta name="twitter:description" content="Python, Arduino and other programming tutorials">
-        <meta name="twitter:image" content="https://cuccode.com//static/ninjaHardware.jpg">
+        <meta name="twitter:title" content="Enabling SSL on Github Pages custom domains with Cloudflare">
+
+            <meta name="twitter:image" content="https://cuccode.com//static/misc/cloudflare.png">
+
+            <meta name="twitter:description" content="Enabling SSL on Github Pages custom domains with Cloudflare">
 </head>
 
 <body>
@@ -47,41 +66,75 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                        <li><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
                         <li><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/static/ninjaHardware.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>cuccode - Tags</h1>
-                    </div>
+        <header class="intro-header" style="background-image: url('https://cuccode.com//static/misc/cloudflare.png')">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  mx-auto">
+                <div class="post-heading">
+                    <h1>Enabling SSL on Github Pages custom domains with Cloudflare</h1>
+                    
                 </div>
             </div>
         </div>
-    </header>
-    <h1>Tags for cuccode</h1>        <li><a href="https://cuccode.com/tag/basic.html">basic</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/beginner.html">beginner</a> (2)</li>
-        <li><a href="https://cuccode.com/tag/bitcoin.html">bitcoin</a> (2)</li>
-        <li><a href="https://cuccode.com/tag/blockchain.html">blockchain</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/browser.html">browser</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/cloudflare.html">cloudflare</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/co-ban.html">co ban</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/package.html">package</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/python.html">python</a> (9)</li>
-        <li><a href="https://cuccode.com/tag/python2.html">python2</a> (3)</li>
-        <li><a href="https://cuccode.com/tag/python3.html">python3</a> (3)</li>
-        <li><a href="https://cuccode.com/tag/raw_input.html">raw_input</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/simplehttpserver.html">SimpleHTTPServer</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/ssh.html">ssh</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/vps.html">vps</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/vultr.html">vultr</a> (1)</li>
-        <li><a href="https://cuccode.com/tag/web-server.html">web server</a> (1)</li>
+        <span class="article-meta">Post by             <a href="https://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+ on 10-09-2018
+        </span>
+        <!-- Post Content -->
+        <article>
+            <p>I'm currently hosting this blog on Github Pages. By default Github Pages can be served over SSL but not in my case where I am using a custom domain. However, I found an easy way to set this up simple and free with Cloudflare.</p>
+<p>Cloudflare offers a free plan for personal webpages like my own with shared SSL certificate and 3 page rules. You just have to create an account, follow the instructions to migrate your DNS settings from your currently working domain, set your domain’s nameservers to the ones provided by Cloudflare. After all, make sure the “Always Use HTTPS” option enabled in the Crypto tab.</p>
+<p>When you finish these above steps in Cloudflare, it's time for Github Pages settings. From repository navigation bar, in setting tab, scroll down to Github Pages area and make sure the Enforce HTTPS setting checked. In case it's not, clear the Custom domain text box, click save and reenter your domain again, this will trigger Github to active Enforce HTTPS setting.</p>
+<p>All DNS changes will take a while until take effect, some services may inform you that it's up to 24 hours, so be patience. Please also note that your site will use DNS hosting provided by Cloudflare as well as Cloudflare-provided certificate for SSL, this may or may not be ideal depending on your needs. If you have your own certs, you will not able to use them on this website anymore. Secondly, you may need more than 3 Pages Rules, which is limited for free plan. For me, Cloudflare supports everything I needed, 3 rules is not much but actually I don't even need to use one.</p>
+<p>If your need is just to get SSL working with your Github Pages and the limitations of the free plan are not an issue, I would highly recommend Cloudflare for it.</p>
+        </article>
+
+            <div class="tags">
+                <p>tags: <a href="https://cuccode.com/tag/cloudflare.html">cloudflare</a></p>
+            </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'ssl_cloudflare.html';
+                    var disqus_url = 'https://cuccode.com/ssl_cloudflare.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+    </div>
     <!-- Footer -->
     <footer class="bg-dark">
         <div class="container-fluid">
