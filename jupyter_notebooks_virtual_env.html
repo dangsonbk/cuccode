@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>Chạy Jupyter Notebooks với Virtual Environment</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <!-- <link href="https://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="https://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="https://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Bài viết sau đây sẽ hướng dẫn bạn chạy Jupyter Notebooks cùng với Virtual Environment">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python2">
+        <meta name="tags" content="python3">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="https://cuccode.com/jupyter_notebooks_virtual_env.html">
+	<meta property="og:title" content="Chạy Jupyter Notebooks với Virtual Environment">
+	<meta property="article:published_time" content="2018-09-30 21:15:00+07:00">
+            <meta property="og:description" content="Bài viết sau đây sẽ hướng dẫn bạn chạy Jupyter Notebooks cùng với Virtual Environment">
+
+            <meta property="og:image" content="https://cuccode.com/static/python/jupyter.svg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Chạy Jupyter Notebooks với Virtual Environment">
+
+            <meta name="twitter:image" content="https://cuccode.com/static/python/jupyter.svg">
+
+            <meta name="twitter:description" content="Bài viết sau đây sẽ hướng dẫn bạn chạy Jupyter Notebooks cùng với Virtual Environment">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                        <li><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('https://cuccode.com/static/python/jupyter.svg')">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  mx-auto">
+                <div class="post-heading">
+                    <h1>Chạy Jupyter Notebooks với Virtual Environment</h1>
+                    
+                </div>
+            </div>
+        </div>
+        <span class="article-meta">Post by             <a href="https://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+ on 30-09-2018
+        </span>
+        <!-- Post Content -->
+        <article>
+            <p>Nếu bạn đang sử dụng <a href="http://jupyter.org/">Jupyter Notebooks</a> và muốn chạy trong môi trường <a href="https://docs.python-guide.org/dev/virtualenvs/">Virtual Environment</a> có sẵn thì đây chính là bài viết dành cho bạn.</p>
+<p>Tại sao bạn lại cần Virtual Environment khi lập trình Python, có thể kể đến 3 lý do chính như sau:</p>
+<ul>
+<li>
+<p>Cho phép bạn làm việc trong một môi trường ảo mà không bị ảnh hưởng bởi những thư viện phần mềm, gói cài đặt mà bạn đã cài trên toàn hệ thống.</p>
+</li>
+<li>
+<p>Cho phép bạn tùy biến việc sử dụng các thư viện cần thiết theo đúng phiên bản mà bạn muốn cho từng project, bạn có thể cùng lúc chạy 2 project với phiên bản Django khác nhau mà không làm ảnh hưởng lẫn nhau. Hãy thử nghĩ đến cảnh việc bạn đang chạy một dự án sử dụng Django 2.0 và phải bảo trì cho 1 dự án chạy Django 1.8 sẽ thấy Virtual Environment lợi hại như thế nào.</p>
+</li>
+<li>
+<p>Chắc hẳn bạn đã nhiều lần gặp trường hợp code chạy trên máy mình nhưng không chạy được trên máy khách, hì hục kiểm tra thì phát hiện ra môi trường chạy khác nhau, phiên bản thư viện khác nhau ... Nếu bạn sử dụng Virtual Environment cho dự án ngay từ đầu thì có lẽ mọi việc đã đơn giản hơn rồi.</p>
+</li>
+</ul>
+<h3>Cài đặt Virtual Environment để chạy với Jupyter Notebooks</h3>
+<p>Tạo môi trường:</p>
+<div class="highlight"><pre><span></span>python -m venv projectnamevenv
+</pre></div>
+
+
+<p>Trong đó projectnamevenv là tên folder chứa thông tin Virtual Environment cho dự án của bạn, bạn có thể đổi tên cho phù hợp hơn như /venv /virenv để dễ gợi nhớ hơn.</p>
+<p>Activate môi trường này lên (Windows):</p>
+<div class="highlight"><pre><span></span>\projectnamevenv\Scripts\activate
+</pre></div>
+
+
+<p>Bây giờ bạn sẽ thấy ở đầu dòng lệnh có thêm (venv), điều đó có nghĩa là môi trường của bạn đã được kích hoạt.</p>
+<p><a href="static/python/venv.PNG">!venv console</a></p>
+<p>Tiếp theo chúng ta sẽ cài đặt thư viện ipykernel</p>
+<div class="highlight"><pre><span></span>pip install ipykernel
+</pre></div>
+
+
+<p>Tạo kernel mới cho Jupyter Notebooks:</p>
+<div class="highlight"><pre><span></span>ipython kernel install --user --name=projectname
+</pre></div>
+
+
+<p>Tới thời điểm này, bạn đã có thể khởi chạy Jupyter Notebooks của bạn và chọn Kernel tương ứng với Virtual Environment bạn đã tạo sẵn.</p>
+<h3>Tóm lược:</h3>
+<p>Môi trường Windows</p>
+<div class="highlight"><pre><span></span><span class="p">&gt;</span> python -m venv venv
+<span class="p">&gt;</span> venv\Scripts\activate
+<span class="p">(</span>venv<span class="p">)</span> <span class="p">&gt;</span> pip install ipykernel
+<span class="p">(</span>venv<span class="p">)</span> <span class="p">&gt;</span> ipython kernel install --user --name=projectname
+</pre></div>
+
+
+<p>Môi trường Linux</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> python -m venv venv
+<span class="gp">$</span> <span class="nb">source</span> venv/bin/activate
+<span class="gp">(venv) $</span> pip install ipykernel
+<span class="gp">(venv) $</span> ipython kernel install --user --name<span class="o">=</span>projectname
+</pre></div>
+        </article>
+
+            <div class="tags">
+                <p>tags: <a href="https://cuccode.com/tag/python2.html">python2</a>, <a href="https://cuccode.com/tag/python3.html">python3</a></p>
+            </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'jupyter_notebooks_virtual_env.html';
+                    var disqus_url = 'https://cuccode.com/jupyter_notebooks_virtual_env.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Powered by <a href="http://getpelican.com">Pelican</a>, takes great advantage of <a href="http://python.org">Python</a> <br />
+                        <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="list-inline text-center">
+                        <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="https://cuccode.com/theme/images/discord.png"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="https://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
