@@ -102,16 +102,16 @@
 </blockquote>
 <p>Trong Python, môi trường ảo được sử dụng để cô lập môi trường của các dự án với nhau (ví dụ như trong trường hợp các dự án khác nhau yêu cầu các phiên bản khác nhau của cùng một thư viện). Môi trường ảo cho phép bạn cài đặt và quản lý các gói cài đặt một cách riêng rẽ và không xung đột với trình quản lý gói cài đặt của toàn hệ thống.</p>
 <h3>Cài đặt và tạo môi trường Virtual Environment</h3>
-<p><strong>Cài đặt</strong>
-Có hai công cụ chính được sử dụng để tạo môi trường ảo:</p>
+<p><strong>Cài đặt</strong></p>
+<p>Có hai công cụ chính được sử dụng để tạo môi trường ảo:</p>
 <ul>
 <li><a href="https://virtualenv.pypa.io/">virtualenv</a> là công cụ tiêu chuẩn trong nhiều năm, có thể được sử dụng với cả Python 2 và 3.</li>
 <li><a href="https://docs.python.org/3/library/venv.html">venv</a> (pyvenv) được thêm vào thư viện chuẩn trong Python 3.3.</li>
 </ul>
 <p><em>virtualenv</em> có thể được cài đặt với trình quản lý gói cài <code>pip</code> bằng cách chạy lệnh <code>pip install virtualenv</code>. <em>venv</em> được tích hợp sẵn với Python 3, người dùng Debian/Ubuntu sẽ cần chạy <code>sudo apt-get install python3-venv</code> để làm cho nó hoạt động.</p>
 <p>Cả hai công cụ đều giúp bạn tạo môi trường ảo cho project Python theo cách tương tự nhau. Bạn có thể sử dụng bất cứ công cụ nào muốn, trong trường hợp gặp vấn đề với 1 trong 2, bạn hoàn toàn có thể sử dụng công cụ còn lại.</p>
-<p><strong>Tạo môi trường:</strong>
-Ở đây mình sử dụng <em>venv</em></p>
+<p><strong>Tạo môi trường:</strong></p>
+<p>Ở đây mình sử dụng <em>venv</em></p>
 <div class="highlight"><pre><span></span>python -m venv projectnamevenv
 </pre></div>
 
@@ -138,8 +138,8 @@ Cả hai công cụ đều cài đặt sẵn <code>pip</code> và <code>setuptoo
 </pre></div>
 
 
-<p><strong>Đóng gói và cài đặt lại</strong>
-Bây giờ bạn muốn bê nguyên dự án bạn đang làm sang máy khác, bạn sẽ thấy là việc copy folder <code>./venv</code> ở trên không có tác dụng, điều đó xảy ra bởi vì mỗi môi trường ảo được tạo được gắn chặt với đường dẫn của project, phiên bản Python cài trên máy bạn và nhiều thông tin khác nữa. Để đóng gói và cài đặt lại môi trường trên máy mới, cách đơn giản nhất là sử dụng <code>pip</code> để <code>freeze</code> lại các gói cài sau đó cài đặt lại.</p>
+<p><strong>Đóng gói và cài đặt lại</strong></p>
+<p>Bây giờ bạn muốn bê nguyên dự án bạn đang làm sang máy khác, bạn sẽ thấy là việc copy folder <code>./venv</code> ở trên không có tác dụng, điều đó xảy ra bởi vì mỗi môi trường ảo được tạo được gắn chặt với đường dẫn của project, phiên bản Python cài trên máy bạn và nhiều thông tin khác nữa. Để đóng gói và cài đặt lại môi trường trên máy mới, cách đơn giản nhất là sử dụng <code>pip</code> để <code>freeze</code> lại các gói cài sau đó cài đặt lại.</p>
 <p>Trên máy cũ hoặc project folder cũ:</p>
 <div class="highlight"><pre><span></span><span class="gp">$</span> pip freeze &gt; requirements.txt
 </pre></div>
@@ -151,8 +151,8 @@ Bây giờ bạn muốn bê nguyên dự án bạn đang làm sang máy khác, b
 
 
 <p>Bằng cách trên, các thông tin về gói cài đặt của dự án bao gồm tên gói cài đặt, phiên bản đang được cài sẽ được lưu lại trong file <code>requirements.txt</code>.</p>
-<p><strong>Thêm một chút:</strong>
-Các công cụ tạo và quản lý Virtual Environment sẽ thêm và sử dụng 1 folder trong dự án của bạn để quản lý các gói cài đặt cũng như phiên bản Python (<code>./venv</code> như trong ví dụ trên), bạn không cần thiết phải quan tâm tới folder này, hãy nhớ đưa folder này vào .gitignore file trong trường hợp bạn sử dụng git.</p>
+<p><strong>Thêm một chút:</strong></p>
+<p>Các công cụ tạo và quản lý Virtual Environment sẽ thêm và sử dụng 1 folder trong dự án của bạn để quản lý các gói cài đặt cũng như phiên bản Python (<code>./venv</code> như trong ví dụ trên), bạn không cần thiết phải quan tâm tới folder này, hãy nhớ đưa folder này vào .gitignore file trong trường hợp bạn sử dụng git.</p>
 <p>Nếu bạn là người sử dụng máy tính duy nhất, bạn có nên sử dụng môi trường ảo hay không? Câu trả lời là có, trong trường hợp bạn làm nhiều project khác nhau với các gói cài đặt khác nhau, môi trường ảo là cách đơn giản nhất để quản lý chúng.</p>
 <p><strong>Xem thêm</strong></p>
 <ul>
