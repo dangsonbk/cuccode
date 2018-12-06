@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>Tạo môi trường ảo để làm việc với Python</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <!-- <link href="https://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="https://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="https://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Bài viết sau đây sẽ hướng dẫn bạn Virtual Environment cho Python nhanh chóng và đơn giản nhất">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="python">
+        <meta name="tags" content="venv">
+        <meta name="tags" content="virtualenv">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="https://cuccode.com/python_virtual_environment.html">
+	<meta property="og:title" content="Tạo môi trường ảo để làm việc với Python">
+	<meta property="article:published_time" content="2018-12-06 11:15:00+07:00">
+            <meta property="og:description" content="Bài viết sau đây sẽ hướng dẫn bạn Virtual Environment cho Python nhanh chóng và đơn giản nhất">
+
+            <meta property="og:image" content="https://cuccode.com/static/python/virtualEnv.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Tạo môi trường ảo để làm việc với Python">
+
+            <meta name="twitter:image" content="https://cuccode.com/static/python/virtualEnv.png">
+
+            <meta name="twitter:description" content="Bài viết sau đây sẽ hướng dẫn bạn Virtual Environment cho Python nhanh chóng và đơn giản nhất">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                        <li><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('https://cuccode.com/static/python/virtualEnv.png')">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  mx-auto">
+                <div class="post-heading">
+                    <h1>Tạo môi trường ảo để làm việc với Python</h1>
+                    
+                </div>
+            </div>
+        </div>
+        <span class="article-meta">Post by             <a href="https://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+ on 06-12-2018
+        </span>
+        <!-- Post Content -->
+        <article>
+            <p>Đúng ra bài này mình nên viết trước khi có bài <a href="./jupyter_notebooks_virtual_env.html">Chạy Jupyter Notebooks với Virtual Environment</a>, nhưng thôi, lỡ viết bài kia trước rồi nên nhắc lại chút vậy.</p>
+<blockquote>
+<p>Tại sao bạn lại cần Virtual Environment khi lập trình Python, có thể kể đến 3 lý do chính như sau:</p>
+<ul>
+<li>Cho phép bạn làm việc trong một môi trường ảo mà không bị ảnh hưởng bởi những thư viện phần mềm, gói cài đặt mà bạn đã cài trên toàn hệ thống.</li>
+<li>Cho phép bạn tùy biến việc sử dụng các thư viện cần thiết theo đúng phiên bản mà bạn muốn cho từng project, bạn có thể cùng lúc chạy 2 project với phiên bản Django khác nhau mà không làm ảnh hưởng lẫn nhau. Hãy thử nghĩ đến cảnh việc bạn đang chạy một dự án sử dụng Django 2.0 và phải bảo trì cho 1 dự án chạy Django 1.8 sẽ thấy Virtual Environment lợi hại như thế nào.</li>
+<li>Chắc hẳn bạn đã nhiều lần gặp trường hợp code chạy trên máy mình nhưng không chạy được trên máy khách, hì hục kiểm tra thì phát hiện ra môi trường chạy khác nhau, phiên bản thư viện khác nhau ... Nếu bạn sử dụng Virtual Environment cho dự án ngay từ đầu thì có lẽ mọi việc đã đơn giản hơn rồi.</li>
+</ul>
+</blockquote>
+<p>Trong Python, môi trường ảo được sử dụng để cô lập môi trường của các dự án với nhau (ví dụ như trong trường hợp các dự án khác nhau yêu cầu các phiên bản khác nhau của cùng một thư viện). Môi trường ảo cho phép bạn cài đặt và quản lý các gói cài đặt một cách riêng rẽ và không xung đột với trình quản lý gói cài đặt của toàn hệ thống.</p>
+<h3>Cài đặt và tạo môi trường Virtual Environment</h3>
+<p><strong>Cài đặt</strong></p>
+<p>Có hai công cụ chính được sử dụng để tạo môi trường ảo:</p>
+<p><a href="https://virtualenv.pypa.io/">virtualenv</a> là công cụ tiêu chuẩn trong nhiều năm, có thể được sử dụng với cả Python 2 và 3.
+<a href="https://docs.python.org/3/library/venv.html">venv</a> (pyvenv) được thêm vào thư viện chuẩn trong Python 3.3.</p>
+<p><em>virtualenv</em> có thể được cài đặt với trình quản lý gói cài <code>pip</code>: <code>pip install virtualenv</code>.
+<em>venv</em> được tích hợp sẵn với Python 3, người dùng Debian/Ubuntu sẽ cần chạy <code>sudo apt-get install python3-venv</code> để làm cho nó hoạt động.</p>
+<p>Cả hai công cụ đều giúp bạn tạo môi trường ảo cho project Python theo cách tương tự nhau. Bạn có thể sử dụng bất cứ công cụ nào muốn, trong trường hợp gặp vấn đề với 1 trong 2, bạn hoàn toàn có thể sử dụng công cụ còn lại.</p>
+<p><strong>Tạo môi trường:</strong></p>
+<p>Ở đây mình sử dụng <em>venv</em></p>
+<div class="highlight"><pre><span></span>python -m venv projectnamevenv
+</pre></div>
+
+
+<p>Trong đó projectnamevenv là tên folder chứa thông tin Virtual Environment cho dự án của bạn, bạn có thể đổi tên cho phù hợp hơn như /venv /virenv để dễ gợi nhớ hơn.</p>
+<p>Activate môi trường này lên:</p>
+<p>Môi trường Windows</p>
+<div class="highlight"><pre><span></span><span class="p">&gt;</span> python -m venv venv
+<span class="p">&gt;</span> venv\Scripts\activate
+<span class="p">(</span>venv<span class="p">)</span> &gt;
+</pre></div>
+
+
+<p>Môi trường Linux</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> python -m venv venv
+<span class="gp">$</span> <span class="nb">source</span> venv/bin/activate
+<span class="gp">(venv) $</span>
+</pre></div>
+
+
+<p>Bây giờ bạn sẽ thấy ở đầu dòng lệnh có thêm (venv), điều đó có nghĩa là môi trường của bạn đã được kích hoạt.
+Cả hai công cụ đều cài đặt sẵn <code>pip</code> và <code>setuptools</code> tuy nhiên <code>venv</code> không cài đặt sẵn <code>wheel</code>. Ngoài ra, các phiên bản mặc định có xu hướng chưa được cập nhật. Hãy nâng cấp chúng sau khi tạo môi trường mới:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> pip install --upgrade pip setuptools wheel
+</pre></div>
+
+
+<p><strong>Đóng gói và cài đặt lại</strong></p>
+<p>Bây giờ bạn muốn bê nguyên dự án bạn đang làm sang máy khác, bạn sẽ thấy là việc copy folder <code>./venv</code> ở trên không có tác dụng, điều đó xảy ra bởi vì mỗi môi trường ảo được tạo được gắn chặt với đường dẫn của project, phiên bản Python cài trên máy bạn và nhiều thông tin khác nữa. Để đóng gói và cài đặt lại môi trường trên máy mới, cách đơn giản nhất là sử dụng <code>pip</code> để <code>freeze</code> lại các gói cài sau đó cài đặt lại.</p>
+<p>Trên máy cũ hoặc project folder cũ:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> pip freeze &gt; requirements.txt
+</pre></div>
+
+
+<p>Trên máy mới hoặc project folder mới</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> pip install -r requirements.txt
+</pre></div>
+
+
+<p>Bằng cách trên, các thông tin về gói cài đặt của dự án bao gồm tên gói cài đặt, phiên bản đang được cài sẽ được lưu lại trong file <code>requirements.txt</code>.</p>
+<p><strong>Thêm một chút:</strong></p>
+<p>Các công cụ tạo và quản lý Virtual Environment sẽ thêm và sử dụng 1 folder trong dự án của bạn để quản lý các gói cài đặt cũng như phiên bản Python (<code>./venv</code> như trong ví dụ trên), bạn không cần thiết phải quan tâm tới folder này, hãy nhớ đưa folder này vào .gitignore file trong trường hợp bạn sử dụng git.</p>
+<p>Nếu bạn là người sử dụng máy tính duy nhất, bạn có nên sử dụng môi trường ảo hay không? Câu trả lời là có, trong trường hợp bạn làm nhiều project khác nhau với các gói cài đặt khác nhau, môi trường ảo là cách đơn giản nhất để quản lý chúng.</p>
+<p><strong>Xem thêm</strong>
+- <a href="https://realpython.com/python-virtual-environments-a-primer/">Python Virtual Environments: A Primer</a>
+- <a href="https://chriswarrick.com/blog/2018/09/04/python-virtual-environments">Python Virtual Environments in Five Minutes</a>
+- <a href="https://docs.python-guide.org/dev/virtualenvs/">Pipenv &amp; Virtual Environments</a></p>
+<p>Cover: <a href="https://medium.com/@peterchang_82818/python-beginner-must-know-virtualenv-tutorial-example-5e3f82cfbd8b">medium</a></p>
+        </article>
+
+            <div class="tags">
+                <p>tags: <a href="https://cuccode.com/tag/python.html">python</a>, <a href="https://cuccode.com/tag/venv.html">venv</a>, <a href="https://cuccode.com/tag/virtualenv.html">virtualenv</a></p>
+            </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'python_virtual_environment.html';
+                    var disqus_url = 'https://cuccode.com/python_virtual_environment.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Powered by <a href="http://getpelican.com">Pelican</a>, takes great advantage of <a href="http://python.org">Python</a> <br />
+                        <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="list-inline text-center">
+                        <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="https://cuccode.com/theme/images/discord.png"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="https://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
