@@ -153,7 +153,7 @@
 
 <p>Xem thêm: <a href="https://www.python.org/dev/peps/pep-0008/#programming-recommendations">PEP8</a></p>
 <hr>
-<h3>Kết hợp nhiều phép so sánh một lúc</h3>
+<h3>Kết hợp nhiều phép so sánh một lúc (Chained comparison)</h3>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">20</span>
 <span class="go">True</span>
@@ -315,8 +315,79 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 </pre></div>
 
 
-<p>To be continue ...</p>
+<hr>
+<h3>Argument Unpacking</h3>
+<p>Khi truyền tham số vào hàm, có thể truyền kiển tuple và dictionary:</p>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Ví dụ về tuple và dictionary unpacking&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="n">argument_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">argument_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">argument_tuple</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">**</span><span class="n">argument_dict</span><span class="p">))</span>
+</pre></div>
+
+
+<hr>
+<h3>Gọi hàm theo điều kiện</h3>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;calling different functions with same arguments based on condition&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">print</span><span class="p">((</span><span class="n">product</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="n">subtract</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+
+<hr>
+<h3>Chạy vòng while() với điều kiện else</h3>
+<p>Trong trường hợp break xảy ra, code block trong else sẽ không được thực thi</p>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Whil-ing away!&quot;</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Finished up!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h3>Revert list, string</h3>
+<div class="highlight"><pre><span></span><span class="c1"># Revert string bằng slicing</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Revert string bằng reversed()</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+
+<span class="c1"># In ngược số</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">123456789</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># Revert list</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Revert list bằng reversed()</span>
+<span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
+</pre></div>
+
+
 <p>Header cover image: <a href="http://abstrusegoose.com/81">Batteries included</a></p>
+<h1>Tham khảo</h1>
+<p><a href="https://github.com/brennerm/PyTricks">Collection of less popular features and tricks for the Python programming language</a>
+<a href="https://realpython.com/python-tricks/">Improve Your Python With:🐍 Python Tricks</a>
+<a href="https://hackernoon.com/python-tricks-101-2836251922e0">Python Tricks 101</a></p>
         </article>
 
             <div class="tags">
