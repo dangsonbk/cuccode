@@ -94,6 +94,7 @@
             <hr>
 <h3>Giới thiệu</h3>
 <p>Django hỗ trợ sẵn một vài class để giúp cho việc sử dụng và quản lý việc phân trang dữ liệu được hiệu quả và đơn giản. Các class này được chứa trong <code>django/core/paginator.py</code>.</p>
+<p><img alt="Paging 1" src="static/python/Paging_2.PNG"></p>
 <p>Nạp vào bộ phân trang một danh sách các phần tử với đối số là số phần tử muốn có trong một trang, bộ phân trang sẽ trả về các phương thức để lấy dữ liệu ra theo từng trang.</p>
 <p>Dưới đây là 1 đoạn code sử dụng Paginator từ trang chủ tài liệu của <a href="https://docs.djangoproject.com/en/2.1/topics/pagination/">Django</a> minh họa phương thức nạp và gọi dữ liệu:</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
@@ -253,7 +254,7 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 
 <p>Phần template html được viết dựa trên Bootstrap 3, giao diện được dựng lên bạn sẽ thấy như sau:</p>
 <p><img alt="Paging 1" src="static/python/Paging_1.PNG"></p>
-<p>Không được đẹp cho lắm vì toàn bộ số trang được liệt kê ra. Phần tiếp theo chúng ta sẽ chỉnh sửa một chút để giao diện được đẹp hơn.</p>
+<p>Không được đẹp cho lắm vì toàn bộ số trang được liệt kê ra. Tiếp theo chúng ta sẽ chỉnh sửa một chút để giao diện được đẹp hơn.</p>
 <p>Mình chỉ muốn in 5 trang gần với trang hiện tại nhất, vòng lặp for được thay đổi như sau:</p>
 <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">orders.paginator.page_range</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&gt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
@@ -269,14 +270,14 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 </pre></div>
 
 
-<p>Tiếp theo, trong trường hợp đang ở trang 6 trở đi, trang 1 sẽ được thêm vào để giúp cho người dùng dễ dàng về trang đầu.</p>
+<p>Trong trường hợp đang ở trang 6 trở đi, trang 1 sẽ được thêm vào để giúp cho người dùng dễ dàng về trang đầu.</p>
 <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;li&gt;&lt;a href=&quot;?page=1&quot;&gt;&lt;i&gt;1&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 
 
-<p>Trong trường hợp cách trang cuối 5 trang, trang cuối sẽ được thêm vào để giúp người dùng dễ dàng nhảy đến trang cuối.</p>
+<p>Trong trường hợp cách trang cuối nhiều hơn 5 trang, trang cuối sẽ được thêm vào để giúp người dùng dễ dàng nhảy đến trang cuối.</p>
 <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&lt;</span> <span class="nv">orders.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;&lt;i&gt;</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
