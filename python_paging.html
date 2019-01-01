@@ -253,7 +253,79 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 
 <p>Phần template html được viết dựa trên Bootstrap 3, giao diện được dựng lên bạn sẽ thấy như sau:</p>
 <p><img alt="Paging 1" src="static/python/Paging_1.PNG"></p>
-<p>Không được đẹp cho lắm vì toàn bộ số trang được liệt kê ra. Phần tiếp theo chúng ta sẽ chỉnh sửa một chút để giao diện được chỉnh chu hơn.</p>
+<p>Không được đẹp cho lắm vì toàn bộ số trang được liệt kê ra. Phần tiếp theo chúng ta sẽ chỉnh sửa một chút để giao diện được đẹp hơn.</p>
+<p>Mình chỉ muốn in 5 trang gần với trang hiện tại nhất, vòng lặp for được thay đổi như sau:</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">orders.paginator.page_range</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&gt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&lt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">==</span> <span class="nv">i</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;li class=&quot;active&quot;&gt;&lt;span&gt;</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x"> &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>Tiếp theo, trong trường hợp đang ở trang 6 trở đi, trang 1 sẽ được thêm vào để giúp cho người dùng dễ dàng về trang đầu.</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;li&gt;&lt;a href=&quot;?page=1&quot;&gt;&lt;i&gt;1&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>Trong trường hợp cách trang cuối 5 trang, trang cuối sẽ được thêm vào để giúp người dùng dễ dàng nhảy đến trang cuối.</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&lt;</span> <span class="nv">orders.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;&lt;i&gt;</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>Code cuối cùng chúng ta có:</p>
+<div class="highlight"><pre><span></span><span class="x">&lt;nav aria-label=&quot;Page navigation example&quot;&gt;</span>
+<span class="x">    &lt;ul class=&quot;pagination pull-right&quot;&gt;</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.has_previous</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.previous_page_number</span> <span class="cp">}}</span><span class="x">&quot;&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;&amp;laquo;&lt;/span&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;?page=1&quot;&gt;&lt;i&gt;1&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">orders.paginator.page_range</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&gt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&lt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">==</span> <span class="nv">i</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li class=&quot;active&quot;&gt;&lt;span&gt;</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x"> &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
+<span class="x">                </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&lt;</span> <span class="nv">orders.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;&lt;i&gt;</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.has_next</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.next_page_number</span> <span class="cp">}}</span><span class="x">&quot;&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;&amp;raquo;&lt;/span&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/ul&gt;</span>
+<span class="x">&lt;/nav&gt;</span>
+</pre></div>
+
+
+<p>Kết quả cuối cùng:</p>
+<p><img alt="Paging 1" src="static/python/Paging_2.PNG"></p>
+<p>Đây là cách đơn giản nhất mình tìm được để giải quyết vấn đề, nếu các bạn có hướng giải quyết tốt hơn, rất mong nhận được góp ý. Cảm ơn các bạn đã theo dõi bài viết.</p>
 <hr>
 <h3>Tham khảo</h3>
 <ul>
