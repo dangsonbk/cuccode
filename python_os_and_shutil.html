@@ -91,9 +91,16 @@
         </span>
         <!-- Post Content -->
         <article>
-            <p>Os và Shutil là 2 module có sẵn của Python và được sử dụng rất phổ biến cho các công việc liên quan đến xử lý, thêm, sửa, xóa file và thư mục. Trong bài viết này, mình sẽ giới thiệu một số hàm và phương thức thường được sử dụng kèm theo ví dụ.</p>
+            <p><code>Os</code> và <code>Shutil</code> là 2 module có sẵn của Python và được sử dụng rất phổ biến cho các công việc liên quan đến xử lý file và thư mục. Trong bài viết này, mình sẽ giới thiệu một số hàm và phương thức thường được sử dụng kèm theo ví dụ.</p>
+<p>Trước tiên, chúng ta sẽ tìm hiểu đôi chút về việc tại sao lại tồn tại cả 2 module <code>os</code> và <code>shutil</code>.</p>
+<p><code>os</code> có thể coi là một module bao gói các lệnh gọi <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> hoặc mô phỏng chúng trên một số nền tảng mà không có POSIX. Bạn sẽ thấy các hàm gần như được đặt tên giống hệt như trong C và các ngôn ngữ khác cũng như cách thực hiện tương tự. Có thể dễ dàng nhận ra các hằng số như os.R_OK, os.WNOHANG, v.v ... được đặt tên chính xác theo C/POSIX.</p>
+<p><code>shutil</code> chứa các hàm đặc trưng Python, cho phép người dùng thực hiện nhiều thao tác phức tạp hơn so với <code>os</code>. Các hàm của <code>shutil</code> thường gọi lại nhiều hàm của <code>os</code>.</p>
+<blockquote>
+<p>The shutil module offers a number of high-level operations on files and collections of files. In particular, functions are provided which support file copying and removal. For operations on individual files, see also the os module.
+<a href="https://docs.python.org/3/library/shutil.html">High-level file operations</a></p>
+</blockquote>
 <h3>os.getcwd()</h3>
-<p>Trả về đường dẫn của thư mục đang làm việc theo dang string.</p>
+<p>Trả về đường dẫn của thư mục đang làm việc theo dạng string.</p>
 <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="go">&#39;d:\\Dev\\2019\\AoE&#39;</span>
@@ -144,19 +151,67 @@ Tên file trong thư mục hiện tại.  Kiểu <code>list</code> của <code>s
 <p>Module <code>os.path</code> chứa khá nhiều phương thức hữu ích cho các thao tác phổ biến để quản lý thư mục và file. Bạn có thể sử dụng nó để tìm thông tin về tên thư mục, các phần của tên thư mục, kiểm tra xem một tập tin hoặc thư mục tồn tại hay không ...</p>
 <p><code>os.path.join()</code> cho phép bạn có thể nối các đường dẫn với nhau theo để tạo nên 1 đường dẫn hoàn chỉnh và phù hợp nhất. Thay vì phải đau đầu sửa code để tạo đường dẫn theo từng hệ điều hành khác nhau, phương thức này sẽ giúp bạn tạo ra đường dẫn phù hợp nhất.</p>
 <p>Lấy ví dụ, khi bạn làm việc hoặc chạy chương trình trên môi trường Unix hoặc MacOS, đường dẫn do <code>os.path.join()</code> tạo ra sẽ có dạng "duong_dan/den/file_hoac_folder", trong khi đó trên Windows thì đường dẫn sẽ là "duong_dan\den\file_hoac_folder". Hoặc khi bạn ghép nối 2 string: "duong_dan/" và "den/file_hoac_folder" thì kết quả sẽ là: "duong_dan//den/file_hoac_folder", trong khi sử dụng <code>os.path.join()</code> ta sẽ được "duong_dan/den/file_hoac_folder" một cách nhanh chóng.</p>
+<p>Xem thêm: <a href="https://stackoverflow.com/questions/13944387/why-use-os-path-join-over-string-concatenation/13944874#13944874">Why use os.path.join over string concatenation?</a></p>
 <h3>os.makedirs("dir1/dir2")</h3>
-<p>Đúng như tên gọi, hàn này tạo thư mục theo đường dẫn được truyền vào.</p>
+<p>Đúng như tên gọi, hàn này tạo thư mục theo đường dẫn được truyền vào.
+Ví dụ sau đây tạo các thư mục theo 1 danh sách có sẵn:</p>
+<div class="highlight"><pre><span></span><span class="n">baseDir</span> <span class="o">=</span> <span class="s2">&quot;D:</span><span class="se">\\</span><span class="s2">Reports&quot;</span>
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span><span class="s2">&quot;Sep&quot;</span><span class="p">,</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span> <span class="s2">&quot;Dec&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">baseDir</span><span class="p">,</span><span class="n">month</span><span class="p">))</span>
+</pre></div>
+
+
 <h3>shutil.copy2("source_file", "destination")</h3>
 <p>Di chuyển file từ thư mục này sang thư mục khác.</p>
+<p>Tại sao lại là copy2? Thực ra chúng ta có nhiều hàm copy khác với những mục đích khác nhau, copy2 cho phép copy cả các thông tin về metadata, permissions. Ngoài ra, đối số destination trong copy2 có thể là đường dẫn tới thư mục.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="s1">&#39;/src/dir/file.ext&#39;</span><span class="p">,</span> <span class="s1">&#39;/dst/dir/newname.ext&#39;</span><span class="p">)</span>       <span class="c1"># complete target filename given</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="s1">&#39;/src/file.ext&#39;</span><span class="p">,</span> <span class="s1">&#39;/dst/dir&#39;</span><span class="p">)</span>                       <span class="c1"># target filename is /dst/dir/file.ext</span>
+</pre></div>
+
+
+<p>Bảng dưới đây cho biết chi tiết hơn về các hàm copy khác nhau hỗ trợ bởi shutil:</p>
+<div class="highlight"><pre><span></span>┌──────────────────┬───────────────┬──────────────────┬──────────────┬───────────┐
+│     Function     │Copies metadata│Copies permissions│Can use buffer│Dest dir OK│
+├──────────────────┼───────────────┼──────────────────┼──────────────┼───────────┤
+│shutil.copy       │      No       │        Yes       │    No        │    Yes    │
+│shutil.copyfile   │      No       │        No        │    No        │    No     │
+│shutil.copy2      │      Yes      │        Yes       │    No        │    Yes    │
+│shutil.copyfileobj│      No       │        No        │    Yes       │    No     │
+└──────────────────┴───────────────┴──────────────────┴──────────────┴───────────┘
+</pre></div>
+
+
+<p>Nguồn: <a href="https://stackoverflow.com/a/30359308/2964364">stackoverflow</a></p>
 <h3>shutil.move("source_file", "destination")</h3>
-<p>Di chuyển file từ thư mục này sang thư mục khác.</p>
+<p>Di chuyển file từ thư mục này sang thư mục khác. Bạn cũng có thể dùng <code>os.rename</code> để có kết quả tương tự.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;path/to/current/file.foo&quot;</span><span class="p">,</span> <span class="s2">&quot;path/to/new/destination/for/file.foo&quot;</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s2">&quot;path/to/current/file.foo&quot;</span><span class="p">,</span> <span class="s2">&quot;path/to/new/destination/for/file.foo&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Lưu ý rằng trong cả hai trường hợp, thư mục chưa file mới đang được tạo phải được tạo sẵn, ngoài ra thì trên môi trường Windows, trong cùng một thư mục thì không được có file và thư mục con trùng tên nhau. Bạn cũng phải chú ý tên của file (file.foo) trong cả đối số nguồn và đích. Nếu nó được thay đổi, tập tin sẽ được đổi tên trong khi di chuyển.</p>
+<p>Thường thì <code>shutil.move</code> sẽ gọi lại <code>os.rename</code> trong hầu hết các trường hợp, tuy nhiên nếu đường dẫn đích nằm trên một đĩa khác với nguồn thì hàm này sẽ không sử dụng <code>os.rename</code> mà sẽ sao chép file trước bằng <code>shutil.copy2</code> sau đó xóa file nguồn. Nguyên nhân là <code>os.rename</code> sẽ chỉ làm việc khi đường dẫn nguồn và đường dẫn đích nằm trên cùng một ổ đĩa.</p>
 <h3>os.remove("my_file_path")</h3>
 <p>Xóa file ở đường dẫn được truyền vào.</p>
-<h3>shutil.rmtree("my_directory_path")</h3>
-<h2>Xóa thư mục và toàn bộ thư mục con cũng như tập tin trong đó.</h2>
+<p>Ngoài <code>os.remove</code> chúng ta cũng có thể sử dụng:</p>
+<ul>
+<li>os.rmdir(): removes an empty directory.</li>
+<li>shutil.rmtree(): deletes a directory and all its contents.</li>
+<li>pathlib.Path.unlink(): removes the file or symbolic link.</li>
+<li>pathlib.Path.rmdir(): removes the empty directory.</li>
+</ul>
+<hr>
 <h3>Tìm hiểu thêm</h3>
 <ul>
 <li><a href="https://towardsdatascience.com/10-python-file-system-methods-you-should-know-799f90ef13c2">10 Python File System Methods You Should Know</a></li>
+<li><a href="https://stackabuse.com/how-to-copy-a-file-in-python/">How to copy a file in Python</a></li>
+<li><a href="https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python">How to move a file in Python</a></li>
+<li><a href="https://www.quora.com/What-is-the-difference-between-the-OS-module-and-the-shutil-module-in-Python">What is the difference between the OS module and the shutil module in Python?</a></li>
 </ul>
         </article>
 
