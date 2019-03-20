@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
+        <title>Làm việc với thư mục và file sử dụng os và shutil trên Python</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <!-- <link href="https://cuccode.com/theme/css/clean-blog.min.css" rel="stylesheet"> -->
+        <link href="https://cuccode.com/theme/css/clean-blog.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+        <link href="https://cuccode.com/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="Bài viết giới thiệu 1 số phương thức làm việc với file và folder sử dụng os và shutil">
+
+        <meta name="author" content="dangsonbk">
+
+        <meta name="tags" content="os">
+        <meta name="tags" content="shutil">
+        <meta name="tags" content="python3">
+
+	        <meta property="og:locale" content="">
+        <meta property="og:site_name" content="cuccode">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://cuccode.com/author/dangsonbk.html">
+	<meta property="og:url" content="https://cuccode.com/python_os_and_shutil.html">
+	<meta property="og:title" content="Làm việc với thư mục và file sử dụng os và shutil trên Python">
+	<meta property="article:published_time" content="2019-03-21 14:08:00+07:00">
+            <meta property="og:description" content="Bài viết giới thiệu 1 số phương thức làm việc với file và folder sử dụng os và shutil">
+
+            <meta property="og:image" content="https://cuccode.com//static/python/python-file-folder">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dangsonbk">
+        <meta name="twitter:title" content="Làm việc với thư mục và file sử dụng os và shutil trên Python">
+
+            <meta name="twitter:image" content="https://cuccode.com//static/python/python-file-folder">
+
+            <meta name="twitter:description" content="Bài viết giới thiệu 1 số phương thức làm việc với file và folder sử dụng os và shutil">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://cuccode.com/"><span class="glyphicon glyphicon-home"></span> CucCode</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                        <li><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
+                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('https://cuccode.com//static/python/python-file-folder')">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  mx-auto">
+                <div class="post-heading">
+                    <h1>Làm việc với thư mục và file sử dụng os và shutil trên Python</h1>
+                    
+                </div>
+            </div>
+        </div>
+        <span class="article-meta">Post by             <a href="https://cuccode.com/author/dangsonbk.html">dangsonbk</a>
+ on 21-03-2019
+        </span>
+        <!-- Post Content -->
+        <article>
+            <h3>os.getcwd()</h3>
+<p>Trả về đường dẫn của thư mục đang làm việc theo dang string.</p>
+<h3>os.listdir()</h3>
+<p>Trả về danh sách các tập tin, thư mục con trong thư mục làm việc hiện tại.</p>
+<h3>os.walk("đường_dẫn_bắt_đầu")</h3>
+<p>Trả về danh sách toàn bộ các tập tin, thư mục con trong thư mục làm việc hiện tại và tất cả thư mục con của thư mục hiện tại, bắt đầu từ "đường_dẫn_bắt_đầu"</p>
+<p><code>os.walk()</code> sẽ trả về những thông tin sau:</p>
+<p>Đường dẫn thư mục hiện tại. Kiểu <code>string</code>
+Tên thư mục con trong thư mục hiện tại. Kiểu <code>list</code> của <code>string</code>
+Tên file trong thư mục hiện tại.  Kiểu <code>list</code> của <code>string</code></p>
+<p>Toàn bộ thông tin trên được trả về cho từng thư mục con.</p>
+<p>Sau đây là một ví dụ sử dụng <code>os.walk()</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">dir_path</span><span class="p">,</span> <span class="n">dir_names</span><span class="p">,</span> <span class="n">file_names</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">cwd</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Vừa rồi là những lệnh giúp ta có thể lấy được thông tin của thư mục, tiếp theo là những lệnh cho phép ta thay đổi, di chuyển file ...</p>
+<h3>os.chdir("/absolute/or/relative/path")</h3>
+<p>Hàm này cho phép bạn thay đổi thư mục làm việc hiện tại sang đường dẫn được truyền vào.</p>
+<h3>os.path.join()</h3>
+<p>Module <code>os.path</code> chứa khá nhiều phương thức hữu ích cho các thao tác phổ biến để quản lý thư mục và file. Bạn có thể sử dụng nó để tìm thông tin về tên thư mục, các phần của tên thư mục, kiểm tra xem một tập tin hoặc thư mục tồn tại hay không ...</p>
+<p><code>os.path.join()</code> cho phép bạn có thể nối các đường dẫn với nhau theo để tạo nên 1 đường dẫn hoàn chỉnh và phù hợp nhất. Thay vì phải đau đầu sửa code để tạo đường dẫn theo từng hệ điều hành khác nhau, phương thức này sẽ giúp bạn tạo ra đường dẫn phù hợp nhất.</p>
+<p>Lấy ví dụ, khi bạn làm việc hoặc chạy chương trình trên môi trường Unix hoặc MacOS, đường dẫn do <code>os.path.join()</code> tạo ra sẽ có dạng "duong_dan/den/file_hoac_folder", trong khi đó trên Windows thì đường dẫn sẽ là "duong_dan\den\file_hoac_folder". Hoặc khi bạn ghép nối 2 string: "duong_dan/" và "den/file_hoac_folder" thì kết quả sẽ là: "duong_dan//den/file_hoac_folder", trong khi sử dụng <code>os.path.join()</code> ta sẽ được "duong_dan/den/file_hoac_folder" một cách nhanh chóng.</p>
+<h3>os.makedirs("dir1/dir2")</h3>
+<p>Đúng như tên gọi, hàn này tạo thư mục theo đường dẫn được truyền vào.</p>
+<h3>shutil.copy2("source_file", "destination")</h3>
+        </article>
+
+            <div class="tags">
+                <p>tags: <a href="https://cuccode.com/tag/os.html">os</a>, <a href="https://cuccode.com/tag/shutil.html">shutil</a>, <a href="https://cuccode.com/tag/python3.html">python3</a></p>
+            </div>
+
+    <hr>
+    <div class="sharing">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_preferred_5"></a>
+            <a class="addthis_button_preferred_6"></a>
+            <a class="addthis_button_preferred_7"></a>
+            <a class="addthis_button_preferred_8"></a>
+            <a class="addthis_button_preferred_9"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e43832a47612352"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'cuccode';
+                    var disqus_identifier = 'python_os_and_shutil.html';
+                    var disqus_url = 'https://cuccode.com/python_os_and_shutil.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//cuccode.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p class="copyright">
+                        Powered by <a href="http://getpelican.com">Pelican</a>, takes great advantage of <a href="http://python.org">Python</a> <br />
+                        <a href="https://github.com/dangsonbk/pelicana-clean-blog">pelicana-clean-blog</a>, modified version of <a href="https://github.com/gilsondev/pelican-clean-blog">pelican-clean-blog</a> <br />
+                        &copy;  dangsonbk
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dangsonbk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="list-inline text-center">
+                        <a href="https://discordapp.com/invite/EeEPr6C" target="_blank"><img src="https://cuccode.com/theme/images/discord.png"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="https://cuccode.com/theme/js/clean-blog.min.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-105160643-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'cuccode';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<script>
+    window.EMOJICOM_WIDGET = {
+        campaign: "SmhS1wCdwJv2YJ6nosAV"
+    };
+</script>
+<script src="https://cdn.emojicom.io/embed/widget.js" async></script>
+
+</body>
+
+</html>
