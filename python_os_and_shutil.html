@@ -50,12 +50,12 @@
 	<meta property="article:published_time" content="2019-03-21 14:08:00+07:00">
             <meta property="og:description" content="Bài viết giới thiệu 1 số phương thức làm việc với file và folder sử dụng os và shutil">
 
-            <meta property="og:image" content="https://cuccode.com//static/python/python-file-folder">
+            <meta property="og:image" content="https://cuccode.com//static/python/python-file-folder.png">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@dangsonbk">
         <meta name="twitter:title" content="Làm việc với thư mục và file sử dụng os và shutil trên Python">
 
-            <meta name="twitter:image" content="https://cuccode.com//static/python/python-file-folder">
+            <meta name="twitter:image" content="https://cuccode.com//static/python/python-file-folder.png">
 
             <meta name="twitter:description" content="Bài viết giới thiệu 1 số phương thức làm việc với file và folder sử dụng os và shutil">
 </head>
@@ -75,7 +75,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('https://cuccode.com//static/python/python-file-folder')">
+        <header class="intro-header" style="background-image: url('https://cuccode.com//static/python/python-file-folder.png')">
     </header>
     <div class="container">
         <div class="row">
@@ -91,10 +91,24 @@
         </span>
         <!-- Post Content -->
         <article>
-            <h3>os.getcwd()</h3>
+            <p>Os và Shutil là 2 module có sẵn của Python và được sử dụng rất phổ biến cho các công việc liên quan đến xử lý, thêm, sửa, xóa file và thư mục. Trong bài viết này, mình sẽ giới thiệu một số hàm và phương thức thường được sử dụng kèm theo ví dụ.</p>
+<h3>os.getcwd()</h3>
 <p>Trả về đường dẫn của thư mục đang làm việc theo dang string.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="go">&#39;d:\\Dev\\2019\\AoE&#39;</span>
+</pre></div>
+
+
 <h3>os.listdir()</h3>
-<p>Trả về danh sách các tập tin, thư mục con trong thư mục làm việc hiện tại.</p>
+<p>Trả về danh sách các tập tin, thư mục con trong thư mục làm việc hiện tại hoặc đường dẫn truyền vào.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[&#39;.cproject&#39;, &#39;.git&#39;, &#39;.gitignore&#39;, &#39;.gittemplate&#39;, &#39;.project&#39;, &#39;build&#39;, &#39;Makefile&#39;, &#39;src&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;d:</span><span class="se">\\</span><span class="s2">Dev&quot;</span><span class="p">)</span>
+<span class="go">[&#39;cuccode-source&#39;, &#39;MasterWiki&#39;, &#39;mrclean&#39;, &#39;nevada&#39;, &#39;openage&#39;, &#39;simple-flask-vote&#39;, &#39;Temp&#39;]</span>
+</pre></div>
+
+
 <h3>os.walk("đường_dẫn_bắt_đầu")</h3>
 <p>Trả về danh sách toàn bộ các tập tin, thư mục con trong thư mục làm việc hiện tại và tất cả thư mục con của thư mục hiện tại, bắt đầu từ "đường_dẫn_bắt_đầu"</p>
 <p><code>os.walk()</code> sẽ trả về những thông tin sau:</p>
@@ -107,10 +121,22 @@ Tên file trong thư mục hiện tại.  Kiểu <code>list</code> của <code>s
 <span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">dir_path</span><span class="p">,</span> <span class="n">dir_names</span><span class="p">,</span> <span class="n">file_names</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">cwd</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span><span class="n">f</span><span class="p">))</span>
 </pre></div>
 
 
+<p>Kết quả:</p>
+<div class="highlight"><pre><span></span>./.cproject
+./.gitignore
+./.gittemplate
+./.project
+./Makefile
+./src\main.cpp
+./src\main.h
+</pre></div>
+
+
+<hr>
 <p>Vừa rồi là những lệnh giúp ta có thể lấy được thông tin của thư mục, tiếp theo là những lệnh cho phép ta thay đổi, di chuyển file ...</p>
 <h3>os.chdir("/absolute/or/relative/path")</h3>
 <p>Hàm này cho phép bạn thay đổi thư mục làm việc hiện tại sang đường dẫn được truyền vào.</p>
@@ -121,6 +147,17 @@ Tên file trong thư mục hiện tại.  Kiểu <code>list</code> của <code>s
 <h3>os.makedirs("dir1/dir2")</h3>
 <p>Đúng như tên gọi, hàn này tạo thư mục theo đường dẫn được truyền vào.</p>
 <h3>shutil.copy2("source_file", "destination")</h3>
+<p>Di chuyển file từ thư mục này sang thư mục khác.</p>
+<h3>shutil.move("source_file", "destination")</h3>
+<p>Di chuyển file từ thư mục này sang thư mục khác.</p>
+<h3>os.remove("my_file_path")</h3>
+<p>Xóa file ở đường dẫn được truyền vào.</p>
+<h3>shutil.rmtree("my_directory_path")</h3>
+<h2>Xóa thư mục và toàn bộ thư mục con cũng như tập tin trong đó.</h2>
+<h3>Tìm hiểu thêm</h3>
+<ul>
+<li><a href="https://towardsdatascience.com/10-python-file-system-methods-you-should-know-799f90ef13c2">10 Python File System Methods You Should Know</a></li>
+</ul>
         </article>
 
             <div class="tags">
