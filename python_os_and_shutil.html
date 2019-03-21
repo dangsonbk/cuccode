@@ -194,16 +194,16 @@ Ví dụ sau đây tạo các thư mục theo 1 danh sách có sẵn:</p>
 </pre></div>
 
 
-<p>Lưu ý rằng trong cả hai trường hợp, thư mục chưa file mới đang được tạo phải được tạo sẵn, ngoài ra thì trên môi trường Windows, trong cùng một thư mục thì không được có file và thư mục con trùng tên nhau. Bạn cũng phải chú ý tên của file (file.foo) trong cả đối số nguồn và đích. Nếu nó được thay đổi, tập tin sẽ được đổi tên trong khi di chuyển.</p>
+<p>Lưu ý rằng trong cả hai trường hợp, thư mục chứa file mới phải tồn tại sẵn, ngoài ra thì trên môi trường Windows, trong cùng một thư mục thì không được có file và thư mục con trùng tên nhau. Bạn cũng phải chú ý tên của file (file.foo) trong cả đối số nguồn và đích nếu không tập tin sẽ bị đổi tên trong khi di chuyển.</p>
 <p>Thường thì <code>shutil.move</code> sẽ gọi lại <code>os.rename</code> trong hầu hết các trường hợp, tuy nhiên nếu đường dẫn đích nằm trên một đĩa khác với nguồn thì hàm này sẽ không sử dụng <code>os.rename</code> mà sẽ sao chép file trước bằng <code>shutil.copy2</code> sau đó xóa file nguồn. Nguyên nhân là <code>os.rename</code> sẽ chỉ làm việc khi đường dẫn nguồn và đường dẫn đích nằm trên cùng một ổ đĩa.</p>
 <h3>os.remove("my_file_path")</h3>
 <p>Xóa file ở đường dẫn được truyền vào.</p>
 <p>Ngoài <code>os.remove</code> chúng ta cũng có thể sử dụng:</p>
 <ul>
-<li>os.rmdir(): removes an empty directory.</li>
-<li>shutil.rmtree(): deletes a directory and all its contents.</li>
-<li>pathlib.Path.unlink(): removes the file or symbolic link.</li>
-<li>pathlib.Path.rmdir(): removes the empty directory.</li>
+<li><code>os.rmdir()</code>: removes an empty directory.</li>
+<li><code>shutil.rmtree()</code>: deletes a directory and all its contents.</li>
+<li><code>pathlib.Path.unlink()</code>: removes the file or symbolic link.</li>
+<li><code>pathlib.Path.rmdir()</code>: removes the empty directory.</li>
 </ul>
 <hr>
 <h3>Tìm hiểu thêm</h3>
