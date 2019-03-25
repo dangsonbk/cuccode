@@ -92,8 +92,7 @@
         </span>
         <!-- Post Content -->
         <article>
-            <h1>Tự học lập trình trong 10 năm</h1>
-<blockquote>
+            <blockquote>
 <p>Bài viết của <a href="http://norvig.com/21-days.html">Peter Norvig</a></p>
 </blockquote>
 <h3>Tại sao mọi người lại nôn nóng như vậy?</h3>
@@ -144,20 +143,61 @@ Fred Brooks, trong bài tiểu luận <a href="http://en.wikipedia.org/wiki/No_S
 <p>Điều này giả định rằng một số người đã có những phẩm chất cần thiết để trở thành một lập trình viên tuyệt vời; công việc là hỗ trợ họ đúng cách. <a href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html">Alan Perlis</a> nói ngắn gọn hơn: "Mọi người đều có thể được dạy điêu khắc: Michelangelo có thể đã được dạy cách để không biết gì về điều khắc. Trở thành lập trình viên tuyệt vời cũng vậy". Perlis đang nói rằng những người vĩ đại có một số phẩm chất bên trong vượt qua sự đào tạo của họ. Nhưng kết quả đến từ đâu? Có phải là bẩm sinh? Hay họ phát triển nó thông qua sự siêng năng? Như Auguste Gusteau (nhân vật đầu bếp hư cấu trong phim Ratatouille) nói, "bất cứ ai cũng có thể nấu ăn, nhưng chỉ có người không sợ hãi mới có thể trở nên tuyệt vời". Tôi nghĩ về nó nhiều hơn là sẵn sàng dành một phần lớn cuộc sống của một người để thực hành có chủ ý. Nhưng có lẽ không sợ hãi là một cách để tóm tắt điều đó. Hoặc, như nhà phê bình của Gusteau, Anton Ego, nói: "Không phải ai cũng có thể trở thành một nghệ sĩ vĩ đại, nhưng một nghệ sĩ vĩ đại có thể đến từ bất cứ đâu".
 Vì vậy, hãy tiếp tục và mua cuốn sách Java/Ruby/Javascript/PHP đó; bạn có thể sẽ học được thứ gì đó có ích từ chúng. Bạn sẽ không thay đổi cuộc sống của bạn, hoặc chuyên môn thực sự của bạn trong 24 giờ hoặc 21 ngày. Vậy thì làm việc chăm chỉ để liên tục cải thiện trong 24 tháng thì sao? Thực sự thì khi đó bạn bắt đầu đạt được một cột mốc nào đó ...</p>
 <h3>Phụ lục</h3>
-<p>Thời gian gần đúng cho các hoạt động khác nhau trên một PC điển hình:
-|<strong>Công việc</strong>|<strong>Thời gian thực hiện</strong>|
-|-|-|
-|execute typical instruction|1/1,000,000,000s = 1 ns|
-|fetch from L1 cache memory|0.5 ns|
-|branch misprediction|5 ns|
-|fetch from L2 cache memory|7 ns|
-|Mutex lock/unlock|25 ns|
-|fetch from main memory|100 ns|
-|send 2K bytes over 1Gbps network|20,000 ns|
-|read 1MB sequentially from memory|250,000 ns|
-|fetch from new disk location (seek)|8,000,000 ns|
-|read 1MB sequentially from disk|20,000,000 ns|
-|send packet US to Europe and back|150 milliseconds = 150,000,000 ns|</p>
+<p>Thời gian gần đúng cho các hoạt động khác nhau trên một PC điển hình:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Công việc</strong></th>
+<th><strong>Thời gian thực hiện</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>execute typical instruction</td>
+<td>1/1,000,000,000s = 1 ns</td>
+</tr>
+<tr>
+<td>fetch from L1 cache memory</td>
+<td>0.5 ns</td>
+</tr>
+<tr>
+<td>branch misprediction</td>
+<td>5 ns</td>
+</tr>
+<tr>
+<td>fetch from L2 cache memory</td>
+<td>7 ns</td>
+</tr>
+<tr>
+<td>Mutex lock/unlock</td>
+<td>25 ns</td>
+</tr>
+<tr>
+<td>fetch from main memory</td>
+<td>100 ns</td>
+</tr>
+<tr>
+<td>send 2K bytes over 1Gbps network</td>
+<td>20,000 ns</td>
+</tr>
+<tr>
+<td>read 1MB sequentially from memory</td>
+<td>250,000 ns</td>
+</tr>
+<tr>
+<td>fetch from new disk location (seek)</td>
+<td>8,000,000 ns</td>
+</tr>
+<tr>
+<td>read 1MB sequentially from disk</td>
+<td>20,000,000 ns</td>
+</tr>
+<tr>
+<td>send packet US to Europe and back</td>
+<td>150 milliseconds = 150,000,000 ns</td>
+</tr>
+</tbody>
+</table>
 <h3>Phụ lục: Chọn ngôn ngữ lập trình</h3>
 <p>Một số người đã hỏi ngôn ngữ lập trình nào họ nên học trước. Không có câu trả lời cụ thể, nhưng hãy xem xét những điểm sau:<br>
 - Tham khảo bạn bè. Khi được hỏi "tôi nên sử dụng hệ điều hành nào, Windows, Unix hoặc Mac?", Câu trả lời của tôi thường là: "sử dụng bất cứ thứ gì bạn bè của bạn sử dụng". Lợi thế bạn có được từ việc học hỏi từ bạn bè sẽ bù đắp cho bất kỳ sự khác biệt nội tại nào giữa HĐH hoặc giữa các ngôn ngữ lập trình. Cũng xem xét những người bạn tương lai của bạn: cộng đồng lập trình viên mà bạn sẽ tham gia nếu bạn tiếp tục. Ngôn ngữ bạn chọn có một cộng đồng đang phát triển lớn hay một cộng đồng nhỏ đang hấp hối? Có sách, trang web và diễn đàn trực tuyến để nhận câu trả lời không? Bạn có thích những người trong các diễn đàn?<br>
