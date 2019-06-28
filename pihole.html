@@ -155,17 +155,19 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 <blockquote>
 <p>Trong bài viết này mình sẽ không nói chi tiết việc cài đặt hệ điều hành, phần mềm cho Raspberry Pi cũng như SSH vào để điều khiển như thế nào, có lẽ là một bài viết trong tương lai. Một bài viết khá chi tiết về cài đặt Raspberry Pi bạn có thể xem ở đây: <a href="https://tinhte.vn/threads/mua-raspberry-pi-ve-nghich-choi-khong-kho-nhu-ban-nghi-lam-nhieu-tro-chi-phi-chi-tam-1-5-trieu.2912506/">tinhte.vn</a></p>
 </blockquote>
-<p>Cài đặt pi-hole khá đơn giản, ở đây mình cài đặt pi-hole trên Raspberry pi qua SSH.</p>
+<p>Cài đặt khá đơn giản, ở đây mình cài đặt pi-hole trên phần cứng Raspberry Pi B, hệ điều hành (Raspbian Buster Lite)[https://www.raspberrypi.org/downloads/raspbian/] (không desktop, cơ bản nhất, nhẹ nhất), qua SSH.</p>
 <div class="highlight"><pre><span></span>curl -sSL https://install.pi-hole.net <span class="p">|</span> bash
 </pre></div>
 
 
 <p>Lệnh này sẽ download file bash từ địa chỉ <a href="https://install.pi-hole.net">install.pi-hole.net</a> sau đó chạy file này để thực hiện cài đặt các thư viện, phần mềm liên quan.</p>
 <p>Ngoài ra bạn cũng có thể cài đặt Pi-hole từ mã nguồn theo hướng dẫn <a href="https://github.com/pi-hole/pi-hole/#alternative-install-methods">Alternative Install Methods</a></p>
-<p>Trang quản trị của Pi-hole sẽ nằm ở 1 trong các địa chỉ sau:
-http://&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt;/admin/
-http://pi.hole/admin/ (nếu bạn đã cấu hình xong Pi-hole làm DNS server)</p>
-<p>&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt; có thể lấy được bằng cách kiểm tra trong bảng DHCP của modem.</p>
+<p>Trang quản trị của Pi-hole sẽ nằm ở 1 trong các địa chỉ sau:</p>
+<ul>
+<li>http://&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt;/admin/</li>
+<li>http://pi.hole/admin/ (nếu bạn đã cấu hình xong Pi-hole làm DNS server)</li>
+</ul>
+<p>&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt; có thể lấy được bằng cách kiểm tra trong bảng DHCP của modem hoặc quét IP trong mạng.</p>
 <p><strong> Nợ ảnh (sorry) </strong></p>
 <p>Tiếp sau đó bạn cần cài đặt lại địa chỉ dns trong trang quản trị của modem.</p>
 <p><strong> Nợ ảnh (sorry) </strong></p>
