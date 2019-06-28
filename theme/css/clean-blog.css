@@ -55,6 +55,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+td {padding:5px;}
 
 .intro-header {
   height:450px;
