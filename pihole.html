@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-site-verification" content="g0zsBLTsA4E4l1gZ8fQL_DlYMi4nVFIY_zMUUHCvKMI">
-        <title>Kiểm tra Python 2 hay Python 3</title>
+        <title>Nhà tự động - 2019</title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -32,31 +32,31 @@
 
 
 
-        <meta name="description" content="Bạn có thể kiểm tra bản cài Python đang được cài trên máy chạy script là Python 2 hay Python 3 bằng cách sử dụng thư viện sẵn có của Python">
+        <meta name="description" content="Pi-hole, lỗ đen quảng cáo cho ngôi nhà của bạn.">
 
         <meta name="author" content="dangsonbk">
 
-        <meta name="tags" content="python2">
-        <meta name="tags" content="python3">
+        <meta name="tags" content="smarthome">
+        <meta name="tags" content="home automation">
 
 	        <meta property="og:locale" content="">
         <meta property="og:site_name" content="cuccode">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://cuccode.com/author/dangsonbk.html">
-	<meta property="og:url" content="https://cuccode.com/kiem_tra_python_2_hay_python_3.html">
-	<meta property="og:title" content="Kiểm tra Python 2 hay Python 3">
-	<meta property="article:published_time" content="2017-08-21 14:08:00+07:00">
-            <meta property="og:description" content="Bạn có thể kiểm tra bản cài Python đang được cài trên máy chạy script là Python 2 hay Python 3 bằng cách sử dụng thư viện sẵn có của Python">
+	<meta property="og:url" content="https://cuccode.com/pihole.html">
+	<meta property="og:title" content="Nhà tự động - 2019">
+	<meta property="article:published_time" content="2019-05-30 21:45:00+07:00">
+            <meta property="og:description" content="Pi-hole, lỗ đen quảng cáo cho ngôi nhà của bạn.">
 
             <meta property="og:image" content="https://cuccode.com//static/ninjaHardware.jpg">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@dangsonbk">
-        <meta name="twitter:title" content="Kiểm tra Python 2 hay Python 3">
+        <meta name="twitter:title" content="Nhà tự động - 2019">
 
             <meta name="twitter:image" content="https://cuccode.com//static/ninjaHardware.jpg">
 
-            <meta name="twitter:description" content="Bạn có thể kiểm tra bản cài Python đang được cài trên máy chạy script là Python 2 hay Python 3 bằng cách sử dụng thư viện sẵn có của Python">
+            <meta name="twitter:description" content="Pi-hole, lỗ đen quảng cáo cho ngôi nhà của bạn.">
 </head>
 
 <body>
@@ -69,59 +69,92 @@
 
                         <li><a  class="nav-link"  href="https://cuccode.com/category/bai-dich.html">Bài dịch</a></li>
                         <li><a  class="nav-link"  href="https://cuccode.com/category/misc.html">misc</a></li>
-                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
-                        <li><a  class="nav-link"  href="https://cuccode.com/category/smarthome.html">smarthome</a></li>
+                        <li><a  class="nav-link"  href="https://cuccode.com/category/python.html">python</a></li>
+                        <li class="active"><a  class="nav-link"  href="https://cuccode.com/category/smarthome.html">smarthome</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('https://cuccode.com//static/ninjaHardware.jpg')">
     </header>
     <div class="container">
         <div class="row">
             <div class="col-lg-8  mx-auto">
                 <div class="post-heading">
-                    <h1>Kiểm tra Python 2 hay Python 3</h1>
+                    <h1>Nhà tự động - 2019</h1>
                     
                 </div>
             </div>
         </div>
         <span class="article-meta">Post by             <a href="https://cuccode.com/author/dangsonbk.html">dangsonbk</a>
- on 21-08-2017
+ on 30-05-2019
         </span>
         <!-- Post Content -->
         <article>
-            <p>Khác biệt giữa Python 2 và Python 3 tạo ra khá nhiều khó khăn cho lập trình viên khi viết script để có thể chạy được trên cả 2 môi trường.
-Một ví dụ thường gặp đó là sự khác biệt giữa việc sử dụng các hàm <code>raw_input()</code> và <code>input()</code> trên Python 2 và Python 3.
-Tham khảo: <a href="http://cuccode.com/python_user_input.html">nhập liệu từ bàn phím trên Python</a></p>
-<p>Để tránh việc phải sửa lại code khi thay đổi môi trường chạy cũng như cho phép script sau khi viết có thể chạy được trên nhiều máy khác nhau, một cách thường được sử dụng đó là kiểm tra phiên bản Python đang chạy sau đó sử dụng thư viện hoặc lệnh tương ứng.
-Việc kiểm tra này có thể được thực hiện thông qua thư viện cung cấp sẵn <code>sys</code> của Python, bạn chỉ việc kiểm tra giá trị của <code>sys.version_info</code> với tuple <code>(3, 0)</code></p>
-<p>Đầu tiên, import thư viện <code>sys</code>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-</pre></div>
-
-
-<p>Sau đó kiểm tra giá trị của tuple <code>sys.version_info</code>.
-Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-    <span class="c1"># Python 3</span>
-    <span class="kn">import</span> <span class="nn">base64</span>
-    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># Python 2</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;base64&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Chi tiết bạn có thể tham khảo: <a href="https://docs.python.org/2/library/sys.html#sys.version_info">Python version_info</a></p>
+            <h2>Giới thiệu</h2>
+<h3>Pi-hole là gì</h3>
+<p>Pi-hole là mã nguồn cho phép bạn cài đặt 1 lần duy nhất để chặn quảng cáo trên toàn bộ mạng. Thay vì cài đặt plugin trên trình duyệt của từng máy tính hay phần mềm trên từng điện thoại thì bạn có thể cài duy nhất Pi-hole để dùng chung cho tất cả các thiết bị trong mạng. Thực tế thì mình khuyên dùng Pi-hole trên toàn mạng và uBlock Origin hoặc AdBlock trên trình duyệt, lý do là Pi-hole vẫn bỏ sót kha khá quảng cáo từ Việt Nam. Với combo này thì hầu như mình không còn nhìn thấy quảng cáo khi sử dụng máy tính, xem youtube nữa.</p>
+<p><strong>Một số tính năng và lợi ích của Pi-hole có thể được kể đến:</strong></p>
+<ul>
+<li>Miễn phí hoàn toàn! Tất cả thứ bạn cần là 1 thiết bị có thể chạy Pi-Hole, 1 con Raspberry Pi, Banana Pi, Orange Pi, 1 máy PC cũ làm home server, NAS hay thậm trí trên 1 con router đủ mạnh.</li>
+<li>Không cần cài đặt phần mềm, plugin chặn quảng cáo trên từng thiết bị. Có khả năng chặn quảng cáo cho tất cả các thiết bị trong mạng, bao gồm cả những thiết bị không cho phép bạn có nhiều lựa chọn cài đặt phần mềm như Smart TV hay những thứ khó chặn như quảng cáo trong app game.</li>
+<li>Giảm băng thông tiêu tốn, tăng hiệu năng hoạt động của hệ thống mạng của bạn. Do chặn từ DNS nên Pi-hole cho phép chặn quảng cáo trước cả khi nội dung quảng cáo đó được tải về.</li>
+<li>Không chỉ quảng cáo, rất nhiều tên miền thu thập dữ liệu người dùng, các tên miền liên quan đến các phần mềm cài đặt trộm vào máy bạn để đào tiền ảo cũng bị pi-hole chặn.</li>
+<li>Mặc định chặn hơn 100.000 tên miền liên quan đến quảng cáo, bạn có thể tùy chọn thêm hoặc bớt, hiện tại danh sách của mình có khoảng 1.400.000 tên miền.</li>
+<li>Giao diện quản lý cực kỳ thân thiện.</li>
+</ul>
+<p><a href="https://pi-hole.net">Pi-hole</a></p>
+<h3>Pi-hole hoạt động như thế nào</h3>
+<p>Pi-hole hoạt động như một máy chủ DNS nội bộ tư cho mạng của bạn. Pi-hole sẽ chặn mọi truy vấn đối với các tên miền liên quan đến quảng cáo trong danh sách chặn và từ chối truy cập chúng, vì vậy quảng cáo sẽ không được tải xuống.</p>
+<h3>Yêu cầu phần cứng, phần mềm</h3>
+<p>Mình cài đặt pi-hole trên con Raspberry B cũ vẫn chạy rất tốt do Pi-hole không đòi hỏi cấu hình mạnh để hoạt động. Cấu hình khuyến nghị trên trang chủ chỉ yêu cầu hơn 50MB ổ lưu trữ để cài đặt và 500MB RAM. Nếu bạn sử dụng Pi-hole trên Raspberry Pi, hãy nghĩ đến việc sử dụng 1 chiếc thẻ nhớ đủ tốt. Kể cả không chạy Pi-hole thì mấy chuyện lằng nhằng với thẻ nhớ vẫn luôn làm nhiều người đau đầu khi sử dụng Raspberry Pi.</p>
+<p>Về hệ điều hành để cài đặt Pi-hole, ta có các lựa chọn sau:</p>
+<p>| Raspbian | Jessie / Stretch | ARM |
+| Ubuntu | 16.x / 18.x | ARM / x86_64 |
+| Debian | 8 / 9 | ARM / x86_64 / i386 |
+| Fedora | 28 | ARM / x86_64 |
+| CentOS | 7 | x86_64 |</p>
+<h3>Yêu cầu khác</h3>
+<p>Để cài đặt và cấu hình pi-hole hoạt động tốt trong mạng, bạn phải có quyền quản trị vào modem để trỏ dns về.</p>
+<h2>Cài đặt</h2>
 <blockquote>
-<p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is ‘alpha’, ‘beta’, ‘candidate’, or ‘final’. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, ‘final’, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p>
+<p>Trong bài viết này mình sẽ không nói chi tiết việc cài đặt hệ điều hành, phần mềm cho Raspberry Pi cũng như SSH vào để điều khiển như thế nào, có lẽ là một bài viết trong tương lai. Một bài viết khá chi tiết về cài đặt Raspberry Pi bạn có thể xem ở đây: <a href="https://tinhte.vn/threads/mua-raspberry-pi-ve-nghich-choi-khong-kho-nhu-ban-nghi-lam-nhieu-tro-chi-phi-chi-tam-1-5-trieu.2912506/">tinhte.vn</a></p>
 </blockquote>
+<p>Cài đặt pi-hole khá đơn giản, ở đây mình cài đặt pi-hole trên Raspberry pi qua SSH.</p>
+<div class="highlight"><pre><span></span>curl -sSL https://install.pi-hole.net <span class="p">|</span> bash
+</pre></div>
+
+
+<p>Lệnh này sẽ download file bash từ địa chỉ <a href="https://install.pi-hole.net">install.pi-hole.net</a> sau đó chạy file này để thực hiện cài đặt các thư viện, phần mềm liên quan.</p>
+<p>Ngoài ra bạn cũng có thể cài đặt Pi-hole từ mã nguồn theo hướng dẫn <a href="https://github.com/pi-hole/pi-hole/#alternative-install-methods">Alternative Install Methods</a></p>
+<p>Tiếp sau đó bạn cần vào trang quản trị trong modem để cài đặt lại địa chỉ dns.</p>
+<p><strong> Nợ ảnh (sorry) </strong></p>
+<p>Và add thêm domain vào danh sách chặn.</p>
+<p><strong> Nợ ảnh (sorry) </strong></p>
+<p>Mặc định Pi-hole đã add sẵn danh sách khá đủ các block list, có thể tự add thêm cách danh sách khác hoặc từng domain nếu muốn. Hiện giờ mình đang dùng danh sách mặc định kèm theo:</p>
+<ul>
+<li><a href="https://dbl.oisd.nl/">dbl.oisd.nl</a> <a href="https://www.reddit.com/r/pihole/comments/bppug1/introducing_the/">Sponsor</a></li>
+<li><a href="https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts">bigdargon</a> <a href="https://bigdargon.github.io/hostsVN/">Sponsor</a></li>
+</ul>
+<p>Ngoài ra, nếu muốn bạn có thể thêm các danh sách từ:</p>
+<ul>
+<li><a href="https://filterlists.com">filterlists.com</a></li>
+<li><a href="https://firebog.net">firebog.net</a></li>
+</ul>
+<p><img alt="Dashboard" src="static/application/pi-hole-dashboard.png"></p>
+<h2>Một vài kinh nghiệm khi dùng Pi-hole</h2>
+<p>Đây là một số kinh nghiệm cá nhân của mình trong quá trình sử dụng Pi-hole:</p>
+<ul>
+<li>Điện thoại, thiết bị Xiaomi gửi và nhận khá nhiều request, phần lớn để spam notifications, quảng cáo, tracking (?).</li>
+<li>Smart TV cũng gửi rất nhiều gói tin.</li>
+<li>Trung bình khoảng 24% requests trong mạng của mình bị Pi-hole chặn lại.</li>
+<li>Mình đang dùng black list ~1.4 triệu domain và thấy Raspberry Pi B vẫn chạy khá ổn, không thấy lướt web trên máy bị chậm hay Pi bị nóng.</li>
+<li>Đôi khi có những website không cho phép bạn truy cập vào nội dung khi bị chặn quảng cáo, bạn có thể vào Pi-hole admin để tạm thời tắt Pi-hole trong một khoảng thời gian.</li>
+</ul>
         </article>
 
             <div class="tags">
-                <p>tags: <a href="https://cuccode.com/tag/python2.html">python2</a>, <a href="https://cuccode.com/tag/python3.html">python3</a></p>
+                <p>tags: <a href="https://cuccode.com/tag/smarthome.html">smarthome</a>, <a href="https://cuccode.com/tag/home-automation.html">home automation</a></p>
             </div>
 
     <hr>
@@ -148,8 +181,8 @@ Ví dụ sau import thư viện base64 tùy theo phiên bản của Python:</p>
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     var disqus_shortname = 'cuccode';
-                    var disqus_identifier = 'kiem_tra_python_2_hay_python_3.html';
-                    var disqus_url = 'https://cuccode.com/kiem_tra_python_2_hay_python_3.html';
+                    var disqus_identifier = 'pihole.html';
+                    var disqus_url = 'https://cuccode.com/pihole.html';
                     (function() {
                         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                         dsq.src = '//cuccode.disqus.com/embed.js';
