@@ -341,6 +341,7 @@ body{background-color:#ECF0F1;}
 .content-title{padding:5px;background-color:#fff;height:60px;}
 .content-title h3 a{color:#34495E;text-decoration:none;transition:0.5s;}
 .content-title h3 a:hover{color:#F39C12; }
+.content-title h5 {margin:0;padding:0;}
 .content-footer{background-color:#16A085;padding:10px;position:relative;}
 .content-footer span {
   display: block;
