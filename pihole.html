@@ -104,7 +104,12 @@
 <li>Giao diện quản lý cực kỳ thân thiện.</li>
 </ul>
 <h3>Pi-hole hoạt động như thế nào</h3>
-<p>Pi-hole hoạt động như một máy chủ DNS nội bộ tư cho mạng của bạn. Pi-hole sẽ chặn mọi truy vấn đối với các tên miền liên quan đến quảng cáo trong danh sách chặn và từ chối truy cập chúng, vì vậy quảng cáo sẽ không được tải xuống.</p>
+<p>Pi-hole hoạt động như một máy chủ DNS nội bộ cho mạng của bạn. Pi-hole sẽ chặn mọi truy vấn đối với các tên miền liên quan đến quảng cáo trong danh sách chặn và từ chối truy cập chúng, vì vậy quảng cáo sẽ không được tải xuống. Khác với adblock hay các plugin trên trình duyệt, quảng cáo thường vẫn được tải về và chỉ bị ẩn đi sau đó. Sở dĩ như vậy vì chúng thường chặn quảng cáo theo 2 cách:</p>
+<ul>
+<li>Chặn kết nối, các kết nối tới máy chủ quảng cáo sẽ bị chặn. Ví dụ: chặn các kết nối tới "google.adsense".</li>
+<li>Ẩn quảng cáo, có nghĩa là quảng cáo vẫn được tải, nhưng sau đó sẽ bị ẩn đi. Ví dụ: ẩn các thành phần có id="Ad".</li>
+</ul>
+<p>Ở trường hợp thứ 2, quảng cáo vẫn sẽ được tải, chiếm dụng băng thông của mạng. Bạn đơn giản là không nhìn thấy nó nữa.</p>
 <h3>Yêu cầu phần cứng, phần mềm</h3>
 <p>Mình cài đặt pi-hole trên con Raspberry B cũ vẫn chạy rất tốt do Pi-hole không đòi hỏi cấu hình mạnh để hoạt động. Cấu hình khuyến nghị trên trang chủ chỉ yêu cầu hơn 50MB ổ lưu trữ để cài đặt và 500MB RAM. Nếu bạn sử dụng Pi-hole trên Raspberry Pi, hãy nghĩ đến việc sử dụng 1 chiếc thẻ nhớ đủ tốt. Kể cả không chạy Pi-hole thì mấy chuyện lằng nhằng với thẻ nhớ vẫn luôn làm nhiều người đau đầu khi sử dụng Raspberry Pi.</p>
 <p>Về hệ điều hành để cài đặt Pi-hole, ta có các lựa chọn sau:</p>
