@@ -103,7 +103,7 @@
 <li>Giao diện quản lý cực kỳ thân thiện.</li>
 </ul>
 <h3>Pi-hole hoạt động như thế nào</h3>
-<p>Pi-hole hoạt động như một máy chủ DNS nội bộ trong mạng của bạn. Pi-hole sẽ chặn mọi truy vấn đối với các tên miền liên quan đến quảng cáo trong danh sách chặn, vì vậy quảng cáo sẽ không được tải xuống. Khác với adblock hay các plugin trên trình duyệt, có thể quảng cáo thường vẫn được tải về và chỉ bị ẩn đi sau đó. Sở dĩ như vậy vì các plugin này thường chặn quảng cáo theo 2 cách:</p>
+<p>Pi-hole hoạt động như một máy chủ DNS nội bộ trong mạng của bạn, chặn mọi truy vấn đối với các tên miền liên quan đến quảng cáo trong danh sách chặn, vì vậy quảng cáo sẽ không được tải xuống. Khác với adblock hay các plugin trên trình duyệt, có thể quảng cáo vẫn được tải về và chỉ bị ẩn đi sau đó. Sở dĩ như vậy vì các plugin này thường chặn quảng cáo theo 2 cách:</p>
 <ul>
 <li>Chặn kết nối, các kết nối tới máy chủ quảng cáo sẽ bị chặn. Ví dụ: chặn các kết nối tới "google.adsense".</li>
 <li>Ẩn quảng cáo, có nghĩa là quảng cáo vẫn được tải, nhưng sau đó sẽ bị ẩn đi. Ví dụ: ẩn các thành phần có id="Ad".</li>
@@ -148,6 +148,7 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="Pihole meme" src="static/application/pihole-meme.jpg"></p>
 <h3>Yêu cầu khác</h3>
 <p>Để cài đặt và cấu hình pi-hole hoạt động tốt trong mạng, bạn phải có quyền quản trị vào modem để trỏ dns về.
 Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của wifi.</p>
@@ -194,6 +195,7 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 <li>Mình đang dùng black list ~1.4 triệu domain và thấy Raspberry Pi B vẫn chạy khá ổn, không thấy lướt web trên máy bị chậm hay Pi bị nóng.</li>
 <li>Đôi khi có những website không cho phép bạn truy cập vào nội dung khi bị chặn quảng cáo, bạn có thể vào Pi-hole admin để tạm thời tắt Pi-hole trong một khoảng thời gian.</li>
 <li>Nên dùng Pi-hole trên toàn mạng và uBlock Origin hoặc AdBlock trên trình duyệt, lý do là Pi-hole vẫn bỏ sót kha khá quảng cáo từ Việt Nam. Với combo này thì hầu như mình không còn nhìn thấy quảng cáo khi sử dụng máy tính, xem youtube nữa.</li>
+<li>Một số bộ lọc chặn cả domain liên quan đến porn, nên cân nhắc!.</li>
 </ul>
         </article>
 
