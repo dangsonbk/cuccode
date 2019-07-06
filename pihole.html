@@ -93,13 +93,14 @@
         <!-- Post Content -->
         <article>
             <p><a href="https://pi-hole.net">Pi-hole</a> là mã nguồn cho phép bạn cài đặt 1 lần duy nhất để chặn quảng cáo trên toàn bộ mạng. Thay vì cài đặt plugin trên trình duyệt của từng máy tính hay phần mềm trên từng điện thoại thì bạn có thể cài Pi-hole để dùng chung cho tất cả các thiết bị.</p>
+<p><img alt="Pihole" src="static/application/pi-hole-dashboard.png"></p>
 <p><strong>Một số tính năng và lợi ích khi sử dụng Pi-hole:</strong></p>
 <ul>
 <li>Miễn phí hoàn toàn! Tất cả thứ bạn cần là 1 thiết bị có thể chạy Pi-Hole, 1 con Raspberry Pi, Banana Pi, Orange Pi, 1 máy PC cũ làm home server, NAS hay thậm trí trên 1 con router đủ mạnh.</li>
 <li>Không cần cài đặt phần mềm, plugin chặn quảng cáo trên từng thiết bị. Có khả năng chặn quảng cáo cho tất cả các thiết bị trong mạng, bao gồm cả những thiết bị không cho phép bạn có nhiều lựa chọn cài đặt phần mềm như Smart TV hay những thứ khó chặn như quảng cáo trong app game.</li>
 <li>Giảm băng thông tiêu tốn, tăng hiệu năng hoạt động của hệ thống mạng. Do chặn từ DNS nên Pi-hole cho phép chặn quảng cáo trước cả khi nội dung quảng cáo đó được tải về.</li>
 <li>Không chỉ quảng cáo, rất nhiều tên miền thu thập dữ liệu người dùng, các tên miền liên quan đến các phần mềm cài đặt trộm vào máy bạn để đào tiền ảo cũng bị pi-hole chặn.</li>
-<li>Mặc định chặn hơn 100.000 tên miền liên quan đến quảng cáo, bạn có thể tùy chọn thêm hoặc bớt, hiện tại danh sách của mình có khoảng 1.400.000 tên miền.</li>
+<li>Mặc định chặn hơn 100.000 tên miền liên quan đến quảng cáo, bạn có thể tùy chọn thêm hoặc bớt.</li>
 <li>Giao diện quản lý cực kỳ thân thiện.</li>
 </ul>
 <h3>Pi-hole hoạt động như thế nào</h3>
@@ -168,12 +169,10 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 <li>http://&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt;/admin/</li>
 <li>http://pi.hole/admin/ (nếu bạn đã cấu hình xong Pi-hole làm DNS server)</li>
 </ul>
-<p>&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt; có thể lấy được bằng cách kiểm tra trong bảng DHCP của modem hoặc quét IP trong mạng.</p>
-<p><strong> Nợ ảnh (sorry) </strong></p>
-<p>Tiếp sau đó bạn cần cài đặt lại địa chỉ dns trong trang quản trị của modem.</p>
-<p><strong> Nợ ảnh (sorry) </strong></p>
+<p>&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt; có thể lấy được bằng cách kiểm tra trong bảng DHCP của modem hoặc quét IP trong mạng. Địa chỉ ip này được dùng làm địa chỉ dns server trong trang quản trị của modem.</p>
+<p><img alt="Pihole meme" src="static/application/pihole_dns.jpg"></p>
 <h2>Thêm tên miền vào danh sách chặn.</h2>
-<p><strong> Nợ ảnh (sorry) </strong></p>
+<p><img alt="Pihole meme" src="static/application/pihole_blacklist.jpg"></p>
 <p>Mặc định Pi-hole đã add sẵn danh sách khá đủ các danh sách chặn, có thể tự thêm các danh sách khác hoặc thêm riêng lẻ từng domain nếu muốn. Hiện giờ mình đang dùng danh sách mặc định kèm theo:</p>
 <ul>
 <li><a href="https://www.reddit.com/r/pihole/comments/bppug1/introducing_the/">dbl.oisd.nl</a></li>
@@ -184,15 +183,16 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 <li><a href="https://filterlists.com">filterlists.com</a></li>
 <li><a href="https://firebog.net">firebog.net</a></li>
 </ul>
+<p><img alt="Pihole meme" src="static/application/pihole_blocklist.jpg"></p>
 <p>Tận hưởng thành quả:
-<img alt="Dashboard" src="static/application/pi-hole-dashboard.png"></p>
+<img alt="Dashboard" src="static/application/pihole_dashboard.jpg"></p>
 <h2>Một vài kinh nghiệm khi dùng Pi-hole</h2>
 <p>Đây là một số kinh nghiệm cá nhân của mình trong quá trình sử dụng Pi-hole:</p>
 <ul>
 <li>Điện thoại, thiết bị Xiaomi gửi và nhận khá nhiều request, phần lớn để spam notifications, quảng cáo, tracking (?).</li>
 <li>Smart TV cũng gửi rất nhiều gói tin.</li>
-<li>Trung bình khoảng 24% requests trong mạng của mình bị Pi-hole chặn lại.</li>
-<li>Mình đang dùng black list ~1.4 triệu domain và thấy Raspberry Pi B vẫn chạy khá ổn, không thấy lướt web trên máy bị chậm hay Pi bị nóng.</li>
+<li>Trung bình khoảng 56% requests trong mạng của mình bị Pi-hole chặn lại.</li>
+<li>Mình đang dùng black list ~1.2 triệu domain và thấy Raspberry Pi B vẫn chạy khá ổn, không thấy lướt web trên máy bị chậm hay Pi bị nóng.</li>
 <li>Đôi khi có những website không cho phép bạn truy cập vào nội dung khi bị chặn quảng cáo, bạn có thể vào Pi-hole admin để tạm thời tắt Pi-hole trong một khoảng thời gian.</li>
 <li>Nên dùng Pi-hole trên toàn mạng và uBlock Origin hoặc AdBlock trên trình duyệt, lý do là Pi-hole vẫn bỏ sót kha khá quảng cáo từ Việt Nam. Với combo này thì hầu như mình không còn nhìn thấy quảng cáo khi sử dụng máy tính, xem youtube nữa.</li>
 <li>Một số bộ lọc chặn cả domain liên quan đến porn, nên cân nhắc!.</li>
