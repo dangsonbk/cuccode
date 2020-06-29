@@ -93,10 +93,10 @@
         <article>
             <p>Vừa rồi thì mình có trò chuyện với một vài bạn đang học lập trình Python và cũng đã có background về lập trình C, C++. Sau khi nói chuyện thì phát hiện ra rằng, ngay cả khi bạn đã nắm được khái niệm cơ bản về List và Generator thì cũng có thể gặp đôi chút khó khăn hoặc hiểu nhầm với Comprehensions và Expressions. Lý do thì khó mà liệt kê được hết, có thể đó là do C, C++ đã tạo một thói quen trong tư duy khiến các bạn ấy hiểu nhầm vấn đề, có bạn đã dùng rất nhiều rồi nhưng không nghĩ đó chính là Comprehension, hoặc đối với một số bạn thì 2 từ này cắt nghĩa ra tiếng Việt hơi khó và làm nhiều bạn hiểu nhầm chúng là những kiến thức nâng cao.</p>
 <p>Khi học Python hoặc mò StackOverflow, sẽ không khó để bắt gặp những lệnh liên quan đến List Comprehensions và Generator Expressions như dưới đây.</p>
-<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="ListComp" src="static/python/ListCompAndGenExp.PNG"></p>
@@ -109,70 +109,70 @@
 <p>Kiểu dữ liệu: Ngay từ khi học tiểu học chúng ta đã được phân biệt giữa chữ và số với mục đích khác nhau, trong máy tính cũng vậy, dữ liệu sẽ được chia thành các kiểu khác nhau để dễ dàng xử lý. Tìm hiểu thêm: <a href="https://vi.wikipedia.org/wiki/Kiểu_dữ_liệu">Kiểu dữ liệu - wiki</a></p>
 </blockquote>
 <p>List trong Python được biểu thị bằng một tập hợp các giá trị phân cách nhau bởi dấu <code>,</code> và toàn bộ bao ngoài bằng <code>[]</code></p>
-<div class="highlight"><pre><span></span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>
 <p>Mình sẽ giữ nguyên sử dụng từ <code>List</code> thay vì sử dụng từ <code>danh sách</code> hoặc <code>chuỗi, mảng</code>. Thực tế việc dịch ra đôi khi lại làm cho người học dễ nhầm lẫn giữa các kiểu dữ liệu.</p>
 </blockquote>
 <p>List trong Python có khả năng lưu trữ cùng lúc các kiểu dữ liệu khác nhau, hoặc thậm chí chứa một chuỗi con trong nó:</p>
-<div class="highlight"><pre><span></span><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">list_2</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">list_2</span><span class="p">]</span>
+</code></pre></div>
 
 
 <p>Để đọc một giá trị trong list, ta dùng index (vị trí của phần tử):</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">list_2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">hi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="go">[1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 <span class="go">[&#39;c&#39;, &#39;u&#39;, &#39;c&#39;, &#39;c&#39;, &#39;o&#39;, &#39;d&#39;, &#39;e&#39;]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Lưu ý là trong một list thì phần tử đầu tiên có giá trị index = 0; Phần tử cuối cùng có index = len(list) - 1; Với <code>len(list)</code> là độ dài (độ lớn - số phần tử) của list. Trong trường hợp <code>list_3</code>, <code>len(list_3)</code> chỉ quan tâm tới số phần tử trực tiếp của <code>list_3</code> và không quan tâm tới số phần tử của các list con hoặc kiểu dữ liệu con trong <code>list_3</code>;</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
 <span class="go">6</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Việc sửa dữ liệu trong list cũng được thực hiện bằng cách sử dụng index của phần tử:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">list_3</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
 <span class="go">[&#39;a&#39;, 1, 2, &#39;hi&#39;, [1, 2, 3], 1]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Ngoài ra còn một số hoạt động khác có thể được thực hiện trên list bạn có thể tham khảo thêm, mặc dù chúng khá cơ bản những mình không muốn đi quá xa vào phần này nên sẽ liệt kê ra sau đây:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Xóa phần tử</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Xóa phần tử</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Nối chuỗi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Nhân chuỗi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">([</span><span class="s1">&#39;Hi!&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="s1">&#39;Hi!&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s1">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s1">&#39;Hi!&#39;</span><span class="p">,</span> <span class="s1">&#39;Hi!&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Kiểm tra tồn tại của phần tử trong chuỗi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">False</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Lặp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Slicing</span>
@@ -183,77 +183,77 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;Cuccode&#39;</span><span class="p">,</span> <span class="s1">&#39;CUCCODE!&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Replace by slicing:</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;z&#39;</span>    <span class="c1">## replace [&#39;a&#39;, &#39;b&#39;] with [&#39;z&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>List Comprehension</h3>
 <p>Bây giờ chúng ta sẽ bắt đầu với 1 trong 2 định nghĩa đang cố giải thích từ đầu. Sau khi đã được giới thiệu qua về list ở bên trên, các bạn có thể thấy cách đơn giản nhất để tạo ra list đó là định nghĩa nó:</p>
-<div class="highlight"><pre><span></span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
 
 
 <p>List Comprehension cho phép chúng ta tạo ra một list từ một kiểu dữ liệu có sẵn khác chỉ với một vòng lặp for:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
 <span class="go">[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Đoạn code trên mình dùng để minh họa việc sử dụng List Comprehension là chính, thực tế thì bạn có thể tạo list như trên bằng cách:</p>
-<div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>Khác biệt là bạn có thể sử dụng những điều kiện phức tạp hơn để tạo ra list mình mong muốn, ở đây mình lấy ví dụ lấy danh sách các số chia hết cho 3 trong khoảng từ 0 đến 10:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">list_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list_b</span>
 <span class="go">[0, 3, 6, 9]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Đơn giản đúng không? Hoàn toàn nhanh và dễ hiểu hơn việc bạn viết:</p>
-<div class="highlight"><pre><span></span><span class="n">list_b</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_b</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">list_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Bây giờ chúng ta sẽ thêm một ví dụ phức tạp hơn chút:</p>
 <p><strong>Tạo list bằng cách gộp 2 list:</strong></p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="c1"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nums_letters</span> <span class="o">=</span> <span class="p">[[</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># the comprehensions list combines two simple lists in a complex list of lists.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">nums_letters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">nums_letters</span><span class="p">)</span>
 <span class="go">[[1, &#39;A&#39;], [1, &#39;B&#39;], [1, &#39;C&#39;], [1, &#39;D&#39;], [1, &#39;E&#39;], [2, &#39;A&#39;], [2, &#39;B&#39;], [2, &#39;C&#39;], [2, &#39;D&#39;], [2, &#39;E&#39;], [3, &#39;A&#39;], [3, &#39;B&#39;], [3, &#39;C&#39;], [3, &#39;D&#39;], [3, &#39;E&#39;], [4, &#39;A&#39;], [4, &#39;B&#39;], [4, &#39;C&#39;], [4, &#39;D&#39;], [4, &#39;E&#39;], [5, &#39;A&#39;], [5, &#39;B&#39;], [5, &#39;C&#39;], [5, &#39;D&#39;], [5, &#39;E&#39;]]</span>
 <span class="go">&gt;&gt;&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Còn một điều nữa, đó là cái <strong>Comprehension</strong> này không chỉ giới hạn ở List, nó cũng có thể được dùng để tạo Dictionary và Set:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="c1"># http://djangostars.com/blog/list-comprehensions-and-generator-expressions/</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dict_comp</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span><span class="o">+</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dict_comp</span><span class="p">)</span>
 <span class="go">&lt;class &#39;dict&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">dict_comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dict_comp</span><span class="p">)</span>
 <span class="go">{1: &#39;B&#39;, 2: &#39;C&#39;, 3: &#39;D&#39;, 4: &#39;E&#39;, 5: &#39;F&#39;, 6: &#39;G&#39;, 7: &#39;H&#39;, 8: &#39;I&#39;, 9: &#39;J&#39;, 10: &#39;K&#39;}</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">set_comp</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">**</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">set_comp</span><span class="p">)</span>
 <span class="go">&lt;class &#39;set&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">set_comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">set_comp</span><span class="p">)</span>
 <span class="go">{0, 8, 64, 512, 216}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>List Comprehension cho phép chúng ta tạo ra các cấu trúc dữ liệu phức tạp chỉ với những lệnh rất ngắn và tự nhiên theo phong cách Python (pythonic). Tuy nhiên có một nhược điểm đó là dữ liệu sinh ra sẽ được lưu toàn bộ vào bộ nhớ. Đối với những dữ liệu lớn, cách tốt hơn đó là sử dụng generator.</p>
@@ -267,21 +267,21 @@
 <p>sequence trong Python là một kiểu giữ liệu mang tính bao quát, các kiểu dữ liệu như str (chuỗi ký tự), list, tuple đều được định nghĩa là một kiểu sequence</p>
 </blockquote>
 <p>Ví dụ như sau có thể hiểu là việc Iterate từng phần tử, dĩ nhiên ta bỏ qua việc để có thể thực hiện được việc này thì đều dùng đến các khái niệm iterator và iterable của <code>string</code> rồi:</p>
-<div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">char</span>
-</pre></div>
+    <span class="nb">print</span> <span class="n">char</span>
+</code></pre></div>
 
 
 <p><strong>Nếu một kiểu dữ liệu cho phép ta Iterate, ta hiểu nó là Iterable</strong></p>
 <blockquote>
 <p>Tưởng tượng việc điểm danh một lớp học bằng cách xếp hàng, người đầu hàng hô 1, người sau hô 2, cứ thế đến cuối hàng. Nếu lớp chịu xếp hàng thì mới điểm danh được, khi đó gọi lớp này là Iterable, hành động điểm danh là Iterate (động từ), danh từ cho việc này là Iteration.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lop_hoc</span><span class="o">.</span><span class="n">co_danh_sach</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">lop_hoc</span><span class="o">.</span><span class="n">co_danh_sach</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">hoc_sinh</span> <span class="ow">in</span> <span class="n">lop_hoc</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">hoc_sinh</span><span class="o">.</span><span class="n">di_hoc</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s2">&quot;Có&quot;</span>
-</pre></div>
+        <span class="k">if</span> <span class="n">hoc_sinh</span><span class="o">.</span><span class="n">di_hoc</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;Có&quot;</span>
+</code></pre></div>
 
 
 <p>Iteration là cơ sở nền tảng của việc xử lý dữ liệu trong Python. Khi làm việc trên các dữ liệu có kích thước lớn cần phải có cách thức để xử lý dữ liệu một cách nhanh gọn và đơn giản nhất. Trong Python có thể miêu tả cách thức làm việc này là <strong>fetch the items lazily</strong>. Hiểu một cách đơn giản là làm một lần và chỉ khi được yêu cầu.</p>
@@ -289,20 +289,20 @@
 <p>Dĩ nhiên list chỉ là một ví dụ minh họa cho việc cấp phát bộ nhớ để tạo dữ liệu khi chương trình hoạt động. Trên thực tế có những trường hợp chương trình sẽ phải đọc những dữ liệu có kích thước rất lớn, việc ghi và đọc toàn bộ dữ liệu vào bộ nhớ chương trình là bất khả thi hoặc tốn rất nhiều thời gian.</p>
 <p><strong>Bất cứ thứ gì bạn có thể for ... in ... được thì interable.</strong></p>
 <p>Có vẻ như cấu trúc <code>for ... in ...</code> của Python được thừa hưởng từ ngôn ngữ tiền nhiệm của nó: <a href="https://en.wikipedia.org/wiki/ABC_(programming_language)">ABC</a>.</p>
-<div class="highlight"><pre><span></span>FOR word IN line:
-    do something
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">FOR word IN line:</span>
+<span class="err">    do something</span>
+</code></pre></div>
 
 
 <p>Cấu trúc này có thể viết lại cho dễ hiểu hơn bằng giả mã như sau:</p>
-<div class="highlight"><pre><span></span>word = line[0]
-do something
-word = line[1]
-do something
-word = line[2]
-do something
-...
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">word = line[0]</span>
+<span class="err">do something</span>
+<span class="err">word = line[1]</span>
+<span class="err">do something</span>
+<span class="err">word = line[2]</span>
+<span class="err">do something</span>
+<span class="err">...</span>
+</code></pre></div>
 
 
 <p>cứ như vậy cho đến hết (<code>IndexError</code>)</p>
@@ -314,9 +314,9 @@ do something
 </ul>
 <p>Một hàm dựng sẵn của Python là iter nhận đầu vào là một đối tượng "iterable" và trả về kết quả là một iterator.</p>
 <p>Xét một ví dụ duyệt phần tử trong một list:</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
     <span class="c1"># do something</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Python sẽ thực hiện 2 việc sau:</p>
@@ -327,42 +327,42 @@ do something
 <hr>
 <h3>Generator Expressions, Generator Functions</h3>
 <p>Tiếp theo chúng ta sẽ tiến đến khái niệm Generator. Có thể hiểu Generator chính là iterator, điểm khác biệt là generator chỉ có thể duyệt phần tử 1 lần. Lý do là generator không lưu trữ toàn bộ dữ liệu của sequence (chuỗi dữ liệu, mảng dữ liệu, danh sách nói chung) xuống bộ nhớ, thay vào đó nó tạo dữ liệu khi duyệt qua từng phần tử. Muốn duyệt lại dữ liệu, bắt buộc chúng ta phải tạo lại generator.</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mygenerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">mygenerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="go">0</span>
 <span class="go">1</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="go">&gt;&gt;&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Ở ví dụ trên, thay vì sử dụng <code>[]</code> như list comprehension, chúng ta sử dụng <code>()</code>, <code>(x*x for x in range(3))</code> chính là generator expression chúng ta đang nói đến. <code>mygenerator</code> ở đây được gán là một đối tượng generator, đồng nghĩa với việc <code>mygenerator</code> chỉ có thể được duyệt qua 1 lần.</p>
 <p>Python 3 sử dụng generator ở rất nhiều nơi, kể cả hàm dựng sẵn <code>range()</code> cũng trả về một đối tượng generator thay vì tạo ra một danh sách đầy đủ. Nếu bạn muốn tạo ra một list như ở Python 2, bạn bắt buộc phải chuyển đổi nó một cách tường minh hơn. Ví dụ: <code>list(range(10))</code></p>
 <p>Sử dụng generator có thể nâng cao hiệu suất của chương trình, lý do như đã nói ở trên, generator chỉ thực sự sinh và trả về kết quả khi được gọi và cũng không cần thiết phải đợi tất cả các phần tử của nó được sinh ra hết.</p>
 <p>Sau đây là một đoạn code tính Fibonacci bằng generator function:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fibo</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fibo</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
-<span class="gp">... </span>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">yield</span> <span class="n">cur</span>
 <span class="gp">... </span>        <span class="n">pre</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">+</span> <span class="n">cur</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="go">&lt;generator object fibo at 0xb7555d34&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="go">[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Để ý chúng ta có từ khóa <code>yield</code>. Hiểu đơn giản, <code>yield</code> là từ khóa giống như <code>return</code>, điểm khác biệt là thay vì kết thúc function, <code>yield</code> trả về một generator.</p>
 <p>Để hiểu rõ hơn về <code>yield</code>, bạn cần hiểu rằng khi bạn gọi hàm, code bạn đã viết trong phần thân hàm không chạy mà trả về đối tượng generator, phần thân hàm sẽ được chạy mỗi khi bạn dùng một vòng for chẳng hạn, duyệt qua từng phần tử của generator. Nghe cũng hơi khó hiểu chút. :-)</p>
 <p>Nói rõ hơn một chút:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_generator_function</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_generator_function</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Giả sử ta đang dùng một vòng for để duyệt qua generator. Đầu tiên <code>for</code> sẽ gọi đối tượng generator mà được tạo ra từ hàm, nó sẽ chạy code trong hàm từ đầu cho đến khi nó gặp <code>yield</code>, khi đó nó sẽ trả lại giá trị đầu tiên của vòng lặp. Vòng lặp tiếp theo sẽ chạy code mà bạn đã viết trong hàm một lần nữa cho đến khi gặp <code>yield</code> và tiếp tục trả lại giá trị, cứ như thế cho đến khi generator rỗng. Generator được coi là rỗng sau khi code trong thân hàm chạy nhưng không gặp <code>yield</code> nữa.</p>

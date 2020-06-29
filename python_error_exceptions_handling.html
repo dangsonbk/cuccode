@@ -94,24 +94,24 @@
 <p>Có nhiều tài liệu dịch Exception là 'ngoại lệ' và Exceptions Handling là 'xử lý ngoại lệ', mình thấy cách gọi này chỉ đúng về mặt dịch thuật và chưa thực sự sát nghĩa cho lắm. Trong bài viết này mình sẽ giữ nguyên từ 'Exception'.</p>
 </blockquote>
 <p>Exception có thể hiểu là các sự kiện, biến cố khiến cho chương trình bị phá vỡ luồng thực thi. Để cho dễ hiểu, mình lấy một ví dụ sau:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">myname</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">myname</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Khi chạy sẽ trả về lỗi:</p>
-<div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+<div class="highlight"><pre><span></span><code><span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;string&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;myname&#39; is not defined</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Đây là lỗi do bạn in giá trị của biến mà chưa khai báo. Ở đây Python trả về cho chúng ta thông tin về vị trí lỗi cũng như là kiểu lỗi: <code>NameError</code></p>
-<p>Lỗi trên xảy ra khá nhiều khi lập trình với Python, nguyên nhân là do sự tiện lợi trong cách tạo biến của Python khiến cho lập trình viên đôi khi thiếu đi sự chặt chẽ trong việc quản lý biến. Mình lấy một ví dụ như sau:</p>
-<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number &quot;</span><span class="p">))</span>
+<p>Lỗi trên xảy ra khá nhiều khi lập trình với Python, nguyên nhân là do sự tiện lợi trong cách tạo biến của Python khiến cho lập trình viên đôi khi thiếu đi sự chặt chẽ và cẩn thận trong việc quản lý biến. Mình lấy ví dụ tiếp như sau:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number &quot;</span><span class="p">))</span>
 <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="s2">&quot;yes&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Sẽ chẳng có vấn đề gì nếu điều kiện <code>i in range(1, 100)</code> thỏa mãn. Tuy nhiên nếu điều kiện đó trả về <code>False</code> thì biến <code>answer</code> sẽ không được khởi tạo và <code>print(answer)</code> sẽ trả về lỗi.</p>
@@ -120,41 +120,41 @@
 <p>Python cung cấp tính năng xử lý Exception rất quan trọng và hữu dụng để xử lý bất kỳ lỗi không mong muốn nào. Danh sách các Exception được định nghĩa sẵn của Python được cung cấp ở phần cuối bài viết để bạn có thể tham khảo.</p>
 <p><img alt="Try catch in programming" src="static/python/tryCatch.jpg"></p>
 <p>Chúng ta sẽ sử dụng các câu lệnh <code>try</code> và <code>except</code> để xử lý ngoại lệ. Khi code xảy ra lỗi, một exception sẽ được trả về mà không làm hỏng (crash) chương trình. Đôi khi bạn có thể gặp cụm từ như <em>bẫy lỗi</em> để chỉ phương pháp xử lý Exceptions.</p>
-<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Đặt bẫy lỗi</span>
         <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number &quot;</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="c1"># Xử lý khi lỗi sập bẫy</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Error occurred: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error occurred: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>Python sẽ xử lý tất cả các câu lệnh trong block <code>try</code> một cách bình thường, khi lỗi xảy ra các câu lệnh trong khối <code>except</code> sẽ được thực hiện.</p>
 <p>Trong ví dụ trên, khi người dùng nhập vào 1 ký tự thì thay vì dừng (crash) và trả về lỗi, chương trình sẽ trả về một thông báo lỗi nhưng vẫn tiếp tục chạy vòng while tiếp theo.</p>
-<div class="highlight"><pre><span></span><span class="go">Enter a number a</span>
+<div class="highlight"><pre><span></span><code><span class="go">Enter a number a</span>
 <span class="go">invalid literal for int() with base 10: &#39;a&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Ví dụ trên sẽ bẫy tất cả các lỗi sinh ra và không xác định rõ là lỗi gì, ở ví dụ sau, chúng ta sẽ bắt một lỗi xác định trước.</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
 
 
-<p>Đoạn chương trình trên sẽ mở một file có tên là <code>filename</code> và đọc nội dung của nó từng dòng một sau đó đưa vào biến f_content. Trong trường hợp file <code>filename</code> không mở được, một lỗi <code>IOError</code> sẽ bị bẫy và in ra.</p>
+<p>Đoạn chương trình trên sẽ mở một file có tên là <code>filename</code> và đọc nội dung của nó từng dòng một sau đó đưa vào biến <code>f_content</code>. Trong trường hợp file <code>filename</code> không mở được, một lỗi <code>IOError</code> sẽ bị bẫy và in ra.</p>
 <p>Ngoài lỗi <code>IOError</code> như trên, Python định nghĩa sẵn rất nhiều kiểu Exception khác như: <code>ImportError</code>, <code>KeyboardInterrupt</code>, <code>RuntimeError</code></p>
 <hr>
 <p>Một mệnh đề <code>try</code> có thể đi kèm 1 hay nhiều <code>except</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -162,41 +162,41 @@
         <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
         <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_content</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s2">&quot;I/O error({0}): {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="s2">&quot;I/O error(</span><span class="si">{0}</span><span class="s2">): </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s2">&quot;Could not convert data to an integer.&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;Could not convert data to an integer.&quot;</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s2">&quot;Unexpected error:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span> <span class="s2">&quot;Unexpected error:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">raise</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Hoặc bắt nhiều exceptions một lúc:</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
     <span class="n">printb</span>
 <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Bẫy trên sẽ bắt cả lỗi <code>IOError</code> và <code>NameError</code>.</p>
-<p>Ngoài ra có thể thực hiện lệnh <code>else</code> trong trường hợp lệnh không có exception sinh ra khi thực hiện lệnh trong <code>try</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
+<p>Ngoài ra có thể thực hiện lệnh <code>else</code> trong trường hợp lệnh không có exception sinh ra khi thực hiện khối lệnh trong <code>try</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># https://docs.python.org/2/tutorial/errors.html#handling-exceptions</span>
 <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;Cannot open&#39;</span><span class="p">,</span> <span class="n">arg</span>
+        <span class="nb">print</span> <span class="s1">&#39;Cannot open&#39;</span><span class="p">,</span> <span class="n">arg</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="n">arg</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()),</span> <span class="s1">&#39;lines&#39;</span>
+        <span class="nb">print</span> <span class="n">arg</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()),</span> <span class="s1">&#39;lines&#39;</span>
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Trong trường hợp lệnh trong mệnh đề <code>try</code> đang được thực hiện thì xảy ra lỗi, chương trình khi đó sẽ nhảy tới thực hiện lệnh trong mệnh đề <code>except</code>, có thể việc một lệnh nào đó nằm mệnh đề <code>try</code> chưa được thực hiện hết khiến cho phần mềm có thể bị lỗi sau đó. Khi đó bạn cần dùng đến <code>finally</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">f_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
@@ -204,95 +204,95 @@
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Trong trường hợp đọc lỗi, file f vẫn sẽ được đóng lại trong <code>finally</code>. Chú ý sự khác biệt khi sử dụng của <code>else</code> và <code>finally</code>: lệnh trong <code>else</code> chỉ được gọi khi không có lỗi xảy ra, lệnh trong<code>finally</code> được gọi khi có lỗi xảy ra.</p>
 <hr>
 <h3>Tự định nghĩa Exceptions</h3>
 <p>Ngoài các exceptions được cung cấp sẵn, Python cũng cho phép lập trình viên tự định nghĩa các exceptions để sử dụng. Ví dụ sau đây là một đoạn source code sử dụng thư viện <a href="https://pypi.python.org/pypi/selenium">selenium</a>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># import ...</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># import ...</span>
 <span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">myElem</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;IdOfMyElement&#39;</span><span class="p">)))</span>
-    <span class="k">print</span> <span class="s2">&quot;Page is ready!&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;Page is ready!&quot;</span>
 <span class="k">except</span> <span class="n">TimeoutException</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s2">&quot;Loading took too much time!&quot;</span>
-</pre></div>
+    <span class="nb">print</span> <span class="s2">&quot;Loading took too much time!&quot;</span>
+</code></pre></div>
 
 
 <p>Ở đây, exception <a href="http://selenium-python.readthedocs.io/api.html#module-selenium.common.exceptions">TimeoutException</a> được định nghĩa thêm trong thư viện selenium để xác định khi một tác vụ bị timeout.</p>
 <p>Người dùng có thể định nghĩa các exceptions như vậy bằng cách tạo một class mới  kế thừa, một cách trực tiếp hay gián tiếp, từ class Exception. Hầu hết các exceptions có sẵn cũng được tạo ra từ class này.</p>
 <p>Ví dụ sau thực hiện việc kế thừa từ class <code>RuntimeError</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NetworkError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NetworkError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">arg</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Một khi class đã được tạo và kế thừa đúng, chúng ta có thể sử dụng giống như khi sử dụng các exceptions sẵn có của Python:</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
    <span class="k">raise</span> <span class="n">NetworkError</span><span class="p">(</span><span class="s2">&quot;Bad hostname&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">NetworkError</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
-   <span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
-</pre></div>
+   <span class="nb">print</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+</code></pre></div>
 
 
 <h3>Danh sách Exceptions</h3>
-<div class="highlight"><pre><span></span>BaseException
+<div class="highlight"><pre><span></span><code><span class="n">BaseException</span>
 
- +-- SystemExit
- +-- KeyboardInterrupt
- +-- GeneratorExit
- +-- Exception
-      +-- StopIteration
-      +-- StandardError
-      |    +-- BufferError
-      |    +-- ArithmeticError
-      |    |    +-- FloatingPointError
-      |    |    +-- OverflowError
-      |    |    +-- ZeroDivisionError
-      |    +-- AssertionError
-      |    +-- AttributeError
-      |    +-- EnvironmentError
-      |    |    +-- IOError
-      |    |    +-- OSError
-      |    |         +-- WindowsError (Windows)
-      |    |         +-- VMSError (VMS)
-      |    +-- EOFError
-      |    +-- ImportError
-      |    +-- LookupError
-      |    |    +-- IndexError
-      |    |    +-- KeyError
-      |    +-- MemoryError
-      |    +-- NameError
-      |    |    +-- UnboundLocalError
-      |    +-- ReferenceError
-      |    +-- RuntimeError
-      |    |    +-- NotImplementedError
-      |    +-- SyntaxError
-      |    |    +-- IndentationError
-      |    |         +-- TabError
-      |    +-- SystemError
-      |    +-- TypeError
-      |    +-- ValueError
-      |         +-- UnicodeError
-      |              +-- UnicodeDecodeError
-      |              +-- UnicodeEncodeError
-      |              +-- UnicodeTranslateError
-      +-- Warning
-           +-- DeprecationWarning
-           +-- PendingDeprecationWarning
-           +-- RuntimeWarning
-           +-- SyntaxWarning
-           +-- UserWarning
-           +-- FutureWarning
-  +-- ImportWarning
-  +-- UnicodeWarning
-  +-- BytesWarning
-</pre></div>
+ <span class="o">+</span><span class="c1">-- SystemExit</span>
+ <span class="o">+</span><span class="c1">-- KeyboardInterrupt</span>
+ <span class="o">+</span><span class="c1">-- GeneratorExit</span>
+ <span class="o">+</span><span class="c1">-- Exception</span>
+      <span class="o">+</span><span class="c1">-- StopIteration</span>
+      <span class="o">+</span><span class="c1">-- StandardError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- BufferError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- ArithmeticError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- FloatingPointError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- OverflowError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- ZeroDivisionError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- AssertionError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- AttributeError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- EnvironmentError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- IOError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- OSError</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+</span><span class="c1">-- WindowsError (Windows)</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+</span><span class="c1">-- VMSError (VMS)</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- EOFError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- ImportError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- LookupError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- IndexError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- KeyError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- MemoryError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- NameError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- UnboundLocalError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- ReferenceError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- RuntimeError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- NotImplementedError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- SyntaxError</span>
+      <span class="o">|</span>    <span class="o">|</span>    <span class="o">+</span><span class="c1">-- IndentationError</span>
+      <span class="o">|</span>    <span class="o">|</span>         <span class="o">+</span><span class="c1">-- TabError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- SystemError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- TypeError</span>
+      <span class="o">|</span>    <span class="o">+</span><span class="c1">-- ValueError</span>
+      <span class="o">|</span>         <span class="o">+</span><span class="c1">-- UnicodeError</span>
+      <span class="o">|</span>              <span class="o">+</span><span class="c1">-- UnicodeDecodeError</span>
+      <span class="o">|</span>              <span class="o">+</span><span class="c1">-- UnicodeEncodeError</span>
+      <span class="o">|</span>              <span class="o">+</span><span class="c1">-- UnicodeTranslateError</span>
+      <span class="o">+</span><span class="c1">-- Warning</span>
+           <span class="o">+</span><span class="c1">-- DeprecationWarning</span>
+           <span class="o">+</span><span class="c1">-- PendingDeprecationWarning</span>
+           <span class="o">+</span><span class="c1">-- RuntimeWarning</span>
+           <span class="o">+</span><span class="c1">-- SyntaxWarning</span>
+           <span class="o">+</span><span class="c1">-- UserWarning</span>
+           <span class="o">+</span><span class="c1">-- FutureWarning</span>
+  <span class="o">+</span><span class="c1">-- ImportWarning</span>
+  <span class="o">+</span><span class="c1">-- UnicodeWarning</span>
+  <span class="o">+</span><span class="c1">-- BytesWarning</span>
+</code></pre></div>
 
 
 <h3>Tham khảo:</h3>

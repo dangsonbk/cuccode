@@ -111,7 +111,8 @@
 <p>Trong trường hợp bạn không thể update lên Python 3.x (khi bạn làm việc với một server đang chạy ổn định Python 2.x chẳng hạn), hoặc khi một thư viện nào đó quan trọng chưa hỗ trợ Python 3.x, đó là khi bạn sử dụng Python 2.x</p>
 <p>Trong trường hợp bạn muốn sử dụng những tính năng mới của Python 3.x (dĩ nhiên), thì tại sao bạn lại không thử "future of Python".</p>
 <p><s>Nói tóm gọn, Python 2.x có thư viện và cộng đồng, Python 3.x có tương lai.</s></p>
-<p>Ở thời điểm bài viết được update, cá nhân mình cho rằng bạn nên bắt đầu luôn với Python 3, trừ những trường hợp bất khả kháng đã liệt kê ở trên. Trên thực tế thì số lượng thư viện hỗ trợ Python 3 đã rất nhiều rồi, số còn lại thường là các thư viện lỗi thời, ít người dùng hoặc không được duy trì phát triển nữa.</p>
+<p>Ở thời điểm bài viết được cập nhật, cá nhân mình cho rằng bạn nên bắt đầu luôn với Python 3, trừ những trường hợp bất khả kháng đã liệt kê ở trên. Trên thực tế thì số lượng thư viện hỗ trợ Python 3 đã rất nhiều rồi, số còn lại thường là các thư viện lỗi thời, ít người dùng hoặc không được duy trì phát triển nữa.</p>
+<p>Cập nhật ngày 29-07-2020: Python 3 không cần phải suy nghĩ nữa bạn nhé.</p>
 <hr>
 <h2>Python 2.x có phải đã quá cũ và nhiều lỗi?</h2>
 <p>Không hẳn, rất nhiều cải tiến của Python 3.x đã được cập nhật ngược lại cho phiên bản Python 2.x (Python 2.6, Python 2.7). Về cơ bản, nếu bạn viết script tốt thì sẽ không có nhiều khác biệt khi sử dụng Python 2.x và Python 3.x.</p>
@@ -124,44 +125,44 @@
 </ul>
 <h3>Print</h3>
 <p>Ở phiên bản Python 2.x, <code>print</code> là từ khóa, trong khi đó ở Python 3.x, <code>print</code> là một hàm. Cách sử dụng cũng có đôi chút thay đổi (thêm ngoặc đơn)</p>
-<div class="highlight"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Python 2&quot;</span>     <span class="c1"># Python 2 only</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Python 3&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="s2">&quot;Python 2&quot;</span>     <span class="c1"># Python 2 only</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python 3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 <h3>Unpacking dữ liệu linh hoạt hơn</h3>
 <p>Giả sử chúng ta có 1 tuple, ở Python 2, có thể unpack dữ liệu trong tuple đó như sau:</p>
-<div class="highlight"><pre><span></span><span class="c1"># https://hackaday.com/2018/08/15/stop-using-python-2-what-you-need-to-know-about-python-3/</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># https://hackaday.com/2018/08/15/stop-using-python-2-what-you-need-to-know-about-python-3/</span>
 <span class="n">person</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Steve&quot;</span><span class="p">,</span> <span class="s2">&quot;Hammond&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="s2">&quot;England&quot;</span><span class="p">,</span> <span class="s2">&quot;spaces&quot;</span><span class="p">)</span>
 <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">indent_pref</span> <span class="o">=</span> <span class="n">person</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Tuy nhiên trong nhiều trường hợp chúng ta chỉ quan tâm đến phần tử đầu và cuối của tuple đó, Python 3 cho phép unpack tuple một cách linh hoạt hơn:</p>
-<div class="highlight"><pre><span></span><span class="c1"># https://hackaday.com/2018/08/15/stop-using-python-2-what-you-need-to-know-about-python-3/</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># https://hackaday.com/2018/08/15/stop-using-python-2-what-you-need-to-know-about-python-3/</span>
 <span class="n">person</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Steve&quot;</span><span class="p">,</span> <span class="s2">&quot;Hammond&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="s2">&quot;England&quot;</span><span class="p">,</span> <span class="s2">&quot;spaces&quot;</span><span class="p">)</span>
 <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">misc</span><span class="p">,</span> <span class="n">indent_pref</span> <span class="o">=</span> <span class="n">person</span>
 <span class="c1"># These would also work</span>
 <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="o">*</span><span class="n">misc</span> <span class="o">=</span> <span class="n">person</span>
 <span class="o">*</span><span class="n">misc</span><span class="p">,</span> <span class="n">indent_pref</span> <span class="o">=</span> <span class="n">person</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Cách unpacking mới này giúp ích rất nhiều khi làm việc với những tuple dài.</p>
 <h3>Phép chia</h3>
 <p>Mặc định phép chia trong Python 3 sẽ trả về dữ liệu kiểu float:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
 <span class="go">1.5</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Còn trong Python 2 thì là kiểu Interger:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
 <span class="go">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">2</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>Một số khác biệt khác</h3>

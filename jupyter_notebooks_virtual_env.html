@@ -108,44 +108,44 @@
 </ul>
 <h3>Cài đặt Virtual Environment để chạy với Jupyter Notebooks</h3>
 <p>Tạo môi trường:</p>
-<div class="highlight"><pre><span></span>python -m venv projectnamevenv
-</pre></div>
+<div class="highlight"><pre><span></span><code>python -m venv projectnamevenv
+</code></pre></div>
 
 
 <p>Trong đó projectnamevenv là tên folder chứa thông tin Virtual Environment cho dự án của bạn, bạn có thể đổi tên cho phù hợp hơn như /venv /virenv để dễ gợi nhớ hơn.</p>
 <p>Activate môi trường này lên (Windows):</p>
-<div class="highlight"><pre><span></span>\projectnamevenv\Scripts\activate
-</pre></div>
+<div class="highlight"><pre><span></span><code>\projectnamevenv\Scripts\activate
+</code></pre></div>
 
 
 <p>Bây giờ bạn sẽ thấy ở đầu dòng lệnh có thêm (venv), điều đó có nghĩa là môi trường của bạn đã được kích hoạt.</p>
 <p><img alt="venv console" src="static/python/venv.PNG"></p>
 <p>Tiếp theo chúng ta sẽ cài đặt thư viện ipykernel</p>
-<div class="highlight"><pre><span></span>pip install ipykernel
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip install ipykernel
+</code></pre></div>
 
 
 <p>Tạo kernel mới cho Jupyter Notebooks:</p>
-<div class="highlight"><pre><span></span>ipython kernel install --user --name=projectname
-</pre></div>
+<div class="highlight"><pre><span></span><code>ipython kernel install --user --name=projectname
+</code></pre></div>
 
 
 <p>Tới thời điểm này, bạn đã có thể khởi chạy Jupyter Notebooks của bạn và chọn Kernel tương ứng với Virtual Environment bạn đã tạo sẵn.</p>
 <h3>Tóm lược:</h3>
 <p>Môi trường Windows</p>
-<div class="highlight"><pre><span></span><span class="p">&gt;</span> python -m venv venv
+<div class="highlight"><pre><span></span><code><span class="p">&gt;</span> python -m venv venv
 <span class="p">&gt;</span> venv\Scripts\activate
 <span class="p">(</span>venv<span class="p">)</span> <span class="p">&gt;</span> pip install ipykernel
 <span class="p">(</span>venv<span class="p">)</span> <span class="p">&gt;</span> ipython kernel install --user --name=projectname
-</pre></div>
+</code></pre></div>
 
 
 <p>Môi trường Linux</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> python -m venv venv
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> python -m venv venv
 <span class="gp">$</span> <span class="nb">source</span> venv/bin/activate
-<span class="gp">(venv) $</span> pip install ipykernel
-<span class="gp">(venv) $</span> ipython kernel install --user --name<span class="o">=</span>projectname
-</pre></div>
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$</span> pip install ipykernel
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$</span> ipython kernel install --user --name<span class="o">=</span>projectname
+</code></pre></div>
         </article>
 
             <div class="tags">

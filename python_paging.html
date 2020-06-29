@@ -99,7 +99,7 @@
 <p><img alt="Paging 1" src="static/python/Paging_2.PNG"></p>
 <p>Nạp vào bộ phân trang một danh sách các phần tử với đối số là số phần tử muốn có trong một trang, bộ phân trang sẽ trả về các phương thức để lấy dữ liệu ra theo từng trang.</p>
 <p>Dưới đây là 1 đoạn code sử dụng Paginator từ trang chủ tài liệu của <a href="https://docs.djangoproject.com/en/2.1/topics/pagination/">Django</a> minh họa phương thức nạp và gọi dữ liệu:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">objects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;george&#39;</span><span class="p">,</span> <span class="s1">&#39;ringo&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -144,14 +144,14 @@
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
 <span class="gr">EmptyPage</span>: <span class="n">That page contains no results</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Phần tiếp theo mình sẽ hướng dẫn mọi người sử dụng Paginator trong một project django thực tế.</p>
 <hr>
 <h3>Sử dụng</h3>
 <p>Ở ví dụ này mình minh họa việc sử dụng Paginator để phân trang cho một danh sách các báo cáo, dữ liệu được lưu trữ là danh sách các đơn hàng. Mặc định số lượng dữ liệu cho 1 trang là 20.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Import loader and render engine</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import loader and render engine</span>
 <span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
 <span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
@@ -177,41 +177,41 @@
 
     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="n">orders_paged</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Đầu tiên, dữ liệu được nạp vào Paginator:</p>
-<div class="highlight"><pre><span></span><span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Giả sử dữ liệu của chúng ta đang có 7954 bản ghi, chia cho 20 bản ghi mỗi trang = 397.7, như vậy số trang mà ta sẽ có là 397 trang có 20 bản ghi và 1 trang cuối có 7 bản ghi.</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">paginator</span><span class="o">.</span><span class="n">count</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">paginator</span><span class="o">.</span><span class="n">count</span>
 <span class="go">7954</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span>
 <span class="go">398</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Tiếp theo, để xác định trang nào đang được người dùng gọi, ta kiểm tra giá trị <code>page</code> được lấy từ method GET:</p>
-<div class="highlight"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Giá trị 1 là giá trị mặc định được trả về trong trường hợp <code>page</code> không tồn tại, nếu bạn chưa hiểu rõ lắm về GET và POST method, có thể xem kỹ hơn ở đây: <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">HTTP Request Methods</a>. Về cơ bản, khi người dùng gọi 1 trang báo cáo, đường dẫn được yêu cầu sẽ có dạng:
 http://yourdomain.com/quantri/baocao?page=2</p>
 <p>Phần thông tin <code>?page=2</code> tương đương với việc đặt biến <code>page</code> có giá trị bằng 2 trong yêu cầu gửi đến máy chủ. Xét các trường hợp người dùng gọi một trang không tồn tại hoặc giá trị <code>page</code> không hợp lệ:</p>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">orders_paged</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">PageNotAnInteger</span><span class="p">:</span>                                <span class="c1"># Giá trị không hợp lệ</span>
     <span class="n">orders_paged</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                    <span class="c1"># --&gt; trả về trang đầu tiên</span>
 <span class="k">except</span> <span class="n">EmptyPage</span><span class="p">:</span>                                       <span class="c1"># Trang không tồn tại</span>
     <span class="n">orders_paged</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span><span class="p">)</span>  <span class="c1"># --&gt; trả về trang cuối</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Phần sau của đoạn code mình sẽ không đi vào chi tiết vì nó liên quan đến việc render trang web của Django. Như vậy là phần code trong view đã đủ, tiếp theo là phần code trong file <code>report.html</code></p>
-<div class="highlight"><pre><span></span><span class="x">&lt;table class=&quot;table table-bordered&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;table class=&quot;table table-bordered&quot;&gt;</span>
 <span class="x">  &lt;thead&gt;</span>
 <span class="x">    &lt;tr&gt;</span>
 <span class="x">      &lt;th&gt;Store&lt;/th&gt;</span>
@@ -251,14 +251,14 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  &lt;/ul&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Phần template html được viết dựa trên Bootstrap 3, giao diện được dựng lên bạn sẽ thấy như sau:</p>
 <p><img alt="Paging 1" src="static/python/Paging_1.PNG"></p>
 <p>Không được đẹp cho lắm vì toàn bộ số trang được liệt kê ra. Tiếp theo chúng ta sẽ chỉnh sửa một chút để giao diện được đẹp hơn.</p>
 <p>Mình chỉ muốn in 5 trang gần với trang hiện tại nhất, vòng lặp for được thay đổi như sau:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">orders.paginator.page_range</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">orders.paginator.page_range</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&gt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">&lt;</span> <span class="nv">orders.number</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;5&quot;</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">==</span> <span class="nv">i</span> <span class="cp">%}</span><span class="x"></span>
@@ -269,25 +269,25 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Trong trường hợp đang ở trang 6 trở đi, trang 1 sẽ được thêm vào để giúp cho người dùng dễ dàng về trang đầu.</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;li&gt;&lt;a href=&quot;?page=1&quot;&gt;&lt;i&gt;1&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Trong trường hợp cách trang cuối nhiều hơn 5 trang, trang cuối sẽ được thêm vào để giúp người dùng dễ dàng nhảy đến trang cuối.</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&lt;</span> <span class="nv">orders.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.number</span> <span class="o">&lt;</span> <span class="nv">orders.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s2">:&quot;-5&quot;</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;li&gt;&lt;a href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;&lt;i&gt;</span><span class="cp">{{</span> <span class="nv">orders.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Code cuối cùng chúng ta có:</p>
-<div class="highlight"><pre><span></span><span class="x">&lt;nav aria-label=&quot;Page navigation example&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;nav aria-label=&quot;Page navigation example&quot;&gt;</span>
 <span class="x">    &lt;ul class=&quot;pagination pull-right&quot;&gt;</span>
 
 <span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">orders.has_previous</span> <span class="cp">%}</span><span class="x"></span>
@@ -323,7 +323,7 @@ http://yourdomain.com/quantri/baocao?page=2</p>
 <span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;/ul&gt;</span>
 <span class="x">&lt;/nav&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Kết quả cuối cùng:</p>

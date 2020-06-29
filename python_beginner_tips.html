@@ -98,112 +98,112 @@
 <p><a name="run-python-script"></a></p>
 <h3>Chạy python script:</h3>
 <p>Đối với hầu hết các hệ thống UNIX, bạn có thể trực tiếp chạy script python bằng cách sau:</p>
-<div class="highlight"><pre><span></span>$ python MyFirstPythonScript.py
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ python MyFirstPythonScript.py
+</code></pre></div>
 
 
 <p>Bạn cũng có thể chạy script bằng cách tương tự trên terminal của Windows sau khi đã cài đặt Python.</p>
 <p>Đầu tiên, mở Command Prompt của Windows bằng cách gõ <code>cmd</code> trên Start bar</p>
 <p><img alt="Open Python gif" src="static/python/openCMD.gif"></p>
 <p>Sau đó bạn chỉ cần gõ <code>python</code> để gọi Python shell hoặc cd tới đường dẫn script trên máy bạn và chạy.</p>
-<div class="highlight"><pre><span></span>python yourscript.py
-</pre></div>
+<div class="highlight"><pre><span></span><code>python yourscript.py
+</code></pre></div>
 
 
 <p><img alt="Open Python gif" src="static/python/runScript.gif"></p>
 <hr>
 <h3>String trên nhiều dòng</h3>
 <p>Rất đơn giản, chỉ cần đặt string trong <code>"""</code></p>
-<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; This is a very</span>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; This is a very</span>
 <span class="s2">        long long long</span>
 <span class="s2">        string ...&quot;&quot;&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>Swap giá trị 2 biến</h3>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 <span class="go">(20, 10)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Phép gán bên trái sẽ tạo một tuple mới. Trong khi phép gán bên phải ngay lập tức giải nén (unpack) tuple và gán giá trị vào tuple được tạo bên trái.</p>
 <hr>
 <h3>Kiểm tra một list có rỗng không</h3>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="p">:</span>
 <span class="go">        print(&quot;a is empty&quot;)</span>
 <span class="go">a is empty</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Note:</p>
 <p>Đối với các dữ liệu kiểu chuỗi, list, tuple (gọi chung là sequence), nếu sequence rỗng thì giá trị của nó là false.</p>
 <p>Nên dùng:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">seq</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">seq</span><span class="p">:</span>
 <span class="k">if</span> <span class="n">seq</span><span class="p">:</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Không nên dùng:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Xem thêm: <a href="https://www.python.org/dev/peps/pep-0008/#programming-recommendations">PEP8</a></p>
 <hr>
 <h3>Kết hợp nhiều phép so sánh một lúc (Chained comparison)</h3>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">20</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span>
 <span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span><span class="o">&lt;</span><span class="n">n</span><span class="o">==</span><span class="mi">10</span>
 <span class="go">True</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>Phép gán có điều kiện</h3>
 <p>Giả sử bạn muốn gán giá trị cho biết x khi mà giá trị của biến y bằng hoặc không bằng một giá trị nào đó, bạn có thể thực hiện như sau:</p>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">9</span> <span class="k">else</span> <span class="mi">20</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">9</span> <span class="k">else</span> <span class="mi">20</span>
+</code></pre></div>
 
 
 <p>Đây thực chất là một cách viết nhanh của lệnh rẽ nhánh if ... else ... thông thường, câu lệnh trên có thể hiểu là: <em>Gán x = 10 trong trường hợp y = 9, nếu không thì gán x =20</em>
 Cách viết này thậm chí còn có thể được thực hiện đối với các class object:</p>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">classA</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">classB</span><span class="p">)(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">classA</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">classB</span><span class="p">)(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Một ví dụ phức tạp hơn:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">small</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">small</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span> <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="k">else</span> <span class="n">c</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1">#Output</span>
 <span class="c1">#0 #1 #2 #3</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>Lấy đường dẫn của module đã import:</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">threading</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">threading</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
 
 <span class="c1">#1- &lt;module &#39;threading&#39; from &#39;/usr/lib/python2.7/threading.py&#39;&gt;</span>
 <span class="c1">#2- &lt;module &#39;socket&#39; from &#39;/usr/lib/python2.7/socket.py&#39;&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
@@ -211,16 +211,16 @@ Cách viết này thậm chí còn có thể được thực hiện đối với
 <p>Python cho phép bạn tạo một webserver ngay trên máy của bạn rất dễ dàng chỉ với 1 dòng lệnh.
 Để sử dụng, đơn giản chỉ cần mở Console lên, cd tới thư mục bạn muốn chạy webserver.</p>
 <p>Nếu bạn sử dụng Python 2.7:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m SimpleHTTPServer</span>
-</pre></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">python -m SimpleHTTPServer</span>
+</code></pre></div>
 </td></tr></table>
 
 <p>Trên Python 3, SimpleHTTPServer đã được gộp chung vào gói http.server:</p>
 <blockquote>
 <p>The SimpleHTTPServer module has been merged into http.server in Python 3.0. The 2to3 tool will automatically adapt imports when converting your sources to 3.0.</p>
 </blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">python -m http.server</span>
-</pre></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">python -m http.server</span>
+</code></pre></div>
 </td></tr></table>
 
 <p>Mặc định SimpleHTTPServer sẽ mở port 8000, nội dung của website trả về sẽ là nội dung của folder bạn mở server, trong trường hợp folder chứa file index.html, nội dung trả về chính là nội dung của file index.html đó.
@@ -236,153 +236,153 @@ Sau khi mở web server, bạn chỉ cần truy cập vào một trong các đ�
 <hr>
 <h3>Enums</h3>
 <p>Python không hỗ trợ kiểu enum, tuy nhiên bạn vẫn có thể dùng cách sau để sử dụng tương tự enum:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Shapes</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Shapes</span><span class="p">:</span>
     <span class="n">Circle</span><span class="p">,</span> <span class="n">Square</span><span class="p">,</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Quadrangle</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Circle</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Square</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Triangle</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Quadrangle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Circle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Square</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Triangle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Shapes</span><span class="o">.</span><span class="n">Quadrangle</span><span class="p">)</span>
 
 <span class="c1">#1-&gt; 0</span>
 <span class="c1">#2-&gt; 1</span>
 <span class="c1">#3-&gt; 2</span>
 <span class="c1">#4-&gt; 3</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>Trả về nhiều giá trị một lúc từ một hàm</h3>
 <p>Không giống hầu hết các ngôn ngữ lập trình khác, Python cho phép một hàm có thể trả về nhiều giá trị (thực ra là một <code>tuple</code>) khác nhau:</p>
-<div class="highlight"><pre><span></span><span class="c1"># function returning multiple values.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># function returning multiple values.</span>
 <span class="k">def</span> <span class="nf">x</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
 
 <span class="c1"># Calling the above function.</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 
 <span class="c1">#-&gt; 1 2 3 4</span>
-</pre></div>
+</code></pre></div>
 
 
 <hr>
 <h3>Sử dụng hàm enumerate()</h3>
 <p>Hàm enumerate() thêm một biến đếm khi chạy vòng lặp.</p>
-<div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span> <span class="s1">&#39;Tips&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">subjects</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span> <span class="s1">&#39;Tips&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subject</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subjects</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="nb">str</span><span class="p">(</span><span class="n">subject</span><span class="p">))</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="nb">str</span><span class="p">(</span><span class="n">subject</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>Kết quả:</p>
-<div class="highlight"><pre><span></span>    0-Python
-    1-Coding
-    2-Tips
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">    0-Python</span>
+<span class="err">    1-Coding</span>
+<span class="err">    2-Tips</span>
+</code></pre></div>
 
 
 <p>Tham khảo: <a href="https://www.python.org/dev/peps/pep-0279/">PEP279</a></p>
 <hr>
 <h3>Liệt kê danh sách các files trong folder dùng os.walk()</h3>
 <p>Syntax:</p>
-<div class="highlight"><pre><span></span>    <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">[,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">True</span><span class="p">[,</span> <span class="n">onerror</span><span class="o">=</span><span class="bp">None</span><span class="p">[,</span> <span class="n">followlinks</span><span class="o">=</span><span class="bp">False</span><span class="p">]]])</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">[,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">True</span><span class="p">[,</span> <span class="n">onerror</span><span class="o">=</span><span class="kc">None</span><span class="p">[,</span> <span class="n">followlinks</span><span class="o">=</span><span class="kc">False</span><span class="p">]]])</span>
+</code></pre></div>
 
 
 <p>Example:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>Example result:</p>
-<div class="highlight"><pre><span></span>.\blockchain\tim_hieu_ve_blockchain.md
-.\python\checkpython2or3.md
-.\python\getuserinput.md
-.\python\installpackageinscript.md
-.\python\onelinewebserver.md
-.\python\openwebpage.md
-.\python\python2or3.md
-.\python\pythonbeginertips.md
-.\python\pythonErrorHandling.md
-.\blockchain
-.\python
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">.\blockchain\tim_hieu_ve_blockchain.md</span>
+<span class="err">.\python\checkpython2or3.md</span>
+<span class="err">.\python\getuserinput.md</span>
+<span class="err">.\python\installpackageinscript.md</span>
+<span class="err">.\python\onelinewebserver.md</span>
+<span class="err">.\python\openwebpage.md</span>
+<span class="err">.\python\python2or3.md</span>
+<span class="err">.\python\pythonbeginertips.md</span>
+<span class="err">.\python\pythonErrorHandling.md</span>
+<span class="err">.\blockchain</span>
+<span class="err">.\python</span>
+</code></pre></div>
 
 
 <hr>
 <h3>Argument Unpacking</h3>
 <p>Khi truyền tham số vào hàm, có thể truyền kiển tuple và dictionary:</p>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Ví dụ về tuple và dictionary unpacking&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot; Ví dụ về tuple và dictionary unpacking&quot;&quot;&quot;</span>
 <span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 
 <span class="n">argument_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">argument_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">argument_tuple</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">**</span><span class="n">argument_dict</span><span class="p">))</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">argument_tuple</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">**</span><span class="n">argument_dict</span><span class="p">))</span>
+</code></pre></div>
 
 
 <hr>
 <h3>Gọi hàm theo điều kiện</h3>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;calling different functions with same arguments based on condition&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;calling different functions with same arguments based on condition&quot;&quot;&quot;</span>
 <span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 
 <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="k">print</span><span class="p">((</span><span class="n">product</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="n">subtract</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">product</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="n">subtract</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
 
 
 <hr>
 <h3>Chạy vòng while() với điều kiện else</h3>
 <p>Trong trường hợp break xảy ra, code block trong else sẽ không được thực thi</p>
-<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Whil-ing away!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whil-ing away!&quot;</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Finished up!&quot;</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished up!&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
 <hr>
 <h3>Revert list, string</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Revert string bằng slicing</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Revert string bằng slicing</span>
 <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Revert string bằng reversed()</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 
 <span class="c1"># In ngược số</span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">123456789</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
 <span class="c1"># Revert list</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Revert list bằng reversed()</span>
 <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Header cover image: <a href="http://abstrusegoose.com/81">Batteries included</a></p>

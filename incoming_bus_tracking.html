@@ -103,7 +103,7 @@
 <p><img alt="Oh Math" src="static/misc/math.jpg"></p>
 <p>Bây giờ, làm sao để tối giản thời gian đợi xe? Cách đơn giản nhất là căn thời gian bao giờ xe đến thì phi ra cửa checkout rồi chạy xuống. Để căn được thời gian này trong khi vẫn ngồi ịn ở công ty thì mình viết một đoạn script Python, track xem bao giờ xe bus tiếp theo sẽ đến thông qua API của <a href="http://timbus.vn">timbus</a>, một website của Transerco.</p>
 <p>Phần hướng dẫn làm sao để mình viết được như thế thì sẽ diễn giải ở phần sau.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
@@ -126,11 +126,11 @@
   <span class="p">(</span><span class="s1">&#39;FleetOver&#39;</span><span class="p">,</span> <span class="s1">&#39;33&#39;</span><span class="p">),</span>
 <span class="p">]</span>
 
-<span class="k">while</span><span class="p">(</span><span class="bp">True</span><span class="p">):</span>
+<span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://timbus.vn/Engine/Business/Vehicle/action.ashx&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;dt&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;dt&quot;</span><span class="p">])</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Để lấy được API cũng như thông tin cần thiết để gửi lên server qua API này, mình dùng giao diện web thông thường, thả điểm đến, điểm đi, chọn phương án di chuyển cho đến khi có được bảng thông tin này:</p>

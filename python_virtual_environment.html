@@ -116,41 +116,41 @@
 <p>Cả hai công cụ đều giúp bạn tạo môi trường ảo cho project Python theo cách tương tự nhau. Bạn có thể sử dụng bất cứ công cụ nào muốn, trong trường hợp gặp vấn đề với 1 trong 2, bạn hoàn toàn có thể sử dụng công cụ còn lại.</p>
 <p><strong>Tạo môi trường:</strong></p>
 <p>Ở đây mình sử dụng <em>venv</em></p>
-<div class="highlight"><pre><span></span>python -m venv projectnamevenv
-</pre></div>
+<div class="highlight"><pre><span></span><code>python -m venv projectnamevenv
+</code></pre></div>
 
 
 <p>Trong đó projectnamevenv là tên folder chứa thông tin Virtual Environment cho dự án của bạn, bạn có thể đổi tên cho phù hợp hơn như /venv /virenv để dễ gợi nhớ hơn.</p>
 <p>Activate môi trường vừa tạo trên Windows</p>
-<div class="highlight"><pre><span></span><span class="p">&gt;</span> python -m venv venv
+<div class="highlight"><pre><span></span><code><span class="p">&gt;</span> python -m venv venv
 <span class="p">&gt;</span> venv\Scripts\activate
 <span class="p">(</span>venv<span class="p">)</span> &gt;
-</pre></div>
+</code></pre></div>
 
 
 <p>Đối với Linux</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> python -m venv venv
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> python -m venv venv
 <span class="gp">$</span> <span class="nb">source</span> venv/bin/activate
-<span class="gp">(venv) $</span>
-</pre></div>
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$</span>
+</code></pre></div>
 
 
 <p>Bây giờ bạn sẽ thấy ở đầu dòng lệnh có thêm (venv), điều đó có nghĩa là môi trường của bạn đã được kích hoạt.
 Cả hai công cụ đều cài đặt sẵn <code>pip</code> và <code>setuptools</code> tuy nhiên <code>venv</code> không cài đặt sẵn <code>wheel</code>. Ngoài ra, các phiên bản mặc định có xu hướng chưa được cập nhật. Hãy nâng cấp chúng sau khi tạo môi trường mới:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pip install --upgrade pip setuptools wheel
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install --upgrade pip setuptools wheel
+</code></pre></div>
 
 
 <p><strong>Đóng gói và cài đặt lại</strong></p>
 <p>Bây giờ bạn muốn bê nguyên dự án bạn đang làm sang máy khác, bạn sẽ thấy là việc copy folder <code>./venv</code> ở trên không có tác dụng, điều đó xảy ra bởi vì mỗi môi trường ảo được tạo được gắn chặt với đường dẫn của project, phiên bản Python cài trên máy bạn và nhiều thông tin khác nữa. Để đóng gói và cài đặt lại môi trường trên máy mới, cách đơn giản nhất là sử dụng <code>pip</code> để <code>freeze</code> lại các gói cài sau đó cài đặt lại.</p>
 <p>Trên máy cũ hoặc project folder cũ:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pip freeze &gt; requirements.txt
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip freeze &gt; requirements.txt
+</code></pre></div>
 
 
 <p>Trên máy mới hoặc project folder mới</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pip install -r requirements.txt
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -r requirements.txt
+</code></pre></div>
 
 
 <p>Bằng cách trên, các thông tin về gói cài đặt của dự án bao gồm tên gói cài đặt, phiên bản đang được cài sẽ được lưu lại trong file <code>requirements.txt</code>.</p>
