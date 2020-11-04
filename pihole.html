@@ -171,6 +171,8 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 </ul>
 <p>&lt;ĐỊA_CHỈ_IP_CỦA_PI&gt; có thể lấy được bằng cách kiểm tra trong bảng DHCP của modem hoặc quét IP trong mạng. Địa chỉ ip này được dùng làm địa chỉ dns server trong trang quản trị của modem.</p>
 <p><img alt="Pihole meme" src="static/application/pihole_dns.jpg"></p>
+<p>Lưu ý nếu modem của bạn đang chạy OpenWRT hoặc 1 số firmware tương tự, kiểm tra và disable tính năng liên quan tới RFC1918.</p>
+<p><img alt="" src="static/application/pi-hole-rfc.png"></p>
 <h2>Thêm tên miền vào danh sách chặn.</h2>
 <p><img alt="Pihole meme" src="static/application/pihole_blacklist.jpg"></p>
 <p>Mặc định Pi-hole đã add sẵn danh sách khá đủ các danh sách chặn, có thể tự thêm các danh sách khác hoặc thêm riêng lẻ từng domain nếu muốn. Hiện giờ mình đang dùng danh sách mặc định kèm theo:</p>
@@ -186,6 +188,8 @@ Nên dùng mạng dây, đừng nên tin tưởng vào sự ổn định của w
 <p><img alt="Pihole meme" src="static/application/pihole_blocklist.jpg"></p>
 <p>Tận hưởng thành quả:
 <img alt="Dashboard" src="static/application/pihole_dashboard.jpg"></p>
+<p>Pi-hole đang chạy trên Raspberry Pi B khá cũ, với cấu hình này vẫn chạy rất tốt. Hơi thiếu Root FS chút do mình dùng thẻ nhớ 2GB. ^^</p>
+<p><img alt="" src="static/application/pi-hole-grafana.png"></p>
 <h2>Một vài kinh nghiệm khi dùng Pi-hole</h2>
 <p>Đây là một số kinh nghiệm cá nhân của mình trong quá trình sử dụng Pi-hole:</p>
 <ul>
